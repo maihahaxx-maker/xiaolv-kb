@@ -1,0 +1,809 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · 04-输出成果/拉瓦锡V3.2_脚本和分镜表（豆包V1.1）.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-04 08:34</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class=" on">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class="">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / 04-输出成果/拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</div>
+<article><h1 id="v32">拉瓦锡 V3.2 · 视频脚本 + 分镜表</h1>
+<blockquote>
+<p>基于定稿正文（1609字 / 约5分15秒-5分42秒），正文一字未改。
+图密度：43镜 / 平均约7.6秒 / 短镜3-5秒 / 长镜10-12秒
+画面硬约束：断头台仅远景剪影；刀起刀落用意象替代；人物用绘画感半身像/侧影/背影；实验器材符合18世纪。</p>
+</blockquote>
+<hr />
+<h2 id="_1">一、脚本（旁白逐句 + 画面点 + 字幕断行）</h2>
+<blockquote>
+<p>字幕每行 ≤ 9 个汉字，标点计入。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>旁白原文</th>
+<th>字幕断行</th>
+<th>画面点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>你敢信吗？人类近代化学的奠基人，是在断头台上完成最后一个实验的。</td>
+<td>你敢信吗？／人类近代化学／的奠基人／是在断头台上／完成最后一个／实验的。</td>
+<td>阴天巴黎，断头台远景剪影，人群黑压压，冷色调</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>他让刽子手数，自己被处决之后还能眨多少次眼。</td>
+<td>他让刽子手数／自己被处决后／还能眨多少次眼</td>
+<td>刽子手远景剪影（不露面），手指数数的含蓄动作</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>这个人叫拉瓦锡。</td>
+<td>这个人叫拉瓦锡</td>
+<td>拉瓦锡半身像侧影，油画质感，柔光</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>25岁进法国科学院，提出氧化理论，写下质量守恒定律，列出人类第一张化学元素表。没有他，就没有今天的化学课本。</td>
+<td>25岁进科学院／提出氧化理论／写下质量守恒／第一张元素表／没有他就没有／今天的化学课本</td>
+<td>18世纪实验室：曲颈甑、汞钟、精密天平，手写笔记，暖光</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>可就是这么一个人，1794年5月8日，在巴黎协和广场，被当众处决。</td>
+<td>可就是这个人／1794年5月8日／巴黎协和广场／被当众处决</td>
+<td>巴黎协和广场远景，人群聚集，阴天，断头台建筑轮廓</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>法国大革命欠拉瓦锡一句道歉。今天我把这位"近代化学之父"的死局一层层扒开——你会发现，科学家的光环背后，藏着一个让全法国老百姓恨之入骨的身份。而他临死前的那个眨眼实验，才是这个故事真正的分量。</td>
+<td>大革命欠他一句道歉／今天一层层扒开／科学家光环背后／藏着一个让全法国／老百姓恨之入骨／的身份／眨眼实验才是／这个故事真正的分量</td>
+<td>拉瓦锡侧影，左半脸暖光（科学）右半脸阴影（身份），缓慢推近</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>很多人学化学的时候，都觉得拉瓦锡是天生的圣人，为科学献身的殉道者。</td>
+<td>很多人学化学时／都觉得拉瓦锡／是天生的圣人／为科学献身的殉道者</td>
+<td>学生翻开化学课本，课堂场景，暖色调</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>醒醒吧。</td>
+<td>醒醒吧</td>
+<td>画面急转，冷色调切入，节奏顿挫</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>拉瓦锡还有一个身份——包税官。</td>
+<td>拉瓦锡还有一个身份／包税官</td>
+<td>18世纪法国税务官形象，手持钱袋和税册，阴影中</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>什么是包税官？说白了，就是替国王收税的中间商。国家把税收承包给你，你收上来多少，交给国王一份，剩下的全进自己腰包。</td>
+<td>什么是包税官／替国王收税的中间商／国家把税承包给你／交国王一份／剩下全进自己腰包</td>
+<td>图解式画面：国王→包税官→百姓，金币流向示意，18世纪服饰</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>你想想，这种差事能有好人吗？包税官为了多捞钱，横征暴敛、巧立名目。老百姓本来就吃不饱饭，还要被这些人再扒一层皮。</td>
+<td>这种差事能有好人吗／横征暴敛巧立名目／老百姓吃不饱饭／还要被再扒一层皮</td>
+<td>贫苦百姓家，破旧房屋，空餐桌、见底的米缸，税吏上门催税，冷灰调</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>拉瓦锡就是这些人里的一个。</td>
+<td>拉瓦锡就是其中一个</td>
+<td>拉瓦锡背影，手持税册，站在实验室门口，明暗交界</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>他用从包税中赚来的钱，建了当时全欧洲最豪华的私人实验室——精密的天平、昂贵的玻璃仪器，还有一整个团队的助手。</td>
+<td>用包税赚来的钱／建了全欧洲最豪华的／私人实验室／精密天平／昂贵玻璃仪器／一整个团队的助手</td>
+<td>豪华实验室全景：大型天平、曲颈甑阵列、玻璃器皿、多名助手忙碌，暖烛光</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td>一边是靠盘剥百姓中饱私囊的包税官，一边是改变人类的科学巨人。你说，这荒诞不荒诞？</td>
+<td>一边是盘剥百姓的／包税官／一边是改变人类的／科学巨人／你说这荒诞不荒诞</td>
+<td>左右分屏：左=百姓困苦（冷灰），右=实验室豪华（暖金），中间分界线缓慢移动</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td>但你不得不承认，拉瓦锡的科学成就，是真的牛。</td>
+<td>但你不得不承认／拉瓦锡的科学成就／是真的牛</td>
+<td>拉瓦锡半身像，手持实验器皿，眼神专注，暖光</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td>他用一个加热汞的实验，推翻了统治化学界上百年的"燃素说"，提出了我们今天课本上学的氧化理论。</td>
+<td>他用加热汞的实验／推翻了上百年的／燃素说／提出了氧化理论</td>
+<td>曲颈甑中汞加热，红色氧化汞生成，汞钟装置，特写实验过程</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td>他说：物质不会凭空产生，也不会凭空消失，只会从一种形态变成另一种形态。这就是质量守恒定律——你家孩子现在做的每一道化学计算题，底层逻辑都是他定的。</td>
+<td>物质不会凭空产生／也不会凭空消失／只会从一种形态／变成另一种形态／这就是质量守恒／你家孩子做的化学题／底层逻辑都是他定的</td>
+<td>天平两端平衡，物质形态变化图解，切到学生伏案做化学计算题的场景</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td>他还列出了人类历史上第一张化学元素列表，把已知的33种物质分门别类。没有他，化学还停留在炼金术的阶段。</td>
+<td>第一张化学元素列表／33种物质分门别类／没有他化学还停留在／炼金术的阶段</td>
+<td>手写元素列表古籍，羽毛笔，旁边放着炼金术器皿，对比呈现</td>
+</tr>
+<tr>
+<td style="text-align: right;">19</td>
+<td>更难得的是，他不是一个人在战斗。他的妻子玛丽，不是养在深闺的贵妇，而是他的实验助手、翻译和资料员。夫妻俩一个做实验，一个记录数据，堪称科学界的神仙眷侣。</td>
+<td>更难得的是／他不是一个人／妻子玛丽不是／深闺贵妇／而是他的实验助手／翻译和资料员／一个做实验一个记录／科学界的神仙眷侣</td>
+<td>拉瓦锡和玛丽的背影/侧影，并肩在实验台前，一人操作一人记录，暖烛光，油画质感</td>
+</tr>
+<tr>
+<td style="text-align: right;">20</td>
+<td>可拉瓦锡心里比谁都清楚，他的包税官身份，就是一颗定时炸弹。</td>
+<td>可他心里比谁都清楚／包税官身份就是一颗／定时炸弹</td>
+<td>拉瓦锡侧影，面部半明半暗，背景有缓慢燃烧的引信意象（不出现炸弹实物）</td>
+</tr>
+<tr>
+<td style="text-align: right;">21</td>
+<td>他搞科学需要钱，包税来钱快，但这笔钱，每一分都是从老百姓身上刮来的。他不是没想过退出，可已经晚了——他的名字，早就和"包税官"这三个字死死绑在了一起。</td>
+<td>搞科学需要钱／包税来钱快／但每一分都是／从老百姓身上刮来的／他不是没想过退出／可已经晚了／名字和包税官／死死绑在一起</td>
+<td>包税文件上拉瓦锡的签名，墨迹未干，签名被锁链缠绕的意象，冷色调</td>
+</tr>
+<tr>
+<td style="text-align: right;">22</td>
+<td>1789年，法国大革命爆发。</td>
+<td>1789年法国大革命爆发</td>
+<td>巴士底狱远景，人群涌动，火把（远景不特写火焰），天空暗红</td>
+</tr>
+<tr>
+<td style="text-align: right;">23</td>
+<td>巴士底狱被攻陷，国王被送上断头台。雅各宾派掌权之后，做的第一件事，就是清算所有的包税官。</td>
+<td>巴士底狱被攻陷／国王被送上断头台／雅各宾派掌权／第一件事就是清算／所有的包税官</td>
+<td>国王被送上断头台的远景剪影（不出现人物面部和刀刃），雅各宾派集会场景，名单上打勾</td>
+</tr>
+<tr>
+<td style="text-align: right;">24</td>
+<td>拉瓦锡首当其冲，被抓进了监狱。</td>
+<td>拉瓦锡首当其冲／被抓进了监狱</td>
+<td>拉瓦锡被带走的背影，监狱铁门缓缓关闭，冷石色调</td>
+</tr>
+<tr>
+<td style="text-align: right;">25</td>
+<td>据说，法国的科学家们曾联名上书，请求法庭网开一面。可法庭上流传出一句冷冰冰的话：</td>
+<td>科学家们曾联名上书／请求法庭网开一面／可法庭上流传出一句／冷冰冰的话</td>
+<td>多名科学家（背影/侧影）递交请愿书，法庭大门紧闭，冷光从门缝透出</td>
+</tr>
+<tr>
+<td style="text-align: right;">26</td>
+<td>"共和国不需要科学家，只需要正义。"</td>
+<td>共和国不需要科学家／只需要正义</td>
+<td>空审判席，法槌静置，冷光打在桌面上，无人画面</td>
+</tr>
+<tr>
+<td style="text-align: right;">27</td>
+<td>审判就是走过场。28个包税官，一天之内，全部判了死刑。</td>
+<td>审判就是走过场／28个包税官／一天之内／全部判了死刑</td>
+<td>判决书上28个名字，羽毛笔一个个划掉，冷色调</td>
+</tr>
+<tr>
+<td style="text-align: right;">28</td>
+<td>拉瓦锡的朋友劝他逃跑。他却说："我跑了，我的实验室和手稿怎么办？"</td>
+<td>朋友劝他逃跑／他却说我跑了／我的实验室和手稿／怎么办</td>
+<td>朋友（侧影）急切劝说，拉瓦锡摇头，目光落在实验室手稿上，暖冷对比</td>
+</tr>
+<tr>
+<td style="text-align: right;">29</td>
+<td>他到死都放不下的，还是他的化学。</td>
+<td>他到死都放不下的／还是他的化学</td>
+<td>拉瓦锡侧影，手抚实验器皿，眼神眷恋，暖光</td>
+</tr>
+<tr>
+<td style="text-align: right;">30</td>
+<td>行刑那天，巴黎协和广场人山人海。拉瓦锡很平静。传说他对刽子手说了一句话：</td>
+<td>行刑那天／协和广场人山人海／拉瓦锡很平静／传说他对刽子手／说了一句话</td>
+<td>协和广场远景，黑压压人群，阴天，拉瓦锡背影走向断头台方向（远景）</td>
+</tr>
+<tr>
+<td style="text-align: right;">31</td>
+<td>"我知道，人被处决之后，大脑还能存活几秒。我会拼命眨眼，你数一下，我眨了多少次。"</td>
+<td>我知道人被处决后／大脑还能存活几秒／我会拼命眨眼／你数一下／我眨了多少次</td>
+<td>拉瓦锡侧影（绘画感），表情平静，刽子手远景剪影站立一旁，冷灰调</td>
+</tr>
+<tr>
+<td style="text-align: right;">32</td>
+<td>"这，就是我最后一个实验。"</td>
+<td>这就是我最后一个实验</td>
+<td>拉瓦锡半身像，眼神坚定，柔光，画面缓慢推近</td>
+</tr>
+<tr>
+<td style="text-align: right;">33</td>
+<td>刀起刀落。</td>
+<td>刀起刀落</td>
+<td>【意象替代】实验台上一根蜡烛缓缓熄灭，青烟升起，画面慢速淡出，不出现刀、人、血</td>
+</tr>
+<tr>
+<td style="text-align: right;">34</td>
+<td>据说，拉瓦锡一共眨了11次眼。</td>
+<td>据说拉瓦锡一共／眨了11次眼</td>
+<td>闭眼的人物侧影（绘画感），蜡烛余烟袅袅，数字"11"以手写笔记形式含蓄呈现</td>
+</tr>
+<tr>
+<td style="text-align: right;">35</td>
+<td>一个伟大的科学家，用自己的死亡，完成了最后一次实验。</td>
+<td>一个伟大的科学家／用自己的死亡／完成了最后一次实验</td>
+<td>实验室空镜，仪器静置，烛光微弱，无人画面，缓慢拉远</td>
+</tr>
+<tr>
+<td style="text-align: right;">36</td>
+<td>他把死亡，变成了数据。</td>
+<td>他把死亡变成了数据</td>
+<td>手写笔记本上的实验数据，墨滴落在纸上，特写，冷光</td>
+</tr>
+<tr>
+<td style="text-align: right;">37</td>
+<td>拉瓦锡死后，实验室被查封，手稿被没收，妻子玛丽被剥夺了所有财产。</td>
+<td>拉瓦锡死后／实验室被查封／手稿被没收／玛丽被剥夺所有财产</td>
+<td>实验室门上贴封条，手稿被装箱搬走，玛丽（背影）站在空房间中，冷灰调</td>
+</tr>
+<tr>
+<td style="text-align: right;">38</td>
+<td>可这个女人没有倒下。</td>
+<td>可这个女人没有倒下</td>
+<td>玛丽背影，肩膀微颤但挺直，手中紧握手稿，一束微光打在身上</td>
+</tr>
+<tr>
+<td style="text-align: right;">39</td>
+<td>她花了整整10年，四处奔走，把拉瓦锡的遗作一页一页整理出来，出版发行。</td>
+<td>她花了整整10年／四处奔走／把遗作一页一页／整理出来／出版发行</td>
+<td>玛丽在灯下整理手稿（侧影/背影），书页翻飞，切到书籍印刷出版的画面，暖光渐亮</td>
+</tr>
+<tr>
+<td style="text-align: right;">40</td>
+<td>更讽刺的是什么？杀拉瓦锡的罗伯斯庇尔，同年7月，自己也被送上了同一座断头台——中间只隔了两个多月。</td>
+<td>更讽刺的是什么／杀拉瓦锡的／罗伯斯庇尔／同年7月／自己也被送上／同一座断头台／中间只隔两个多月</td>
+<td>罗伯斯庇尔剪影（不做面部），同一座断头台远景，日历翻页从5月到7月，冷色调</td>
+</tr>
+<tr>
+<td style="text-align: right;">41</td>
+<td>拉瓦锡走了，但他的化学革命，才刚刚开始。</td>
+<td>拉瓦锡走了／但他的化学革命／才刚刚开始</td>
+<td>从18世纪实验室叠化到现代化学课本、实验器材，光线由暗转亮</td>
+</tr>
+<tr>
+<td style="text-align: right;">42</td>
+<td>数学家拉格朗日说了一句让全人类心痛的话：</td>
+<td>数学家拉格朗日／说了一句／让全人类心痛的话</td>
+<td>拉格朗日半身像（绘画感），伏案，表情沉痛，暖光</td>
+</tr>
+<tr>
+<td style="text-align: right;">43</td>
+<td>"砍掉他的脑袋只需要一瞬间，可法国再过100年，也长不出这样一颗脑袋。"</td>
+<td>砍掉他的脑袋／只需要一瞬间／可法国再过100年／也长不出这样一颗脑袋</td>
+<td>拉格朗日名言以手写体逐字浮现，背景是18世纪法国科学院建筑轮廓，柔光</td>
+</tr>
+<tr>
+<td style="text-align: right;">44</td>
+<td>那么问题来了：你觉得拉瓦锡的死，是罪有应得，还是时代的悲剧？评论区聊聊你的看法。</td>
+<td>那么问题来了／你觉得拉瓦锡的死／是罪有应得／还是时代的悲剧／评论区聊聊你的看法</td>
+<td>评论区界面示意，两个选项"罪有应得""时代的悲剧"并列，暖色调，互动感</td>
+</tr>
+<tr>
+<td style="text-align: right;">45</td>
+<td>下次化学课上听到质量守恒定律的时候，希望你能想起他。</td>
+<td>下次化学课上听到／质量守恒定律的时候／希望你能想起他</td>
+<td>教室场景，黑板上写着"质量守恒定律"，学生抬头听讲，窗外阳光，暖色调</td>
+</tr>
+<tr>
+<td style="text-align: right;">46</td>
+<td>关注我，下期给你讲诺贝尔——一个一生都在和炸药打交道，却把和平奖写进遗嘱里的人。</td>
+<td>关注我／下期讲诺贝尔／一生和炸药打交道／却把和平奖写进遗嘱</td>
+<td>诺贝尔剪影（绘画感），炸药/实验器材意象，文字引导关注，暖光</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_2">二、分镜表</h2>
+<blockquote>
+<p>43镜 / 总时长约 328 秒（5分28秒）/ 平均 7.6 秒/镜
+换图原则：新人物、新场景、新因果、情绪转折处必换；不按固定秒数机械切。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">镜号</th>
+<th>画面描述</th>
+<th style="text-align: right;">时长</th>
+<th>情绪标注</th>
+<th>对应旁白</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>阴天巴黎，断头台远景剪影，黑压压人群，冷灰蓝调，缓慢推近</td>
+<td style="text-align: right;">8s</td>
+<td>震撼·悬念</td>
+<td>#1-2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>拉瓦锡半身像侧影，油画质感，柔光从左侧打来，面部半明</td>
+<td style="text-align: right;">4s</td>
+<td>庄重·引入</td>
+<td>#3</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>18世纪实验室全景：曲颈甑、汞钟、精密天平、手写笔记，暖烛光，助手忙碌</td>
+<td style="text-align: right;">10s</td>
+<td>崇敬·成就</td>
+<td>#4</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>巴黎协和广场远景，人群聚集，阴天，断头台建筑轮廓，色调转冷</td>
+<td style="text-align: right;">6s</td>
+<td>沉重·转折</td>
+<td>#5</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>拉瓦锡侧影特写，左半脸暖光（科学）右半脸阴影（身份），缓慢推近</td>
+<td style="text-align: right;">12s</td>
+<td>控诉·悬念</td>
+<td>#6</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>学生翻开化学课本→画面急转冷色调，节奏顿挫（"醒醒吧"处画面闪切）</td>
+<td style="text-align: right;">8s</td>
+<td>认知铺垫→打断</td>
+<td>#7-8</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>18世纪法国税务官形象（侧影），手持钱袋和税册，站在阴影中</td>
+<td style="text-align: right;">5s</td>
+<td>反转·揭短</td>
+<td>#9</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>图解式画面：国王→包税官→百姓，金币流向示意，18世纪服饰，暖转冷</td>
+<td style="text-align: right;">10s</td>
+<td>解释·认知</td>
+<td>#10</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>贫苦百姓家，破旧房屋，空餐桌、见底的米缸，税吏上门催税，冷灰调</td>
+<td style="text-align: right;">8s</td>
+<td>愤怒·共情</td>
+<td>#11</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>拉瓦锡背影，手持税册，站在实验室门口，一只脚在明一只脚在暗</td>
+<td style="text-align: right;">4s</td>
+<td>定位·荒诞</td>
+<td>#12</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>豪华实验室全景：大型天平、曲颈甑阵列、玻璃器皿、多名助手，暖烛光</td>
+<td style="text-align: right;">10s</td>
+<td>奢华·荒诞</td>
+<td>#13</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>左右分屏：左=百姓困苦（冷灰），右=实验室豪华（暖金），中间分界线缓慢移动</td>
+<td style="text-align: right;">8s</td>
+<td>荒诞对比</td>
+<td>#14</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>拉瓦锡半身像，手持实验器皿，眼神专注，暖光，色调回暖</td>
+<td style="text-align: right;">5s</td>
+<td>转折·崇敬</td>
+<td>#15</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td>曲颈甑中汞加热，红色氧化汞生成，汞钟装置，特写实验过程，暖光</td>
+<td style="text-align: right;">10s</td>
+<td>科学·探索</td>
+<td>#16</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td>天平两端平衡→物质形态变化图解→切到学生伏案做化学计算题，暖光</td>
+<td style="text-align: right;">12s</td>
+<td>认知·家长钩子</td>
+<td>#17</td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td>手写元素列表古籍，羽毛笔，旁边放炼金术器皿，对比呈现，暖光</td>
+<td style="text-align: right;">8s</td>
+<td>成就·历史</td>
+<td>#18</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td>拉瓦锡和玛丽的背影/侧影，并肩在实验台前，一人操作一人记录，暖烛光</td>
+<td style="text-align: right;">12s</td>
+<td>温情·眷侣</td>
+<td>#19</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td>拉瓦锡侧影，面部半明半暗，背景有缓慢燃烧的引信意象（无炸弹实物）</td>
+<td style="text-align: right;">6s</td>
+<td>隐忧·不安</td>
+<td>#20</td>
+</tr>
+<tr>
+<td style="text-align: right;">19</td>
+<td>包税文件上拉瓦锡的签名，墨迹未干，签名被锁链缠绕的意象，冷色调</td>
+<td style="text-align: right;">12s</td>
+<td>压抑·宿命</td>
+<td>#21</td>
+</tr>
+<tr>
+<td style="text-align: right;">20</td>
+<td>巴士底狱远景，人群涌动，火把（远景），天空暗红，画面微晃</td>
+<td style="text-align: right;">5s</td>
+<td>剧变·动荡</td>
+<td>#22</td>
+</tr>
+<tr>
+<td style="text-align: right;">21</td>
+<td>国王被送上断头台的远景剪影（无面部无刀刃）→雅各宾派集会→名单上打勾</td>
+<td style="text-align: right;">10s</td>
+<td>恐惧·肃杀</td>
+<td>#23</td>
+</tr>
+<tr>
+<td style="text-align: right;">22</td>
+<td>拉瓦锡被带走的背影，监狱铁门缓缓关闭，冷石色调，回声感</td>
+<td style="text-align: right;">6s</td>
+<td>沉重·无助</td>
+<td>#24</td>
+</tr>
+<tr>
+<td style="text-align: right;">23</td>
+<td>多名科学家（背影/侧影）递交请愿书，法庭大门紧闭，冷光从门缝透出</td>
+<td style="text-align: right;">8s</td>
+<td>无助·徒劳</td>
+<td>#25</td>
+</tr>
+<tr>
+<td style="text-align: right;">24</td>
+<td>空审判席，法槌静置，冷光打在桌面，无人画面，静止</td>
+<td style="text-align: right;">6s</td>
+<td>冰冷·绝望</td>
+<td>#26</td>
+</tr>
+<tr>
+<td style="text-align: right;">25</td>
+<td>判决书上28个名字，羽毛笔一个个划掉，冷色调，笔触沉重</td>
+<td style="text-align: right;">6s</td>
+<td>绝望·碾压</td>
+<td>#27</td>
+</tr>
+<tr>
+<td style="text-align: right;">26</td>
+<td>朋友（侧影）急切劝说，拉瓦锡摇头，目光落在实验室手稿上，暖冷对比</td>
+<td style="text-align: right;">8s</td>
+<td>抉择·执着</td>
+<td>#28</td>
+</tr>
+<tr>
+<td style="text-align: right;">27</td>
+<td>拉瓦锡侧影，手抚实验器皿，眼神眷恋，暖光，画面缓慢推近</td>
+<td style="text-align: right;">5s</td>
+<td>执着·动容</td>
+<td>#29</td>
+</tr>
+<tr>
+<td style="text-align: right;">28</td>
+<td>协和广场远景，黑压压人群，阴天，拉瓦锡背影走向断头台方向（远景）</td>
+<td style="text-align: right;">8s</td>
+<td>悲壮·平静</td>
+<td>#30</td>
+</tr>
+<tr>
+<td style="text-align: right;">29</td>
+<td>拉瓦锡侧影（绘画感），表情平静，刽子手远景剪影站立一旁，冷灰调</td>
+<td style="text-align: right;">10s</td>
+<td>平静·震撼</td>
+<td>#31</td>
+</tr>
+<tr>
+<td style="text-align: right;">30</td>
+<td>拉瓦锡半身像，眼神坚定，柔光，画面缓慢推近至面部</td>
+<td style="text-align: right;">5s</td>
+<td>顶点·敬意</td>
+<td>#32</td>
+</tr>
+<tr>
+<td style="text-align: right;">31</td>
+<td>【意象替代】实验台上一根蜡烛缓缓熄灭，青烟升起，画面慢速淡出</td>
+<td style="text-align: right;">4s</td>
+<td>凝固·失重</td>
+<td>#33</td>
+</tr>
+<tr>
+<td style="text-align: right;">32</td>
+<td>闭眼的人物侧影（绘画感），蜡烛余烟袅袅，数字"11"以手写笔记形式含蓄呈现</td>
+<td style="text-align: right;">6s</td>
+<td>震撼·鼻酸</td>
+<td>#34</td>
+</tr>
+<tr>
+<td style="text-align: right;">33</td>
+<td>实验室空镜，仪器静置，烛光微弱，无人画面，缓慢拉远</td>
+<td style="text-align: right;">7s</td>
+<td>敬意·空落</td>
+<td>#35</td>
+</tr>
+<tr>
+<td style="text-align: right;">34</td>
+<td>手写笔记本上的实验数据，墨滴落在纸上，特写，冷光转微暖</td>
+<td style="text-align: right;">5s</td>
+<td>升华·沉淀</td>
+<td>#36</td>
+</tr>
+<tr>
+<td style="text-align: right;">35</td>
+<td>实验室门上贴封条→手稿被装箱搬走→玛丽（背影）站在空房间中，冷灰调</td>
+<td style="text-align: right;">8s</td>
+<td>凄凉·陨落</td>
+<td>#37</td>
+</tr>
+<tr>
+<td style="text-align: right;">36</td>
+<td>玛丽背影，肩膀微颤但挺直，手中紧握手稿，一束微光打在身上</td>
+<td style="text-align: right;">4s</td>
+<td>转折·坚韧</td>
+<td>#38</td>
+</tr>
+<tr>
+<td style="text-align: right;">37</td>
+<td>玛丽在灯下整理手稿（侧影/背影），书页翻飞→切到书籍印刷出版，暖光渐亮</td>
+<td style="text-align: right;">10s</td>
+<td>坚韧·温情</td>
+<td>#39</td>
+</tr>
+<tr>
+<td style="text-align: right;">38</td>
+<td>罗伯斯庇尔剪影（无面部），同一座断头台远景，日历翻页5月→7月，冷色调</td>
+<td style="text-align: right;">10s</td>
+<td>讽刺·唏嘘</td>
+<td>#40</td>
+</tr>
+<tr>
+<td style="text-align: right;">39</td>
+<td>从18世纪实验室叠化到现代化学课本、实验器材，光线由暗转亮</td>
+<td style="text-align: right;">6s</td>
+<td>传承·延续</td>
+<td>#41</td>
+</tr>
+<tr>
+<td style="text-align: right;">40</td>
+<td>拉格朗日半身像（绘画感）→名言以手写体逐字浮现，背景是科学院建筑轮廓</td>
+<td style="text-align: right;">10s</td>
+<td>心痛·敬意</td>
+<td>#42-43</td>
+</tr>
+<tr>
+<td style="text-align: right;">41</td>
+<td>评论区界面示意，"罪有应得""时代的悲剧"两个选项并列，暖色调，互动感</td>
+<td style="text-align: right;">8s</td>
+<td>互动·站队</td>
+<td>#44</td>
+</tr>
+<tr>
+<td style="text-align: right;">42</td>
+<td>教室场景，黑板上写着"质量守恒定律"，学生抬头听讲，窗外阳光，暖色调</td>
+<td style="text-align: right;">7s</td>
+<td>温情·学生钩子</td>
+<td>#45</td>
+</tr>
+<tr>
+<td style="text-align: right;">43</td>
+<td>诺贝尔剪影（绘画感），炸药/实验器材意象，文字引导关注，暖光</td>
+<td style="text-align: right;">8s</td>
+<td>预告·期待</td>
+<td>#46</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">三、换图逻辑说明</h2>
+<table>
+<thead>
+<tr>
+<th>换图触发点</th>
+<th>对应镜号</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新人物出场</td>
+<td>镜2（拉瓦锡）、镜17（玛丽）、镜38（罗伯斯庇尔）、镜40（拉格朗日）、镜43（诺贝尔）</td>
+<td>新人物必须换图</td>
+</tr>
+<tr>
+<td>新场景</td>
+<td>镜1→3（断头台→实验室）、镜8→9（图解→百姓家）、镜17→18（实验室→隐忧）、镜20→21（巴士底狱→断头台）、镜28→29（监狱→协和广场）、镜31→32（蜡烛→侧影）</td>
+<td>场景切换必须换图</td>
+</tr>
+<tr>
+<td>新因果</td>
+<td>镜6→7（圣人印象→包税官身份）、镜14→15（荒诞对比→成就承认）、镜19→20（身份绑定→革命爆发）、镜24→25（入狱→联名上书）</td>
+<td>因果转折必须换图</td>
+</tr>
+<tr>
+<td>情绪转折</td>
+<td>镜5→6（控诉→铺垫）、镜8→9（解释→愤怒）、镜12→13（荒诞→崇敬）、镜17→18（温情→隐忧）、镜27→28（执着→悲壮）、镜30→31（顶点→凝固）、镜35→36（凄凉→坚韧）</td>
+<td>情绪转折必须换图</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">四、画面硬约束执行清单</h2>
+<table>
+<thead>
+<tr>
+<th>约束项</th>
+<th>执行情况</th>
+<th>涉及镜号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>断头台仅远景/剪影/阴天/建筑轮廓</td>
+<td>✅ 全部遵守，无刀刃特写、无血迹、无尸体、无人倒地</td>
+<td>镜1、4、21、28、38</td>
+</tr>
+<tr>
+<td>刀起刀落用意象替代（蜡烛熄灭/空镜/慢速淡出）</td>
+<td>✅ 用蜡烛熄灭+青烟+慢速淡出，不黑屏不数字浮现</td>
+<td>镜31</td>
+</tr>
+<tr>
+<td>拉瓦锡和玛丽用绘画感半身像/侧影/背影</td>
+<td>✅ 全部使用侧影/背影/半身像，无高拟真人脸</td>
+<td>镜2、5、10、13、17、18、27、29、30、32、36、37</td>
+</tr>
+<tr>
+<td>实验器材符合18世纪（曲颈甑、汞钟、天平）</td>
+<td>✅ 无现代试管架，全部使用18世纪器材</td>
+<td>镜3、11、14、15、16、33</td>
+</tr>
+<tr>
+<td>字幕每行≤9汉字</td>
+<td>✅ 脚本中已逐句标注断行</td>
+<td>全部</td>
+</tr>
+<tr>
+<td>每一镜标情绪</td>
+<td>✅ 41镜全部标注</td>
+<td>全部</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>版本</em>：V1.1（2026-09-30）｜基于拉瓦锡文案V3.2定稿｜43镜 / 约5分28秒｜V1.0→V1.1：镜41拆3镜、时长统一、字幕断行修正20处、镜9未成年人意象替换、去掉关注按钮动画</p></article>
+</main></div></body></html>
