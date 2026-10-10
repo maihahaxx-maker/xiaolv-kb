@@ -1,0 +1,749 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · 04-输出成果/门捷列夫_生图提示词包V1.1.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-10 23:45</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html" class="">AI生图提示词规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html" class="">侯德榜_脚本和分镜_V4_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class=" on">门捷列夫_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_策划卡V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_脚本分镜V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html" class="">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class="">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html" class="">19-人物类视频发布前检查清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html" class="">20-两条视频共性问题与解决方案</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">21-人物故事策划分析卡模板V1（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html" class="">22-脚本分镜前置写作规则</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / 04-输出成果/门捷列夫_生图提示词包V1.1</div>
+<article><h1 id="v112026-10-04">🔒 门捷列夫 · 生图提示词包 V1.1（2026-10-04 冻结）</h1>
+<blockquote>
+<p><strong>冻结状态</strong>：用户 2026-10-04 明确「冻结」→ 不再改，<strong>下一步：出图</strong>。
+<strong>底稿</strong>：《门捷列夫_脚本分镜V1_定稿》（43 镜 / 301.5 秒）｜<strong>图数</strong>：00 定妆像 ＋ 01–43 ＝ <strong>44 张</strong>
+<strong>本版包含</strong>：① 规格与交付约定 ② 人物锚定词（43 镜人名描述已逐字对齐，共改 23 处）③ 44 张逐镜提示词 ④ 统一负面词 ⑤ 后期叠字清单（21 处）⑥ 图数清点口径 ⑦ 质检标准
+<strong>⚠️ 发给豆包的那版不要带这个冻结头</strong>（这是内部归档标记）。
+<strong>审图安排</strong>：走 <strong>WorkBuddy 本机质检</strong>（客观筛查＋可疑清单，不上传图片）；<strong>「哪几张必重出」的定档与打回意见由我方出</strong>。
+<strong>上游</strong>：<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_脚本分镜V1_定稿</a>｜<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_策划卡V3_定稿</a></p>
+<p>⚠️ <strong>2026-10-07 更新（不修改冻结正文）</strong>：本包统一负面词里的「<strong>畸形手指 / 手部特写</strong>」与部分逐镜提示词里的「元素符号…<strong>允许清晰</strong>」，<strong>已被 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a> 更新</strong> —— ① 负面词精简后<strong>移除</strong>「畸形手指/手部特写」（压不住、浪费权重）；② <strong>手部正常写、不刻意躲</strong>（属可修复类，不作硬伤项）；③ 文字/符号<strong>一律留白</strong>，不写「符号允许清晰」（模型会造假符号）。<strong>正文按冻结原样保留，仅此留痕</strong>；第 5 条按新规则执行。</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><strong>底稿</strong>：《门捷列夫_脚本分镜V1_定稿》（43 镜 / 301.5 秒 / 语速 4.6 字秒口径）
+<strong>共 44 张图</strong>：00 定妆像 ＋ 01–43 分镜图
+<strong>画风</strong>：绘画感写实插画（沿用拉瓦锡／诺贝尔期）；冷灰＝压抑／冲突，暖黄＝情感／回忆，暖金＝成就／揭晓
+<strong>统一尺寸</strong>：1536×2730（竖版 9:16，视频号）
+<strong>V1.1 相对 V1.0 的改动</strong>：① 新增「规格与交付约定」② 新增「人物锚定词」并把 43 镜里的人名描述<strong>逐字对齐</strong>（V1.0 里 11 处丢了"灰褐"、母亲有 3 种写法）③ 新增「图数清点口径」④ 新增「质检标准」⑤ 章节重排。</p>
+</blockquote>
+<hr />
+<h2 id="_1">〇、规格与交付约定</h2>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>尺寸</td>
+<td><strong>1536×2730</strong>（竖版 9:16），44 张统一</td>
+</tr>
+<tr>
+<td>交付格式</td>
+<td>长边压到 <strong>1024</strong>（这一版给我方用），<strong>原图自己留</strong></td>
+</tr>
+<tr>
+<td>命名</td>
+<td><code>MDL_00_定妆.png</code>、<code>MDL_01.png</code> … <code>MDL_43.png</code>（镜号两位对齐）</td>
+</tr>
+<tr>
+<td>打包</td>
+<td><strong>打一个 zip 交付</strong>，不要一张张发</td>
+</tr>
+<tr>
+<td>⚠️ 红线</td>
+<td><strong>必须给导出的原图，不要从 App 预览界面截图</strong>（截图会把返回箭头、关闭 X、播放按钮压在画面上）</td>
+</tr>
+<tr>
+<td>重出</td>
+<td>同一镜重出时文件名加 <code>_v2</code>，<strong>不要覆盖</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">一、人物锚定词（逐镜逐字复用，一个字都不能改）</h2>
+<table>
+<thead>
+<tr>
+<th>锚定词</th>
+<th>逐字内容</th>
+<th>用在哪几镜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>【门捷列夫·成年锚定词】</td>
+<td>及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套</td>
+<td>02,03,04,05,08,11,12,19,20,22,23,30,31,35,36,39,41</td>
+</tr>
+<tr>
+<td>【门捷列夫·少年锚定词】</td>
+<td>瘦高少年，深色短发，旧布行囊</td>
+<td>14,15,16</td>
+</tr>
+<tr>
+<td>【母亲玛丽亚锚定词】</td>
+<td>俄国农妇装束，深色头巾，面容坚毅</td>
+<td>13,14,15,16,17</td>
+</tr>
+<tr>
+<td>【布瓦博德朗锚定词】</td>
+<td>分头，修剪整齐胡须，实验服</td>
+<td>06,07,08,09,10</td>
+</tr>
+<tr>
+<td>【温克勒锚定词】</td>
+<td>端正礼服，修剪整齐胡须，德国学者</td>
+<td>25,26</td>
+</tr>
+<tr>
+<td>【安娜·波波娃锚定词】</td>
+<td>19 岁年轻女性，深色长发，19 世纪俄国服饰，画板置于身侧</td>
+<td>31</td>
+</tr>
+<tr>
+<td>【沙皇亚历山大二世锚定词】</td>
+<td>军服，山羊胡，威严</td>
+<td>33,34</td>
+</tr>
+<tr>
+<td>【阿伦尼乌斯锚定词】</td>
+<td>圆眼镜，分头，神情阴郁，瑞典学者</td>
+<td>38</td>
+</tr>
+<tr>
+<td>【侯德榜锚定词】</td>
+<td>民国学者剪影，长衫，戴眼镜</td>
+<td>43</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>为什么这块最重要</strong>：V1.0 里同一个人物的描述各镜写法不一 ——
+定妆像写「浓密<strong>灰褐</strong>大胡子」，但镜 3／5／8／12／19／20／23／30／31／35／36／41 写成「浓密大胡子」（丢了"灰褐"）；
+母亲有「深色头巾，面容坚毅」／「俄国农妇装束，深色头巾，面容坚毅」／「深色头巾」三种写法。
+<strong>描述不统一 = 出图时人脸必飘。</strong> V1.1 已按上表<strong>逐字对齐</strong>，后续出图请一律照抄。</p>
+</blockquote>
+<hr />
+<h2 id="00">二、00 定妆像（人物一致性基准）</h2>
+<h3 id="0035-53">00｜门捷列夫定妆像（成年35-53岁）</h3>
+<p><strong>正面提示词</strong>：
+19世纪俄国男子肖像，及肩灰褐色长发，浓密灰褐大胡子，高额头，深邃眼神神态执拗，深色高领外套，白色衬衫，绘画感写实插画风，伦勃朗光，暗棕灰色背景，画布纹理，半身像，胸部以上</p>
+<p><strong>负面词</strong>：
+现代服饰, 塑料, 手机, 电脑, 乱码文字, 水印, 畸形手指, 卡通, 3D渲染, 照片质感</p>
+<p><strong>用途</strong>：镜1、3、4、5、8、11、12、19、20、22、23、30、31、35、39、41等涉及成年门捷列夫的镜头，以此为人物一致性基准。</p>
+<hr />
+<hr />
+<h2 id="0143">三、01–43 分镜生图提示词</h2>
+<h3 id="01">01｜现代教室·周期表黑板+签筒</h3>
+<p><strong>正面提示词</strong>：
+现代教室场景，元素周期表铺满整面黑板，视线落在其中一格，画面整体压暗，角落一只旧签筒与散落竹签（竹签文字虚化不给字），绘画感写实插画风，冷灰调，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代电子屏幕, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无（画面文字全部虚化）</p>
+<p><strong>对应旁白</strong>：你背过的元素周期表，当年被同行说成是算命。</p>
+<hr />
+<h3 id="0219">02｜19世纪俄国书房深夜·伏案而睡+梦境气泡</h3>
+<p><strong>正面提示词</strong>：
+19世纪俄国书房深夜，门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）伏案而睡在书桌上，桌上摊着纸和羽毛笔，梦境气泡中一张表上元素符号各归其位（元素符号H/O/Fe等允许清晰），暖黄烛光，窗外月光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 电子设备</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：据说，他真是做梦梦到的——一张表上，元素各归其位，醒来赶紧写下来。</p>
+<hr />
+<h3 id="0319">03｜19世纪欧洲学会大厅·学者摇头讥笑</h3>
+<p><strong>正面提示词</strong>：
+19世纪欧洲学会大厅，几位穿长袍的学者（侧影）摇头讥笑，门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）孤独站在画面边缘，冷灰调，绘画感写实插画风，高大拱顶大厅，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代服饰, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 法槌</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：同行听了直摇头：你连元素都没见过几个，就敢说梦到了宇宙的规律？</p>
+<hr />
+<h3 id="04">04｜周期表手稿特写·空白格子</h3>
+<p><strong>正面提示词</strong>：
+周期表手稿特写（绘画感，泛黄纸张），表上几个明显空白格子，门捷列夫侧影低头看空位，羽毛笔搁在桌上（不见手），暖黄烛光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>：问号（后期叠在空位旁）</p>
+<p><strong>对应旁白</strong>：但真正让同行觉得他疯了的，是他在表上留了好几个空位。</p>
+<hr />
+<h3 id="05">05｜手稿空位·预言数值浮现+门捷列夫侧影讲解</h3>
+<p><strong>正面提示词</strong>：
+周期表手稿空位特写，几个空位格外醒目，背景门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）侧影自信讲解，其他学者侧影窃窃私语，暖黄烛光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>：类铝/类硼/类硅 + 原子量68/密度5.9（手写体，后期叠在空位上）</p>
+<p><strong>对应旁白</strong>：他指着空位说：这里有"类铝"，原子量68，密度5.9；那里有"类硼"、还有"类硅"。</p>
+<hr />
+<h3 id="0619">06｜19世纪法国实验室·布瓦博德朗+光谱仪+镓样品</h3>
+<p><strong>正面提示词</strong>：
+19世纪法国实验室，布瓦博德朗（分头，修剪整齐胡须，实验服）侧影俯身看桌上光谱仪，光谱仪屏幕上出现一道新谱线，旁边放着一小块银白色金属（镓），暖光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代电子设备, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：法国人第一个不服。1875年，法国化学家布瓦博德朗发现了"镓"，测出密度4.7。</p>
+<hr />
+<h3 id="07">07｜布瓦博德朗书桌·俄国来信</h3>
+<p><strong>正面提示词</strong>：
+布瓦博德朗的书桌特写，一封盖着俄国邮戳的信件放在论文页上，信封文字虚化不给字，桌上放着羽毛笔和墨水瓶，暖光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：论文刚发表，他就收到一封俄国来信。</p>
+<hr />
+<h3 id="08">08｜信纸特写+门捷列夫写信侧影（交叉剪辑感）</h3>
+<p><strong>正面提示词</strong>：
+信纸特写（文字虚化不给字），背景叠化圣彼得堡书房门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）写信侧影，暖黄烛光，绘画感写实插画风，画布纹理，双画面叠化效果</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>："你测错了，重新提纯再测，应该是5.9左右"（手写体，后期叠在信纸上）</p>
+<p><strong>对应旁白</strong>：写信的教授叫门捷列夫，素未谋面，信上只有一句话：你测错了，重新提纯再测，应该是5.9左右。</p>
+<hr />
+<h3 id="09">09｜布瓦博德朗拍信+不屑表情+镓样品</h3>
+<p><strong>正面提示词</strong>：
+布瓦博德朗（分头，修剪整齐胡须，实验服）把信拍在桌上，表情不屑，实验台上镓样品特写，冷调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：布瓦博德朗觉得荒唐——我亲手测的，你连镓都没见过，凭什么说我错了？</p>
+<hr />
+<h3 id="10">10｜熔炼提纯实验+读数定格</h3>
+<p><strong>正面提示词</strong>：
+19世纪实验室熔炼提纯实验场景，火焰加热玻璃器皿，旁边天平仪器读数定格（仪器文字虚化），暖光中带冷调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代电子设备, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>：大号"5.94" + 旁边"预言5.9" + 中间细线标注"差0.04"</p>
+<p><strong>对应旁白</strong>：但他还是重新提纯测了一遍。结果：5.94。和信上的数字，只差0.04。</p>
+<hr />
+<h3 id="11">11｜羽毛笔演算草稿+实验仪器分屏+学者面面相觑</h3>
+<p><strong>正面提示词</strong>：
+左右分屏画面：左侧羽毛笔演算草稿特写（文字虚化），右侧19世纪实验仪器；下方叠化学会大厅众学者（侧影）面面相觑，全场静默，冷灰调转暖光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：一个没见过这种元素的人，用纸笔算到了小数点后一位。整个化学界都懵了。</p>
+<hr />
+<h3 id="12">12｜门捷列夫背影·黑板周期表·转场泛黄</h3>
+<p><strong>正面提示词</strong>：
+门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）背影站在书房黑板前，黑板上画着周期表（文字虚化），镜头缓慢推近背影，画面渐暗转入泛黄回忆色调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：用纸笔打败实验室的，到底是个什么人？说出来你可能不信——他差点连大学都上不了。</p>
+<hr />
+<h3 id="13">13｜西伯利亚雪原小镇木屋·屋内一家人</h3>
+<p><strong>正面提示词</strong>：
+西伯利亚雪原小镇木屋（绘画感），风雪中一户人家窗户透出灯火；屋内母亲（俄国农妇装束，深色头巾，面容坚毅）抱着婴儿，一群孩子围坐，父亲闭眼坐在角落，冷灰调中带暖黄灯光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：1834年，他生在西伯利亚的托博尔斯克，十几个孩子里最小。父亲很早就失明，全家靠母亲开玻璃厂过活。</p>
+<hr />
+<h3 id="14">14｜母亲与少年门捷列夫·雪原远行</h3>
+<p><strong>正面提示词</strong>：
+母亲（俄国农妇装束，深色头巾，面容坚毅）与15岁少年门捷列夫（瘦高少年，深色短发，旧布行囊）在雪原上远行的背影，身后西伯利亚小镇渐远，冷调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无（地图路线动画后期叠加）</p>
+<p><strong>对应旁白</strong>：母亲玛丽亚看出他脑子活，拼了命也要让他走出西伯利亚。1849年，带15岁的他跋涉上千公里，去莫斯科考大学。</p>
+<hr />
+<h3 id="15">15｜莫斯科大学+圣彼得堡大学·校门紧闭</h3>
+<p><strong>正面提示词</strong>：
+19世纪俄国大学校门（绘画感），守门人背身站立，校门缓缓关上；画面右侧叠化另一所大学校门同样紧闭，冷灰调，母亲（俄国农妇装束，深色头巾，面容坚毅）咬牙侧影，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：拒收。西伯利亚人不在招生范围。她咬咬牙，又带儿子去圣彼得堡。又被拒收。</p>
+<hr />
+<h3 id="16">16｜母亲躬身求人+师范学院校门打开</h3>
+<p><strong>正面提示词</strong>：
+左侧母亲（俄国农妇装束，深色头巾，面容坚毅）躬身求人侧影，右侧圣彼得堡师范学院校门打开，16岁少年门捷列夫（瘦高少年，深色短发，旧布行囊）背行囊走入，母亲站在门外目送，冷中透暖，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：两座城市，两所大学，连拒两次。她四处托人哀求，总算把16岁的他塞进了圣彼得堡师范学院。</p>
+<hr />
+<h3 id="17">17｜母亲微笑特写+蜡烛熄灭</h3>
+<p><strong>正面提示词</strong>：
+上半部分母亲（俄国农妇装束，深色头巾，面容坚毅）微笑特写（绘画感柔光），画面慢慢褪成灰白；下半部分一支蜡烛缓缓熄灭，青烟升起，冷灰调，不出现遗体，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 遗体, 棺材</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：拿到录取通知那天，母亲笑了。那是她最后一次笑。入学后不久，积劳成疾的玛丽亚就去世了。</p>
+<hr />
+<h3 id="18">18｜厚重著作翻开扉页·题词留白</h3>
+<p><strong>正面提示词</strong>：
+厚重的19世纪著作翻开扉页特写，题词位置留白（纸张纹理清晰），羽毛笔搁在扉页上（不见手），暖黄烛光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>："献给我的母亲"（手写体，后期叠在扉页留白处）</p>
+<p><strong>对应旁白</strong>：门捷列夫记了一辈子。他后来在自己的著作扉页上写：献给我的母亲。</p>
+<hr />
+<h3 id="19">19｜梦境气泡渐隐+真实书房叠化</h3>
+<p><strong>正面提示词</strong>：
+镜02的梦境气泡画面渐隐，叠化到真实的19世纪俄国书房，门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）坐在书桌前，桌上摊着卡片，暖黄烛光，画面角落偏暗，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>："传说"（淡化标注，后期叠在画面角落）</p>
+<p><strong>对应旁白</strong>：开头说的那个梦，是他自己讲的传说。正史更可靠的记载是：1869年2月，</p>
+<hr />
+<h3 id="20">20｜书桌铺满元素卡片·日夜交替</h3>
+<p><strong>正面提示词</strong>：
+19世纪俄国书房，书桌铺满写着元素符号的卡片（元素符号H/O/Fe等允许清晰），门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）一张张排列卡片，窗外日夜交替（快剪感，窗户一半白天一半黑夜），暖黄烛光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 扑克牌</p>
+<p><strong>后期叠字</strong>："63种"（后期叠在卡片堆旁）</p>
+<p><strong>对应旁白</strong>：他把63种已知元素写在卡片上，排了三天三夜，终于发现：</p>
+<hr />
+<h3 id="21">21｜卡片按原子量排列+四季轮转</h3>
+<p><strong>正面提示词</strong>：
+元素卡片按原子量排成行列，同性质卡片上下对齐（用暖光高亮），画面一角四季轮转小画面（春叶/夏花/秋果/冬雪），暖黄调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：按原子量排下去，每隔几个元素，性质就重复一次，像四季循环。</p>
+<hr />
+<h3 id="22">22｜完整周期表手稿全景·空位醒目</h3>
+<p><strong>正面提示词</strong>：
+完整的周期表手稿全景（绘画感，泛黄纸张），镜头拉远展示全貌，几个空位格外醒目，桌上放着羽毛笔和墨水瓶，暖黄烛光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：梦也罢，牌也罢，他都画出了周期表，还留了好几个空位。</p>
+<hr />
+<h3 id="23">23｜学会讲台·门捷列夫侧身指向黑板空位</h3>
+<p><strong>正面提示词</strong>：
+19世纪欧洲学会大厅，门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）站在讲台前侧身指向黑板上的周期表空位（不见手，用侧身姿态代替），台下学者（侧影）哗然，黑板上几个空位标出原子量密度数值位置（数值后期叠字），暖光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写, 法槌</p>
+<p><strong>后期叠字</strong>：各空位的原子量、密度数值（手写体）</p>
+<p><strong>对应旁白</strong>：这一次，他干脆把话挑明了：空位上每个元素的原子量、密度，我都算给你们看。结果呢？</p>
+<hr />
+<h3 id="24">24｜镓金属块特写+预言值实测值并列</h3>
+<p><strong>正面提示词</strong>：
+一小块银白色镓金属块特写，放在19世纪实验台上，旁边放着天平，暖金色光线，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>："预言5.9"与"实测5.94"并列，中间打勾动画</p>
+<p><strong>对应旁白</strong>：1875年，法国人发现镓——就是"类铝"。密度预言5.9，实测5.94。</p>
+<hr />
+<h3 id="25">25｜瑞典德国地图+钪锗落位周期表</h3>
+<p><strong>正面提示词</strong>：
+欧洲地图上瑞典和德国位置依次亮起（暖金色光点），旁边周期表上钪、锗元素格依次在空位落位，每落一位打一个勾，暖金色调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>："1879 钪""1886 锗"（后期叠在地图和周期表对应位置）</p>
+<p><strong>对应旁白</strong>：1879年，瑞典人发现钪——就是"类硼"。1886年，德国人温克勒发现锗——就是"类硅"，</p>
+<hr />
+<h3 id="26">26｜温克勒学会起身发言</h3>
+<p><strong>正面提示词</strong>：
+19世纪欧洲学会大厅，温克勒（端正礼服，修剪整齐胡须，德国学者）起身发言侧影，台下学者注视，暖光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 法槌</p>
+<p><strong>后期叠字</strong>："这无可辩驳地证明了周期律的精确性"（金框字幕，后期叠）</p>
+<p><strong>对应旁白</strong>：温克勒公开承认：这无可辩驳地证明了周期律的精确性。</p>
+<hr />
+<h3 id="27">27｜时间流动·新元素落入周期表空位·周期表变地图</h3>
+<p><strong>正面提示词</strong>：
+时间流动感画面，后续年份新元素符号依次落入周期表空位如拼图归位（元素符号允许清晰），周期表渐渐变成一幅古老地图的形状，暖金色调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：从那以后，再没人敢把他当算命先生。周期表成了化学界的地图，后来每种新元素，都乖乖落进他留好的空位。</p>
+<hr />
+<h3 id="28">28｜现代学生伏案背周期表·转发钩子位</h3>
+<p><strong>正面提示词</strong>：
+现代学生伏案背周期表的背影，桌上卡片一张张排开（元素符号允许清晰），台灯暖光，画面右侧留出空间（后期叠转发箭头），绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代电子设备, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手机</p>
+<p><strong>后期叠字</strong>：转发箭头动画（后期叠在画面右侧）</p>
+<p><strong>对应旁白</strong>：你背过的那张表，是一个人用纸和笔一张张排出来的。转给正在背周期表的孩子，或者当年和你一起背表的同桌。</p>
+<hr />
+<h3 id="29">29｜周期表局部特写·元素格放大滚动·评论提问位</h3>
+<p><strong>正面提示词</strong>：
+周期表局部特写，元素格逐个放大滚动（元素符号允许清晰），画面下方留出空间（后期叠评论区输入框），暖调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：评论区输入框动画+光标闪烁（后期叠在画面下方）</p>
+<p><strong>对应旁白</strong>：你当年背到第几个元素开始记不住了？——这个人不但全排出来了，还预言了没发现的。</p>
+<hr />
+<h3 id="30">30｜门捷列夫标准肖像·画面撕裂露热气球</h3>
+<p><strong>正面提示词</strong>：
+门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）一本正经的标准肖像（绘画感），画面从中间撕裂，裂缝中露出热气球剪影一闪而过，暖调转冷调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：故事讲到这儿才一半。你要是以为他是个古板的老教授，那就大错特错了。</p>
+<hr />
+<h3 id="31">31｜门捷列夫与安娜·波波娃并肩走街头</h3>
+<p><strong>正面提示词</strong>：
+43岁门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）与19岁安娜·波波娃（19岁年轻女性，深色长发，19世纪俄国服饰，画板置于身侧）并肩走在圣彼得堡街头，暖调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：43岁那年，他和19岁的艺术学生安娜·波波娃走到一起。</p>
+<hr />
+<h3 id="32">32｜东正教堂金顶+教会文书盖印+聘书被压住</h3>
+<p><strong>正面提示词</strong>：
+上半部分东正教堂金色穹顶（冷调），下半部分教会文书盖印（文字虚化，红色印章），门捷列夫的教授聘书被教会印章和文书压住（不见手），冷灰调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 法槌, 手部特写</p>
+<p><strong>后期叠字</strong>："重婚"（后期叠在文书旁）</p>
+<p><strong>对应旁白</strong>：因为没和前妻办完离婚手续，东正教会认定他重婚，要开除教籍、革去教授职位。</p>
+<hr />
+<h3 id="33">33｜冬宫金銮殿·沙皇亚历山大二世听汇报</h3>
+<p><strong>正面提示词</strong>：
+冬宫金銮殿，沙皇亚历山大二世（军服，山羊胡，威严）坐在王座上听大臣汇报（侧影），画面压暗聚焦，暖金色调中带冷，绘画感写实插画风，画布纹理，高大柱子和穹顶</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 法槌</p>
+<p><strong>后期叠字</strong>："据说"（淡化标注，后期叠在画面角落）</p>
+<p><strong>对应旁白</strong>：那时的俄国，教会能决定学者的生死。消息传到沙皇亚历山大二世那里，据说，沙皇只说了一句：</p>
+<hr />
+<h3 id="34">34｜沙皇金句·冬宫剪影背景</h3>
+<p><strong>正面提示词</strong>：
+冬宫建筑剪影背景，画面中央留出大面积空间（后期叠金色书法字），全场寂静感，暖金色调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>："门捷列夫是有两个妻子，没错——但我，只有一个门捷列夫"（金色书法字，占据画面中央）</p>
+<p><strong>对应旁白</strong>："门捷列夫是有两个妻子，没错——但我，只有一个门捷列夫。"</p>
+<hr />
+<h3 id="35">35｜教会文书收回+门捷列夫背影站讲台</h3>
+<p><strong>正面提示词</strong>：
+左侧教会文书被收回（侧影，不见手），右侧门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）背影站在大学讲台前，台下学生满座，暖光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：一句话，教会不再追究。能让沙皇为一个科学家对抗教会的，全俄国找不到第二个。</p>
+<hr />
+<h3 id="36">36｜巨型热气球升入云海·日全食·门捷列夫修阀门</h3>
+<p><strong>正面提示词</strong>：
+巨型19世纪热气球升入高空云海，天空中日全食光环，门捷列夫（及肩灰褐色长发，浓密灰褐大胡子，高额头，深色高领外套）攀爬在吊篮外沿修阀门（远景剪影，惊险感），冷蓝调中带日全食光晕，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 现代热气球</p>
+<p><strong>后期叠字</strong>："3000米"（后期叠在画面角落）</p>
+<p><strong>对应旁白</strong>：53岁那年，他还一个人坐热气球升到3000米看日全食，主阀门坏了，自己爬上去修好。</p>
+<hr />
+<h3 id="37">37｜斯德哥尔摩诺贝尔委员会会议室·选票</h3>
+<p><strong>正面提示词</strong>：
+斯德哥尔摩诺贝尔委员会会议室（绘画感），委员们（侧影）围坐长桌，桌上放着选票，选票上留出位置（后期叠门捷列夫名字），暖调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 法槌</p>
+<p><strong>后期叠字</strong>："门捷列夫"（后期叠在选票上）</p>
+<p><strong>对应旁白</strong>：可就是这么一个人，1906年，诺贝尔化学奖委员会已经定了他。</p>
+<hr />
+<h3 id="38">38｜阿伦尼乌斯阴郁侧影+选票抽换</h3>
+<p><strong>正面提示词</strong>：
+阿伦尼乌斯（圆眼镜，分头，神情阴郁，瑞典学者）侧影走向科学院大门，冷调；画面叠化选票被抽走换掉的动画感，莫瓦桑的名字位置留出（后期叠字），冷灰调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 法槌</p>
+<p><strong>后期叠字</strong>："莫瓦桑"取代"门捷列夫"（后期叠在选票上）</p>
+<p><strong>对应旁白</strong>：最后一刻，化学家阿伦尼乌斯因为30年前的旧怨，硬是撺掇瑞典皇家科学院推翻了决定——奖落到了制备单质氟的莫瓦桑手里。</p>
+<hr />
+<h3 id="39">39｜书房空镜·空座椅+羽毛笔+窗外飘雪</h3>
+<p><strong>正面提示词</strong>：
+门捷列夫书房空镜，座椅空着，桌上羽毛笔搁在未写完的稿纸上（文字虚化），窗外飘雪，画面渐暗，冷灰调，不出现遗体，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 遗体, 棺材, 手部特写</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：第二年，1907年2月，门捷列夫去世，72岁。他再也没机会了。</p>
+<hr />
+<h3 id="40">40｜时间线动画·新元素点亮+诺贝尔奖章排列</h3>
+<p><strong>正面提示词</strong>：
+时间线流动画面，1907年后新元素在周期表上逐个点亮（元素符号允许清晰），每个元素旁边浮现诺贝尔奖章图标，奖章排成一列，暖金色调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无（奖章图标和元素符号后期叠加）</p>
+<p><strong>对应旁白</strong>：更讽刺的是，他死后，十几位科学家靠这张表发现新元素，先后拿了诺贝尔化学奖。</p>
+<hr />
+<h3 id="41">41｜空奖章位置与一排奖章对照+门捷列夫画像</h3>
+<p><strong>正面提示词</strong>：
+画面左侧一枚空着的奖章位置（轮廓暗淡），右侧一排已颁发的诺贝尔奖章（金色闪亮），背景门捷列夫画像（绘画感，及肩灰褐色长发，浓密灰褐大胡子，高额头）半明半暗静静看着，暖金调中带冷，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>：无</p>
+<p><strong>对应旁白</strong>：他自己没拿到的奖，他画的那张表，让十几个人拿到了。</p>
+<hr />
+<h3 id="42">42｜著作扉页特写·首尾呼应</h3>
+<p><strong>正面提示词</strong>：
+与镜18呼应：厚重著作翻开扉页特写，题词位置留白（纸张纹理清晰），暖光缓慢推近定格，羽毛笔搁在一旁（不见手），暖黄烛光，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印, 手部特写</p>
+<p><strong>后期叠字</strong>："献给我的母亲"（手写体，后期叠在扉页留白处，与镜18呼应）</p>
+<p><strong>对应旁白</strong>：他那本著作的扉页上，永远写着一句话：献给我的母亲。</p>
+<hr />
+<h3 id="43">43｜侯德榜肖像剪影+工厂烟囱·关注预告位</h3>
+<p><strong>正面提示词</strong>：
+画面左侧侯德榜（民国学者剪影，长衫，戴眼镜），右侧工厂烟囱远景（历史照片感，制碱工厂），画面上方留出空间（后期叠关注按钮和系列角标），暖金色调，绘画感写实插画风，画布纹理</p>
+<p><strong>负面词</strong>：
+乱码文字, 现代物品, 塑料, 畸形手指, 卡通, 3D渲染, 水印</p>
+<p><strong>后期叠字</strong>："关注我"按钮动画 + "化学历史人物系列·第4期预告"角标 + "侯德榜"名字</p>
+<p><strong>对应旁白</strong>：关注我，下期讲一个中国人——外国人垄断了70年的制碱技术，他用三年就破解了，还把方法免费公布给全世界。他叫侯德榜。</p>
+<hr />
+<hr />
+<h2 id="_3">四、统一负面词（每镜必带）</h2>
+<blockquote>
+<p>所有图片生成时，负面词统一追加以下内容：</p>
+</blockquote>
+<ul>
+<li>乱码文字, 伪文字, 水印</li>
+<li>畸形手指, 多余手指, 手部特写</li>
+<li>现代服饰, 塑料, 电子设备, 手机, 电脑</li>
+<li>卡通, 3D渲染, 照片质感</li>
+<li>法槌（19 世纪欧洲／俄国场景）</li>
+<li>扑克牌（元素卡片必须是手写卡片，不是扑克牌）</li>
+<li>遗体, 棺材, 血迹（死亡场景用意象替代）</li>
+<li>DNA 双螺旋（19 世纪场景）</li>
+</ul>
+<h2 id="_4">五、后期叠字清单</h2>
+<blockquote>
+<p><strong>什么叫「后期叠字」</strong>：画面里那些<strong>剪片时用字叠上去</strong>的字。因为 <strong>AI 生图不会写中文</strong>（必乱码），所以画面里<strong>先不给字，字在合成成片时加上去</strong>。
+<strong>这张表干什么用</strong>：这些字散在 43 个镜里说，<strong>必漏</strong> —— 所以收成一张总表，合成成片时照着它一处一处叠。<strong>全片共 21 处。</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>镜号</th>
+<th>叠字内容</th>
+<th>样式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>04</td>
+<td>问号</td>
+<td>手写体，空位旁</td>
+</tr>
+<tr>
+<td>05</td>
+<td>类铝/类硼/类硅 + 原子量68/密度5.9</td>
+<td>手写体，空位上</td>
+</tr>
+<tr>
+<td>08</td>
+<td>"你测错了，重新提纯再测，应该是5.9左右"</td>
+<td>手写体，信纸上</td>
+</tr>
+<tr>
+<td>10</td>
+<td>大号"5.94" + "预言5.9" + "差0.04"</td>
+<td>印刷体+细线标注</td>
+</tr>
+<tr>
+<td>18</td>
+<td>"献给我的母亲"</td>
+<td>手写体，扉页留白处</td>
+</tr>
+<tr>
+<td>19</td>
+<td>"传说"</td>
+<td>淡化标注，画面角落</td>
+</tr>
+<tr>
+<td>20</td>
+<td>"63种"</td>
+<td>印刷体，卡片堆旁</td>
+</tr>
+<tr>
+<td>23</td>
+<td>各空位原子量、密度数值</td>
+<td>手写体，空位上</td>
+</tr>
+<tr>
+<td>24</td>
+<td>"预言5.9"/"实测5.94"+打勾</td>
+<td>印刷体，并列</td>
+</tr>
+<tr>
+<td>25</td>
+<td>"1879 钪"/"1886 锗"</td>
+<td>印刷体，地图+周期表</td>
+</tr>
+<tr>
+<td>26</td>
+<td>"这无可辩驳地证明了周期律的精确性"</td>
+<td>金框字幕</td>
+</tr>
+<tr>
+<td>28</td>
+<td>转发箭头动画</td>
+<td>图标，画面右侧</td>
+</tr>
+<tr>
+<td>29</td>
+<td>评论区输入框+光标闪烁</td>
+<td>UI动画，画面下方</td>
+</tr>
+<tr>
+<td>32</td>
+<td>"重婚"</td>
+<td>印刷体，文书旁</td>
+</tr>
+<tr>
+<td>33</td>
+<td>"据说"</td>
+<td>淡化标注，画面角落</td>
+</tr>
+<tr>
+<td>34</td>
+<td>沙皇金句全文</td>
+<td>金色书法字，画面中央</td>
+</tr>
+<tr>
+<td>36</td>
+<td>"3000米"</td>
+<td>印刷体，画面角落</td>
+</tr>
+<tr>
+<td>37</td>
+<td>"门捷列夫"</td>
+<td>印刷体，选票上</td>
+</tr>
+<tr>
+<td>38</td>
+<td>"莫瓦桑"取代"门捷列夫"</td>
+<td>印刷体，选票上</td>
+</tr>
+<tr>
+<td>42</td>
+<td>"献给我的母亲"</td>
+<td>手写体，扉页留白处</td>
+</tr>
+<tr>
+<td>43</td>
+<td>"关注我"+"第4期预告"+"侯德榜"</td>
+<td>按钮动画+角标+名字</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h2 id="_5">六、图数清点口径</h2>
+<ul>
+<li>本包<strong>图数 ＝ 独立画面数，不是镜数</strong>。</li>
+<li>分镜 V1 全篇<strong>没有出现「切到」</strong>（换图信号），多意象镜都是「；」并列 → 按"一图装得下就合"判定。</li>
+<li>所以：<strong>43 镜 ＝ 43 张图</strong>，＋00 定妆像 ＝ <strong>共 44 张</strong> ✓ 自洽。</li>
+<li>⚠️ 以后若某镜拆成 2 张（例如加了「切到」），<strong>表头数字要同步改</strong>，别出现"表头写 44、逐镜数出 45"。</li>
+</ul>
+<h2 id="_6">七、质检标准</h2>
+<p><strong>A ｜ 出图方交付前自查</strong>（最终验收是我方做的 —— <strong>自勾的 ✅ 不算证据</strong>）
+1. 44 张齐不齐、命名对不对
+2. 每张<strong>没有文字／伪文字</strong>（报纸、信件、手稿、选票、牌匾上的字必须虚化或纯纹理）
+3. 每张<strong>没有手部特写</strong>（手掌、手指、多指、畸形手）
+4. 人物锚定词<strong>逐镜逐字一致</strong>
+5. 无时代穿帮（现代服饰、手机、电脑、电子屏幕、现代热气球）
+6. 死亡场景<strong>只有意象</strong>（蜡烛、青烟、空椅、飘雪），<strong>无遗体、无棺材、无血迹</strong>
+7. <strong>不出现扑克牌</strong>（元素卡片是手写卡片）
+8. 元素符号（H／O／Fe 等单双字母）<strong>允许清晰</strong>；出乱码就换掉这张</p>
+<p><strong>B ｜ 交付时请附</strong>
+- 一张<strong>镜号–文件名对照表</strong>
+- 一张 <strong>3 列 × 3 行</strong>的接触印相图（拼图）</p>
+<p><strong>C ｜ 我方复验怎么判</strong>
+- 三档：🔴 硬伤必重出 ／ 🟡 存疑交用户目视 ／ ✅ 通过
+- <strong>视觉模型判不准的一律标"疑似"，不当结论</strong>（手指数量、器皿年代、是否同一人 —— 它给不出可靠答案）</p>
+<hr />
+<hr />
+<p><em>版本</em>：<strong>V1.1</strong>（2026-10-04）｜基于《门捷列夫_脚本分镜V1_定稿》（43 镜）｜共 44 张图（00 定妆像＋01–43）｜统一尺寸 1536×2730
+<em>上游</em>：《门捷列夫_脚本分镜V1_定稿》｜《门捷列夫_策划卡V3_定稿》</p></article>
+</main></div></body></html>

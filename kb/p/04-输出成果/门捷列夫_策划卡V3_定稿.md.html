@@ -1,0 +1,708 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · 04-输出成果/门捷列夫_策划卡V3_定稿.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-10 23:45</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html" class="">AI生图提示词规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html" class="">侯德榜_脚本和分镜_V4_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">门捷列夫_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html" class=" on">门捷列夫_策划卡V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_脚本分镜V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html" class="">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class="">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html" class="">19-人物类视频发布前检查清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html" class="">20-两条视频共性问题与解决方案</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">21-人物故事策划分析卡模板V1（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html" class="">22-脚本分镜前置写作规则</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / 04-输出成果/门捷列夫_策划卡V3_定稿</div>
+<article><h1 id="v32026-10-04">🔒 门捷列夫 · 人物故事策划卡 V3（2026-10-04 冻结）</h1>
+<blockquote>
+<p>🔗 <strong>配套模板（成对冻结，2026-10-07 补登记）</strong>：<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html">人物故事策划分析卡模板V1</a> —— 本页是该模板的<strong>参考填法</strong>（只对齐完成度/颗粒度/深度，<strong>不复制其人物专属内容</strong>）。</p>
+<p><strong>冻结状态</strong>：用户 2026-10-04 明确「策划卡冻结」→ <strong>正文不再改</strong>，下一步进<strong>脚本站</strong>。
+<strong>上游</strong>：外部产出（秒搭／豆包），经我方两轮打回（第 1 轮 7 条、第 2 轮 3 组）后定稿。
+<strong>正文摘要</strong>：约 1384 字 / 约 4 分 35 秒 / 开头「你背过的元素周期表，当年被同行说成是算命」。
+<strong>标题待定</strong>（3 个候选，属发布件站，不挡脚本站开工）。
+⚠️ <strong>冻结时已知 3 处未对齐（仅留痕，不改正文）</strong>：
+①「创作要点说明」表第 1 行仍写「开头20秒流失65-70%」——读图估读数字，未经核实；
+②「版本说明」第②句的依据标注张冠李戴（🟢平台硬数据与「4–12分钟区间」无关，区间来自《样本对照总表》）；
+③【2026-10-04 Lint 标注】<strong>期/条编号自相矛盾</strong>：本页「视频描述」「发布侧动作」写「系列·<strong>第3期</strong>」（按人物计：拉瓦锡1／诺贝尔2／门捷列夫3），但「爆款复刻」条与《门捷列夫_生图提示词包》写「<strong>第4期</strong>」，本页 tags 又标「第4条」（按视频条数计）。<strong>发布前须统一口径</strong>，否则角标／描述／预告会打架。</p>
+</blockquote>
+<hr />
+<h1 id="_-v3">门捷列夫_人物故事策划分析卡 V3</h1>
+<blockquote>
+<p><strong>版本说明（2026-10-04）</strong>：V3 在 V2 史实修订版基础上，按「创意策略+文案」双视角评审方案执行优化。核心变化：① 首句改「嘲笑前置」版（当年被同行说成是算命）；② 本片时长 4:35，落在同类人物故事样本的实际区间 4–12 分钟内 → 不做压缩（依据强度：🟢 平台硬数据（平均播放时长／同类评级）＋ 🟡 我方样本库（4–12 分钟来自《样本对照总表》））；③ 修掉 3 处硬伤（"一致决定"矛盾、"那张表的扉页"、"金属跟金属"错句）；④ 删两处重复（嘲笑复读、做梦重述）；⑤ 双 CTA 拆散归位，转发改家长路径，提问改嵌入式+回钩；⑥ 新增「发布侧动作」栏；⑦ 情绪降峰（三元素证实 9→8）。<strong>标题未定，见「基本信息」栏候选。</strong></p>
+</blockquote>
+<h2 id="_1">内容属性</h2>
+<ul>
+<li><strong>人物</strong>：门捷列夫、母亲玛丽亚、布瓦博德朗、阿伦尼乌斯、安娜·波波娃、莫瓦桑</li>
+<li><strong>关键词</strong>：门捷列夫，元素周期表，预言元素，镓，诺贝尔奖，母亲，化学课本</li>
+<li><strong>写作属性</strong>：story</li>
+</ul>
+<h2 id="_2">受众</h2>
+<h3 id="_3">核心品牌受众</h3>
+<ul>
+<li>已经添加或未来可能添加该账号的学生与家长。</li>
+<li>希望通过内容形成这样的认知：
+  <strong>这是一个专业、会讲故事、能把化学和科学讲得有趣又清楚的老师。</strong></li>
+<li>内容不需要做成课堂教学视频，但要保留"化学老师 / 科学视角"这个身份感。</li>
+</ul>
+<h3 id="_4">内容传播受众</h3>
+<ul>
+<li>对科学家人物、科学史、人物命运、历史故事、冷知识感兴趣的泛知识用户。</li>
+<li>不要求具备化学基础。</li>
+<li>内容需要让普通成年人也能顺畅看懂。</li>
+</ul>
+<h3 id="_5">本条内容受众分析</h3>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>填写内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本条核心受众</strong></td>
+<td>初高中学生家长（孩子正在背周期表）+ 对科学冷知识好奇的泛知识用户</td>
+</tr>
+<tr>
+<td><strong>受众已有认知</strong></td>
+<td>知道元素周期表是门捷列夫发明的，上学时背过；对预言元素、诺奖争议、母亲故事一无所知</td>
+</tr>
+<tr>
+<td><strong>主要观看动机</strong></td>
+<td>被"做梦梦出周期表、被同行说成算命"的戏剧性抓住；对一个人用纸笔算出没发现的元素感到好奇</td>
+</tr>
+<tr>
+<td><strong>最可能被什么抓住</strong></td>
+<td>开头"背过的周期表+被同行说成算命"的集体记忆与冲突 → 做梦传说的反常识 → 母亲累死异乡的情感冲击 → 重婚+热气球的人设反差 → 诺奖到手又被科学院推翻的意难平</td>
+</tr>
+<tr>
+<td><strong>表达偏好</strong></td>
+<td>故事节奏快，前15秒必须给爆点；知识嵌入故事；语言口语化但不要套路化开头</td>
+</tr>
+<tr>
+<td><strong>表达避坑</strong></td>
+<td>不要"你敢信吗""醒醒吧"这类已经被用烂的套路开头；不要把有门槛的化学数字放开头；不要长背景铺垫</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>标题</strong></td>
+<td><strong>（待定——文案已定稿，标题后定）</strong> 候选：① 他预言了三种还没被发现的元素，全部应验，却到死没等来诺贝尔奖 ② 你背过的元素周期表，当年被当成算命 ③ 化学界笑他算命，直到三种元素接连应验 。（旧题"差点被整个化学界封杀"已弃用，"封杀"与史实不符）</td>
+</tr>
+<tr>
+<td><strong>来源</strong></td>
+<td>视频号（自制）</td>
+</tr>
+<tr>
+<td><strong>作者</strong></td>
+<td>（你的账号名）</td>
+</tr>
+<tr>
+<td><strong>发布日期</strong></td>
+<td>待发布</td>
+</tr>
+<tr>
+<td><strong>话题标签</strong></td>
+<td>#人物故事 #门捷列夫 #元素周期表 #化学 #科学家 #历史 #化学课本 #冷知识 #高中化学 #初中化学</td>
+</tr>
+<tr>
+<td><strong>视频描述</strong>（发布时粘贴）</td>
+<td>【化学历史人物系列】第3期：门捷列夫<br>你背过的元素周期表，当年被同行说成是算命。<br>据说他做梦梦到了元素排列——但他用纸笔算出了3种还没被发现的元素，后来全部应验。<br>前两期：拉瓦锡（被送上断头台的化学之父）、诺贝尔（被自己讣告惊醒的"死亡商人"）<br>下期：侯德榜（打破外国制碱垄断的中国人）</td>
+</tr>
+<tr>
+<td><strong>短标题</strong>（≤16字，发布时填）</td>
+<td>做梦梦出元素周期表的人</td>
+</tr>
+</tbody>
+</table>
+<h2 id="30">前30秒留存控制</h2>
+<p>目标：
+<strong>零门槛钩子 → 10秒内反常识冲击 → 20秒内悬念升级 → 30秒前把有门槛的内容变成"想知道答案"的期待。</strong></p>
+<table>
+<thead>
+<tr>
+<th>时间位</th>
+<th>结构任务</th>
+<th>本片内容设计</th>
+<th>设计目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0–5秒</strong></td>
+<td>集体记忆+冲突钩子</td>
+<td>「你背过的元素周期表，当年被同行说成是算命。」</td>
+<td>零门槛——每个人都背过周期表；"被说成算命"是有画面的人格羞辱（有史实支撑），比状态描述更有戏剧张力</td>
+</tr>
+<tr>
+<td><strong>5–15秒</strong></td>
+<td>反常识+传说标注</td>
+<td>「据说他真是做梦梦到的——一张表上元素各归其位，醒来赶紧写下来。同行直摇头：你连元素都没见过几个，就敢说梦到了宇宙的规律？」</td>
+<td>"做梦梦出科学规律"反常识，用"据说"标注传说性质；被嘲笑制造对立感</td>
+</tr>
+<tr>
+<td><strong>15–25秒</strong></td>
+<td>悬念升级</td>
+<td>「但他在表上留了几个空位，说这里应该有还没被发现的元素——连密度都算好了。」</td>
+<td>留空位+算密度，从"做梦"升级到"精确预言"，观众开始好奇"真的假的"</td>
+</tr>
+<tr>
+<td><strong>25–30秒</strong></td>
+<td>钩子收尾，引出后文</td>
+<td>「法国人第一个不服，测出来不对，结果重新提纯后，全世界沉默了。」</td>
+<td>用"法国人不服→重新测→沉默"制造悬念，把镓密度的故事留到30秒后展开，有门槛的内容变成了"想知道答案"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="30_1">前30秒验收（基于前两条视频数据修正）</h3>
+<p><strong>（以下条目不自行打勾，待我方复核）</strong>
+- [ ] 3秒内是否有清晰爆点？→ "背过的周期表+被说成算命"，零门槛集体记忆+人格羞辱式冲突
+- [ ] 开头是否有门槛？→ 没有任何化学术语和数字，所有人都能看懂
+- [ ] 15秒内是否有反常识？→ 做梦梦出科学规律，被同行嘲笑
+- [ ] 20秒内是否有新信息？→ 留空位预言元素+算密度
+- [ ] 30秒前是否形成新的观看理由？→ "法国人重新测后沉默了"——观众想知道到底测出了什么
+- [ ] 未核实信息是否标注？→ "据说"标注做梦传说
+- [ ] 是否删掉了所有铺垫句？→ 开头没有"今天给大家讲XX""你知道吗"等废话</p>
+<h2 id="_7">文案分析</h2>
+<h3 id="_8">内容类型</h3>
+<ul>
+<li><strong>类型</strong>：story</li>
+<li><strong>判定依据</strong>：全文以门捷列夫"被嘲笑→预言被证实→诺奖遗憾"的命运为主线叙事，无带货话术，结尾引导关注和下期预告，评论提问前移至中段。</li>
+</ul>
+<h3 id="_9">文案框架</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">段落</th>
+<th>主题</th>
+<th>核心内容</th>
+<th>证据类型</th>
+<th>核验备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>零门槛钩子开场</td>
+<td>背过的周期表+被同行说成算命+据说做梦梦到+留空位算密度+法国人不服</td>
+<td>正史+传说</td>
+<td>"做梦"为传说，用"据说"标注；"被说成算命"有同行嘲笑的史实支撑；留空位预言为正史；法国人不服引出后文</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>镓密度悬念兑现</td>
+<td>1875年法国人发现镓，测密度4.7，门捷列夫写信说应该是5.9，重新提纯后5.94，差0.04</td>
+<td>正史记载</td>
+<td>1875年布瓦博德朗发现镓、门捷列夫预言密度5.9、实测5.94，均已核实；放在30秒后作为悬念兑现，不当开头门槛</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>人物身世+母亲线</td>
+<td>西伯利亚出生、十几个孩子中最小、父亲失明→母亲带他求学被莫斯科大学拒收→被圣彼得堡大学拒收→进师范学院→入学后母亲去世→扉页献给母亲</td>
+<td>正史记载</td>
+<td>均已多源核实；徒步距离用"上千公里"保守表述，第二次改为"两座城市"避免重复</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>周期表发现+留空位</td>
+<td>回收开头的梦为传说→正史1869年卡片排列63种元素→发现周期律→留空位并挑明"原子量密度都算给你们看"</td>
+<td>正史记载+历史传说</td>
+<td>1869年2月发现周期律已核实；嘲笑复读已删（开头已有"算命"钩子，不二次使用）；做梦传说用"回收前文"式一句话带过</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>预言被逐一证实+互动双钩</td>
+<td>镓5.94→钪1879→锗1886→温克勒承认周期律精确性→总结"地图落空位"→转发钩子（家长路径）→嵌入式评论提问+回钩</td>
+<td>正史记载+作者演绎</td>
+<td>三种元素发现时间与性质均已核实；情绪上作为镓峰回响（降峰），节奏加快一句一个；转发钩子与评论提问在此归位，互不背靠背</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>人生反差</td>
+<td>43岁与19岁安娜结合、教会以重婚要革职→沙皇"我只有一个门捷列夫"一句话压下教会→53岁独自坐热气球3000米看日食（压为一句）</td>
+<td>正史记载</td>
+<td>重婚史实、热气球均已核实；沙皇名言为传说口径，已加"据说"；热气球保留一句维持人设反差，删奖章尾巴</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>诺奖遗憾+情感收尾</td>
+<td>1906年委员会已定了他→阿伦尼乌斯30年前旧怨、科学院最后一刻推翻→输给莫瓦桑→第二年去世→后来十几人因周期表相关研究获诺奖→著作扉页献母亲</td>
+<td>正史记载</td>
+<td>诺奖争议已核实（委员会推荐、科学院推翻）；"一致决定"矛盾句已修；扉页题词在著作上（非周期表），已修正</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>关注引导+下期预告</td>
+<td>关注我→下期讲侯德榜</td>
+<td>作者演绎</td>
+<td>评论提问已前移至第5段后，结尾只做关注+预告，情绪落点干净</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_10">情绪变化</h2>
+<h3 id="1">1）情绪曲线</h3>
+<p>好奇共鸣 → 反常识惊讶 → 悬念期待 → 科学震撼 → 悲情鼻酸 → 大胆狂妄 → 科学折服（回响） → 荒诞反差 → 意难平 → 温情收尾</p>
+<h3 id="2">2）情绪节点明细</h3>
+<table>
+<thead>
+<tr>
+<th>节点/对应段落</th>
+<th>主情绪</th>
+<th style="text-align: right;">情绪强度（1-10）</th>
+<th>触发内容</th>
+<th>观众预期动作</th>
+<th>评论接口类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 / 第1段</td>
+<td>好奇共鸣</td>
+<td style="text-align: right;">8</td>
+<td>「你背过的元素周期表」「被说成算命」「做梦梦到的」</td>
+<td>被集体记忆抓住，好奇为什么被说成算命</td>
+<td>无</td>
+</tr>
+<tr>
+<td>2 / 第2段</td>
+<td>科学震撼</td>
+<td style="text-align: right;">9</td>
+<td>「4.7→5.9→5.94，只差0.04」</td>
+<td>起鸡皮疙瘩，服气</td>
+<td>无</td>
+</tr>
+<tr>
+<td>3 / 第3段</td>
+<td>悲情鼻酸</td>
+<td style="text-align: right;">8</td>
+<td>「跋涉上千公里」「被两所大学拒收」「最后一次笑」「扉页献给母亲」</td>
+<td>共情、鼻酸</td>
+<td>致敬</td>
+</tr>
+<tr>
+<td>4 / 第4段</td>
+<td>大胆狂妄</td>
+<td style="text-align: right;">7</td>
+<td>「卡片排了三天三夜」「留空位」「原子量密度都算给你们看」</td>
+<td>好奇、觉得他疯了</td>
+<td>假设</td>
+</tr>
+<tr>
+<td>5 / 第5段</td>
+<td>科学折服</td>
+<td style="text-align: right;">8</td>
+<td>「三种元素接连应验」「温克勒承认周期律精确性」+「转给正在背周期表的孩子」+「你背到第几个记不住？」</td>
+<td>服气→转发→评论打数字</td>
+<td>评判+回忆唤起（嵌入式提问）</td>
+</tr>
+<tr>
+<td>6 / 第6段</td>
+<td>震撼反差</td>
+<td style="text-align: right;">8</td>
+<td>「教会要革职」「沙皇一句话压下教会」「全俄国找不到第二个」</td>
+<td>惊讶、服气——原来他地位这么高</td>
+<td>评判</td>
+</tr>
+<tr>
+<td>7 / 第7段</td>
+<td>意难平</td>
+<td style="text-align: right;">9</td>
+<td>「委员会定了他却被推翻」「第二年就去世了」「十几个人因为他的表拿了诺奖」</td>
+<td>惋惜、愤怒</td>
+<td>评判</td>
+</tr>
+<tr>
+<td>8 / 结尾</td>
+<td>温情收尾</td>
+<td style="text-align: right;">7</td>
+<td>「著作扉页：献给我的母亲」「下期侯德榜预告」</td>
+<td>温情回落→关注</td>
+<td>无（关注引导）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：「三种元素证实」由 9 降为 8，作为镓密度峰值的回响而非新峰——全片只保留镓兑现与诺奖两个 9 分峰，避免峰值过密导致"全程高能=全程无高能"。（自评・无出处）
+注：「评论接口类型」一列的取值（致敬／评判／假设／回忆唤起／无）先当参考，不作为标准。</p>
+</blockquote>
+<h2 id="_11">爆款结构拆解</h2>
+<h3 id="1_1">1）五问拆解</h3>
+<p><strong>1. 开头钩子是什么类型</strong>
+集体记忆 + 人格羞辱式冲突 + 反常识传说。<strong>零门槛</strong>——第一句"你背过的元素周期表"直接唤起所有人的学生记忆，"当年被同行说成是算命"立刻制造冲突：有画面（算命）、有对抗（同行）、有史实支撑（同行嘲笑确有记载），且不需要任何化学基础。5-15秒用"据说做梦梦到"反常识+被嘲笑，15-25秒升级到"留空位算密度"，25-30秒用"法国人重新测后沉默了"收尾，把有门槛的镓密度故事变成观众"想知道答案"的期待。和拉瓦锡版的"情绪控诉开头"、诺贝尔版的"讣告悬念开头"都不同，走的是"集体记忆+人格羞辱冲突"路线。</p>
+<p><strong>2. 中间用了哪些留人手法</strong>
+- 第1段用「零门槛三连击」——集体记忆→被说成算命→做梦传说，15秒内三个信息点，每个都不需要化学基础；
+- 第2段用「悬念兑现」——30秒前埋的"法国人重新测后沉默了"在这里完整兑现，4.7→5.9→5.94，此时观众已经被剧情抓住，有耐心听数字；
+- 第3段用「情感切换+软着陆转场」——"用纸笔打败实验室的，到底是个什么人？他差点连大学都上不了"直接预埋母亲线冲突，从科学奇迹切到母亲千里求学，用普世母爱制造第二层留人理由；
+- 第4段用「狂妄宣言」——做梦传说一句话回收（不重复讲述），正史卡片法+挑明"原子量密度都算给你们看"，制造"他凭什么这么狂"的悬念；
+- 第5段用「递进兑现+双钩归位」——三种元素接连应验（快节奏一句一个，作为镓峰回响），随后总结句→转发钩子（家长路径）→嵌入式评论提问→"故事才一半"回钩，四个动作各就各位互不稀释；
+- 第6段用「快速反差」——重婚+热气球点到为止，不拖节奏；
+- 第7段用「数字对比」——"自己没拿到诺奖，后来十几人因他的表拿了诺奖"。</p>
+<p><strong>3. 哪句话最容易引发评论，为什么</strong>
+「你当年背到第几个元素开始记不住了？——这个人不但全排出来了，还预言了没发现的。」
+激活的是<strong>集体记忆</strong>。这个问题的评论门槛极低——不需要立场、不需要观点，只要打一个元素符号或数字就行（"铁""锌""钙""第20个"）。几乎每个上过高中的人都有"背周期表背到崩溃"的经历，这个问题直接唤起个人记忆，评论区会变成"你背到哪了"的接龙，互动成本远低于"你觉得是A还是B"的二选一辩论。前两条视频评论为0，核心原因之一就是提问门槛太高、看到结尾的人太少；这个回忆唤起型问题从根本上降低了评论门槛。V3 进一步把提问改成<strong>嵌入式非终局话术</strong>（不说"评论区告诉我"，问完直接滑入下一段），避免观众把提问当成结束信号而划走。</p>
+<p><strong>4. 视频的核心爆点是什么</strong>
+门捷列夫坐在书房里，用未被发现的元素的理论值，纠正了实验室里实际测出来的实验值——法国人测出来4.7，他说不对应该是5.9，重新提纯后5.94。一个人用纸笔战胜了整个实验室的仪器，这种"智识碾压"的画面是全片最具传播力的爆点。但这个爆点<strong>不放在开头</strong>（因为有门槛），而是放在30秒后作为悬念兑现——观众先被"做梦梦到周期表、被说成算命"的低门槛剧情抓住，然后好奇"他怎么算出来的"，这时候再讲4.7→5.9→5.94，观众就有耐心听了，冲击力反而更强。</p>
+<p><strong>5. 哪些可以复刻，哪些不能改</strong>
+- <strong>可复刻</strong>：零门槛集体记忆开头（不用任何口语套路）；30秒内不出现有门槛的化学数字；有门槛的内容放后面当悬念兑现；情感线（母亲）与科学线交替；首尾呼应结构；低门槛评论引导（回忆唤起型+嵌入式非终局话术）；下期预告。<strong>每期一个集体记忆锚点</strong>（拉瓦锡=质量守恒/ Nobel=炸药 / 门捷列夫=周期表 / 侯德榜=纯碱）——作为系列开头公式，第4期沿用。
+- <strong>不能改</strong>：镓的预言密度5.9与实测5.94；母亲求学与去世；1869年发现周期律；三种预言元素的发现时间；重婚与沙皇名言（"据说"标注）；诺奖争议（委员会定了他、科学院推翻）与1907年去世；著作扉页题词。
+- <strong>传说标注</strong>："做梦发现周期表"为门捷列夫自述的传说，开头用"据说"引入，正文用"回收前文"式一句话带过并接正史卡片排列法，不把传说当正史讲；沙皇名言同样用"据说"标注。
+- <strong>主动放弃</strong>：不使用"你敢信吗""醒醒吧""XX欠XX一句道歉"等拉瓦锡版已用过的句式；不把镓密度放开头（门槛太高）；同一句金句不在片中出现两次（"算命"嘲笑只保留开头一处）。</p>
+<h3 id="2_1">2）结构骨架表</h3>
+<table>
+<thead>
+<tr>
+<th>结构位</th>
+<th>作用</th>
+<th>证据/句式</th>
+<th>可迁移机制</th>
+<th>不可改动项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开头爆点</td>
+<td>零门槛集体记忆+人格羞辱冲突</td>
+<td>「你背过的元素周期表，当年被同行说成是算命」</td>
+<td>第一句唤起集体记忆，"被说成算命"有画面有对抗且有史实支撑，零门槛</td>
+<td>—</td>
+</tr>
+<tr>
+<td>反常识冲击</td>
+<td>传说+被嘲笑</td>
+<td>「据说他真是做梦梦到的」「同行听了直摇头」</td>
+<td>用"据说"标注传说，反常识制造好奇</td>
+<td>传说必须标注，不可当正史</td>
+</tr>
+<tr>
+<td>悬念升级</td>
+<td>留空位预言</td>
+<td>「留了几个空位」「连密度都算好了」</td>
+<td>从"做梦"升级到"精确预言"</td>
+<td>留空位预言为正史，不可改</td>
+</tr>
+<tr>
+<td>钩子收尾</td>
+<td>引出后文</td>
+<td>「法国人重新测后，全世界沉默了」</td>
+<td>把有门槛的内容变成"想知道答案"的期待</td>
+<td>—</td>
+</tr>
+<tr>
+<td>悬念兑现</td>
+<td>镓密度故事</td>
+<td>「4.7→5.9→5.94，只差0.04」</td>
+<td>30秒后兑现，观众已有耐心</td>
+<td>镓密度预言5.9/实测5.94不可改</td>
+</tr>
+<tr>
+<td>软着陆转场</td>
+<td>科学线→情感线</td>
+<td>「用纸笔打败实验室的，到底是个什么人？他差点连大学都上不了」</td>
+<td>转场句预埋下一段冲突，硬切变软着陆</td>
+<td>—</td>
+</tr>
+<tr>
+<td>留人段1</td>
+<td>情感切换+母亲线</td>
+<td>「跋涉上千公里」「两座城市连拒两次」「最后一次笑」「扉页献给母亲」</td>
+<td>科学线后切情感线，扩大共鸣面</td>
+<td>母亲求学史实不可改</td>
+</tr>
+<tr>
+<td>留人段2</td>
+<td>狂妄宣言+悬念</td>
+<td>「卡片排了三天三夜」「原子量密度都算给你们看」</td>
+<td>用大胆举动制造"他凭什么"的悬念</td>
+<td>1869年周期律、留空位不可改</td>
+</tr>
+<tr>
+<td>爆点兑现</td>
+<td>三种元素接连应验</td>
+<td>「镓→钪→锗」「温克勒承认周期律精确性」</td>
+<td>快节奏一句一个，作为镓峰回响（降峰）</td>
+<td>镓钪锗发现时间不可改</td>
+</tr>
+<tr>
+<td>互动双钩</td>
+<td>转发+评论归位</td>
+<td>「转给正在背周期表的孩子」「你当年背到第几个元素开始记不住了？」+「故事讲到这儿才一半」</td>
+<td>转发走家长真实路径；提问嵌入式非终局；回钩防提问后流失</td>
+<td>—</td>
+</tr>
+<tr>
+<td>反差段</td>
+<td>快速人设颠覆</td>
+<td>「据说沙皇说我只有一个门捷列夫」「热气球3000米」</td>
+<td>点到为止，不拖节奏</td>
+<td>重婚史实不可改</td>
+</tr>
+<tr>
+<td>情绪落点</td>
+<td>意难平+数字对比</td>
+<td>「委员会定了他却被推翻」「十几人因他的表拿了诺奖」</td>
+<td>用数字对比制造讽刺感</td>
+<td>诺奖争议不可改</td>
+</tr>
+<tr>
+<td>温情收尾</td>
+<td>情感回落+关注</td>
+<td>「著作扉页：献给我的母亲」</td>
+<td>把意难平从愤怒收回温情，再切预告不违和</td>
+<td>题词在著作扉页，不可写成"表的扉页"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3">3）爆款复刻边界</h3>
+<ul>
+<li><strong>可以复刻</strong>：零门槛集体记忆开头（无套路口语）；有门槛内容后置当悬念兑现；情感线与科学线交替；首尾呼应；低门槛评论引导（回忆唤起型+嵌入式）；情绪曲线"共鸣→震撼→悲情→狂妄→折服→荒诞→意难平→温情"；每期一个集体记忆锚点。</li>
+<li><strong>必须改成用户行业</strong>：化学人物与科学成就；化学知识的故事化嵌入；互动问题结合受众经历（背周期表）。</li>
+<li><strong>不可照搬</strong>：拉瓦锡版的"你敢信吗""醒醒吧""XX欠XX一句道歉"等句式；卫子夫版的情绪控诉开头；任何已用过的专属比喻；把有门槛的化学数字放开头。</li>
+</ul>
+<hr />
+<h2 id="_12">正文</h2>
+<p>你背过的元素周期表，当年被同行说成是算命。</p>
+<p>据说，他真是做梦梦到的——一张表上，元素各归其位，醒来赶紧写下来。同行听了直摇头：你连元素都没见过几个，就敢说梦到了宇宙的规律？</p>
+<p>但真正让同行觉得他疯了的，是他在表上留了好几个空位。</p>
+<p>他指着空位说：这里有"类铝"，原子量68，密度5.9；那里有"类硼"、还有"类硅"。元素还没被发现，他已经知道它们长什么样了。</p>
+<p>法国人第一个不服。</p>
+<p>1875年，法国化学家布瓦博德朗发现了"镓"，测出密度4.7。</p>
+<p>论文刚发表，他就收到一封俄国来信。写信的教授叫门捷列夫，素未谋面，信上只有一句话：你测错了，重新提纯再测，应该是5.9左右。</p>
+<p>布瓦博德朗觉得荒唐——我亲手测的，你连镓都没见过，凭什么说我错了？</p>
+<p>但他还是重新提纯测了一遍。结果：5.94。</p>
+<p>和信上的数字，只差0.04。</p>
+<p>一个没见过这种元素的人，用纸笔算到了小数点后一位。整个化学界都懵了。</p>
+<p>用纸笔打败实验室的，到底是个什么人？说出来你可能不信——他差点连大学都上不了。</p>
+<p>1834年，他生在西伯利亚的托博尔斯克，十几个孩子里最小。父亲很早就失明，全家靠母亲开玻璃厂过活。</p>
+<p>母亲玛丽亚看出他脑子活，拼了命也要让他走出西伯利亚。1849年，带15岁的他跋涉上千公里，去莫斯科考大学。</p>
+<p>拒收。西伯利亚人不在招生范围。</p>
+<p>她咬咬牙，又带儿子去圣彼得堡。又被拒收。</p>
+<p>两座城市，两所大学，连拒两次。她四处托人哀求，总算把16岁的他塞进了圣彼得堡师范学院。</p>
+<p>拿到录取通知那天，母亲笑了。那是她最后一次笑。入学后不久，积劳成疾的玛丽亚就去世了。</p>
+<p>门捷列夫记了一辈子。他后来在自己的著作扉页上写：献给我的母亲。</p>
+<p>开头说的那个梦，是他自己讲的传说。正史更可靠的记载是：1869年2月，他把63种已知元素写在卡片上，排了三天三夜，终于发现：按原子量排下去，每隔几个元素，性质就重复一次，像四季循环。</p>
+<p>梦也罢，牌也罢，他都画出了周期表，还留了好几个空位。</p>
+<p>这一次，他干脆把话挑明了：空位上每个元素的原子量、密度，我都算给你们看。结果呢？</p>
+<p>1875年，法国人发现镓——就是"类铝"。密度预言5.9，实测5.94。</p>
+<p>1879年，瑞典人发现钪——就是"类硼"。</p>
+<p>1886年，德国人温克勒发现锗——就是"类硅"，性质和预言几乎一样。温克勒公开承认：这无可辩驳地证明了周期律的精确性。</p>
+<p>从那以后，再没人敢把他当算命先生。周期表成了化学界的地图，后来每种新元素，都乖乖落进他留好的空位。</p>
+<p>你背过的那张表，是一个人用纸和笔一张张排出来的。转给正在背周期表的孩子，或者当年和你一起背表的同桌。</p>
+<p>你当年背到第几个元素开始记不住了？——这个人不但全排出来了，还预言了没发现的。</p>
+<p>故事讲到这儿才一半。你要是以为他是个古板的老教授，那就大错特错了。</p>
+<p>43岁那年，他和19岁的艺术学生安娜·波波娃走到一起。因为没和前妻办完离婚手续，东正教会认定他重婚，要开除教籍、革去教授职位。</p>
+<p>那时的俄国，教会能决定学者的生死。消息传到沙皇亚历山大二世那里，据说，沙皇只说了一句：</p>
+<p><strong>"门捷列夫是有两个妻子，没错——但我，只有一个门捷列夫。"</strong></p>
+<p>一句话，教会不再追究。能让沙皇为一个科学家对抗教会的，全俄国找不到第二个。</p>
+<p>53岁那年，他还一个人坐热气球升到3000米看日全食，主阀门坏了，自己爬上去修好。</p>
+<p>可就是这么一个人，1906年，诺贝尔化学奖委员会已经定了他。最后一刻，化学家阿伦尼乌斯因为30年前的旧怨，硬是撺掇瑞典皇家科学院推翻了决定——奖落到了制备单质氟的莫瓦桑手里。</p>
+<p>第二年，1907年2月，门捷列夫去世，72岁。</p>
+<p>他再也没机会了。</p>
+<p>更讽刺的是，他死后，十几位科学家靠这张表发现新元素，先后拿了诺贝尔化学奖。</p>
+<p>他自己没拿到的奖，他画的那张表，让十几个人拿到了。</p>
+<p>他那本著作的扉页上，永远写着一句话：献给我的母亲。</p>
+<p>关注我，下期讲一个中国人——外国人垄断了70年的制碱技术，他用三年就破解了，还把方法免费公布给全世界。他叫侯德榜。</p>
+<hr />
+<h2 id="_13">全片预估</h2>
+<ul>
+<li><strong>字数</strong>：约1200字（原口径；实测口播计字 1384 字，较 V2 实减约 24%）</li>
+<li><strong>语速</strong>：5字/秒</li>
+<li><strong>时长</strong>：约4分35秒</li>
+<li><strong>对比前两版</strong>：开头从"不被认可"状态描述升级为"被说成算命"人格羞辱式冲突；删两处重复、修三处硬伤、双CTA拆散归位；温和瘦身约24%，剧情骨架完整保留</li>
+</ul>
+<h2 id="_14">创作要点说明</h2>
+<h3 id="v3">基于前两条视频数据的针对性修正（V3 数据修正版）</h3>
+<table>
+<thead>
+<tr>
+<th>数据问题</th>
+<th>修正动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开头20秒流失65-70%（前 20 秒是主矛盾）</td>
+<td>开头零门槛+人格羞辱式冲突——"你背过的元素周期表"唤起集体记忆，"当年被同行说成是算命"制造有画面、有史实支撑的冲突，30秒内不出现任何有门槛的化学数字；连续四个信息点（被说成算命→做梦传说→留空位算密度→法国人不服），每7-8秒一个新信息</td>
+</tr>
+<tr>
+<td>评论为0（两期均为0）</td>
+<td>评论引导用"你背到第几个元素开始记不住"回忆唤起型，门槛降到打一个数字；提问改为嵌入式非终局话术（不说"评论区告诉我"），放在"三种元素被证实"之后、"重婚/热气球"之前；提问后加"故事讲到这儿才一半"回钩防流失；发布侧配置顶评论+种子评论破冰（见下）</td>
+</tr>
+<tr>
+<td>转发量低</td>
+<td>转发钩子放在"三种元素证实→总结句"之后（约65%进度处），话术覆盖核心受众真实转发路径（家长→孩子）："转给正在背周期表的孩子，或者当年和你一起背表的同桌"</td>
+</tr>
+<tr>
+<td>关注转化极低（两期合计1）</td>
+<td>前10秒字幕/角标打"化学历史人物系列·第3期"（不占口播）；结尾保留关注引导+下期预告；视频描述加系列定位与前两期一句话钩子，撬动补看与主页流量</td>
+</tr>
+<tr>
+<td>用户批评"你敢信吗"抄拉瓦锡</td>
+<td>开头完全重写，不用任何口语化套路；全文不出现"你敢信吗""醒醒吧""XX欠XX一句道歉"等拉瓦锡版句式</td>
+</tr>
+<tr>
+<td>用户指出镓密度放开头门槛太高</td>
+<td>镓密度故事从开头移到30秒后，作为"法国人不服"悬念的兑现；开头用零门槛集体记忆+冲突</td>
+</tr>
+<tr>
+<td>同句重复导致金句失效（V3 新增）</td>
+<td>"这不是科学，这是算命"嘲笑复读删除，"算命"冲突只在开头出现一次；做梦传说在卡片段改"回收前文"式一句话带过，不重复讲述</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v3-01">发布侧动作（V3 新增，针对"评论0/关注1"）</h3>
+<table>
+<thead>
+<tr>
+<th>动作</th>
+<th>具体内容</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>置顶评论</td>
+<td>发布后第一时间置顶同一提问+账号自答一条（如"我先来：铁，26号，背到它就乱了"）</td>
+<td>评论破冰，不指望自然破冰（前两期评论均为0）</td>
+</tr>
+<tr>
+<td>种子评论</td>
+<td>备3-5条（"我背到锌就废了""钙，20，一辈子忘不了"）冷启动接龙</td>
+<td>降低首评心理门槛，引导接龙</td>
+</tr>
+<tr>
+<td>字幕条常驻提问</td>
+<td>视频后1/3字幕条常驻一行小字"你背到第几个？评论区见"</td>
+<td>覆盖没听到口播提问就流失的人</td>
+</tr>
+<tr>
+<td>系列角标</td>
+<td>前10秒字幕/角标"化学历史人物系列·第3期"</td>
+<td>关注转化前置，不占口播时长</td>
+</tr>
+<tr>
+<td>描述钩子</td>
+<td>视频描述中前两期各加一句话钩子（拉瓦锡=被送上断头台的化学之父；诺贝尔=被自己讣告惊醒的"死亡商人"）</td>
+<td>撬动补看与主页流量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">史实核验说明</h3>
+<ul>
+<li>镓（1875，布瓦博德朗）、钪（1879，尼尔松）、锗（1886，温克勒）的发现时间与发现者均已核实</li>
+<li>门捷列夫预言密度5.9、布瓦博德朗实测4.7→重新提纯5.94为正史</li>
+<li>母亲求学（莫斯科拒收→圣彼得堡拒收→师范学院→母亲去世）已多源交叉验证</li>
+<li>重婚争议、热气球3000米均已核实；<strong>沙皇名言为传说口径，正文已加"据说"标注</strong></li>
+<li>1906年诺奖争议（委员会多数推荐门捷列夫、科学院最后一刻推翻，奖归莫瓦桑）、1907年2月去世已核实；"委员会一致决定"表述已修正为"已经定了他"（阿伦尼乌斯在委员会内反对，不存在"一致"）</li>
+<li><strong>扉页题词在著作上</strong>（非周期表），V2 结尾"那张表的扉页"已修正为"他那本著作的扉页"</li>
+<li><strong>"做梦发现周期表"为传说</strong>：门捷列夫曾自述做梦梦到元素排列，但正史更可靠的记载是卡片排列法；本片开头用"据说"标注引入，正文用"回收前文"式接正史补充说明，不把传说当正史讲</li>
+<li>下期预告：侯德榜（打破外国制碱垄断的中国人）</li>
+</ul>
+<hr />
+<h2 id="_16">相关</h2>
+<p><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_脚本分镜V1_定稿</a>｜<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html">门捷列夫_生图提示词包</a>｜<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html">19-人物类视频发布前检查清单</a>｜<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html">15-选题池</a>｜<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html">各站验收表V1</a></p></article>
+</main></div></body></html>

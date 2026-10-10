@@ -1,0 +1,533 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · 03-方法库/群聊观察/05-视频号起号与图书带货（雪见群实战）.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-10 23:45</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class=" on">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html" class="">AI生图提示词规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html" class="">侯德榜_脚本和分镜_V4_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">门捷列夫_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_策划卡V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_脚本分镜V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html" class="">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class="">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html" class="">19-人物类视频发布前检查清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html" class="">20-两条视频共性问题与解决方案</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">21-人物故事策划分析卡模板V1（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html" class="">22-脚本分镜前置写作规则</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / 03-方法库/群聊观察/05-视频号起号与图书带货（雪见群实战）</div>
+<article><h1 id="_1">视频号起号与图书带货（雪见群实战）</h1>
+<blockquote>
+<p>🔴 <strong>未核实（群聊来源）</strong> · 雪见群 2026-09-20、2026-09-29 群友口述
+核验状态：<strong>关键数字 9 项中，3 项与官方一致、2 项与官方冲突/被证伪、4 项未证实</strong>（2026-09-30 复验）。
+使用前请先读 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html">方法库可信度规则</a>（本页属 🔴 低可信度分区）。
+<strong>用前必看文末「核验记录」</strong>；平台门槛类数字一律以官方为准。</p>
+<p>来源：雪见 2026 AI 陪伴群 2026-09-19 ~ 09-28 的群友实操（主讲「小java同学 / 胡老师」，历史类视频号）。
+<strong>全部为群内说法</strong>，未经平台官方文档逐条核实；标 ⚠️ 的是合规风险点。
+定位：与 <a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html">外部方法论总览</a>（破局三篇，讲生产流程）互补——这篇讲<strong>平台侧的门槛与流量规则</strong>。</p>
+</blockquote>
+<h2 id="_2">一、最反直觉的一条：新号不要养号</h2>
+<ul>
+<li>新号<strong>有推流机制</strong>（没发过作品的号有流量扶持），所以「直接开干」，别浪费时间养。</li>
+<li>推论（群里据此演化出的打法）：<strong>废号 → 注销 → 重开新号</strong>，反而更容易起量。</li>
+<li>对照 <a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html">黄金三秒</a>：起量靠平台扶持 + 前三秒留人，两者不冲突，都要做。</li>
+</ul>
+<h2 id="_3">二、卖货资格门槛（关键数字）</h2>
+<table>
+<thead>
+<tr>
+<th>玩法</th>
+<th>门槛</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>视频带货</strong>（发视频时挂小黄车）</td>
+<td><strong>1000 粉</strong></td>
+<td>最常用；也有人说几乎没粉丝也能开（入口差异未确认）</td>
+</tr>
+<tr>
+<td><strong>主页橱窗</strong></td>
+<td><strong>约 5000 粉</strong></td>
+<td>要在主页才看得到，跟「视频带货」是<strong>两回事</strong></td>
+</tr>
+<tr>
+<td>「发视频 + 自拍」开通带货</td>
+<td><strong>6 条视频 + 1 条自拍</strong></td>
+<td>粉丝 2000 左右发个自拍基本能过</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>群里原话：「流量视频就是起号用的，1000 粉开通小黄车，就可以随便造了」。</li>
+<li>案例：方法对了，<strong>5 天做到 5000 粉</strong>开橱窗。</li>
+<li>⚠️ 注意：开橱窗要求「<strong>原创、非 AI 视频</strong>」就能过——<strong>做 AI 生图视频的号要留意这条</strong>（涉及本项目的合规底线，见 <a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html">内容自动化项目总纲</a>）。</li>
+</ul>
+<h2 id="_4">三、选品与佣金</h2>
+<ul>
+<li><strong>图书带货佣金约 50%</strong>（群内说法）。</li>
+<li>血泪教训：有人的号因为带 <strong>枸杞（养生类）</strong> 违规，一单没卖，<strong>2 万粉的号直接废掉</strong>。</li>
+<li>结论（与破局手册一致）：<strong>只卖书</strong>，安心做个「卖书匠」；高佣金、来路不明的违规品一律不碰。</li>
+<li>反面清单：养生 / 保健类等高风险品。</li>
+</ul>
+<h3 id="31-2026-09-29">3.1 佣金到底谁定？（2026-09-29 补充，已核验官方规则）</h3>
+<p><strong>不是平台统一价，是商家在「优选联盟」里按商品逐个设的</strong>。官方《微信小店优选联盟计佣与结算规则》三种计划：</p>
+<table>
+<thead>
+<tr>
+<th>计划类型</th>
+<th>谁能拿到</th>
+<th>佣金区间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通计划</td>
+<td>所有联盟达人可见</td>
+<td><strong>1% – 50%</strong></td>
+</tr>
+<tr>
+<td>专属计划</td>
+<td>只给商家指定的达人</td>
+<td><strong>0% – 90%</strong></td>
+</tr>
+<tr>
+<td>定向计划</td>
+<td>在普通计划上给特定达人加佣</td>
+<td><strong>0% – 90%</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>群内「大部分都是 50%」= 撞到了<strong>普通计划的上限</strong>；想要更高（群友实收：卖 69.8 元拿 53.74 元 ≈ 77%），必须<strong>让商家给你单独开专属/定向计划</strong>——原话「你要选店铺，还要联系店家，给你专属链接」「要跟商家谈」。</li>
+<li>对照坑：有群友以为「微信店铺佣金都是 10%，一本书 53 最后自己拿 5.3」——<strong>平台没有 10% 的统一规定</strong>，那只是他遇到的商品佣金低（普通计划最低可到 1%）。<strong>选品先看佣金率，别只看书好不好卖。</strong></li>
+<li>结算细节（官方）：佣金按用户<strong>下单时</strong>的比例算；商品售后期结束、无退款争议后才结算；商家可随时下调佣金（下调次日 0 点生效）→ 要定期看后台。</li>
+</ul>
+<h3 id="32">3.2 「开店卖书」和「挂车带货」是两码事（别被资质吓退）</h3>
+<ul>
+<li><strong>只做达人挂车带货</strong>：<strong>不需要</strong>出版物经营许可证——资质由提供商品的商家持有。这是轻模式，也是我们该走的路径。</li>
+<li><strong>自己开小店卖书</strong>：图书类目<strong>必须</strong>提交《出版物经营许可证》（要营业执照、经营范围含出版物零售、经营场所在内），另加保证金、售后责任。</li>
+<li>群里马超说的「需要出版物经营许可证和预包装食品经营许可证」，指的是<strong>他自己开店</strong>的情形（开书店 + 卖食品）。</li>
+<li>结论：<strong>先做达人，不碰开店</strong>；真要开店再单独评估办证成本。
+  （平台规则会变，开户类目以「微信小店入驻指引 / 类目申请页」为准。）</li>
+</ul>
+<h2 id="_5">四、流量玩法（可直接抄的）</h2>
+<h3 id="1">1. 强冲突标题公式（叙事类，吃瓜转发型）</h3>
+<p>群里的爆款标题样例（照抄句式就行）：</p>
+<ul>
+<li>「武则天逆袭的真正底牌，不是美貌，是她妈」</li>
+<li>「武则天临终：狄仁杰你骗我好苦」</li>
+<li>「被骂汉奸三百年，真相却是…」</li>
+<li>「废皇帝如翻掌」</li>
+<li>「为何敌人要对一具尸骨下如此毒手？」</li>
+</ul>
+<p><strong>提炼结构</strong>：人物 + 身份反差 + 悬念词（真相／底牌／临终／为何…）。
+附加观察：<strong>「女性力量」这类情绪标签能反复打爆</strong>。
+（可与 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html">单样本对标卡V0.1</a> 的「情绪曲线」表配合使用。）</p>
+<h3 id="2">2. 爆款二创跟进法（低位跟爆款）</h3>
+<ul>
+<li>找<strong>刚爆起来、还在低位</strong>的视频，<strong>2 天内</strong>跟发二创，爆款大概率能再爆。</li>
+<li>群内原话：「爆过的东西还会爆」「高位基本上同质化严重」。</li>
+<li>案例：某读史记视频 9-21 晚发布，赞 4.1 万 / 藏 6.3 万 / 转 3.9 万 / 评 2003。</li>
+<li>前提：<strong>先建对标数据监控</strong>（见 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">选题对标与爆款监控（雪见群实战）</a>），否则找不到「低位爆款」。</li>
+<li>⚠️ 搬运/二创他人视频有侵权与原创判定风险，需做足够改造。</li>
+</ul>
+<h3 id="3">3. 争议钩子（能吃骂就是本事）</h3>
+<ul>
+<li>玩法：口播里<strong>故意留一个明显错误</strong>，引观众来纠正、来评论，拉互动与播放。</li>
+<li>群内实证：有人「一条视频爆了 60 多万播放，就是挨骂」。</li>
+<li>⚠️ 故意传播错误信息有被判违规、失去账号信任的风险，<strong>只能用在无伤大雅的细节上</strong>，不要用在史实硬核结论上（本项目讲人物故事，史实错误会反伤「化学老师」人设可信度）。</li>
+</ul>
+<h2 id="_6">五、多账号做号（矩阵起步）</h2>
+<ul>
+<li>同时维护第 2、第 3 个号；第一个号内容违规废了就直接注销重开。</li>
+<li>「大号也会被玩废」——批量试内容一定会踩线，所以<strong>不要单号押注</strong>。</li>
+<li>账号来源在群里被讨论过：家里人 / 公司同事身份 ⚠️（违反平台实名与多账号规则，封号风险高）。</li>
+<li>展开见 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">视频矩阵搭建与批量出片（雪见群实战）</a>。</li>
+</ul>
+<h2 id="_7">六、对「内容自动化」项目的可执行动作</h2>
+<ol>
+<li><strong>先确认本项目打算怎么挂小黄车</strong>：1000 粉门槛低，但橱窗要求「非 AI 视频」——我们的形态是 AI 生图，需要先摸清入口差异（<strong>待验证假设</strong>）。</li>
+<li><strong>标题模板立刻可迁移</strong>：把上面 5 个句式套到拉瓦锡/化学史人物上试写 10 条，交给对标卡打分。</li>
+<li><strong>「女性力量」类情绪标签</strong>可以试：居里夫人、门捷列夫的母亲一类母题（本项目讲化学史人物，天然有素材）。</li>
+<li><strong>建对标监控</strong>：没有数据监控就没有「低位爆款」，二创法用不起来。</li>
+</ol>
+<h2 id="ai-2026-09-29">七、数字人与 AI 内容风控（2026-09-29）</h2>
+<h3 id="71-20">7.1 个案：20 万粉的数字人号，被限流到废</h3>
+<ul>
+<li>群友「任我行」自述：25 年用<strong>数字人</strong>做的号，涨到 <strong>20 万粉</strong>，后来被平台<strong>减少推荐</strong>，<strong>申诉未通过</strong>，号废；此前变现到手约 <strong>2 万</strong>。</li>
+<li>群内判断：「数字人太假了」「没人看吧」「现在基本上都是真人出镜」。</li>
+<li>⚠️ 这是<strong>个案口述</strong>，不能说成「平台规定数字人必限流」；但它与官方治理方向一致（见 7.2）。</li>
+</ul>
+<h3 id="72-ai">7.2 替代做法：真人素材 + AI 处理（雪见给的路子）</h3>
+<ul>
+<li>原话：「<strong>或者自己拍个真人视频，然后丢给 AI 剪辑到视频里面</strong>」——即保留真人画面做底，用 AI 做剪辑/合成，比纯数字人形象安全。</li>
+<li>对我们的意义：本项目是 <strong>AI 生图 + 旁白叙事</strong>，不是数字人口播，踩的是「AI 生成内容」这一类（见 7.3），不是「数字人形象」这一类。方向可继续，但标识要做足。</li>
+</ul>
+<h3 id="73-ai">7.3 官方硬要求：AI 内容必须主动声明（可核验）</h3>
+<ul>
+<li>微信视频号《关于加强 AI 生成内容治理的公告》：2026 年 1 月至今平台清理 AI 生成合成违规内容 <strong>2 万余条</strong>、处置违规账号 <strong>3 千余个</strong>；发布 AI 相关视频需<strong>主动声明</strong>。</li>
+<li>入口：视频发表页 → 添加标注 → <strong>含AI生成内容</strong>；已发布的可从「转发按钮 → 视频标注/添加声明」补。</li>
+<li>国家层面《人工智能生成合成内容标识办法》（<strong>2025-09-01 已施行</strong>）+ 配套强制性国标 GB 45438-2025：分<strong>显式标识</strong>（用户看得见的角标/开头水印/配音提示）与<strong>隐式标识</strong>（文件元数据）；<strong>禁止删除、篡改、伪造、隐匿</strong>平台或工具写入的 AI 标识。</li>
+<li>我们内容里任何一帧是 AI 生成 → 发布时勾选 AI 声明；不要为了「更像真人」去抹标识（那才是真违规）。</li>
+<li>常见误解：「带 AI 标识会被限流」——<strong>没有官方依据</strong>，属传言；被打击的是<strong>未声明</strong>和<strong>低质/违规内容</strong>。</li>
+<li>相关：批量多号运营的风险见 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">06-视频矩阵搭建与批量出片（雪见群实战）</a>。</li>
+</ul>
+<h2 id="2026-09-30">八、低创作度与流量诊断（2026-09-30 新增）</h2>
+<h3 id="81-ai">8.1 「AI 自动化做多了 → 被判低创作度」</h3>
+<ul>
+<li>群友「枫茫」（公众号侧）：「现在机制有点恶心，容易<strong>低创作度</strong>，我这刚喜提一个低创」。</li>
+<li>群友「小java同学」（公众号教练，自称公众号变现 1w+）：<strong>「自动化高多了……就没流量了」</strong>；并说「七七 66 那个事情出来以后就几乎所有人都没流量了」。</li>
+<li>群内归因：<strong>文案产出太快</strong>（AI 出文案快、出视频慢）→ 平台侧识别为模板化/非真人创作。枫茫的判断：「主要看你的<strong>逻辑和赛道</strong>」，「做是依然可以做，就是要求更高了」。</li>
+<li>官方侧可核验依据（2026-09-30 查）：微信 2026-04 更新《微信公众平台运营规范》，新增<strong>「非真人自动化创作行为」</strong>专项条款——「反对完全由自动化程序替代真人完成内容生产」，工具可用但<strong>人必须在创作核心位置</strong>；视频号 2026-04 新规要求 AI 生成/辅助内容<strong>必须标注</strong>，否则限流下架。</li>
+<li>👉 对我们的意义：<strong>生产可以有 AI，但选题/观点/结构必须人拍板</strong>（与 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html">单条视频生产流程SOP</a> 的「人工闸门」一致）；<strong>批量自动发布</strong>是最快被判定的一条。</li>
+</ul>
+<h3 id="82-java">8.2 播放量诊断法（小java同学，一句话判因）</h3>
+<table>
+<thead>
+<tr>
+<th>播放量</th>
+<th>群内判断</th>
+<th>处置方向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>只有<strong>几十</strong></td>
+<td>大概率<strong>被限流</strong></td>
+<td>查违规/自查清单，见 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html">限流自查清单V1.1</a></td>
+</tr>
+<tr>
+<td><strong>几百</strong></td>
+<td>号没问题，是<strong>内容质量问题</strong></td>
+<td>改内容（画面/情绪/前三秒），别改账号</td>
+</tr>
+<tr>
+<td>明显高于平时</td>
+<td>内容对路</td>
+<td>立刻复用结构做二创跟进</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>群友「任我行」实证对照：流程全跑通但「流量有几百」「就差在流量上」→ 按上表 = 质量问题；他自己也归因为「视频画面太差」。</li>
+<li>交叉印证：青瓜传媒《视频号 2026 算法与限流》把「内容质量不佳」单列为限流三大原因之一（连续低质 → 系统判低权重号）。</li>
+<li>⚠️ 这是<strong>群内运营经验</strong>，平台未公开该阈值，只能当<strong>自查线索</strong>用。</li>
+</ul>
+<h3 id="83">8.3 变现顺序：公众号慢、视频号/短视频快</h3>
+<ul>
+<li>群友「Z君-雪见陪伴群」（在跑公众号 agent）：「公众号马上变现不太可能，视频号可以、短视频可以」。</li>
+<li>群友「小java同学」补：公众号的主要收益是<strong>流量主收益 + 引流私域</strong>，「橱窗带货不是主要的」（群里有人把公众号当带货橱窗用，方向搞反了）。</li>
+<li>群友「枫茫」：公众号「其实可以的，真的马上可以变现，<strong>3-4 天起号</strong>」——但前提是<strong>逻辑和赛道对</strong>。</li>
+<li>对照我们的项目（<a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html">内容自动化项目总纲</a>）：优先 <strong>视频号</strong>，公众号当<strong>私域承接</strong>用，不指望它直接变现。</li>
+</ul>
+<h2 id="_8">相关工具（群里同期提到的省钱信息）</h2>
+<ul>
+<li>豆包（免费会员 + 免费生图）、腾讯元宝 image 3.5 生图、阶跃星辰白嫖 75 天、阿里 Token Plan 9.9 元 / 30 亿 token。</li>
+<li>2026-09-29 新增：<strong>DeepSeek Harness 桌面端 v0.2</strong>（官方 Mac/Win 安装包，开箱即用），DeepSeek 账号登录可领<strong>限时 6 元体验赠金</strong>（10-06 前有效，赠完即止）。</li>
+<li>2026-09-30 新增：<strong>MiniMax 音色克隆</strong>（做旁白配音用），群内口径 9.9 元训一个音色 + 年费约 490 元，<strong>价格未核验</strong>；专页见 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">08-AI 配音与音色克隆（雪见群实战）</a>。</li>
+<li>2026-09-30 新增：<strong>NotebookLM 生成演示文稿</strong>（群友称 PPT 效果「行业天花板」，免费但有额度与「不能编辑」的限制）——做课件/汇报可用。</li>
+<li>2026-10-04 新增（配乐环节）：<strong>suno.com</strong>（正版；注意群里有人发过 <code>suno.hk</code> 是<strong>假站</strong>）做视频背景音乐——免费版每天 50 积分（约 10 首）但<strong>仅限个人非商用</strong>，<strong>带货视频属商用，需 Pro 约 $10/月</strong>（年付约 $8/月）；境外站点，需科学上网。</li>
+</ul>
+<h2 id="_9">风险清单（合规边界）</h2>
+<ul>
+<li>矩阵化多账号 + 批量发内容 → 平台「营销号/异常账号」判定风险。</li>
+<li>用他人身份注册账号 → 实名违规，风险最高。</li>
+<li>养生/保健类带货 → 直接封号（已有案例）。</li>
+<li>二创搬运 → 侵权与原创判定风险。</li>
+<li>故意发错误信息 → 违规 + 伤账号信任。</li>
+<li>抓取平台数据/评论 → 违反平台协议风险。</li>
+<li><strong>AI 生成内容未声明</strong> → 视频号在专项清理（2026 年至今处置违规账号 3 千余个），发布必勾「含AI生成内容」。</li>
+<li><strong>批量自动化生产/发布</strong> → 微信 2026-04《微信公众平台运营规范》新增「非真人自动化创作行为」条款；群内已有「自动化多了就没流量 / 喜提低创作度」的实证（见第八节）。</li>
+</ul>
+<h2 id="2026-10-03">2026-10-03 补充（运营细节 · 群内口述，未核实）</h2>
+<ul>
+<li><strong>单条时长档位</strong>（小java同学）：视频号单条做 <strong>10 分 01–09 秒</strong>，或 <strong>7 分钟左右</strong>。→ 运营经验，未核验。</li>
+<li><strong>数据差就隐藏</strong>（小java同学）：「<strong>2 天低于 500 播放的，就隐藏</strong>」（他新号期做法），与本页「流量诊断」的「几十=限流、几百=质量」自查逻辑同源。→ ⚠️ 未证实。</li>
+<li><strong>「5000 粉开通带货」又被提起</strong>（2026-10-03）：群里再次出现「5000 粉开通权限（带货）」的说法 —— 这是本页<strong>已证伪的旧说法</strong>（见下表：橱窗带货<strong>无粉丝数限制</strong>；短视频带货门槛是<strong>有效关注 1000 以上或微信小店自营账号</strong>；直播带货可<strong>0 粉</strong>起）。<strong>以官方为准，别按 5000 粉规划。</strong></li>
+</ul>
+<h2 id="2026-10-04">2026-10-04 补充（发布节奏与出图数量 · 群内口述，未核实）</h2>
+<ul>
+<li><strong>出图数量下限</strong>（小java同学）：「<strong>没 40 张左右 别发</strong>」「图片数量太少会同质化」。
+  → 一条片子的配图<strong>至少 ~40 张</strong>，低于这个量级容易被判同质化、不给量。
+  ⚠️ 与本项目现行参数「2000 字配 30–35 图」（见 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">06-视频矩阵搭建与批量出片（雪见群实战）</a>）相比<strong>要求更高</strong>，差一个档次 → 值得做一次对照实验。→ <strong>未证实（运营经验）</strong></li>
+<li><strong>单号发布节奏</strong>（小java同学）：<strong>同一个号两条视频间隔 ≥2 小时</strong>；一个号<strong>每天最多 5 条</strong>；<strong>1 个月内新注册的号每天最多 3 条</strong>。
+  → <strong>未证实</strong>（运营经验值，疑似平台软性限频/降权阈值；官方未公开）。</li>
+<li><strong>老号转型要先隐藏旧作品</strong>（尊嘟假嘟 ↔ 小java同学）：把老号拿来发<strong>新赛道</strong>内容前，<strong>先把历史作品隐藏</strong>——原话「我没改名字 也没隐藏之前的」→「之前的要隐藏」，且「名字无所谓」。
+  → 与其新号期「&lt;500 播放 2 天就隐藏」（见上节）同源；对我们是<strong>「用旧号起新号」时的动作项</strong>。→ <strong>未证实</strong>。</li>
+<li><strong>播放量诊断再确认</strong>：小java同学「<strong>500 是正常的</strong>」（=号没问题、内容待优化），「<strong>2、3、4（百）= 废了</strong>」——与第八节 8.2 表方向一致，作旁证。→ 未证实。</li>
+<li><strong>结果型个案（1 条，方法未完整披露）</strong>：群友「🎨流浪艺术」用<strong>老号重启做历史书带货</strong>，2026-09-23 起发 <strong>25 条</strong>，10-04 当天涨约 5000 粉、累计约 9000 粉；形态为<strong>纯 AI 生图 + 配乐 + 卡点切换</strong>（他自己称「纯生图」「opencv 弄的 gif 加进去」）。
+  → 与我方形态同路，但<strong>结果数字为自述、无基线</strong>，只作<strong>方向验证</strong>，不可当方法论照抄。</li>
+</ul>
+<h2 id="2026-10-05">2026-10-05 补充（发布细节与两条机制 · 群内口述，未核实）</h2>
+<ul>
+<li><strong>字幕要避开底部 UI（踩坑）</strong>（群友「霜哥carry」）：视频号发布后<strong>底部浮评/UI 会遮挡字幕</strong>（原话「我的发出来，遮住了」「把『视频号底部 UI 遮挡字幕』的教训写进 SKILL.md」）→ 出片时<strong>字幕整体上移、给底部留安全区</strong>。
+  ✅ 与通行做法一致（视频号底部有浮评条，文字须避让底部安全区）。</li>
+<li><strong>分享卡片顶部文案会被裁</strong>（霜哥 ↔ 小java同学）：自己分享出来「顶部文案看不到」→ 发布时要<strong>调好封面图/文案位置</strong>（分享卡片对顶部文字有裁切）。→ 制作要点，未证实。</li>
+<li><strong>点赞机制：大拇指 vs 红心</strong>（群友「启航」引述教练直播）：<strong>大拇指 ＝ 私密赞</strong>（只有创作者本人可见，主要用于兴趣推荐/收藏）；<strong>红心 ＝ 公开赞</strong>（点赞即推荐，微信好友可见）→ 引导互动时<strong>要「红心」不要「大拇指」</strong>，才借得到好友扩散。
+  ✅ 与公开资料一致（见核验记录）。</li>
+<li><strong>播放诊断补充</strong>（小java同学）：「<strong>前 5 个小时能达到 500 就达标了</strong>」→ 与本页 8.2「几百 ＝ 内容质量」同源，可作<strong>发布后 5 小时的快速自查线</strong>。⚠️ 未证实。</li>
+</ul>
+<h2 id="2026-10-06">2026-10-06 补充（开橱窗时机与两条变现风向 · 群内口述，未核实）</h2>
+<ul>
+<li><strong>开橱窗要「等爆款」，别提前开</strong>（小java同学）：「<strong>有视频爆 就开橱窗承接</strong>」「把初始带货权重拉起来」；「<strong>没有爆的视频不要开</strong>」「<strong>没准备好带货视频不要开</strong>」。
+  → 讲的是<strong>开橱窗的时机</strong>（不是门槛）：先有能承接流量的爆款、备好带货视频，再开。⚠️ <strong>未证实</strong>（运营经验）。
+  ⚠️ 勿与已被证伪的「5000 粉开通带货」混淆 —— 官方<strong>橱窗无粉丝数限制</strong>（见核验记录）。</li>
+<li><strong>播放 → 佣金量级（个案）</strong>（小java同学同日）：「<strong>2000 播放，能达到佣金 100</strong>」 → 作橱窗承接的收益参考；<strong>个案、无基线，勿当基准</strong>。</li>
+<li><strong>「5000 粉开通带货」再次出现</strong>（22:27 群内问答）：仍属本页<strong>已证伪的旧误传</strong>（官方：橱窗无粉丝限制 / 短视频带货 1000 有效粉或微信小店自营 / 直播可 0 粉）→ <strong>以官方为准，别按 5000 粉规划</strong>。</li>
+<li><strong>两条变现风向（各 1 条结果型，群友口述，未证实）</strong>：
+  ① <strong>抖音</strong>走「<strong>AI 博主赛道</strong>」、靠<strong>创作者分成</strong>变现（尊嘟假嘟）；
+  ② <strong>公众号</strong>用 AI 写文章赚流量主（小java同学：<strong>675 播放 ≈ 11 元</strong>；单篇 <strong>2 万播放 ≈ 1900 元</strong>，选题靠「<strong>监控群聊热点 → 发相关文章</strong>」）。
+  → 对本项目：视频号仍是主线，这两条只作<strong>「同一内容多平台分发」的方向参考</strong>，不改变变现主次（对照第 8.3 节「视频号快、公众号当私域」）。</li>
+</ul>
+<h2 id="2026-09-29-2026-09-30">核验记录（2026-09-29 首核 · 2026-09-30 补充核验）</h2>
+<table>
+<thead>
+<tr>
+<th>群内说法</th>
+<th>核验结果</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「视频带货」1000 粉开通</td>
+<td>官方：短视频带货需<strong>超过 1000 有效粉丝</strong></td>
+<td>✅ 一致（注意是「有效粉丝」）</td>
+</tr>
+<tr>
+<td>橱窗约需 5000 粉</td>
+<td>官方《微信视频号带货账号体系》：橱窗带货<strong>无粉丝数限制</strong></td>
+<td>❌ <strong>与官方冲突——群里这条说错了</strong></td>
+</tr>
+<tr>
+<td>橱窗要发「原创、非 AI 视频」才过</td>
+<td>未找到该规则（官方限制的是 AI 数字人/虚拟形象<strong>直播</strong>带货）</td>
+<td>⚠️ <strong>未证实</strong></td>
+</tr>
+<tr>
+<td>发 6 个视频 + 1 自拍开通带货</td>
+<td>官方口径：实名 + 有效关注 1000 以上 + 公开发表视频<strong>不少于 10 条</strong></td>
+<td>⚠️ 数字不一致，以官方为准</td>
+</tr>
+<tr>
+<td>图书带货佣金约 50%</td>
+<td>官方《微信小店优选联盟计佣与结算规则》：达人<strong>普通计划</strong>佣金区间 <strong>1%–50%</strong></td>
+<td>✅ 一致（50% 是普通计划<strong>上限</strong>，非固定值）</td>
+</tr>
+<tr>
+<td>「微信店铺佣金都是 10%」（2026-09-29 群友）</td>
+<td>官方无此类统一规定；佣金由商家按商品逐条设置（普通计划 1%–50%，专属/定向 0%–90%）</td>
+<td>❌ <strong>与官方冲突</strong></td>
+</tr>
+<tr>
+<td>卖 69.8 元拿 53.74 元（≈77%）</td>
+<td>落在<strong>专属/定向计划（0%–90%）</strong>区间内，需商家单独设计划——与「要跟商家谈」的说法吻合</td>
+<td>✅ 机制可信（个案数字未复核）</td>
+</tr>
+<tr>
+<td>卖书要《出版物经营许可证》（2026-09-29 马超）</td>
+<td>官方：微信小店/视频号橱窗<strong>销售</strong>图书类目需《出版物经营许可证》——<strong>商家侧</strong>要求；只做达人挂车带货不需自办</td>
+<td>✅ 部分一致（限「自己开店卖书」）</td>
+</tr>
+<tr>
+<td>20 万粉数字人号被减少推荐 → 废号（2026-09-29）</td>
+<td>官方无「数字人=限流」条款；但视频号《AI 生成内容治理公告》确在专项清理 AI 违规内容</td>
+<td>⚠️ 个案未证实，方向与官方治理一致</td>
+</tr>
+<tr>
+<td>AI 生成内容需主动声明</td>
+<td>视频号官方公告 + 《AI 生成合成内容标识办法》第 10 条：发布者应主动声明并用平台标识功能</td>
+<td>✅ 一致（<strong>硬要求</strong>）</td>
+</tr>
+<tr>
+<td>新号有推流机制、别养号</td>
+<td>平台未公开推流机制，无法核验</td>
+<td>⚠️ 未核验（运营经验）</td>
+</tr>
+<tr>
+<td>「AI 自动化做多了会被判低创作度 / 没流量」（2026-09-30 枫茫、小java同学）</td>
+<td>微信 2026-04《微信公众平台运营规范》确有新增「<strong>非真人自动化创作行为</strong>」专项条款（反对全自动化替代真人）；但未公开具体扣分阈值</td>
+<td>✅ 方向一致（阈值⚠️ 未证实）</td>
+</tr>
+<tr>
+<td>播放量「几十=限流、几百=质量」（2026-09-30 小java同学）</td>
+<td>官方未公开该阈值；青瓜传媒《视频号 2026 算法与限流》把「内容质量不佳」列为限流三大原因之一</td>
+<td>⚠️ 未证实（可作自查线索）</td>
+</tr>
+<tr>
+<td>「公众号马上变现难，视频号/短视频可以」（2026-09-30 Z君/枫茫）</td>
+<td>无官方口径；属运营经验（公众号变现依赖流量主 eCPM + 私域引流）</td>
+<td>⚠️ 未核验（运营经验）</td>
+</tr>
+<tr>
+<td>单条时长做 10 分 01–09 秒 / 7 分钟左右（2026-10-03 小java同学）</td>
+<td>官方未公开时长偏好</td>
+<td>⚠️ 未证实（运营经验）</td>
+</tr>
+<tr>
+<td>「2 天低于 500 播放就隐藏」（2026-10-03 小java同学）</td>
+<td>官方未公开该阈值</td>
+<td>⚠️ 未证实（可作自查线索）</td>
+</tr>
+<tr>
+<td>「5000 粉开通带货」再次出现（2026-10-03）</td>
+<td>官方：橱窗无粉丝限制 / 短视频带货 1000 有效粉或微信小店自营 / 直播可 0 粉</td>
+<td>❌ 与官方冲突（重复旧误传）</td>
+</tr>
+<tr>
+<td>出图「没 40 张左右别发，少会同质化」（2026-10-04 小java同学）</td>
+<td>官方未公开图片数量要求；属去同质化的运营经验</td>
+<td>⚠️ 未证实（可作实验参数）</td>
+</tr>
+<tr>
+<td>「同号两片间隔 ≥2 小时 / 每天最多 5 条 / 新号（1 个月内）每天最多 3 条」（2026-10-04 小java同学）</td>
+<td>官方未公开该限频数字</td>
+<td>⚠️ 未证实（运营经验值）</td>
+</tr>
+<tr>
+<td>老号发新赛道前要隐藏旧作品（2026-10-04 群内）</td>
+<td>官方未公开说法；与其「低播放就隐藏」的做法同源</td>
+<td>⚠️ 未证实（可作自查线索）</td>
+</tr>
+<tr>
+<td>老号纯 AI 生图 25 条做到约 9000 粉（2026-10-04 🎨流浪艺术自述）</td>
+<td>结果型信息、无基线，无法核验</td>
+<td>⚠️ 未证实（仅作方向验证）</td>
+</tr>
+<tr>
+<td>视频号「大拇指 ＝ 私密赞 / 红心 ＝ 公开推荐」</td>
+<td>公开资料多源一致（搜狐/知乎/腾讯新闻），微信《隐私保护指引》亦提「爱心赞」为推荐给朋友的方式</td>
+<td>✅ 一致（机制）</td>
+</tr>
+<tr>
+<td>「前 5 小时达 500 播放算达标」（2026-10-05 小java同学）</td>
+<td>官方未公开该阈值</td>
+<td>⚠️ 未证实（自查线索）</td>
+</tr>
+<tr>
+<td>字幕被底部 UI 遮挡 / 分享卡片顶部文案被裁（2026-10-05 霜哥）</td>
+<td>视频号底部有浮评条、分享卡片会裁切文字，属通行制作常识</td>
+<td>✅ 方向一致（制作要点）</td>
+</tr>
+<tr>
+<td>开橱窗时机：有爆款再开、没爆款/没备好带货视频别开（2026-10-06 小java同学）</td>
+<td>平台未公开「何时开橱窗」规则；属「先出爆款再承接」的运营经验</td>
+<td>⚠️ 未证实（运营经验）</td>
+</tr>
+<tr>
+<td>「2000 播放 ≈ 佣金 100」（2026-10-06 小java同学）</td>
+<td>个案数字、无基线，无法核验</td>
+<td>⚠️ 未证实（收益量级参考）</td>
+</tr>
+<tr>
+<td>「5000 粉开通带货」再次出现（2026-10-06）</td>
+<td>官方：橱窗无粉丝限制 / 短视频带货 1000 有效粉或微信小店自营 / 直播 0 粉</td>
+<td>❌ 与官方冲突（重复旧误传）</td>
+</tr>
+<tr>
+<td>抖音「AI 博主赛道」创作者分成 / 公众号 AI 写文章赚流量主（2026-10-06 尊嘟假嘟、小java同学）</td>
+<td>抖音创作者分成、公众号流量主均为平台既有机制；「AI 写文章」的收益数字为个案、未复核</td>
+<td>⚠️ 未证实（方向参考）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>核验来源</strong>：微信视频号官方支持页《微信视频号带货账号体系》、微信视频创作安全中心《关于加强 AI 生成内容治理的公告》、《微信小店优选联盟计佣与结算规则》（青瓜传媒/友望数据转载官方条文）、《微信小店图书类目管理规则》、腾讯营销《微信小店 FAQ》、《微信公众平台运营规范》（2026-04 修订，经 AI 检测专题站转载）、青瓜传媒《视频号 2026 最新算法、违规限流、违禁词及解决方法》、国家《人工智能生成合成内容标识办法》+ GB 45438-2025、智东西对 DeepSeek Harness v0.2 的报道。
+<strong>核验日期</strong>：2026-09-29 / 2026-09-30 首核；2026-10-03 增补（时长与隐藏阈值为运营经验；再次纠正「5000 粉」误传）；2026-10-04 增补（发布节奏与出图数量阈值为运营经验，官方未公开）；2026-10-06 增补（发布细节：字幕避让底部 UI、分享卡顶部裁切、大拇指/红心点赞机制、前 5h 500 达标）；2026-10-07 增补（开橱窗时机、播放→佣金量级为运营经验；第三次纠正「5000 粉」；两条变现风向属方向参考）（平台规则会变，超 3 个月须复核）。</p>
+<p><strong>结论</strong>：本篇的<strong>运营思路（起号节奏、标题公式、二创时机）可参考</strong>；
+但<strong>门槛/佣金/内容要求这类「硬数字」不要照抄</strong>——其中至少一条已被证伪。</p></article>
+</main></div></body></html>

@@ -1,0 +1,1191 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · 04-输出成果/侯德榜_脚本和分镜_V4_定稿.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-10 23:45</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html" class="">AI生图提示词规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html" class=" on">侯德榜_脚本和分镜_V4_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">门捷列夫_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_策划卡V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_脚本分镜V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html" class="">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class="">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html" class="">19-人物类视频发布前检查清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html" class="">20-两条视频共性问题与解决方案</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">21-人物故事策划分析卡模板V1（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html" class="">22-脚本分镜前置写作规则</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / 04-输出成果/侯德榜_脚本和分镜_V4_定稿</div>
+<article><blockquote>
+<p>🔒 <strong>已冻结（2026-10-10）</strong>
+- <strong>底稿</strong>：《侯德榜_人物故事策划分析卡（Hy2.0 正文版）》
+- <strong>规格</strong>：57 镜 / 592.5 秒（9分52秒）/ 配音语速 4.6 字/秒
+- <strong>质检结论</strong>：程序核对<strong>全过</strong> —— 编号 1–57 连续｜逐镜相加 592.5 = 头部标注｜无超速镜｜断行 283 行（平均 9.4 字/行、最长 15 字、超 15 字 0 行）｜字幕＝旁白逐字一致｜五条「保持不动」项守住
+- <strong>本版改动</strong>：硬约束改为新【文字口径】（叠字只做旁白、带字物件不做主体）＋ 删除「画面内叠字清单」章
+- ⚠️ <strong>遗留（留给生图提示词站）</strong>：硬约束说"带字物件不当主体"，但镜 4/5/20/27/32/37/38/39/47/49 的画面点仍写着"XX特写" → 写提示词时按硬约束处理（拍动作/远景，别拍字）
+- ⚠️ <strong>文档自身笔误</strong>：页眉曾写"V3"（内容已是 V4）→ 2026-10-10 整理时已修正为 V4
+- <strong>下游</strong>：生图提示词站
+- <strong>相关</strong>：<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html">脚本分镜前置写作规则</a> · <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html">各站验收表V1</a> · <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a> · <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html">生产线SOP-V2</a> · <span class="wl">选题池</span></p>
+</blockquote>
+<hr />
+<h1 id="chemistry-biography-series-04">CHEMISTRY · BIOGRAPHY · SERIES 04</h1>
+<h1 id="v4">侯德榜 · 视频脚本 + 分镜表 · V4</h1>
+<p>【化学历史人物系列】第 4 期</p>
+<p>底稿：《侯德榜_人物故事策划分析卡（Hy2.0 正文版）》
+<strong>57 镜 / 总时长 592.5 秒（约 9 分 52 秒）/ 配音语速基准 4.6 字/秒（不含标点）</strong></p>
+<hr />
+<h2 id="_1">目录</h2>
+<p>〇、人物与风格锚点（生图一致性约束）
+一、脚本（旁白 + 字幕断行 + 画面点）
+二、分镜表
+三、换图逻辑说明
+四、发布侧叠加清单
+五、断行质检（程序核对）</p>
+<hr />
+<h2 id="_2">〇、人物与风格锚点（生图一致性约束）</h2>
+<p><strong>侯德榜（中年，31–57岁）</strong>：中国民国学者，身材偏瘦，面容清矍，短发后梳，戴细框圆眼镜，常穿深色长衫或西装马甲，神态坚毅沉稳，绘画感写实插画风——镜 2–9、11–23、25–33、35、41–46、48–54、56 复用同一描述</p>
+<p><strong>侯德榜（晚年，84岁）</strong>：白发稀疏，面容慈祥但眼神坚毅，深色中山装——镜 56</p>
+<p><strong>范旭东</strong>：民国实业家，戴圆框眼镜，面容儒雅，穿深色长衫或西装，气质果决——镜 12、14、17、19–20</p>
+<p><strong>谢为杰</strong>：永利技师长，中年男性，短发，穿工装或衬衫，手持图纸神情专注——镜 44</p>
+<p><strong>赵如晏</strong>：永利技师，中年男性，短发，穿工装，与谢为杰搭档核对设备——镜 44</p>
+<p><strong>日方代表（群体）</strong>：西装，面部不做具体刻画，以剪影或侧影出现，不丑化——镜 6、19、36、45</p>
+<p><strong>盟军总部官员（群体）</strong>：美军制服，以剪影或背影出现——镜 42、47</p>
+<p><strong>整体画风</strong>：绘画感写实插画（沿用拉瓦锡／诺贝尔／门捷列夫期）；冷灰青＝压抑／冲突／战争，暖黄＝情感／回忆，暖金＝成就／揭晓／兑现主峰</p>
+<p><strong>硬约束</strong>：叠字层只做底部旁白字幕。画面里的文字一律不追求准确、不做叠加——生图该怎么画就怎么画。唯一底线：带字的物件（报纸／信件／文件／书籍／图纸／元素表／牌匾／证书）不当画面的主体或大特写；当背景、远景、虚化都可以。不出现伤亡、遗体画面；日方人员不设具体姓名、不做丑化；铂金网不标注金额</p>
+<hr />
+<h2 id="_3">一、脚本（旁白 + 字幕断行 + 画面点）</h2>
+<h3 id="00000390">第一幕 · 开场钩子（0:00.0–0:39.0）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>时长</th>
+<th>旁白原文</th>
+<th>字幕断行（定稿）</th>
+<th>画面点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2.5s</td>
+<td>1947年7月7日，东京。</td>
+<td>1947年7月7日，东京。</td>
+<td>黑场渐入：1947年东京街景，战后废墟与美军吉普交错，灰蓝色调。画面中央叠加日期</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10.0s</td>
+<td>十年前的这一天，卢沟桥的枪声响了。十年后的这一天，一个五十七岁的中国工程师走进了驻日盟军总司令部。</td>
+<td>十年前的这一天，／卢沟桥的枪声响了。／十年后的这一天，／一个五十七岁的／中国工程师走进了／驻日盟军总司令部。</td>
+<td>左右分屏：左半1937年卢沟桥历史影像（石狮子、桥面），右半1947年57岁男子背影走向驻日盟军总司令部大门</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4.0s</td>
+<td>他不是来参加纪念活动的。他是来讨东西的。</td>
+<td>他不是来参加纪念活动的。／他是来讨东西的。</td>
+<td>男子背影停在司令部大门前，门卫持枪站立。画面闪黑，白字打出</td>
+</tr>
+<tr>
+<td>4</td>
+<td>12.5s</td>
+<td>一千四百八十二件，五百五十吨。一套硝酸生产设备。十年前，它装在南京长江边的一座工厂里；战争期间，日本人把它整个拆走，运回了日本。</td>
+<td>一千四百八十二件，／五百五十吨。／一套硝酸生产设备。／十年前，它装在／南京长江边的一座工厂里；／战争期间，日本人把它整个拆走，／运回了日本。</td>
+<td>快切：老旧设备清单上数字被钢笔圈出→重量字样→南京长江边永利铔厂全景（动态化）→设备被拆解吊装上船的剪影动画</td>
+</tr>
+<tr>
+<td>5</td>
+<td>10.0s</td>
+<td>据说，为了这一趟，他带上了工厂当年的设计图纸，还准备了一份详细的设备清单，细到连一颗螺丝钉都没有落下。</td>
+<td>据说，为了这一趟，／他带上了工厂当年的设计图纸，还／准备了一份详细的设备清单，／细到连一颗螺丝钉都没有落下。</td>
+<td>男子手中一叠泛黄图纸，封面有工厂名称；手指翻到清单页，密密麻麻的条目，镜头推近清单细节</td>
+</tr>
+</tbody>
+</table>
+<h3 id="03901205">第二幕 · 第一个交锋（0:39.0–1:20.5）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>时长</th>
+<th>旁白原文</th>
+<th>字幕断行（定稿）</th>
+<th>画面点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>9.0s</td>
+<td>日方先摆出了条件：设备已经装进我们的工厂，只能在原地给你们，后来我们换上去的配件，不能拆。</td>
+<td>日方先摆出了条件：／设备已经装进我们的工厂，／只能在原地给你们，／后来我们换上去的配件，不能拆。</td>
+<td>谈判桌两侧侧面构图：日方代表（西装群体剪影）递出文件；对面侯德榜侧面剪影不动。桌面台灯打光，冷调</td>
+</tr>
+<tr>
+<td>7</td>
+<td>17.0s</td>
+<td>侯德榜不认。他的说法是：日本拆走我们一辆汽车的时候，那辆车是能开的；不管他们后来换过轮胎还是别的什么零件，还回来的时候，也得是一辆能开的汽车。还一堆散件回来，我要它做什么。</td>
+<td>侯德榜不认。／他的说法是：／日本拆走我们一辆汽车的时候，／那辆车是能开的；／不管他们后来换过轮胎，／还是别的什么零件，／还回来的时候，也得是／一辆能开的汽车。／还一堆散件回来，／我要它做什么。</td>
+<td>侯德榜侧面近景→插入老式汽车被吊上船历史影像→同一辆车被拆解成零件散落的动画→回到侯德榜特写，眼神坚定</td>
+</tr>
+<tr>
+<td>8</td>
+<td>6.0s</td>
+<td>这话讲得很硬。但1947年的东京，没有人因为话讲得硬就点头。</td>
+<td>这话讲得很硬。／但1947年的东京，／没有人因为话讲得硬就点头。</td>
+<td>谈判室全景，窗外1947年东京废墟远景。侯德榜独自坐在长桌一端，对面空椅。人物显得很小</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9.5s</td>
+<td>他叫侯德榜。要明白这堆钢铁为什么值得一个五十七岁的人漂洋过海来讨，得把时间往回拨二十六年。</td>
+<td>他叫侯德榜。／要明白这堆钢铁为什么值得／一个五十七岁的人漂洋过海来讨，／得把时间往回拨二十六年。</td>
+<td>侯德榜正脸特写（第一次露脸），苍老但眼神锐利→画面渐黑，白字打出人名→时间线从1947往回倒，停在1921</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12052545">第三幕 · 回溯：碱（1:20.5–2:54.5）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>时长</th>
+<th>旁白原文</th>
+<th>字幕断行（定稿）</th>
+<th>画面点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>22.0s</td>
+<td>1921年的中国，连碱都造不出来。肥皂、玻璃、造纸、纺织，样样都离不开纯碱，可中国人用的碱全靠进口，英国人管它叫“洋碱”，价格说涨就涨。制碱的核心技术——索尔维法——被西方几家公司攥了七十多年，每一道工序都严格保密，外人连车间门都进不去。</td>
+<td>1921年的中国，连碱都造不出来。／肥皂、玻璃、造纸、纺织，／样样都离不开纯碱，／可中国人用的碱全靠进口，／英国人管它叫“洋碱”，／价格说涨就涨。／制碱的核心技术——／索尔维法——被西方几家公司／攥了七十多年，／每一道工序都严格保密，／外人连车间门都进不去。</td>
+<td>蒙太奇快切：1920年代中国街景洋碱招牌→家庭主妇掂量碱块皱眉→西方工厂巨大反应釜蒸汽弥漫→保密文件盖绝密章</td>
+</tr>
+<tr>
+<td>11</td>
+<td>8.0s</td>
+<td>那一年，侯德榜在哥伦比亚大学拿到了化学博士学位。答辩一结束，他就上了回国的船。</td>
+<td>那一年，侯德榜在哥伦比亚大学／拿到了化学博士学位。／答辩一结束，他就上了回国的船。</td>
+<td>哥伦比亚大学校园（历史照片动态化），侯德榜穿博士服手持文凭，转身走向码头；背景纽约港口轮船</td>
+</tr>
+<tr>
+<td>12</td>
+<td>7.0s</td>
+<td>请他回来的人叫范旭东，一个想在天津塘沽建中国人自己的碱厂的实业家。</td>
+<td>请他回来的人叫范旭东，／一个想在天津塘沽建／中国人自己的碱厂的实业家。</td>
+<td>天津塘沽海边，范旭东（戴眼镜实业家形象）与侯德榜并肩站在空地上，远处盐碱滩。两人指着地面讨论</td>
+</tr>
+<tr>
+<td>13</td>
+<td>13.0s</td>
+<td>塘沽的厂里没有技术资料，没有懂行的师傅，只有一堆从美国买回来的二手设备。侯德榜带着人在车间里泡了五年，一次一次地试，一次一次地改。</td>
+<td>塘沽的厂里没有技术资料，／没有懂行的师傅，／只有一堆从美国买回来的二手设备。／侯德榜带着人在车间里泡了五年，／一次一次地试，／一次一次地改。</td>
+<td>塘沽碱厂车间内：侯德榜穿工装蹲在二手设备旁检查管道→工人围看图纸→试验失败废液溢出→侯德榜擦汗继续调阀门。角落日历翻页表现五年流逝</td>
+</tr>
+<tr>
+<td>14</td>
+<td>15.0s</td>
+<td>1926年6月，第一批雪白的纯碱下了生产线。范旭东给它起了个商标，叫“红三角”。两个月后，这包来自中国的白色粉末出现在美国费城万国博览会上，拿了金质奖章。</td>
+<td>1926年6月，第一批雪白的纯碱／下了生产线。／范旭东给它起了个商标，叫“红三角”。／两个月后，这包来自中国的白色粉末／出现在美国费城万国博览会上，／拿了金质奖章。</td>
+<td>特写：雪白纯碱粉末从生产线流出，工人用手捧起→产品包装红色三角形商标→费城万国博览会中国展台人群围观→金质奖章特写</td>
+</tr>
+<tr>
+<td>15</td>
+<td>19.0s</td>
+<td>碱做出来了。侯德榜接着做的一件事，当时很多人不理解。1933年，他用英文写了一本书，叫《纯碱制造》，把索尔维法从头到尾、一道工序一道工序地全写了出来，在纽约出版。被垄断了七十年的技术，就这么摊开了。</td>
+<td>碱做出来了。／侯德榜接着做的一件事，／当时很多人不理解。／1933年，他用英文写了一本书，／叫《纯碱制造》，／把索尔维法从头到尾、／一道工序一道工序地全写了出来，／在纽约出版。／被垄断了七十年的技术，／就这么摊开了。</td>
+<td>侯德榜书桌前写作，台灯下堆满手稿→英文书稿封面→书页翻动详细工艺流程图→纽约出版社大楼外景</td>
+</tr>
+<tr>
+<td>16</td>
+<td>10.0s</td>
+<td>后来有人问他为什么不申请专利、不卖给外国公司。他说，我是被人卡过脖子的人，不想让后来的人再受这个罪。</td>
+<td>后来有人问他为什么不申请专利、／不卖给外国公司。／他说，我是被人卡过脖子的人，／不想让后来的人再受这个罪。</td>
+<td>侯德榜坐在书桌前望向窗外。画面叠化：一只手把专利证书推开</td>
+</tr>
+</tbody>
+</table>
+<h3 id="25454225">第四幕 · 铔厂与战火（2:54.5–4:22.5）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>时长</th>
+<th>旁白原文</th>
+<th>字幕断行（定稿）</th>
+<th>画面点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>17</td>
+<td>22.0s</td>
+<td>碱有了，下一个缺口是化肥和硝酸。1934年，范旭东和侯德榜在南京江北的长江边开始建永利铔厂。1937年2月，这座厂投产，中国第一包自己生产的化肥在这里下线。它能同时生产合成氨、硝酸、硫酸和化肥，当时被人称作“远东第一大厂”。</td>
+<td>碱有了，下一个缺口是化肥和硝酸。／1934年，范旭东和侯德榜／在南京江北的长江边／开始建永利铔厂。／1937年2月，这座厂投产，／中国第一包自己生产的化肥／在这里下线。／它能同时生产合成氨、硝酸、／硫酸和化肥，／当时被人称作“远东第一大厂”。</td>
+<td>南京江北长江边永利铔厂建设工地（动画复原）塔吊林立→1937年2月投产仪式第一包化肥下线工人欢呼→厂区全景巨大硝酸塔矗立长江边</td>
+</tr>
+<tr>
+<td>18</td>
+<td>2.0s</td>
+<td>半年后，七七事变爆发。</td>
+<td>半年后，七七事变爆发。</td>
+<td>日历翻到1937年7月7日，画面骤然变冷</td>
+</tr>
+<tr>
+<td>19</td>
+<td>10.0s</td>
+<td>硝酸是造炸药的核心原料。日本人很快就找上门来，先派人谈合作：只要答应合作，工厂安全、利润分成，都好商量。</td>
+<td>硝酸是造炸药的核心原料。／日本人很快就找上门来，／先派人谈合作：／只要答应合作，／工厂安全、利润分成，都好商量。</td>
+<td>日方代表（剪影）走进永利办公室，把合作协议放在桌上；范旭东和侯德榜坐在对面表情凝重</td>
+</tr>
+<tr>
+<td>20</td>
+<td>7.5s</td>
+<td>范旭东回了七个字：“宁举丧，不受奠仪。”宁可给工厂开追悼会，也绝不收侵略者的奠仪。</td>
+<td>范旭东回了七个字：／“宁举丧，不受奠仪。”／宁可给工厂开追悼会，／也绝不收侵略者的奠仪。</td>
+<td>范旭东的手拿起笔，在纸上写下七个字。镜头慢慢推近这七个字</td>
+</tr>
+<tr>
+<td>21</td>
+<td>11.5s</td>
+<td>谈不拢就炸。1937年8月到10月，日军飞机三次轰炸永利铔厂，投下八十七枚炸弹。一座开工才半年的工厂，被炸成了废墟。</td>
+<td>谈不拢就炸。／1937年8月到10月，／日军飞机三次轰炸永利铔厂，／投下八十七枚炸弹。／一座开工才半年的工厂，／被炸成了废墟。</td>
+<td>快切：日军飞机编队飞临南京（历史影像）→炸弹落下动画示意→永利铔厂被炸火光冲天→废墟中数字叠加</td>
+</tr>
+<tr>
+<td>22</td>
+<td>21.5s</td>
+<td>侯德榜没有走。他组织工人把能拆的设备拆下来，能搬的全部搬走；搬不动的大型设备，拆掉关键仪表，沉进长江——宁可沉在江底，也不留给日本人。图纸分成两路，一部分当场烧掉，一部分由工程师贴身带着，经香港、武汉、长沙，辗转千里带到了四川。</td>
+<td>侯德榜没有走。／他组织工人把能拆的设备拆下来，／能搬的全部搬走；／搬不动的大型设备，拆掉关键仪表，／沉进长江——宁可沉在江底，／也不留给日本人。／图纸分成两路，／一部分当场烧掉，／一部分由工程师贴身带着，／经香港、武汉、长沙，／辗转千里带到了四川。</td>
+<td>手持跟拍：侯德榜指挥工人拆卸设备→大型设备仪表拆下投入长江水花→图纸分两包，一包投入火中，一包贴身藏入→地图动画南京→香港→武汉→长沙→四川路线</td>
+</tr>
+<tr>
+<td>23</td>
+<td>10.5s</td>
+<td>南京沦陷前，侯德榜是最后一批撤离的。有人记得，那天下着雨，他站在船头望着岸上被炸毁的厂房，站了很久，全身湿透。</td>
+<td>南京沦陷前，／侯德榜是最后一批撤离的。／有人记得，那天下着雨，／他站在船头望着岸上／被炸毁的厂房，／站了很久，全身湿透。</td>
+<td>长江边雨天远景：一艘船驶离码头，侯德榜站在船头全身湿透，望着岸上废墟。镜头慢慢拉远，船越来越小，雨越来越大</td>
+</tr>
+<tr>
+<td>24</td>
+<td>3.0s</td>
+<td>工厂没了。但人还在，图纸还在。</td>
+<td>工厂没了。／但人还在，图纸还在。</td>
+<td>黑场，白字逐行出现</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42255525">第五幕 · 四川与侯氏法（4:22.5–5:52.5）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>时长</th>
+<th>旁白原文</th>
+<th>字幕断行（定稿）</th>
+<th>画面点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25</td>
+<td>12.0s</td>
+<td>四川给了他们一道新题。那里用的是井盐，从地下几千米抽上来的卤水，浓度低、价钱贵。索尔维法只能把盐用掉七成，在四川根本划不来。</td>
+<td>四川给了他们一道新题。／那里用的是井盐，／从地下几千米抽上来的卤水，／浓度低、价钱贵。／索尔维法只能把盐用掉七成，／在四川根本划不来。</td>
+<td>四川山区盐井架矗立，工人抽取卤水→工人皱眉看计量表→动画示意索尔维法流程，盐只用70%，剩余30%废液排出</td>
+</tr>
+<tr>
+<td>26</td>
+<td>8.5s</td>
+<td>当时德国有一种察安法，食盐利用率能到百分之九十六。1938年，侯德榜带队去了柏林。</td>
+<td>当时德国有一种察安法，／食盐利用率能到百分之九十六。／1938年，侯德榜带队去了柏林。</td>
+<td>德国柏林，侯德榜一行走进写字楼；德方代表递出专利文件，上面有工艺名称和利用率数字</td>
+</tr>
+<tr>
+<td>27</td>
+<td>15.0s</td>
+<td>德方开价很高，还加了一条：用这套专利生产出来的碱，不准在中国东北三省出售。那时候东北已经被日本人占了。这一条，等于当面不承认东北是中国的。谈判当场中止。</td>
+<td>德方开价很高，还加了一条：／用这套专利生产出来的碱，／不准在中国东北三省出售。／那时候东北已经被日本人占了。／这一条，等于当面不承认／东北是中国的。／谈判当场中止。</td>
+<td>正反打：德方代表手指合同条款→条款特写禁售内容红色下划线→侯德榜脸色骤变合上合同→谈判桌全景侯德榜起身离开</td>
+</tr>
+<tr>
+<td>28</td>
+<td>9.5s</td>
+<td>离开德国的时候，侯德榜说：难道黄头发绿眼珠的人能搞出来的东西，我们黑头发黑眼珠的人就搞不出来？</td>
+<td>离开德国的时候，侯德榜说：／难道黄头发绿眼珠的人／能搞出来的东西，／我们黑头发黑眼珠的人就搞不出来？</td>
+<td>侯德榜走出柏林写字楼站在街头背影。画面叠化中国地图上东北位置标红</td>
+</tr>
+<tr>
+<td>29</td>
+<td>1.5s</td>
+<td>回来自己搞。</td>
+<td>回来自己搞。</td>
+<td>黑场，四个大字</td>
+</tr>
+<tr>
+<td>30</td>
+<td>11.5s</td>
+<td>抗战打得最苦的那几年，实验室设在香港，侯德榜人在纽约，靠着一封信一封信地核对数据。五百多次试验，两千多个样品分析。</td>
+<td>抗战打得最苦的那几年，／实验室设在香港，／侯德榜人在纽约，／靠着一封信一封信地核对数据。／五百多次试验，／两千多个样品分析。</td>
+<td>蒙太奇快切：香港实验室试管烧瓶实验记录→纽约侯德榜深夜书桌前写信→信件跨洋邮寄动画→试验数据表格飞速翻动，数字叠加</td>
+</tr>
+<tr>
+<td>31</td>
+<td>14.5s</td>
+<td>摸透了察安法之后，他还不满意。他要的是把制碱厂和合成氨厂接成一条线：一头出纯碱，一头出氯化铵化肥，盐几乎全部用掉，过去白白排掉的废液也变成了肥料。</td>
+<td>摸透了察安法之后，他还不满意。／他要的是把制碱厂和合成氨厂／接成一条线：／一头出纯碱，一头出氯化铵化肥，／盐几乎全部用掉，／过去白白排掉的废液也／变成了肥料。</td>
+<td>工艺流程动画：制碱厂与合成氨厂用管道连接→左端投入盐和原料→右端同时产出纯碱（白色粉末）和氯化铵化肥（颗粒）→废液箭头转向变成肥料</td>
+</tr>
+<tr>
+<td>32</td>
+<td>12.0s</td>
+<td>1943年，这套新工艺在四川试验成功。它被命名为“侯氏联合制碱法”——世界制碱史上，第一次有了一个用中国人名字命名的工艺。</td>
+<td>1943年，这套新工艺／在四川试验成功。／它被命名为“侯氏联合制碱法”——／世界制碱史上，／第一次有了一个／用中国人名字命名的工艺。</td>
+<td>四川试验工厂，侯德榜看着成功产出的产品露出微笑→产品铭牌特写工艺名称→世界地图上中国位置亮起</td>
+</tr>
+<tr>
+<td>33</td>
+<td>5.5s</td>
+<td>战争毁掉了他的工厂。他在山沟里，做出了比原来更好的东西。</td>
+<td>战争毁掉了他的工厂。／他在山沟里，／做出了比原来更好的东西。</td>
+<td>侯德榜站在四川山沟工厂前，背景是大山。画面色调温暖但不明亮</td>
+</tr>
+</tbody>
+</table>
+<h3 id="55258175">第六幕 · 追索（5:52.5–8:17.5）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>时长</th>
+<th>旁白原文</th>
+<th>字幕断行（定稿）</th>
+<th>画面点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>34</td>
+<td>18.0s</td>
+<td>而就在他埋头算数据的那几年，南京那座被炸空的厂房里，另一件事也在进行。1942年，日本人把残存的硝酸设备全部拆了下来，装上船，运到日本九州的大牟田，装进他们自己的工厂，用来生产军火。</td>
+<td>而就在他埋头算数据的那几年，／南京那座被炸空的厂房里，／另一件事也在进行。／1942年，日本人把残存的／硝酸设备全部拆了下来，装上船，／运到日本九州的大牟田，／装进他们自己的工厂，／用来生产军火。</td>
+<td>分屏平行剪辑：左半侯德榜在四川实验室算数据（暖调），右半1942年南京日军拆硝酸设备吊装上船（冷调）。两条线同时推进，最后右半船驶向九州大牟田</td>
+</tr>
+<tr>
+<td>35</td>
+<td>8.5s</td>
+<td>这是侯德榜1945年抗战胜利后回到南京才知道的。他推开车间门，只剩下空空的地基。</td>
+<td>这是侯德榜1945年抗战胜利后／回到南京才知道的。／他推开车间门，只剩下空空的地基。</td>
+<td>1945年侯德榜推开永利铔厂车间大门。镜头跟随视角：车间内空空荡荡，只剩设备拆走后留下的地基和螺栓孔。光线从破窗照入</td>
+</tr>
+<tr>
+<td>36</td>
+<td>4.5s</td>
+<td>去问，答复是：那些设备早就毁了，当废铁卖掉了。</td>
+<td>去问，答复是：／那些设备早就毁了，当废铁卖掉了。</td>
+<td>日方人员（剪影）摊手。画面打出答复文字</td>
+</tr>
+<tr>
+<td>37</td>
+<td>14.0s</td>
+<td>没人信。永利的人翻遍了能找到的材料，最后在日本人自己编写的一本《永礼化学工业史志》里找到了白纸黑字——设备去了哪里、装在哪家工厂，写得清清楚楚。</td>
+<td>没人信。／永利的人翻遍了能找到的材料，／最后在日本人自己编写的一本／《永礼化学工业史志》里／找到了白纸黑字——／设备去了哪里、装在哪家工厂，／写得清清楚楚。</td>
+<td>永利人员档案室翻找资料灰尘飞扬→日文书籍封面特写→翻开书页手指指向一行记载→记载内容放大</td>
+</tr>
+<tr>
+<td>38</td>
+<td>19.5s</td>
+<td>那就开始讨。永利向国民政府经济部呈文索赔；侯德榜在《大公报》上公开发文，题目就叫《向日本拆回被劫去的硝酸装置》。舆论起来了，事情却还是推不动。因为说了算的不是日本，是盟军总司令部——战后的日本，一切归它管。</td>
+<td>那就开始讨。／永利向国民政府经济部呈文索赔；／侯德榜在《大公报》上公开发文，／题目就叫／《向日本拆回被劫去的硝酸装置》。／舆论起来了，事情却还是推不动。／因为说了算的不是日本，／是盟军总司令部——／战后的日本，一切归它管。</td>
+<td>蒙太奇快切：永利向经济部呈文文件盖章→《大公报》报纸版面标题特写→盟军总司令部大楼外景→时钟快转日历翻页表现时间流逝</td>
+</tr>
+<tr>
+<td>39</td>
+<td>12.0s</td>
+<td>拖到1946年7月，盟军方面终于回了一封信：已经查到了，设备还在，已令日本政府妥为保管，准备归还，永利可以派人去日本处理。</td>
+<td>拖到1946年7月，／盟军方面终于回了一封信：／已经查到了，设备还在，／已令日本政府妥为保管，准备归还，／永利可以派人去日本处理。</td>
+<td>一封盟军总部复函被拆开，信纸上关键句被高亮</td>
+</tr>
+<tr>
+<td>40</td>
+<td>15.5s</td>
+<td>永利在东京设了办事处。然后又是一年，还是拆不动。理由一层一层地冒出来：这套设备已经并入日本工厂的生产线了，那个配件是日本后来换上去的，拆了别人就没法开工。</td>
+<td>永利在东京设了办事处。／然后又是一年，还是拆不动。／理由一层一层地冒出来：／这套设备已经并入／日本工厂的生产线了，／那个配件是日本后来换上去的，／拆了别人就没法开工。</td>
+<td>东京永利办事处，一张桌子一部电话冷清→日历快速翻页从1946翻到1947→日方人员不断提出新理由的画面叠加</td>
+</tr>
+<tr>
+<td>41</td>
+<td>8.0s</td>
+<td>从抗战胜利算起，快两年过去了，设备还在日本。1947年7月7日，侯德榜决定自己去。</td>
+<td>从抗战胜利算起，快两年过去了，／设备还在日本。／1947年7月7日，／侯德榜决定自己去。</td>
+<td>日历停在1947年7月7日。侯德榜的手把一份行程单拍在桌上</td>
+</tr>
+<tr>
+<td>42</td>
+<td>9.0s</td>
+<td>在东京，他要说服的不只是日本人。盟军总部也得被说服——他们管着战后的日本，也管着这批设备归谁。</td>
+<td>在东京，他要说服的不只是日本人。／盟军总部也得被说服——／他们管着战后的日本，也／管着这批设备归谁。</td>
+<td>侯德榜在盟军总部办公室与官员交谈→盟军总部徽章旗帜特写→侯德榜表情坚定</td>
+</tr>
+<tr>
+<td>43</td>
+<td>3.0s</td>
+<td>他的办法很笨，也很硬：拿图纸对。</td>
+<td>他的办法很笨，也很硬：／拿图纸对。</td>
+<td>侯德榜的手把一叠原始图纸啪地放在谈判桌上</td>
+</tr>
+<tr>
+<td>44</td>
+<td>15.5s</td>
+<td>永利的技师长谢为杰和赵如晏去了九州大牟田，进到那家装着中国设备的日本工厂里，照着原始图纸一件一件地核对，最后整理出一份二十六页的报告，交到了盟军总部。</td>
+<td>永利的技师长谢为杰和赵如晏／去了九州大牟田，／进到那家装着中国设备的／日本工厂里，／照着原始图纸一件一件地核对，／最后整理出一份二十六页的报告，／交到了盟军总部。</td>
+<td>手持跟拍：谢为杰、赵如晏（两位工程师形象）走进日本九州大牟田工厂→两人手持原始图纸对照实物设备逐件核对，在清单上逐项打勾→一份厚报告装订好封面</td>
+</tr>
+<tr>
+<td>45</td>
+<td>7.5s</td>
+<td>证据摆上桌，日方又退到最后一道理由：只能拆原件，不能拆他们后来换上去的配件。</td>
+<td>证据摆上桌，／日方又退到最后一道理由：／只能拆原件，／不能拆他们后来换上去的配件。</td>
+<td>厚报告放在盟军总部官员桌上。日方代表又一次提出只能拆原件。侯德榜摇头</td>
+</tr>
+<tr>
+<td>46</td>
+<td>5.0s</td>
+<td>侯德榜一步不让。车拆走的时候能开，还回来就得能开。</td>
+<td>侯德榜一步不让。／车拆走的时候能开，还回来就得能开。</td>
+<td>侯德榜正面特写眼神坚定。画面叠化回第7镜汽车比喻（快速闪回）</td>
+</tr>
+<tr>
+<td>47</td>
+<td>5.0s</td>
+<td>1947年秋天，盟军总部正式复文：全套设备归还原主。</td>
+<td>1947年秋天，盟军总部正式复文：／全套设备归还原主。</td>
+<td>盟军总部复文，关键句被红笔圈出。印章盖下</td>
+</tr>
+</tbody>
+</table>
+<h3 id="81759525">第七幕 · 兑现与收尾（8:17.5–9:52.5）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>时长</th>
+<th>旁白原文</th>
+<th>字幕断行（定稿）</th>
+<th>画面点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>48</td>
+<td>13.0s</td>
+<td>1948年3月27日，这批钢铁装上海鄂号，从日本出发。半个月后，4月11日，一千四百八十二件、五百五十吨，回到了长江边永利铔厂的码头。</td>
+<td>1948年3月27日，／这批钢铁装上海鄂号，／从日本出发。／半个月后，4月11日，／一千四百八十二件、五百五十吨，／回到了长江边永利铔厂的码头。</td>
+<td>1948年3月27日海鄂号货轮停靠日本港口设备吊装上船→轮船海上航行（日出方向）→4月11日轮船驶入南京长江码头人群等候→设备吊卸到永利铔厂码头</td>
+</tr>
+<tr>
+<td>49</td>
+<td>10.0s</td>
+<td>可验收的时候，侯德榜发现少了最要紧的一样东西——铂金网。硝酸生产离不开它，价值不低，却不在回来的货里。</td>
+<td>可验收的时候，侯德榜发现少了／最要紧的一样东西——铂金网。／硝酸生产离不开它，价值不低，／却不在回来的货里。</td>
+<td>验收清单逐项打勾→侯德榜的手突然停住眉头皱起→清单上一项被圈出旁边写未到货→硝酸设备上该部件位置空着</td>
+</tr>
+<tr>
+<td>50</td>
+<td>7.0s</td>
+<td>他接着交涉。同年10月，日方重新做出同等品质的铂金网，空运到了上海。</td>
+<td>他接着交涉。／同年10月，日方重新做出／同等品质的铂金网，／空运到了上海。</td>
+<td>蒙太奇快切：继续交涉的文件电报→日历翻到1948年10月→一架飞机降落上海机场，一个木箱卸下</td>
+</tr>
+<tr>
+<td>51</td>
+<td>4.5s</td>
+<td>从抗战胜利算起，这场交涉走了两年零八个月。</td>
+<td>从抗战胜利算起，／这场交涉走了两年零八个月。</td>
+<td>黑场上一个计时器从1945.8走到1948.4，定格</td>
+</tr>
+<tr>
+<td>52</td>
+<td>14.5s</td>
+<td>设备回来的时候，已经千疮百孔。侯德榜看着那些锈迹斑斑的反应釜，说了一句：我们的新机器被他们折磨了这么多年，我已经认不全它们了——它们真是憔悴不堪。</td>
+<td>设备回来的时候，已经千疮百孔。／侯德榜看着那些锈迹斑斑的反应釜，／说了一句：／我们的新机器／被他们折磨了这么多年，／我已经认不全它们了——／它们真是憔悴不堪。</td>
+<td>锈迹斑斑反应釜特写漆面剥落管道变形→侯德榜的手抚摸设备表面手指沾锈→他的脸眼神复杂（心疼、欣慰、疲惫交织）</td>
+</tr>
+<tr>
+<td>53</td>
+<td>9.0s</td>
+<td>几个月后，这套设备重新运转起来。它一直工作到2011年4月才退役，如今还立在南京的原址上。</td>
+<td>几个月后，这套设备重新运转起来。／它一直工作到2011年4月／才退役，／如今还立在南京的原址上。</td>
+<td>延时摄影：设备被修复重新运转（机器转动蒸汽升起）→画面快进四季更迭设备持续运转→日历从1948翻到2011→2011年4月退役仪式→如今南京原址硝酸塔仍矗立</td>
+</tr>
+<tr>
+<td>54</td>
+<td>8.0s</td>
+<td>侯德榜这一生，做的其实是同一件事：把东西从无到有地造出来，再守着它，不让人抢走。</td>
+<td>侯德榜这一生，／做的其实是同一件事：／把东西从无到有地造出来，／再守着它，不让人抢走。</td>
+<td>侯德榜站在永利铔厂硝酸塔前的全景（中年形象），背景是长江和厂区。色调温暖庄重</td>
+</tr>
+<tr>
+<td>55</td>
+<td>15.5s</td>
+<td>从一包纯碱，到远东第一大厂，到废墟里抢出来的图纸，到山沟里那个以他名字命名的工艺，再到漂洋过海回来的五百五十吨钢铁——中间任何一步断了，后面的故事都不会发生。</td>
+<td>从一包纯碱，到远东第一大厂，／到废墟里抢出来的图纸，／到山沟里那个以他名字命名的工艺，／再到漂洋过海回来的／五百五十吨钢铁——／中间任何一步断了，／后面的故事都不会发生。</td>
+<td>五节点蒙太奇慢切：一包纯碱（红三角包装）→远东第一大厂全景→废墟中抢出的图纸→侯氏联合制碱法铭牌→漂洋过海的550吨钢铁（海鄂号）。每画面2-3秒淡入淡出</td>
+</tr>
+<tr>
+<td>56</td>
+<td>4.0s</td>
+<td>1974年8月，他在北京去世，八十四岁。</td>
+<td>1974年8月，他在北京去世，／八十四岁。</td>
+<td>侯德榜晚年照片（黑白），面容慈祥但坚毅。画面下方标注生卒年</td>
+</tr>
+<tr>
+<td>57</td>
+<td>9.5s</td>
+<td>化学课本上，“侯氏制碱法”只有五个字。这五个字背后，是一个人在战火里把中国化工从头搭起来的一生。</td>
+<td>化学课本上，／“侯氏制碱法”只有五个字。／这五个字背后，／是一个人在战火里／把中国化工从头搭起来的一生。</td>
+<td>一本化学课本翻开，停在侯氏制碱法那一页，镜头慢慢推近这五个字→画面渐黑，最后只剩这五个字在黑场上→停留3秒后淡出</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">二、分镜表</h2>
+<table>
+<thead>
+<tr>
+<th>镜号</th>
+<th>画面描述</th>
+<th>时长</th>
+<th>情绪标注</th>
+<th>对应旁白</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>黑场渐入：1947年东京街景，战后废墟与美军吉普交错，灰蓝色调。画面中央叠加日期</td>
+<td>2.5s</td>
+<td>肃穆 · 日期重量</td>
+<td>#1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>左右分屏：左半1937年卢沟桥历史影像（石狮子、桥面），右半1947年57岁男子背影走向驻日盟军总司令部大门</td>
+<td>10.0s</td>
+<td>肃穆 → 命运感</td>
+<td>#2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>男子背影停在司令部大门前，门卫持枪站立。画面闪黑，白字打出</td>
+<td>4.0s</td>
+<td>否定预期 · 悬念</td>
+<td>#3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>快切：老旧设备清单上数字被钢笔圈出→重量字样→南京长江边永利铔厂全景（动态化）→设备被拆解吊装上船的剪影动画</td>
+<td>12.5s</td>
+<td>惊愕 · 诉求具体化</td>
+<td>#4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>男子手中一叠泛黄图纸，封面有工厂名称；手指翻到清单页，密密麻麻的条目，镜头推近清单细节</td>
+<td>10.0s</td>
+<td>好奇其细 · 伏笔</td>
+<td>#5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>谈判桌两侧侧面构图：日方代表（西装群体剪影）递出文件；对面侯德榜侧面剪影不动。桌面台灯打光，冷调</td>
+<td>9.0s</td>
+<td>愤懑 · 对方出招</td>
+<td>#6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>侯德榜侧面近景→插入老式汽车被吊上船历史影像→同一辆车被拆解成零件散落的动画→回到侯德榜特写，眼神坚定</td>
+<td>17.0s</td>
+<td>痛快 · 第一个爽点</td>
+<td>#7</td>
+</tr>
+<tr>
+<td>8</td>
+<td>谈判室全景，窗外1947年东京废墟远景。侯德榜独自坐在长桌一端，对面空椅。人物显得很小</td>
+<td>6.0s</td>
+<td>清醒 · 难度声明</td>
+<td>#8</td>
+</tr>
+<tr>
+<td>9</td>
+<td>侯德榜正脸特写（第一次露脸），苍老但眼神锐利→画面渐黑，白字打出人名→时间线从1947往回倒，停在1921</td>
+<td>9.5s</td>
+<td>点名 · 设问回溯</td>
+<td>#9</td>
+</tr>
+<tr>
+<td>10</td>
+<td>蒙太奇快切：1920年代中国街景洋碱招牌→家庭主妇掂量碱块皱眉→西方工厂巨大反应釜蒸汽弥漫→保密文件盖绝密章</td>
+<td>22.0s</td>
+<td>屈辱 · 被卡脖子</td>
+<td>#10</td>
+</tr>
+<tr>
+<td>11</td>
+<td>哥伦比亚大学校园（历史照片动态化），侯德榜穿博士服手持文凭，转身走向码头；背景纽约港口轮船</td>
+<td>8.0s</td>
+<td>希望 · 学成归国</td>
+<td>#11</td>
+</tr>
+<tr>
+<td>12</td>
+<td>天津塘沽海边，范旭东（戴眼镜实业家形象）与侯德榜并肩站在空地上，远处盐碱滩。两人指着地面讨论</td>
+<td>7.0s</td>
+<td>人物出场 · 范旭东</td>
+<td>#12</td>
+</tr>
+<tr>
+<td>13</td>
+<td>塘沽碱厂车间内：侯德榜穿工装蹲在二手设备旁检查管道→工人围看图纸→试验失败废液溢出→侯德榜擦汗继续调阀门。角落日历翻页表现五年流逝</td>
+<td>13.0s</td>
+<td>坚持 · 五年试制</td>
+<td>#13</td>
+</tr>
+<tr>
+<td>14</td>
+<td>特写：雪白纯碱粉末从生产线流出，工人用手捧起→产品包装红色三角形商标→费城万国博览会中国展台人群围观→金质奖章特写</td>
+<td>15.0s</td>
+<td>争气 · 第一个释放点</td>
+<td>#14</td>
+</tr>
+<tr>
+<td>15</td>
+<td>侯德榜书桌前写作，台灯下堆满手稿→英文书稿封面→书页翻动详细工艺流程图→纽约出版社大楼外景</td>
+<td>19.0s</td>
+<td>意外敬重 · 技术公开</td>
+<td>#15</td>
+</tr>
+<tr>
+<td>16</td>
+<td>侯德榜坐在书桌前望向窗外。画面叠化：一只手把专利证书推开</td>
+<td>10.0s</td>
+<td>深沉 · 人设反打</td>
+<td>#16</td>
+</tr>
+<tr>
+<td>17</td>
+<td>南京江北长江边永利铔厂建设工地（动画复原）塔吊林立→1937年2月投产仪式第一包化肥下线工人欢呼→厂区全景巨大硝酸塔矗立长江边</td>
+<td>22.0s</td>
+<td>振奋 · 远东第一大厂</td>
+<td>#17</td>
+</tr>
+<tr>
+<td>18</td>
+<td>日历翻到1937年7月7日，画面骤然变冷</td>
+<td>2.0s</td>
+<td>急转 · 战争爆发</td>
+<td>#18</td>
+</tr>
+<tr>
+<td>19</td>
+<td>日方代表（剪影）走进永利办公室，把合作协议放在桌上；范旭东和侯德榜坐在对面表情凝重</td>
+<td>10.0s</td>
+<td>紧张 · 日方诱谈</td>
+<td>#19</td>
+</tr>
+<tr>
+<td>20</td>
+<td>范旭东的手拿起笔，在纸上写下七个字。镜头慢慢推近这七个字</td>
+<td>7.5s</td>
+<td>悲壮 · 立场宣言</td>
+<td>#20</td>
+</tr>
+<tr>
+<td>21</td>
+<td>快切：日军飞机编队飞临南京（历史影像）→炸弹落下动画示意→永利铔厂被炸火光冲天→废墟中数字叠加</td>
+<td>11.5s</td>
+<td>悲愤 · 工厂被毁</td>
+<td>#21</td>
+</tr>
+<tr>
+<td>22</td>
+<td>手持跟拍：侯德榜指挥工人拆卸设备→大型设备仪表拆下投入长江水花→图纸分两包，一包投入火中，一包贴身藏入→地图动画南京→香港→武汉→长沙→四川路线</td>
+<td>21.5s</td>
+<td>坚毅 · 护厂转移</td>
+<td>#22</td>
+</tr>
+<tr>
+<td>23</td>
+<td>长江边雨天远景：一艘船驶离码头，侯德榜站在船头全身湿透，望着岸上废墟。镜头慢慢拉远，船越来越小，雨越来越大</td>
+<td>10.5s</td>
+<td>悲壮 · 雨中撤离</td>
+<td>#23</td>
+</tr>
+<tr>
+<td>24</td>
+<td>黑场，白字逐行出现</td>
+<td>3.0s</td>
+<td>承上启下 · 留白</td>
+<td>#24</td>
+</tr>
+<tr>
+<td>25</td>
+<td>四川山区盐井架矗立，工人抽取卤水→工人皱眉看计量表→动画示意索尔维法流程，盐只用70%，剩余30%废液排出</td>
+<td>12.0s</td>
+<td>新难题 · 井盐困境</td>
+<td>#25</td>
+</tr>
+<tr>
+<td>26</td>
+<td>德国柏林，侯德榜一行走进写字楼；德方代表递出专利文件，上面有工艺名称和利用率数字</td>
+<td>8.5s</td>
+<td>希望 · 赴德谈判</td>
+<td>#26</td>
+</tr>
+<tr>
+<td>27</td>
+<td>正反打：德方代表手指合同条款→条款特写禁售内容红色下划线→侯德榜脸色骤变合上合同→谈判桌全景侯德榜起身离开</td>
+<td>15.0s</td>
+<td>愤怒 · 受辱中止</td>
+<td>#27</td>
+</tr>
+<tr>
+<td>28</td>
+<td>侯德榜走出柏林写字楼站在街头背影。画面叠化中国地图上东北位置标红</td>
+<td>9.5s</td>
+<td>不甘 · 立志自研</td>
+<td>#28</td>
+</tr>
+<tr>
+<td>29</td>
+<td>黑场，四个大字</td>
+<td>1.5s</td>
+<td>决绝 · 最短有力</td>
+<td>#29</td>
+</tr>
+<tr>
+<td>30</td>
+<td>蒙太奇快切：香港实验室试管烧瓶实验记录→纽约侯德榜深夜书桌前写信→信件跨洋邮寄动画→试验数据表格飞速翻动，数字叠加</td>
+<td>11.5s</td>
+<td>艰辛 · 两地协作</td>
+<td>#30</td>
+</tr>
+<tr>
+<td>31</td>
+<td>工艺流程动画：制碱厂与合成氨厂用管道连接→左端投入盐和原料→右端同时产出纯碱（白色粉末）和氯化铵化肥（颗粒）→废液箭头转向变成肥料</td>
+<td>14.5s</td>
+<td>突破 · 知识兑现</td>
+<td>#31</td>
+</tr>
+<tr>
+<td>32</td>
+<td>四川试验工厂，侯德榜看着成功产出的产品露出微笑→产品铭牌特写工艺名称→世界地图上中国位置亮起</td>
+<td>12.0s</td>
+<td>振奋 · 命名工艺</td>
+<td>#32</td>
+</tr>
+<tr>
+<td>33</td>
+<td>侯德榜站在四川山沟工厂前，背景是大山。画面色调温暖但不明亮</td>
+<td>5.5s</td>
+<td>转折 · 主题句</td>
+<td>#33</td>
+</tr>
+<tr>
+<td>34</td>
+<td>分屏平行剪辑：左半侯德榜在四川实验室算数据（暖调），右半1942年南京日军拆硝酸设备吊装上船（冷调）。两条线同时推进，最后右半船驶向九州大牟田</td>
+<td>18.0s</td>
+<td>惊怒 · 双线并行</td>
+<td>#34</td>
+</tr>
+<tr>
+<td>35</td>
+<td>1945年侯德榜推开永利铔厂车间大门。镜头跟随视角：车间内空空荡荡，只剩设备拆走后留下的地基和螺栓孔。光线从破窗照入</td>
+<td>8.5s</td>
+<td>空落 · 只剩地基</td>
+<td>#35</td>
+</tr>
+<tr>
+<td>36</td>
+<td>日方人员（剪影）摊手。画面打出答复文字</td>
+<td>4.5s</td>
+<td>憋屈 · 对方撒谎</td>
+<td>#36</td>
+</tr>
+<tr>
+<td>37</td>
+<td>永利人员档案室翻找资料灰尘飞扬→日文书籍封面特写→翻开书页手指指向一行记载→记载内容放大</td>
+<td>14.0s</td>
+<td>智识碾压 · 拆穿谎言</td>
+<td>#37</td>
+</tr>
+<tr>
+<td>38</td>
+<td>蒙太奇快切：永利向经济部呈文文件盖章→《大公报》报纸版面标题特写→盟军总司令部大楼外景→时钟快转日历翻页表现时间流逝</td>
+<td>19.5s</td>
+<td>焦灼 · 走程序</td>
+<td>#38</td>
+</tr>
+<tr>
+<td>39</td>
+<td>一封盟军总部复函被拆开，信纸上关键句被高亮</td>
+<td>12.0s</td>
+<td>转机 · 首次复函</td>
+<td>#39</td>
+</tr>
+<tr>
+<td>40</td>
+<td>东京永利办事处，一张桌子一部电话冷清→日历快速翻页从1946翻到1947→日方人员不断提出新理由的画面叠加</td>
+<td>15.5s</td>
+<td>焦灼谷底 · 推不动</td>
+<td>#40</td>
+</tr>
+<tr>
+<td>41</td>
+<td>日历停在1947年7月7日。侯德榜的手把一份行程单拍在桌上</td>
+<td>8.0s</td>
+<td>决断 · 与开场呼应</td>
+<td>#41</td>
+</tr>
+<tr>
+<td>42</td>
+<td>侯德榜在盟军总部办公室与官员交谈→盟军总部徽章旗帜特写→侯德榜表情坚定</td>
+<td>9.0s</td>
+<td>艰难 · 两方游说</td>
+<td>#42</td>
+</tr>
+<tr>
+<td>43</td>
+<td>侯德榜的手把一叠原始图纸啪地放在谈判桌上</td>
+<td>3.0s</td>
+<td>伏笔回收前奏</td>
+<td>#43</td>
+</tr>
+<tr>
+<td>44</td>
+<td>手持跟拍：谢为杰、赵如晏（两位工程师形象）走进日本九州大牟田工厂→两人手持原始图纸对照实物设备逐件核对，在清单上逐项打勾→一份厚报告装订好封面</td>
+<td>15.5s</td>
+<td>坚定 · 伏笔正式回收</td>
+<td>#44</td>
+</tr>
+<tr>
+<td>45</td>
+<td>厚报告放在盟军总部官员桌上。日方代表又一次提出只能拆原件。侯德榜摇头</td>
+<td>7.5s</td>
+<td>最后博弈 · 对方退守</td>
+<td>#45</td>
+</tr>
+<tr>
+<td>46</td>
+<td>侯德榜正面特写眼神坚定。画面叠化回第7镜汽车比喻（快速闪回）</td>
+<td>5.0s</td>
+<td>决胜 · 论点重申</td>
+<td>#46</td>
+</tr>
+<tr>
+<td>47</td>
+<td>盟军总部复文，关键句被红笔圈出。印章盖下</td>
+<td>5.0s</td>
+<td>胜利 · 复文</td>
+<td>#47</td>
+</tr>
+<tr>
+<td>48</td>
+<td>1948年3月27日海鄂号货轮停靠日本港口设备吊装上船→轮船海上航行（日出方向）→4月11日轮船驶入南京长江码头人群等候→设备吊卸到永利铔厂码头</td>
+<td>13.0s</td>
+<td>痛快主峰 · 9分</td>
+<td>#48</td>
+</tr>
+<tr>
+<td>49</td>
+<td>验收清单逐项打勾→侯德榜的手突然停住眉头皱起→清单上一项被圈出旁边写未到货→硝酸设备上该部件位置空着</td>
+<td>10.0s</td>
+<td>意外波折 · 拒绝圆满</td>
+<td>#49</td>
+</tr>
+<tr>
+<td>50</td>
+<td>蒙太奇快切：继续交涉的文件电报→日历翻到1948年10月→一架飞机降落上海机场，一个木箱卸下</td>
+<td>7.0s</td>
+<td>追讨 · 收尾</td>
+<td>#50</td>
+</tr>
+<tr>
+<td>51</td>
+<td>黑场上一个计时器从1945.8走到1948.4，定格</td>
+<td>4.5s</td>
+<td>数字收束 · 两年八个月</td>
+<td>#51</td>
+</tr>
+<tr>
+<td>52</td>
+<td>锈迹斑斑反应釜特写漆面剥落管道变形→侯德榜的手抚摸设备表面手指沾锈→他的脸眼神复杂（心疼、欣慰、疲惫交织）</td>
+<td>14.5s</td>
+<td>心酸 · 憔悴不堪</td>
+<td>#52</td>
+</tr>
+<tr>
+<td>53</td>
+<td>延时摄影：设备被修复重新运转（机器转动蒸汽升起）→画面快进四季更迭设备持续运转→日历从1948翻到2011→2011年4月退役仪式→如今南京原址硝酸塔仍矗立</td>
+<td>9.0s</td>
+<td>肃然 · 63年运转</td>
+<td>#53</td>
+</tr>
+<tr>
+<td>54</td>
+<td>侯德榜站在永利铔厂硝酸塔前的全景（中年形象），背景是长江和厂区。色调温暖庄重</td>
+<td>8.0s</td>
+<td>概括 · 主题句</td>
+<td>#54</td>
+</tr>
+<tr>
+<td>55</td>
+<td>五节点蒙太奇慢切：一包纯碱（红三角包装）→远东第一大厂全景→废墟中抢出的图纸→侯氏联合制碱法铭牌→漂洋过海的550吨钢铁（海鄂号）。每画面2-3秒淡入淡出</td>
+<td>15.5s</td>
+<td>回顾 · 五节点</td>
+<td>#55</td>
+</tr>
+<tr>
+<td>56</td>
+<td>侯德榜晚年照片（黑白），面容慈祥但坚毅。画面下方标注生卒年</td>
+<td>4.0s</td>
+<td>落幕 · 84岁</td>
+<td>#56</td>
+</tr>
+<tr>
+<td>57</td>
+<td>一本化学课本翻开，停在侯氏制碱法那一页，镜头慢慢推近这五个字→画面渐黑，最后只剩这五个字在黑场上→停留3秒后淡出</td>
+<td>9.5s</td>
+<td>回甘 · 集体记忆</td>
+<td>#57</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_5">三、换图逻辑说明</h2>
+<table>
+<thead>
+<tr>
+<th>换图触发点</th>
+<th>对应镜号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新人物出场</td>
+<td>镜 9（侯德榜正脸首次）、镜 12（范旭东）、镜 44（谢为杰／赵如晏）、镜 56（晚年侯德榜）</td>
+</tr>
+<tr>
+<td>新场景</td>
+<td>镜 1→2（东京街景→司令部大门）、镜 4→5（设备清单→图纸特写）、镜 9→10（1947东京→1921中国）、镜 12→13（塘沽海边→车间内）、镜 17→18（铔厂全景→日历）、镜 22→23（车间→长江船头）、镜 24→25（黑场→四川盐井）、镜 26→27（柏林写字楼→谈判桌）、镜 33→34（四川山沟→分屏南京）、镜 37→38（档案室→蒙太奇）、镜 44→45（九州工厂→盟军总部）、镜 47→48（复文→海鄂号）、镜 53→54（延时摄影→硝酸塔全景）</td>
+</tr>
+<tr>
+<td>时间跳转</td>
+<td>镜 9（1947→1921倒回26年）、镜 18（1937.2→1937.7）、镜 34（1942双线）、镜 35（1945）、镜 41（1947.7.7与开场呼应）、镜 48（1948.3.27→4.11）、镜 53（1948→2011跨63年）</td>
+</tr>
+<tr>
+<td>情绪转折点</td>
+<td>镜 8（爽点→清醒）、镜 18（振奋→急转）、镜 24（悲壮→留白）、镜 29（不甘→决绝）、镜 33（振奋→转折）、镜 40（焦灼谷底）、镜 48（主峰）、镜 49（主峰→意外波折）、镜 57（回甘收尾）</td>
+</tr>
+<tr>
+<td>道具复用</td>
+<td>图纸：镜 5（伏笔）→镜 43（放桌上）→镜 44（逐件核对）；汽车比喻：镜 7（首次）→镜 46（重申决胜）；1482件/550吨：镜 4（开场）→镜 48（兑现）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_6">四、发布侧叠加清单</h2>
+<table>
+<thead>
+<tr>
+<th>叠加项</th>
+<th>位置</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系列角标</td>
+<td>镜 1–2（前 10 秒，字幕／角标位）</td>
+<td>化学历史人物系列 · 第 4 期</td>
+</tr>
+<tr>
+<td>常驻字幕条</td>
+<td>镜 48–50（画面右上角小字，不与底部旁白字幕重叠）</td>
+<td>1948年4月11日，它们回到长江边</td>
+</tr>
+<tr>
+<td>置顶评论</td>
+<td>发布侧</td>
+<td>那座硝酸塔现在还在南京江北，成了国家工业遗产</td>
+</tr>
+<tr>
+<td>种子评论（备3–5条）</td>
+<td>发布侧</td>
+<td>①教材回忆：书上真就五个字 ②南京本地：去过南化，塔还在 ③铂金网评判：还能这么赖？</td>
+</tr>
+<tr>
+<td>视频描述</td>
+<td>发布侧</td>
+<td>系列定位 + 本期钩子 + 前三期各一句话（拉瓦锡/诺贝尔/门捷列夫）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>以上均不进正文。正文最后一句必须是课本上只有五个字，不被任何发布内容覆盖或延后。</p>
+</blockquote>
+<hr />
+<h2 id="_7">五、断行质检（程序核对）</h2>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>镜数 / 总字数</td>
+<td>57 镜 / 口播 2661 字（不含标点）</td>
+</tr>
+<tr>
+<td>字幕行数 / 平均字数</td>
+<td>283 行 / 平均 9.4 字/行（最长 15 字）</td>
+</tr>
+<tr>
+<td>超15字行数</td>
+<td>0 行（允许1–3处不完美，均为完整书名/术语）</td>
+</tr>
+<tr>
+<td>总时长 / 语速</td>
+<td>592.5秒（9分52秒）/ 基准 4.6 字/秒</td>
+</tr>
+<tr>
+<td>逐镜相加 = 总时长</td>
+<td>✅ 592.5秒 = 各镜时长之和</td>
+</tr>
+<tr>
+<td>音字一致（字幕=旁白逐字版）</td>
+<td>✅ 全部一致</td>
+</tr>
+<tr>
+<td>语速超限镜头（&gt;4.6字/秒）</td>
+<td>无</td>
+</tr>
+<tr>
+<td>4个原塞不下镜头</td>
+<td>镜5: 46字/10.0s(4.60) ✅；镜16: 45字/10.0s(4.50) ✅；镜33: 25字/5.5s(4.55) ✅；镜41: 36字/8.0s(4.50) ✅</td>
+</tr>
+<tr>
+<td>幕标题时间一致性</td>
+<td>✅ 七幕标题时间均按逐镜累计结果填写</td>
+</tr>
+<tr>
+<td>保持不动项核对</td>
+<td>①驻日盟军总司令部表述 ✅；②1482件/550吨与铂金网分开 ✅；③有人记得雨中转述 ✅；④黄头发绿眼珠不加引号 ✅；⑤镜号1–57连续 ✅；⑥铂金网重做表述 ✅；⑦柏林1938 ✅；⑧察安法96% ✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>生成日期</strong>：2026-10-10
+<strong>文档版本</strong>：V4（硬约束文字口径更新：画面内文字不追求准确、不做叠加，叠字层只做底部旁白字幕；删除画面内叠字清单章）</p>
+</blockquote></article>
+</main></div></body></html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · 03-方法库/群聊观察/09-AI 生图与成本控制（雪见群实战）.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-10 23:45</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class=" on">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html" class="">AI生图提示词规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html" class="">侯德榜_脚本和分镜_V4_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">门捷列夫_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_策划卡V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_脚本分镜V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html" class="">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class="">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html" class="">19-人物类视频发布前检查清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html" class="">20-两条视频共性问题与解决方案</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">21-人物故事策划分析卡模板V1（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html" class="">22-脚本分镜前置写作规则</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / 03-方法库/群聊观察/09-AI 生图与成本控制（雪见群实战）</div>
+<article><h1 id="ai">AI 生图与成本控制（雪见群实战）</h1>
+<blockquote>
+<p>🔴 <strong>未核实（群聊来源）</strong> · 雪见群 2026-10-01 群友口述；<strong>「官方活动」已核验，操作路径与价格数字部分未证实</strong>。
+2026-10-08 增补：<strong>「豆包工作自带生图」通道</strong>（含官方产品与免费版口径核验，见 §3.5）。
+使用前请先读 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html">方法库可信度规则</a>（本页属 🔴 低可信度分区），用前必看文末「核验记录」。
+定位：<a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html">单条视频生产流程SOP</a> / <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html">生产线SOP-V2</a> 里「生图」这一环的<strong>成本与素材洁净度</strong>问题。</p>
+</blockquote>
+<h2 id="_1">一、为什么这条对我们重要</h2>
+<ul>
+<li>我们的形态是 <strong>AI 生图 + 旁白叙事</strong>，一条 4 分钟片子要 40 张左右图 —— <strong>单张成本 × 40 = 每条视频的硬成本</strong>，生图单价是最值得抠的一个变量。</li>
+<li>另一头是<strong>素材洁净度</strong>：平台方下载的图带水印，水印进成片既难看，也容易被判「低质 / 搬运」（对照 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">05-视频号起号与图书带货（雪见群实战）</a> 的低创作度判定）。</li>
+<li>2026-10-01 群里的讨论正好分成这两半：<strong>「豆包下的图怎么不带水印」</strong> 和 <strong>「GPT 生图多少钱一张、有更便宜的吗」</strong>。</li>
+</ul>
+<h2 id="_2">二、群内说法（原样记录）</h2>
+<ul>
+<li><strong>豆包无水印路径</strong>（十七°）：在豆包工作里生成的图片，<strong>按官方路径下载是带水印的</strong>；但「你点开<strong>思考</strong>，就能发现可以保存无水印图片」。手机端生成的带水印，<strong>电脑端印象中有设置</strong>。</li>
+<li><strong>GPT 生图价格</strong>（nothing. 提问 / 🎨流浪艺术回答）：nothing. 自述「我现在 <strong>1 毛</strong> 一张高质量，想找个便宜点的」；流浪艺术答「<strong>有 6 分的</strong>」（<strong>未给渠道</strong>）。</li>
+<li><strong>质量口径</strong>（🎨流浪艺术）：<strong>GPT 网页版生图质量比 API 高</strong>；「最便宜是自己开个 pro 号，然后反代给自己用」（<strong>技术向，我们不做</strong> —— 见文末判断）。</li>
+<li>十七° 补充：<strong>不走自动化直接网页版就不错</strong>；要走自动化才需要反代。</li>
+<li><strong>豆包工作自带出图（2026-10-08，糖醋大米 / java同学 / 雪见）</strong>：</li>
+<li>糖醋大米用 <strong>Doubao-Seedream-5.0-Pro</strong> 走 API 生图做视频号，直呼「生图不便宜」，<strong>当天还收到火山引擎欠费短信</strong>（「记得好早之前火山充过点钱……昨天短信告诉我欠费了」）。</li>
+<li>java同学给的路子：<strong>「白嫖豆包工作啊」</strong>（豆包工作自带出图，<strong>不用自己接 API</strong>），并称出图<strong>「还没水印」</strong>。</li>
+<li>糖醋大米实测对比：<strong>同一个提示词</strong>，「在豆包工作里生的图还挺好看的」→ 群内一致认为 <strong>豆包工作出的图比 API 出的更好看</strong>（她贴了两组对照图）。</li>
+<li>雪见给的用法：<strong>「豆包工作自带出图，直接说：帮我出图 xxx」</strong>；糖醋大米反馈「就是得一张张出」。java同学补：<strong>「让他使用 subagent 批量出」「给他一个文档，多个分镜」</strong>。</li>
+</ul>
+<h2 id="2026-10-01">三、核验（2026-10-01）</h2>
+<h3 id="31">3.1 无水印：问题为真，方法分三档</h3>
+<table>
+<thead>
+<tr>
+<th>档位</th>
+<th>方法</th>
+<th>门槛</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>零成本 · 零代码</td>
+<td><strong>点开图片进大图模式 → 按住鼠标左键直接拖到桌面</strong></td>
+<td>无</td>
+<td>公开教程（腾讯云开发者社区《即梦、豆包图片超简单去水印方法》）实测：<strong>清晰度与原图接近、无水印</strong>。豆包/即梦一类网页生图都能用</td>
+</tr>
+<tr>
+<td>零代码 · 要装东西</td>
+<td>浏览器扩展 / 油猴脚本（豆包去水印类）</td>
+<td>装扩展</td>
+<td>有效，但<strong>随平台改版会失效</strong>，属于「能用但会坏」的方案</td>
+</tr>
+<tr>
+<td>群内说法</td>
+<td>点开「<strong>思考</strong>」后可存无水印图</td>
+<td>?</td>
+<td><strong>未找到公开说明，未证实</strong>（可能是豆包工作里的某个入口）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>事实确认：<strong>豆包/即梦按官方路径下载的图带水印</strong> —— 这一点多方公开教程一致确认，<strong>不是误传</strong>。</li>
+</ul>
+<h3 id="32-30">3.2 豆包电脑版免费 30 天订阅：✅ 官方活动，属实</h3>
+<ul>
+<li>央广网 / 澎湃新闻 <strong>2026-09-24</strong> 报道：用户<strong>下载或升级「豆包工作电脑版」或「豆包电脑版」，即可免费领取 30 天订阅权益</strong>；已领过上一轮（2026-08-25 那轮）的用户，到期期间会获下一轮 30 天；已付费订阅的自动延期。</li>
+<li>群内 2026-10-01 雪见发的邀请链接属同一活动的<strong>邀请变体</strong>，群内口径是「双方各获 1 次额度重置机会」→ 官方报道未逐字提到「额度重置」，按<strong>邀请额外奖励</strong>理解即可。</li>
+</ul>
+<h3 id="33">3.3 生图单价：量级可参考，渠道不可信</h3>
+<ul>
+<li>「1 毛/张」「6 分/张」两个数字<strong>都没有出处、没有渠道名</strong> → 只能当<strong>价格量级</strong>看（即：第三方中转的 GPT 生图大致在<strong>几分到 1 毛一张</strong>这个区间），<strong>不能当采购依据</strong>。</li>
+<li><strong>网页版质量 &gt; API</strong> 这条是<strong>上游厂商的通用现象</strong>（网页端会加后处理/更强参数），可信度中等；但它意味着「自动化链路（走 API）画质天然吃亏」。</li>
+</ul>
+<h3 id="34-2026-10-02">3.4 生图/出片的积分单价（2026-10-02 群友口述，未核验）</h3>
+<table>
+<thead>
+<tr>
+<th>数字（群内说法）</th>
+<th>说话人</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WorkBuddy 生图 <strong>6.65 积分/次</strong></td>
+<td>🎨流浪艺术（称「6.65 个积分」）</td>
+<td>他评价「有点贵」</td>
+</tr>
+<tr>
+<td><strong>hy-image3.5-preview 一次出 5 张，4–6 积分</strong></td>
+<td>小java同学</td>
+<td>折算约 1 积分/张</td>
+</tr>
+<tr>
+<td>一条视频号视频 <strong>约 140–150 积分 / 30 张图</strong></td>
+<td>小java同学</td>
+<td>他由此提醒「单张测单价不准」，要按整条片子算</td>
+</tr>
+<tr>
+<td>wb 里「太空兔」单价 0.03</td>
+<td>雪见</td>
+<td>单价低但面向写代码，非生图主力</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>小java同学的口径与 §四 第 3 条一致：<strong>要按「每条成片实际用掉的图 × 单价」算，不要按单张比价</strong>。</li>
+<li>⚠️ 群里 2026-10-02 还有一条「wb 里 <strong>hy3 全天免费 / hy4 夜间（23:00–次日 8:00）免费</strong>」（雪见）—— 与官方口径不符：腾讯云 2026-08-31 公告 Hy4 preview 限免至 <strong>09-10 23:59</strong>、Hy3 限免至 <strong>09-30 23:59</strong>，<strong>且官方未提「Hy4 夜间免费」</strong>（只建议非紧急任务错峰到夜间）。<strong>限免期官方口径已止于 9 月，10 月是否续期待确认——一律以 wb 页面实际显示为准。</strong></li>
+</ul>
+<h3 id="35-2026-10-08-2026-10-09">3.5 豆包工作自带生图通道：产品属实 ✅，「无水印」未证实 ⚠️（2026-10-08 群内，2026-10-09 核验）</h3>
+<ul>
+<li><strong>产品与能力 ✅ 官方属实</strong>：豆包工作官网 <code>doubao.com/work</code> 明写在「从一个想法，到生成完整创意内容」里用 <strong>Seedream 5.0 Pro</strong> 生成图片/海报/漫画、<strong>Seedance 2.5</strong> 创作视频分镜与成片；下载页写明<strong>限时免费领 30 天订阅</strong>、大学生认证再领 2 个月。</li>
+<li><strong>免费版有额度 ✅</strong>：官方定价页有<strong>免费版</strong>（团队订阅说明「包括免费版的所有权益」），个人另有标准（连续包月 ¥68）/加强/高级三档；第三方实测（36氪·APPSO《实测豆包工作》）口径：<strong>免费用户也能用 Turbo 模型体验</strong>，额度是<strong>滚动重置（5 小时 / 周）</strong>而非一次性积分烧完。</li>
+<li><strong>API 侧单价 ✅ 已核</strong>：火山方舟模型价格页 —— <code>doubao-seedream-5-0-pro</code> <strong>输出图 0.30 元/张（≤261 万像素，即 1.5K 及以下）、0.60 元/张（&gt;261 万像素）</strong>；输入图<strong>首张免费、第 2 张起 0.02 元/张</strong>。→ 群里「API 生图不便宜 + 欠费」<strong>属实</strong>：按 0.30 元/张 × 一条片子 40 张 ≈ <strong>12 元起/条</strong>。</li>
+<li><strong>「还没水印」⚠️ 未证实</strong>：官方未就「豆包工作出图是否带水印」给出明文；本页 §3.1 的既有事实是<strong>豆包/即梦按官方路径下载的图带水印</strong>。群友说法属<strong>个人实测口径</strong>，用前自己存一张核一下。</li>
+<li><strong>「同一提示词，豆包工作出的比 API 好看」🟡 方向一致</strong>：与 §3.3「网页端质量 &gt; API」同方向（网页端有额外后处理/更强参数），但<strong>未做同图对照</strong>，不作结论。</li>
+</ul>
+<h2 id="_3">四、给「内容自动化」项目的用法</h2>
+<ol>
+<li><strong>先把水印问题在生图这一站解决掉</strong>，别让它漏到剪辑环节：优先用「大图模式 → 拖到桌面」的零代码办法；只有大批量时再考虑扩展（对应 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html">各站验收表V1</a> 的生图站闸门）。</li>
+<li><strong>豆包电脑版免费订阅当场领</strong>：30 天、零成本、只要下载登录。生图/视频生成都在这个订阅的权益范围内，先领了再说（<strong>有截止时间性质，越早越稳</strong>）。</li>
+<li><strong>单价先做一次小实测，再谈换渠道</strong>：拿同一段提示词，在「现用渠道」和「候选渠道」各出 10 张，比单价 <strong>+ 比可用率</strong>（有几张能直接进成片）。生图这块钱要按「<strong>每条成片实际用掉的图 × 单价</strong>」算，不是按生成张数算。</li>
+<li><strong>不要为了省几分钱去自建 pro 号反代</strong> —— 那是写代码/运维的活，不在我们的能力圈内（对照 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html">决策台账</a> 的「明确不做」）。</li>
+<li><strong>把「豆包工作」当零代码生图通道试一轮</strong>（2026-10-08 群内新增）：下载电脑版 → 领 30 天订阅 / 用免费版额度 → 直接说「<strong>帮我出图：xxx</strong>」；要整条片子的图，就给它一份<strong>含多个分镜的文档</strong>让它批量出（群内做法）。先拿 5–10 张跟现用渠道比 <strong>可用率 + 有无水印</strong>，再决定要不要写进生图站（对应 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html">单条视频生产流程SOP</a> 生图站的分流）。</li>
+</ol>
+<h2 id="_4">五、判断标准</h2>
+<ul>
+<li><strong>是否换生图渠道</strong>：只有在「单张成本能省一半以上」<strong>且</strong>「画质不降级」时才换；省下的钱要大于迁移和试错的成本。</li>
+<li><strong>是否装去水印扩展</strong>：批量（一天几十张以上）才装；零散几张用拖拽法就够。</li>
+</ul>
+<h2 id="2026-10-03">六、生图玩法：人生哲理 / 格言卡片（2026-10-03 群内案例，未核实）</h2>
+<ul>
+<li>2026-10-03 群里「飞掌柜老师」（AI 带货训练营）转了一个<strong>用 AI 生图做「人生哲理卡片」</strong>的带货案例：</li>
+<li><strong>玩法</strong>：用 <strong>image2 等 AI 生图工具</strong>出<strong>竖版中文传统格言漫画海报</strong>（复古连环画风格、米黄色旧纸张、黑线描边、上下两格），发短视频/图文平台，靠「人生哲理」内容涨粉。</li>
+<li><strong>变现</strong>：<strong>选品带货、百货模式</strong>（生活用品、书籍、茶叶等），称「对新手友好、覆盖人群面广、出单不少」。</li>
+<li><strong>提示词模板</strong>（原文照录，可换主题直接套用）：<ul>
+<li>案例 1「鸟要飞，翅要练」：生成一张竖版中文传统格言漫画海报，复古连环画风格，米黄色旧纸张背景，黑色细线描边，棕色、墨绿色和暖黄色配色，画面分为上下两格并带黑色边框。上半部分：一只幼鸟站在树枝上练习展翅，周围有树林、蓝天和微风，体现「鸟要飞，翅要练」。下半部分：暴雨过后，彩虹出现在天空，一只鸟飞过山谷，阳光洒在大地上，体现「不经风雨，难见彩虹」。底部添加两句醒目的大号中文文字，字体端正清晰，整体像传统人生格言知识卡片。</li>
+<li>案例 2「亲帮亲，邻帮邻」：生成一张竖版中文传统格言漫画海报，复古手绘连环画风格，米黄色旧纸张背景，黑色细线边框，棕色、墨绿色和暖黄色配色，画面分为上下两格。上半部分：乡村邻里之间，一位亲人帮助另一位搬运粮食，旁边邻居也主动帮忙……体现「亲帮亲，邻帮邻」。下半部分：暴雨或洪水后，村民们互相搀扶、运送物资……体现「患难之中见真情」。底部添加两句醒目的大号中文文字，排版整齐，字体清晰，整体具有温暖朴实的传统格言海报风格。</li>
+</ul>
+</li>
+<li>⚠️ <strong>这是训练营老师转述的「他人案例」（结果型信息）</strong>：「频频出爆款、出单不少」<strong>无基线、无数据</strong> → 只作<strong>玩法方向</strong>参考，别当已验证结论；<strong>提示词模板本身可复用</strong>。</li>
+</ul>
+<p><strong>给「内容自动化」项目的用法</strong>
+- 这类卡片的 <strong>构图 + 配色 + 双格叙事</strong> 结构和我们「AI 生图 + 旁白叙事」同源，可套它的<strong>提示词骨架</strong>（风格词 → 背景/配色 → 分格 → 每格画面 → 底部大字）做一版自己的模板（对齐 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html">单条视频生产流程SOP</a> 生图站的「风格锚定」）。
+- 走百货带货同样要按 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">05-视频号起号与图书带货（雪见群实战）</a> 的 <strong>AI 内容声明</strong> + 图书类目资质要求执行。</p>
+<h2 id="2026-10-01_1">核验记录（2026-10-01）</h2>
+<table>
+<thead>
+<tr>
+<th>群内说法</th>
+<th>核验结果</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>豆包按官方路径下载的图带水印</td>
+<td>多方公开教程一致确认（即梦、豆包同现象）</td>
+<td>✅ 一致</td>
+</tr>
+<tr>
+<td>点开「思考」可保存无水印图</td>
+<td>未找到公开说明或教程</td>
+<td>⚠️ 未证实（待群友实测补充）</td>
+</tr>
+<tr>
+<td>拖拽大图到桌面 = 无水印原图</td>
+<td>公开教程实测，清晰度与原图接近</td>
+<td>✅ 可行（非官方口径）</td>
+</tr>
+<tr>
+<td>电脑端免费领 30 天订阅</td>
+<td>央广网/澎湃 2026-09-24 报道：下载或升级电脑版即领 30 天</td>
+<td>✅ 一致</td>
+</tr>
+<tr>
+<td>邀请双方各得 1 次额度重置</td>
+<td>官方报道未见「额度重置」字样</td>
+<td>⚠️ 未证实（按邀请奖励理解）</td>
+</tr>
+<tr>
+<td>GPT 生图「1 毛一张高质量」</td>
+<td>无渠道、无出处</td>
+<td>⚠️ 未证实（仅量级参考）</td>
+</tr>
+<tr>
+<td>「有 6 分的」渠道</td>
+<td>群里未给渠道名</td>
+<td>⚠️ 未证实（不可作为采购依据）</td>
+</tr>
+<tr>
+<td>GPT 网页版生图质量 &gt; API</td>
+<td>与「网页端加后处理」的通用现象方向一致</td>
+<td>🟡 方向一致（未做同图对比）</td>
+</tr>
+<tr>
+<td>WorkBuddy 生图 6.65 积分/次</td>
+<td>无公开价目可核（需登录 wb 查看）</td>
+<td>⚠️ 未证实（以 wb 页面为准）</td>
+</tr>
+<tr>
+<td>hy-image3.5-preview 4–6 积分/5 张</td>
+<td>同上（无公开价目）</td>
+<td>⚠️ 未证实</td>
+</tr>
+<tr>
+<td>wb 里「hy3 全天免费 / hy4 夜间免费（23:00–8:00）」</td>
+<td>腾讯云 2026-08-31 官方公告：Hy4 preview 限免至 <strong>09-10 23:59</strong>、Hy3 限免至 <strong>09-30 23:59</strong>；官方只说「非紧急任务错峰到 23:00–次日 8:00」，<strong>未提「Hy4 夜间免费」</strong></td>
+<td>❌ 与官方口径不符（<strong>限免已止于 9 月，10 月是否续期待确认</strong>）</td>
+</tr>
+<tr>
+<td>「人生哲理卡片」带货案例（image2 出格言海报 + 百货带货，2026-10-03 飞掌柜老师转述）</td>
+<td>属<strong>他人案例转述</strong>，无原始链接、无数据基线</td>
+<td>⚠️ 未证实（玩法与提示词可用，<strong>结果数字不可信</strong>）</td>
+</tr>
+<tr>
+<td>豆包工作自带生图、不用接 API（2026-10-08 群内）</td>
+<td>官方 doubao.com/work：Seedream 5.0 Pro 出图、Seedance 2.5 出视频；下载电脑版送 30 天订阅；定价页有免费版</td>
+<td>✅ 一致（产品与免费版属实）</td>
+</tr>
+<tr>
+<td>豆包工作出图「还没水印」</td>
+<td>官方无明说；本页 §3.1 既有事实＝豆包/即梦官方路径下载带水印</td>
+<td>⚠️ 未证实（群友个人实测口径，用前自测一张）</td>
+</tr>
+<tr>
+<td>「豆包工作出的比 API 好看」（同一提示词）</td>
+<td>与 §3.3「网页端 &gt; API」同方向</td>
+<td>🟡 方向一致（未做同图对照）</td>
+</tr>
+<tr>
+<td>API 生图「不便宜」（糖醋大米欠费）</td>
+<td>火山方舟价格页：doubao-seedream-5-0-pro 输出图 0.30 元/张（≤1.5K）、0.60 元/张（&gt;1.5K）；输入图首张免费、第 2 张起 0.02</td>
+<td>✅ 一致（40 张/条 ≈ 12 元起）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>核验来源</strong>：腾讯云开发者社区《实用！即梦、豆包图片超简单去水印方法》（公开教程）、Chrome 应用商店「豆包图片去除水印」扩展页与公开油猴脚本仓库（佐证「水印问题为真且第三方已有对策」）、央广网/澎湃新闻 2026-09-24《豆包再送 30 天订阅权益，所有用户可免费领取》、腾讯云开发者社区/新浪科技 2026-08-31《WorkBuddy 双模型限免：Hy4 preview 两周 + Hy3 到 9 月底》（Hy3/Hy4 限免期）、<a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">05-视频号起号与图书带货（雪见群实战）</a> 所引视频号《AI 生成内容治理公告》、<strong>豆包工作官网 <code>doubao.com/work</code> 与定价页 <code>/work/pricing</code>、豆包下载页 <code>doubao.com/download</code>（Seedream 5.0 Pro / Seedance 2.5 / 免费版 / 30 天订阅）、火山方舟模型价格页 <code>volcengine.com/docs/82379/1099320</code>（doubao-seedream-5-0-pro 单价）、36氪·APPSO《实测豆包工作》、AIHub「豆包工作」词条、优设网 2026-08-28《豆包工作上线即送 30 天免费权益》</strong>。
+<strong>核验日期</strong>：2026-10-01 首次；2026-10-02 增补（<strong>价格类数字 3 个月须复核</strong>；平台去水印路径随改版随时失效，用前重测一次）；2026-10-03 增补（人生哲理卡片案例，属未证实转述）；<strong>2026-10-09 增补（豆包工作生图通道 —— 产品/免费版/API 单价 ✅ 已核，「无水印」⚠️ 未证实，用前自测一张）</strong>。</p>
+<p><strong>结论</strong>：<strong>「官方下载带水印 + 有零代码办法绕开」属实，可直接用</strong>；<strong>「豆包电脑版 30 天免费订阅」是官方活动，属当日最值得立刻执行的一项</strong>；<strong>生图单价类数字全部未证实，不作为换渠道依据</strong>；<strong>2026-10-08 增补：「豆包工作自带出图（Seedream 5.0 Pro）」是官方产品、免费版有额度、可零代码当生图通道（✅ 属实，值得试一轮）；但「出图无水印」未证实，「比 API 好看」只方向一致，用前自测。</strong></p></article>
+</main></div></body></html>

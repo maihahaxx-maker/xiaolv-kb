@@ -1,0 +1,973 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · 05-项目/内容自动化/08-限流自查清单V1.1.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-10 23:45</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html" class="">AI生图提示词规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html" class="">侯德榜_脚本和分镜_V4_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">门捷列夫_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_策划卡V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_脚本分镜V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html" class="">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class=" on">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html" class="">19-人物类视频发布前检查清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html" class="">20-两条视频共性问题与解决方案</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">21-人物故事策划分析卡模板V1（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html" class="">22-脚本分镜前置写作规则</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / 05-项目/内容自动化/08-限流自查清单V1.1</div>
+<article><h1 id="v11">🚦 限流自查清单 V1.1</h1>
+<blockquote>
+<p><strong>V1.1 是一次"地基加固"</strong>：V1 里平台侧的条文号是<strong>从旧文档继承、没核原文</strong>的。
+2026-09-30 逐条核了官方原文，结果 —— <strong>错了 2 处，漏了 6 条</strong>（其中 3 条对我们特别致命）。详见文末「修订记录」。</p>
+</blockquote>
+<h2 id="_1">📌 先把话说清楚</h2>
+<p>平台<strong>从不公开完整的「限流词表」</strong>。网上流传的所谓限流词表，绝大部分是卖课话术，
+照抄会误伤一片（把正常的「最」都改了，文案会变得很奇怪）。</p>
+<p>所以本清单<strong>只收三类来源</strong>，每条都标出来源与可信度：</p>
+<table>
+<thead>
+<tr>
+<th>可信度</th>
+<th>含义</th>
+<th>怎么对待</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🟢 <strong>官方原文</strong></td>
+<td>平台规范／国家法规原文（本版已逐条核过，见下方来源清单）</td>
+<td><strong>必须改</strong></td>
+</tr>
+<tr>
+<td>🟡 <strong>共识</strong></td>
+<td>可验证的行业共识／大量实测</td>
+<td><strong>建议改</strong></td>
+</tr>
+<tr>
+<td>🔴 未证实</td>
+<td>网传、无出处</td>
+<td><strong>只看不照抄</strong>，不入清单</td>
+</tr>
+</tbody>
+</table>
+<p><strong>红线三级</strong>：<code>🔴 硬红线（必删）</code> ｜ <code>🟡 软红线（改写）</code> ｜ <code>🟢 提示（注意就好）</code></p>
+<h2 id="_2">📚 本版依据的官方原文（全部可点开核对）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>文件</th>
+<th>官方地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>微信《视频号运营规范》（<strong>本版条文号全部来自这一份原文</strong>）</td>
+<td>https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&amp;t=weixin_agreement&amp;s=video</td>
+</tr>
+<tr>
+<td>2</td>
+<td>《人工智能生成合成内容标识办法》（网信办等四部门，2025-09-01 施行）</td>
+<td>https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm</td>
+</tr>
+<tr>
+<td>3</td>
+<td>强制性国标 <strong>GB 45438-2025</strong>《网络安全技术 人工智能生成合成内容标识方法》<br>（发布 2025-02-28／实施 2025-09-01，现行）</td>
+<td>https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=F32EA2A561F1886CD8D606513512D547</td>
+</tr>
+<tr>
+<td>4</td>
+<td>微信视频号《关于加强AI生成内容治理的公告》</td>
+<td>微信视频创作安全中心（2026 年发布）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>微信珊瑚安全《关于进一步规范人工智能生成合成内容标识的公告》（2025-08-31）</td>
+<td>微信珊瑚安全</td>
+</tr>
+<tr>
+<td>6</td>
+<td>《广告法》第九条（绝对化用语）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>注</strong>：GB 45438-2025 全文需在线预览，本清单中「5% / 2 秒」两个数字来自<strong>官方媒体对该标准的报道</strong>
+（科技日报 2025-09-02、北京日报 2025-09-02，两处表述一致），<strong>未直接看到标准条文原文</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="_3">⚠️ 先分清：哪些是「<strong>我们真的会踩</strong>」，哪些只是「<strong>以后可能踩</strong>」</h2>
+<blockquote>
+<p><strong>V1.1 初稿的一个错误（用户 2026-09-30 当场指出，已修正）</strong>：我把「条文沾点边」直接标成了「★致命」，
+结果把通用检查项写成了"我们正在违规"。<strong>这会让清单变吓人、变没法用。</strong>
+现在每条都标上「<strong>本条视频是否成立</strong>」，两类分开：</p>
+</blockquote>
+<h3 id="a">A 类 · 本条视频（拉瓦锡）<strong>确实会触发</strong> —— 发布前必须过</h3>
+<table>
+<thead>
+<tr>
+<th>条文/项</th>
+<th>为什么确实成立</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI 标识未做</strong>（法规强制 + 规范 6.4）</td>
+<td>画面 100% AI 生成，不做标识是硬违规</td>
+</tr>
+<tr>
+<td><strong>5.12 批量同质化</strong></td>
+<td>我们的形态就是"一套模板批量出片"，<strong>这是最大的形态级风险</strong></td>
+</tr>
+<tr>
+<td><strong>5.14.2 画质模糊</strong></td>
+<td>原稿码率实测 275kbps，画面糊 —— 明确违规项，不是审美问题</td>
+</tr>
+<tr>
+<td>A1-2 血腥词（砍头/血）</td>
+<td>文案里实际出现（已改）</td>
+</tr>
+<tr>
+<td>A0-4 导流私域 / 4.4.1-2 利诱胁迫互动</td>
+<td>只要有这类句子就成立（本条已无）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b">B 类 · <strong>本条不沾</strong>，但换题材/换做法会沾 —— 放在这里备用</h3>
+<table>
+<thead>
+<tr>
+<th>条文</th>
+<th>为什么本条不沾</th>
+<th>什么时候会沾</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5.13 伪科学/恐怖/猎奇</strong></td>
+<td>5.13 是<strong>穷举式列举</strong>（恐怖灵异／风水运势／食物相克），拉瓦锡这条<strong>一条都不沾</strong>。规范里的"猎奇"是<strong>定语</strong>，修饰那三类，不是"凡猎奇都违规"</td>
+<td>讲中国史人物碰到<strong>玄学、风水、怪力乱神、怪诞传说</strong>时</td>
+</tr>
+<tr>
+<td><strong>5.14.3 杜撰名人名言</strong></td>
+<td>前提是「<strong>杜撰＝凭空编造</strong>」。拉格朗日那句是<strong>真实</strong>的（ACS / Science History Institute 有原文）；「共和国不需要科学家」「眨眼11次」都<strong>标了"据说"</strong> —— 标注了出处存疑的，不构成杜撰</td>
+<td>引用了查不到、又没标注的"名言"时</td>
+</tr>
+<tr>
+<td><strong>5.5.4 引战</strong></td>
+<td>前提是「<strong>编造</strong>夸张、猎奇、引战的故事」。我们讲的是真实历史，不是编的</td>
+<td>用虚构/演绎的故事去挑对立时</td>
+</tr>
+<tr>
+<td><strong>5.11 标题党</strong></td>
+<td>本条标题没有与内容不符、也没隐瞒关键信息</td>
+<td>标题越写越长、越写越夸张时</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>这份清单的正确用法</strong>：不是"拿来判断我们有没有违规"（那只能平台说了算），
+而是"<strong>发布前把 A 类逐条打勾、B 类扫一眼</strong>"。</p>
+</blockquote>
+<hr />
+<h1 id="a_1">A｜文书级清单</h1>
+<h2 id="a-0">A-0 硬合规（跟内容好坏无关，每条视频必过）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据（条文号已核）</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A0-1</td>
+<td>发布页勾选「<strong>含AI生成内容</strong>」声明</td>
+<td>🔴</td>
+<td>《标识办法》＋ 微信视频号《关于加强AI生成内容治理的公告》</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A0-2</td>
+<td>视频号规范 <strong>6.4</strong>：用生成式人工智能生成或合成的非真实音视频、或<strong>剧情演绎等虚构内容</strong>，应「<strong>以显著方式予以标识</strong>」，否则平台有权处罚</td>
+<td>🔴</td>
+<td>视频号运营规范 6.4</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A0-3</td>
+<td>无医疗建议 / 无荐股、无金融产品推荐</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>4.6.2</strong>（未经许可荐股、推荐金融产品）</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A0-4</td>
+<td>无导流私域（「加微信」「主页联系」「私信我拿资料」）</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.20.2</strong>（未经平台许可引流到个人联系方式）</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A0-5</td>
+<td>无刷量、无互赞群、无外挂</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>4.5.1 / 4.5.2</strong></td>
+<td>🟢</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-1">A-1 措辞</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据 / 改法</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1-1</td>
+<td>绝对化用语：最 / 第一 / 唯一 / 百分百</td>
+<td>🟡</td>
+<td><strong>《广告法》第九条</strong>（不是平台规范通用条款；平台规范里只在 <strong>5.17.2</strong> 医疗科普场景点名「最……」「第一……」「唯一」）→ 改「极少有的 / 当时罕见的」</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A1-2</td>
+<td>血腥暴力词：<strong>砍头</strong> / 杀 / 血 / 尸体 / 惨死</td>
+<td>🟡</td>
+<td>视频号运营规范 <strong>5.2.5</strong>（展现血腥、惊悚、残忍等致人身心不适）＋ <strong>5.8.1</strong>（含被杀、拷打）→ 改「送上断头台 / 处决 / 生命在那一刻停止」</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A1-3</td>
+<td>侮辱性、羞辱性用语</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.9.3</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A1-4</td>
+<td>煽动人群歧视、地域歧视</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.2.6</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A1-5</td>
+<td>恐慌夸大：震惊 / 千万别 / 快告诉家人</td>
+<td>🟡</td>
+<td>视频号运营规范 <strong>5.5.1</strong>（惊悚、极端内容）＋ <strong>5.5.2</strong>（浮夸描述煽动人群）</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A1-6</td>
+<td><strong>炒作绯闻、丑闻、劣迹</strong></td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.2.2</strong> ← <strong>"历史人物八卦"最容易踩这条</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A1-7</td>
+<td>封建迷信表述（风水运势 / 算命 / 转运 / 邪教）</td>
+<td>🟡</td>
+<td>视频号运营规范 <strong>5.13.2</strong>（宣扬风水运势）＋ <strong>5.1.5</strong>（破坏国家宗教政策，宣扬邪教和封建迷信）→ <strong>中国史人物讲玄学会直接踩</strong></td>
+<td>🟢</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-2">A-2 互动引导</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据（<strong>V1 这里写错了，见修订记录</strong>）</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A2-1</td>
+<td>无<strong>利诱</strong>用户分享/关注/点赞/评论（集赞、邀请好友拆礼盒、分享抽奖）</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>4.4.1</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A2-2</td>
+<td>无<strong>胁迫、煽动</strong>用户分享/关注/点赞（「不点赞不是中国人」「不转不是中国人」类）</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>4.4.2</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A2-3</td>
+<td>⚠️ <strong>「编造夸张、猎奇、引战的故事，煽动用户情绪」</strong></td>
+<td>🟡</td>
+<td>视频号运营规范 <strong>5.5.4</strong> ← <strong>"二选一站队"式结尾要小心这条</strong>，提问用「你怎么看」而不是「你站哪边」</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A2-4</td>
+<td>提问式 CTA 优于祈使式 CTA</td>
+<td>🟢</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-3-v1">A-3 标题与描述（V1 整段漏了）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A3-1</td>
+<td>标题/描述 <strong>不能与内容不符</strong>、不用夸张诱惑极端词汇诱导点击</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.11.1</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A3-2</td>
+<td>不能<strong>故意隐藏关键信息</strong>、不用指代不明或模糊词汇当描述</td>
+<td>🟡</td>
+<td>视频号运营规范 <strong>5.11.2</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A3-3</td>
+<td>使用夸张标题、内容与标题严重不符</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.2.1</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A3-4</td>
+<td>话题标签要与实际内容相关</td>
+<td>🟡</td>
+<td>视频号运营规范 <strong>5.11</strong> 引言</td>
+<td>🟢</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-4">A-4 版权与原创</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A4-1</td>
+<td>❌ <strong>不许「杜撰名人名言」</strong></td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.14.3</strong>（通过混剪、拼接、P图等形式制作内容，<strong>杜撰名人名言</strong>）← <strong>我们引用拉格朗日、引语必须真实</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A4-2</td>
+<td>抄袭、搬运</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.3.1</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A4-3</td>
+<td>❌ <strong>批量发布近似情景、文案、元素的同质化内容</strong></td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.12</strong> ← <strong>这条直击「AI 生图批量出片」，是我们形态的最大风险</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A4-4</td>
+<td>引用别人的话要注明是谁说的</td>
+<td>🟡</td>
+<td>经验（也影响转发：别人的话观众不会替你转）</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-5-c1">A-5 中国历史人物专项（C1）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A5-1</td>
+<td>不为侵略 / 暴行洗白，不做翻案式猎奇定论</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.4.1</strong>（政治类不实信息）＋ <strong>5.1.2 / 5.1.3</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A5-2</td>
+<td>不煽动民族仇恨、民族歧视，不破坏民族团结、宗教政策</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.1.4 / 5.1.5</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A5-3</td>
+<td>不宣扬邪教与封建迷信（玄学、风水、怪力乱神）</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.1.5 / 5.13.2</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>A5-4</td>
+<td>帝王将相不做极端洗白/抹黑，与主流史观对齐</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>A5-5</td>
+<td>未定论史实必须口播带「据说 / 一说 / 史书这样记载」</td>
+<td>🟡</td>
+<td><strong>项目自定规则</strong>（写进《对标全维表》③ 证据类型）</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-6-c2">A-6 外国科学史人物专项（C2）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A6-1</td>
+<td>科学事实三项核对：定律名 / 年份 / 发现权归属</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.14.3</strong>（杜撰名人名言）＋ 项目自检</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>A6-2</td>
+<td>人名译名用通行译法（拉瓦锡，不是「拉瓦西耶」）</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>A6-3</td>
+<td>宗教冲突（哥白尼/伽利略与教会）不与当代宗教类比</td>
+<td>🟡</td>
+<td>视频号运营规范 <strong>5.1.5</strong> 精神</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>A6-4</td>
+<td>不默认「欧洲发明了一切」</td>
+<td>🟢</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>A6-5</td>
+<td>不做「天才神话」：所有传奇细节标注「据说」</td>
+<td>🟡</td>
+<td>项目自定规则</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="b_1">B｜画面级清单</h1>
+<h2 id="b-0-ai">B-0 AI 标识（法律问题，不是平台偏好）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B0-1</td>
+<td><strong>片头/画面边角有看得见的文字标识</strong>：文字高度 <strong>≥ 画面最短边的 5%</strong>，正常播放下持续 <strong>≥ 2 秒</strong></td>
+<td>🔴</td>
+<td>GB 45438-2025（经科技日报/北京日报报道的标准要求，2025-09-01 施行）</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B0-2</td>
+<td>标识内容必须<strong>同时包含</strong>「人工智能」或「AI」＋「生成」和/或「合成」</td>
+<td>🔴</td>
+<td>同上（例：「AI 生成」「内容为AI技术制作」）</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B0-3</td>
+<td>保留文件元数据隐式标识，且<strong>不得删除、篡改、伪造、隐匿</strong></td>
+<td>🔴</td>
+<td>《标识办法》＋ 微信珊瑚安全公告</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B0-4</td>
+<td>画面里没有残留 AI 工具水印 / 他人生成水印</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 <strong>发布时怎么标</strong>（微信视频号官方入口，2026 公告）：
+① 视频发表页 &gt; 添加标注 &gt; <strong>含AI生成内容</strong>
+② 视频的「转发按钮 &gt; 视频标注/添加声明 &gt; <strong>含AI生成内容</strong>」
+标识会在<strong>视频底部</strong>显示。</p>
+</blockquote>
+<h2 id="b-1">B-1 血腥分级</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据 / 替代方案</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1-1</td>
+<td>不出<strong>尸体、骷髅</strong></td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.8.2</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B1-2</td>
+<td>不出自虐/自残/自杀/<strong>被杀</strong>/枪击/刺伤/拷打</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.8.1</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B1-3</td>
+<td>不出家暴、校园暴力、斗殴等暴力画面</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.8.3</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B1-4</td>
+<td>死亡场景用<strong>意象</strong>代替（烛火熄灭 / 空镜 / 慢速淡出 / 阴天远景）</td>
+<td>🟡</td>
+<td>经验（黑屏＋数字浮现会暗示死亡，一样中风险）</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>对应「拉瓦锡」这条</strong>：断头台只出远景/剪影/建筑轮廓；「刀起刀落」那一镜用意象替代。</p>
+</blockquote>
+<h2 id="b-2">B-2 素材来源</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B2-1</td>
+<td>优先级：AI 生成 ＞ 公共领域 ＞ 付费素材库</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>B2-2</td>
+<td>❌ 不用第三方独家片段（侵权素材不允许上传）</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>6.5</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B2-3</td>
+<td>❌ 不做在世公众人物的 AI 拟真图</td>
+<td>🔴</td>
+<td>网信办 AI 内容标识专项通报案例（AI 换脸假冒公众人物被处置）</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B2-4</td>
+<td>⚠️ 侵权可能性高的内容（权利标识但缺授权、来源明显不当）会被<strong>自动限制传播</strong></td>
+<td>🟡</td>
+<td>视频号运营规范 <strong>6.3</strong></td>
+<td>🟢</td>
+</tr>
+</tbody>
+</table>
+<h2 id="b-3-v1">B-3 画质与人物一致性（V1 漏了画质，而这是明确的违规项）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B3-1</td>
+<td>不出现<strong>画质模糊 / 黑边 / 扭曲 / 花屏 / 音画不相关</strong></td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.14.2</strong>（低质内容）← <strong>原稿码率只有 275kbps，画质模糊，这类是明确违规</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B3-2</td>
+<td>不用<strong>轮播文字、大字覆盖、简单拼凑</strong>做内容</td>
+<td>🟡</td>
+<td>视频号运营规范 <strong>5.14.1</strong></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B3-3</td>
+<td>人物锚定卡：固定外貌描述词，每张图复用</td>
+<td>🟡</td>
+<td>经验（防人物不一致）</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>B3-4</td>
+<td>时代元素对齐年代（防穿帮）</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>B3-5</td>
+<td>逐张筛 AI 瑕疵：多指 / 畸形 / 书页乱码文字〔2026-10-07：<strong>手部</strong>按 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a> §三 —— 不作硬伤项、只卡「一眼可见的明显畸形」；<strong>书页/文字/符号</strong>一律留白（不写「文字虚化」「符号允许清晰」）〕</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<h2 id="b-4-c1">B-4 中国历史人物专项（C1）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B4-1</td>
+<td>不用含争议边界的地图素材</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.1.2 / 5.1.3</strong> 精神</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>B4-2</td>
+<td>不出国旗 / 国徽 / 领导人形象</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>B4-3</td>
+<td>服饰礼制不穿帮（明黄、龙纹、官服品级）</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>B4-4</td>
+<td>不误植日式 / 韩式元素当中国古风</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>B4-5</td>
+<td>不出现恐怖灵异画面（<strong>5.13.1</strong>）</td>
+<td>🔴</td>
+<td>视频号运营规范 <strong>5.13.1</strong></td>
+<td>🟢</td>
+</tr>
+</tbody>
+</table>
+<h2 id="b-5-c2">B-5 外国科学史人物专项（C2）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>检查项</th>
+<th>级别</th>
+<th>依据</th>
+<th>可信度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B5-1</td>
+<td>实验器材符合当年（拉瓦锡时代＝曲颈甑/汞钟，不是现代试管架）</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>B5-2</td>
+<td>画面里的化学式 / 公式必须正确且可读</td>
+<td>🟡</td>
+<td>经验</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>B5-3</td>
+<td>不给历史人物做高拟真「人脸复活」</td>
+<td>🟡</td>
+<td>经验 ＋ 网信办通报精神</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="c-60">C｜发布前 60 秒速查（打勾版）</h1>
+<p><strong>文书</strong>：☐ 勾选「含AI生成内容」　☐ 无「最/第一/唯一」　☐ 无血腥词　☐ 无导流私域　☐ 无利诱/胁迫互动　☐ 引语真实（不杜撰名人名言）　☐ 标题不夸张不隐瞒　☐ 传说已标「据说」</p>
+<p><strong>画面</strong>：☐ 片头 AI 标识（≥5% 最短边 / ≥2 秒）　☐ 无尸体/骷髅/被杀/拷打　☐ 无斗殴家暴　☐ 无黑边花屏模糊　☐ 人物脸一致　☐ 无<strong>明显</strong>畸形手指（轻微/存疑手部不作硬伤，见 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a> §三）</p>
+<p><strong>专项</strong>：☐ 中国史 → 史观/民族/宗教/玄学已过，无恐怖灵异　☐ 外国科学史 → 定律/年份/发现权已核</p>
+<p><strong>形态级</strong>：☐ 本条与上几条<strong>不是近似情景/文案/元素</strong>（防 5.12 同质化）</p>
+<hr />
+<h1 id="_4">📋 修订记录</h1>
+<h2 id="v112026-09-30-2-6">V1.1（2026-09-30）—— 条文号核原文，改 2 错、补 6 漏</h2>
+<p><strong>核的方式</strong>：抓取微信《视频号运营规范》官方页面原文（<code>weixin.qq.com/cgi-bin/readtemplate?...&amp;s=video</code>），
+逐条比对；国标编号到「国家标准全文公开系统」核实；AI 标识要求经官方媒体报道交叉验证。</p>
+<h3 id="v1-2">❌ 改掉 V1 的 2 处错误</h3>
+<table>
+<thead>
+<tr>
+<th>V1 写的</th>
+<th>实际</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「引人不适内容 = 规范 <strong>5.13</strong>」</td>
+<td><strong>5.13 实为「含有伪科学、恐怖、猎奇的内容」</strong>；"引人不适"应引 <strong>5.2.5</strong>（血腥惊悚残忍致身心不适）＋ <strong>5.8</strong>（令人极度不适：被杀/尸体/骷髅/暴力）</td>
+<td>V1 把两个完全不同的条款搞混了；而且<strong>漏掉了 5.13 这条对我们更要命的</strong>（见下）</td>
+</tr>
+<tr>
+<td>「引导关注不得描述按钮位置（规范 <strong>15.5</strong>）」</td>
+<td><strong>规范里根本没有 15.5 条</strong>（结构只到「七、其他」）。相应条款是 <strong>4.4 诱导用户</strong>（4.4.1 利诱 / 4.4.2 胁迫煽动）</td>
+<td>V1 引了一个不存在的条文号</td>
+</tr>
+</tbody>
+</table>
+<h3 id="v1-6">➕ 补上 V1 漏掉的 6 条（★ = 对我们特别致命）</h3>
+<table>
+<thead>
+<tr>
+<th>条文</th>
+<th>内容</th>
+<th>为什么重要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5.12</strong> ★</td>
+<td>批量发布通过<strong>近似的情景、文案、元素</strong>编造的同质化内容</td>
+<td><strong>直击「AI 生图批量出片」——这是我们形态的最大风险</strong></td>
+</tr>
+<tr>
+<td><strong>5.14.3</strong> ★</td>
+<td>通过混剪、拼接、P图等形式制作内容，<strong>杜撰名人名言</strong></td>
+<td><strong>直接命中「引用名人名言」</strong>（拉格朗日那句必须真实）</td>
+</tr>
+<tr>
+<td><strong>5.13</strong> ★</td>
+<td>伪科学、<strong>恐怖、猎奇</strong>内容（5.13.1 恐怖灵异、5.13.2 风水运势）</td>
+<td>命中我们的「秘闻／猎奇」定位 ＋ 中国史玄学</td>
+</tr>
+<tr>
+<td><strong>5.14.2</strong></td>
+<td>画质模糊、黑边、花屏、音画不相关</td>
+<td><strong>原稿码率仅 275kbps、画面糊，这类是明确违规</strong></td>
+</tr>
+<tr>
+<td><strong>5.11</strong></td>
+<td>标题/描述与实际内容不符、夸张诱惑极端词、故意隐藏关键信息</td>
+<td>标题党红线</td>
+</tr>
+<tr>
+<td><strong>5.5.4</strong></td>
+<td>编造夸张、猎奇、<strong>引战</strong>的故事，煽动用户情绪</td>
+<td><strong>「二选一站队」式结尾要注意这条</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">🔧 其他修正</h3>
+<ul>
+<li>所有平台条款的可信度从 🟡 <strong>升到 🟢</strong>（条文号已核官方原文，URL 列在「官方原文」表）</li>
+<li>「绝对化用语」依据改准：<strong>《广告法》第九条</strong>，不是平台规范通用条款</li>
+<li>补充微信视频号的<strong>具体标识入口</strong>（视频发表页 &gt; 添加标注 &gt; <strong>含AI生成内容</strong>）</li>
+<li>补充 GB 45438-2025 的<strong>国标编号、发布/实施日期</strong>（国家标准全文公开系统核实）</li>
+<li>GB 45438-2025 设<strong>6 个月过渡期</strong>（2025-09-01 施行 → 2026-03-01 过渡期满），<strong>现已过期</strong></li>
+</ul>
+<h3 id="v11_1">⚠️ V1.1 的另一处自我修正（同日，用户当场指出）</h3>
+<p>初稿的「补漏」表把所有新补条文都标了 <strong>★（对我们特别致命）</strong>，这是<strong>过度解读</strong>：
+条文写了 ≠ 我们触发了。已在上文新增「<strong>先分清哪类会踩</strong>」一节，把 <strong>5.13 / 5.14.3 / 5.5.4 / 5.11</strong> 四条的 ★ 取消、
+降级为"<strong>本条不沾、以后可能沾</strong>"，只留 <strong>5.12（同质化）</strong> 与 <strong>5.14.2（画质）</strong> 两条真正成立的。</p>
+<p><strong>教训</strong>（已收入 <code>skill judgment-selfcheck</code> 的 B1「把可能相关当成确实命中」）：
+写风险清单时，<strong>必须分「确实会触发」／「以后可能触发」两档，不许混在一档</strong>。</p>
+<h3 id="100">⚠️ 仍未 100% 落实的一处</h3>
+<ul>
+<li>「文字高度 ≥ 最短边 5%、持续 ≥ 2 秒」：<strong>来自官方媒体对 GB 45438-2025 的报道</strong>（科技日报、北京日报，两处表述一致），
+  <strong>未直接读到国标条文原文</strong>（国标全文需在线预览）。→ 保守执行即可，风险方向是"做得更醒目"。</li>
+</ul>
+<hr />
+<p><em>版本</em>：V1.1（2026-09-30）｜上一版：V1（同日上午，条文号未核）
+<em>上游</em>：<code>04-输出成果/拉瓦锡文案V2_专家复盘.md</code> 第三节</p></article>
+</main></div></body></html>

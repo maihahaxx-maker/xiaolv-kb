@@ -1,0 +1,811 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · log.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-10 23:45</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink on">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html" class="">AI生图提示词规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html" class="">侯德榜_脚本和分镜_V4_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">门捷列夫_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_策划卡V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_脚本分镜V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html" class="">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class="">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html" class="">19-人物类视频发布前检查清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html" class="">20-两条视频共性问题与解决方案</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">21-人物故事策划分析卡模板V1（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html" class="">22-脚本分镜前置写作规则</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / log</div>
+<article><h2 id="2026-09-29-rule">[2026-09-29] rule | 方法库新增「可信度规则」，群聊来源隔离到「群聊观察」</h2>
+<ul>
+<li>用户要求：方法论入库前必须<strong>核验真实性</strong>、<strong>标明来源</strong>、与自有/外部方法论<strong>分区</strong>（防未核实内容污染整库可信度）。</li>
+<li>新增 <code>03-方法库/00-可信度规则.md</code>：三层分区（自有 🟢 / 外部手册 🟡 / 群聊观察 🔴）、必填字段（source_type / source_detail / verified / verified_date / evidence）、入库核验三步（查官方·数字优先·查不到只隔离不删）、3 个月复核期、「未核验≠不能用→转待验证假设」。</li>
+<li>雪见群 3 篇从 <code>外部方法论/</code> 移入 <code>群聊观察/</code>，各加 🔴 未核实横幅 + 文末「核验记录」表 + 新 frontmatter 字段。</li>
+<li><strong>核验结果（2026-09-29）</strong>：①「橱窗需 5000 粉」❌ 被官方证伪（官方：橱窗带货无粉丝数限制，无违规即可自动开通）；②「橱窗要求非 AI 视频」⚠️ 未证实（官方限制的是 AI 数字人<strong>直播</strong>带货）；③「短视频带货 1000 粉」✅ 与官方一致（须为有效粉丝）；④「图书佣金约 50%」✅ 行业普遍值（非平台规定）；⑤「发 6 视频+1 自拍」⚠️ 与官方「不少于 10 条」不一致。</li>
+</ul>
+<h2 id="2026-09-29-ingest-3">[2026-09-29] ingest | 雪见群实战方法论 3 篇（视频号/矩阵/选题）</h2>
+<ul>
+<li>数据源：雪见 2026 AI 陪伴群 09-19~09-28（2328 条），原始记录存档到 <code>01-原始资料/聊天记录/</code>。</li>
+<li>新增 <code>03-方法库/外部方法论/</code>：05-视频号起号与图书带货、06-视频矩阵搭建与批量出片、07-选题对标与爆款监控。</li>
+<li>关键新增信息：新号别养号/带货门槛 1000 粉·橱窗 5000 粉且要求非 AI 视频/图书佣金 50%/强冲突标题公式/低位跟爆款二创/一机一卡一号一网（二手手机 200 元）/3 机器人出片流水线（qwen3.7-plus 5h 出 20 片）。</li>
+<li>已标注合规风险：多账号矩阵、他人身份注册、养生类带货、二创搬运、数据抓取、故意发错误信息。</li>
+<li>待验证：本项目 AI 生图形态与「橱窗要求非 AI 视频」的冲突（已登记待验证假设）。</li>
+</ul>
+<h2 id="2026-09-29-project">[2026-09-29] project | 新建「知乎小说」项目区（同库不同区）</h2>
+<ul>
+<li>阶段①：出路《变现路径地图》（盐选三路＋两处实名）；台账冻结 N1-N6（含"不做搬运"版权红线、收入＝内容×分发×数量）。</li>
+<li>出《对标全维表·小说版》模板、《章节生产SOP（四站闸门）》、《选题池》占位。</li>
+<li>新增看板 <code>/novel/</code>（与视频看板并列，共用同一知识库与发布流水线）；发布脚本 export_static.py 增加 novel 看板构建与落地页第二张卡片。</li>
+</ul>
+<h2 id="2026-09-29-lint-wikilink">[2026-09-29] 整理 | Lint：修复失效 wikilink 与缺失交叉引用</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行 Lint（脚本化全库 wikilink 完整性 + 孤立页扫描）。</li>
+<li>修复 3 条失效 wikilink：<code>外部方法论总览</code> → <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html">01-人物故事AI生产流水线（安妮250w）</a>；<code>07-选题对标与爆款监控</code> → <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html">数据基线</a>、<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html">知乎小说 · 选题池</a>。</li>
+<li>补齐缺失交叉引用：3 篇「群聊观察」＋ <code>外部方法论总览</code> 补 → <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html">方法库可信度规则</a>（信任契约此前无任何方法页引用）；知乎小说 <code>README</code> 文件表改 wikilink（6 页不再孤立）；知乎小说 <code>00-总纲</code>/<code>03-对标拆解表模板</code> 改用 wikilink；<code>卫子夫爆款拆解</code>/<code>拉瓦锡视频复盘</code> 指向样本库原文改 wikilink。</li>
+<li>仍待处理（已记入 index 完整性待办）：① <code>01-原始资料/视频转写/</code> 仍空，4 页 sources 指向缺失文件（原文件名含空格）；② <code>05-项目/内容自动化/</code> 与 <code>03-方法库/</code> 三处重复页待择一；③ 该项目多页无 frontmatter／无入链，归入「项目文件是否整体纳入 Obsidian」一并解决。</li>
+<li><code>05-项目/内容自动化/02-数据基线.md</code>：第 2 条仍标「待发」，无数据可补 → 跳过。</li>
+</ul>
+<h2 id="2026-09-30-ingest-09-29-05">[2026-09-30] ingest | 雪见群 09-29 消息：视频号带货佣金机制 + 数字人风控（补进 05）</h2>
+<ul>
+<li>数据源：雪见 2026 AI 陪伴群 2026-09-29（total=361，去重 360 条，覆盖 08:15–22:26），原始记录存档 <code>01-原始资料/聊天记录/雪见AI陪伴群_20260929_原始记录.md</code>。</li>
+<li>更新页：<a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">05-视频号起号与图书带货（雪见群实战）</a>（未新建页，避免与既有群聊观察页重复）：</li>
+<li>新增 3.1「佣金到底谁定」——官方《微信小店优选联盟计佣与结算规则》：普通计划 1%–50% / 专属·定向 0%–90%；群内「都是 50%」= 上限，「微信店铺佣金都是 10%」❌ 与官方冲突；高佣须让商家开专属/定向（对应群内「跟商家谈专属链接」）。</li>
+<li>新增 3.2「开店卖书 vs 挂车带货」——图书类目《出版物经营许可证》是<strong>商家侧</strong>要求，达人挂车不需自办（纠正群内容易被误读的说法）。</li>
+<li>新增「七、数字人与 AI 内容风控」——20 万粉数字人号被减少推荐/申诉未过（个案）；替代做法「真人拍 + AI 剪辑」；官方硬要求：视频号《AI 生成内容治理公告》（2026 年清理 2 万余条 / 处置 3 千余账号）+《标识办法》须主动声明，附声明入口；「带 AI 标识会被限流」无官方依据。</li>
+<li>核验记录表从 6 行扩到 11 行（新增 5 条，2026-09-30 复验），frontmatter verified_date 更新。</li>
+<li>索引与看板：<code>index.md</code> 群聊观察分区该页摘要已改写（补佣金/资质/风控），顶部「最后更新」改写。</li>
+<li>同步：跑 <code>kb_feishu_sync.py</code> + <code>publish_kb.py</code> 让飞书与网页版可见。</li>
+</ul>
+<h2 id="2026-09-30">[2026-09-30] 产出 | 环节一「立标准」完成：生产线三件套</h2>
+<ul>
+<li>触发：用户回到视频项目，问进度与「两个确认」。确认结果 → 台账 D9/D10/D11。</li>
+<li>新增三份标准件（<code>05-项目/内容自动化/</code>）：</li>
+<li><code>07-对标全维表V1.md</code> — 9 维度通用模板（内容属性/基本信息/文案框架/情绪曲线/情绪节点明细/五问拆解/结构骨架表/复刻边界/正文全文）＋「我方对照」列 ＋ 题材专项备注。<strong>只做一份</strong>，中外人物共用（差异走 ③ 证据类型 / ⑦ 不可改动项）。</li>
+<li><code>08-限流自查清单V1.md</code> — A 文书级 ＋ B 画面级两套；各含 C1 中国历史人物专项 / C2 外国科学史人物专项；每条标 来源与可信度（官方/共识/未证实）＋ 红线三级（硬/软/提示）；附「发布前 60 秒速查」。明确声明：平台从不公开完整限流词表，不收网传词表。</li>
+<li><code>09-各站验收表V1.md</code> — 6 站闸门（文案→脚本→分镜→生图提示词→生图→成片），每站带 必过项与达标线；判定规则（必过项全过 + ≥80 通过）；双稿对照表；返工原因台账。</li>
+<li>概念澄清：「一份模板两套红线」= 1 份《对标全维表》＋ A/B 两套红线清单（非两套模板）。</li>
+<li>更新：<code>00-总纲.md</code> 第三阶段改为「立标准 ＋ 改造视频」，新增 3.0 节点（3.0.1/3.0.2/3.0.3 完成），3A.2 文案 V3 标为下一步；<code>01-决策台账.md</code> 加 D9/D10/D11；<code>index.md</code> 加 3 条登记 ＋ 顶部最后更新。</li>
+<li>交付：三份已转 docx 发到群「和小驴驴在讨论」。</li>
+</ul>
+<h2 id="2026-09-30-ingest-ai">[2026-09-30] ingest | 破局《AI小说&amp;剧本实战手册》短篇部分</h2>
+<ul>
+<li>来源：破局 08 期行动营（campId 086c722a…，2025-09-25~10-15），手册出品 2025-09-22，原文 10.5 万字</li>
+<li>用户给的 aipoju.com 分享链接=该营实战手册（需登录；用 breakout CLI 的 action manual 分页拉全文，绕过 12k 截断）</li>
+<li>原文落 <code>01-原始资料/文章/破局手册-AI小说与剧本实战手册-08期-2025-09-22.md</code>（私有，不进公开站点）</li>
+<li>产出 <code>05-项目/知乎小说/08-短篇方法论提炼（破局手册）.md</code>：逐块判断（五星/打折/过时）+ 补盐选量化门槛 + 可用清单 + 点评</li>
+<li>冻结 N7（短篇为主，不做长篇连载）、N8（不用第三方自动投稿/不群发）；Q1 触发条件由「10 篇」改为「2–3 篇盐选短篇样本」</li>
+</ul>
+<h2 id="2026-09-30-update-agentsmd-karpathy-llm-wiki">[2026-09-30] update | AGENTS.md 规则修订（对齐 Karpathy llm-wiki 核心思路 + 用户新要求）</h2>
+<ul>
+<li>① Ingest 尺度由「3-10 页」改为 <strong>10-15 页</strong>（低于 10 页 = 只存不织网，会产出孤立页面）</li>
+<li>② 新增 §九 图片规则：教程配图<strong>跳过</strong>（只在文字讲不清时定点抓取+识别），生产素材<strong>必须本地化</strong></li>
+<li>③ 新增 §十 对外发布规则：公开站点排除 <code>01-原始资料/</code>（付费社群手册、群聊原始记录不外发），改发布方式后须抽查 404</li>
+<li>未采纳：读书伴读 wiki（用户定为个人兴趣，读书笔记流程维持现状不动）</li>
+<li>附带修复：<code>kb-site/server.py</code> + <code>export_static.py</code> 增加 <code>KB_EXCLUDE_DIRS</code>，本地只读服务不受影响</li>
+<li>验证：破局手册页 / 雪见群记录页 → 404；知识库/看板/小说看板 → 200</li>
+</ul>
+<h2 id="2026-09-30-v11">[2026-09-30] 修订 | 对标全维表 V1.1 ＋ 新增一页纸速查卡（用户反馈"看迷了"）</h2>
+<ul>
+<li>用户反馈：07 表「看迷了」——分不清填的是别人的片子还是自己的。逐条问答确认：③④⑤⑥⑦⑧ 全填<strong>样本的</strong>；写给我们的只有 ⑦「可迁移机制」＋ ⑧「复刻边界」。</li>
+<li><code>07-对标全维表V1.md</code> → <strong>V1.1</strong>：① 顶部加「这张表填的是别人的片子（不是你的）」＋「什么时候填」；② 新增「⚠️ 别踩的坑」段（情绪曲线是读出来的、不是希望出来的；结构骨架是它实际怎么排的）；③ 末尾新增「附｜填好的样例（卫子夫 · 节选）」，逐维度示范颗粒度。</li>
+<li>新增 <code>10-速查卡.md</code>（用户要的「言简意赅版」）：✅ 可以搬的 6 条 ／ ⛔ 不可以碰的（版权史实 6 条 ＋ 平台红线 6 条）／ 📐 对标 9 维度（标出 4 个 ★核心）／ 🧭 「拆别人的 vs 写自己的」流程示意。</li>
+<li>关键澄清（写进速查卡）：<strong>拆别人的爆款 → 填对标全维表；写自己的片子 → 用骨架换内容直接写稿（产物叫《文案》，不填表）；发出去之后 → 发布后复盘表。</strong></li>
+<li>索引：<code>index.md</code> 加 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html">速查卡</a> 登记。</li>
+<li>交付：07 v1.1 ＋ 10 速查卡 已转 docx 发群。</li>
+</ul>
+<h2 id="2026-09-30_1">[2026-09-30] 产出 | 样本对照总表：回答「拆了一堆样本，然后呢」</h2>
+<ul>
+<li>用户提问：「对标卡是干嘛用的？我甩很多视频你都按这个拆，然后呢？」—— 暴露"拆了不产出"的风险。</li>
+<li>明确链条：拆样本（N 条）→ 横着比 → <strong>共性（施工图）</strong> → 写每条稿 → 发 → 数据 → 修正共性 ↺。</li>
+<li>新增 <code>11-样本对照总表.md</code>：一行＝一条爆款（平台/时长/钩子类型/情绪引擎/峰数/最早的峰/冲突位置/CTA类型/数据）；卫子夫行已填；第 2、3 行待用户转视频；末行「共性」攒到 3 条再填。</li>
+<li>写入关键判断（防沉迷拆解）：<strong>拆样本边际收益递减，拆到 3 条就停</strong>（1 条＝整套骨架 ★★★★★；2-3 条＝分清共性 vs 个人风格 ★★★；4 条起≈重复 ★）。拆解不是目的，数据才是。</li>
+<li>下一步待用户动作：转发 3 条同类爆款（视频号链接）→ 我用 <code>xuejian-wechat-video-resolver</code> 解析 + 按 V1 全维表拆 → 补第 2、3 行 → 填「共性」。</li>
+<li>索引：<code>index.md</code> 加 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html">样本对照总表</a>；看板 3.0 组加节点。</li>
+</ul>
+<h2 id="2026-09-30-v3">[2026-09-30] 记录 | 选题雷达：需求成立，但明确暂缓到 V3 之后</h2>
+<ul>
+<li>用户在群里提出「采集」的第二诉求：不只做化学史人物，也想走历史人物故事路线 → 需要每天采集、生成选题。</li>
+<li>用户顾虑（成立）：豆包生成的第一批选题「做给学生看还行，但基于流量去考虑，不得参考热点吗？不然埋头苦干，选了一大堆自己觉得 OK 的，别人不爱看」。</li>
+<li>调研 skills.sh / ClawHub：热榜类 skill（cn-hot-trends-6 / hot-topic-tracker / hot-topics-daily / hot-aggregator-cn）全部不覆盖视频号，且抓的是「热搜榜」而非「选题热度」→ 结论不装第三方 skill，B站抓取自己写脚本。</li>
+<li>技术现实写清：视频号无公开热榜、无账号目录，「每天自动扒视频号热点」做不到（只能靠用户转发 / 雪见群服务）。</li>
+<li>关键框架（新增，写进页面）：「热点」拆三层 —— ① 人物层（选谁）② 角度层（讲哪一面）③ 时机层（什么时候讲，才是时事热搜）；正确顺序 1→2→3。核心判断：<strong>选题决定天花板，文案决定能不能碰到天花板</strong>；豆包选题的真问题不是「没追热点」，是「没有数据源」。</li>
+<li>额外提醒（差异化）：热门人物 + 零粉丝 = 最激烈正面竞争 → 人物选热门的，角度切独家的。</li>
+<li>用户决定：先记下来，等拉瓦锡 V3 做完再启动（认同「不两条线并行」）。</li>
+<li>落盘：新增 <code>12-选题雷达（待启动）.md</code>；<code>01-决策台账.md</code> 待定表新增 P6（启动条件= V3 发布后）；<code>index.md</code> 登记。</li>
+<li>用户同时重申沟通规则：想法不现实/有问题时要点出来、给建议（已在 user memory 中）。</li>
+</ul>
+<h2 id="2026-09-30-ingest-1-asr">[2026-09-30] ingest | 补回拉瓦锡第 1 条视频口播原文（ASR）</h2>
+<ul>
+<li>背景：用户找不到原始文案文档（豆包生成 → Codex 改过 → 文件散乱）。解决方式：让用户发视频号分享链接，由我方重新解析＋转写。</li>
+<li>链接 <code>https://weixin.qq.com/sph/ARV2DE4yi1</code> → 解析确认作者 MgAlhaha、时长 276.6s（4:36.6，与「原稿 4:37」一致）、720×1280 / 342kbps。</li>
+<li>faster_whisper <code>small</code>(int8) 转写：81 段 ／ 1414 字 ／ 语速 ≈ 5.11 字/秒（≈307 字/分钟，偏快）。</li>
+<li><strong>落盘 <code>01-原始资料/视频转写/拉瓦锡_ASR.md</code></strong>（第一层·只读）：逐段时间码原文 + 转写错字清单（附注，不改正文）+ 与 4:37 口径核对。<strong>补上 index 挂了两天的「第一层缺原文」缺口</strong>（拉瓦锡部分；卫子夫部分仍缺）。</li>
+<li>附：<code>index.md</code> 待办已改写标注进展。</li>
+</ul>
+<h2 id="2026-09-30-v3_1">[2026-09-30] 产出 | 拉瓦锡 V3 编排方案（待拍板）</h2>
+<ul>
+<li>用户要求「先出方案，先不写」→ 落盘 <code>04-输出成果/拉瓦锡V3_编排方案.md</code>。</li>
+<li>核心设计判断（相对原稿的三大改动）：
+  ① <strong>换悬念</strong>：原稿悬念是「他眨了几次眼」（答案在简介已剧透、且不值钱）→ V3 改成「<strong>他为什么被杀</strong>」（一个让全人类受益的人，为什么被他自己救的人砍了头）；眨眼实验降级为<strong>高潮画面</strong>。
+  ② <strong>换情绪引擎</strong>：价值震撼（沉思型、易哑火）→ <strong>不公感 ＋ 惋惜</strong>（不公感天生带站队，驱动评论）；峰值从「震撼」挪到「惋惜/感动」（震撼不驱动转发，感动才驱动）。
+  ③ <strong>换落点</strong>：原稿落点是拉格朗日的名言（别人的话）→ V3 落点是<strong>妻子十年整理遗作</strong>（自己的故事）＋ 一句我方标签句「他一辈子都在记录这个世界，最后是她，把他记录了下来」。</li>
+<li>结构：11 格（钩子→坐标→冲突前置→反常识→情感锚→崩塌→抉择→高潮→反转→落点→CTA），245s ≈ 4:05，约 1150 字。</li>
+<li><strong>最大结构改动：用「钩子」替代「求赞」</strong> —— 原稿只在开头钩 1 次、中间靠 3 次讨赞续命；V3 改成每 40-45 秒一个新信息钩子，共 7 处，求赞只留结尾 1 次。</li>
+<li>改动清单：删 40 秒水（21-28/28-36/36-42/68-76/145-156）；移 4 处（包税官 83s→0:25、成就 43-67s→0:12 压成 2 句、眨眼 200s→2:30、妻子遗作 222s→3:20 扩到 30s）；改 3 处（罗伯斯庇尔「一年」→「81 天」、「眨眼 11 次」加传说标注、结尾加低门槛表态）；补 3 样（标签句、妻子呼应结构、坐标段）。</li>
+<li>情绪曲线目标：峰 4 个、最早峰在第①段（0:00，优于卫子夫的第 3 段）、最长平原 ≈30s、峰值落倒数第二段（与卫子夫同规律）。</li>
+<li>语速建议：原稿 5.11 字/秒（307 字/分）偏快 → V3 降到 4.7 字/秒（282 字/分）。</li>
+<li><strong>待用户拍板 3 项</strong>：① 悬念换不换 ② 落点放哪 ③ 语速降不降。拍板后才写全文。</li>
+</ul>
+<h2 id="2026-09-30-d12">[2026-09-30] 修订 | 用户纠正受众定位：不是中老年人（D12）→ 方案/总表/台账同步改</h2>
+<ul>
+<li>用户原话：「做'化学历史人物故事'的时候，受众并不是仅仅中老年人，不要把受众框死在'中老年人'这个定位。我那个微信加了很多学生和家长，做'化学历史人物'我主要是发在那个微信。后续做'历史人物'，希望覆盖范围更广一些。」</li>
+<li>研判：这条纠正<strong>推翻了 3 处</strong>此前基于"中老年向对标样本"的假设 ——
+  ① 情绪引擎不再对标卫子夫的"道德愤怒"→ 改「<strong>惊奇＋敬意＋惋惜</strong>」（求知型）；
+  ② 落点理由去掉"感动驱动中老年转发"→ 改为「惋惜跨年龄通用」，且⑧眨眼实验的"惊奇"<strong>不能弱化</strong>（学生对此反应更强）；
+  ③ CTA 去掉"中老年爱用表情表态"→ 改<strong>双受众设计</strong>（给学生反常识提问／给家长转发理由，家长偏"工具型转发＝给孩子看"）。</li>
+<li><strong>受众分层（固定）</strong>：化学史人物线＝学生＋家长（她的个人微信好友，从个人微信发到视频号）；后续历史人物线＝覆盖更广、不预设年龄。</li>
+<li>🎁 关键发现：视频号「社交推荐优先」→ 冷启动最难的"熟人社交数据"，<strong>她的票仓本来就在微信里</strong>（学生＋家长）。"发完 30 分钟内找 20 个熟人看完"这条动作对她是现成的 —— 这是她比开卷见河山/观史之臣占便宜的地方。</li>
+<li>结构性影响：<strong>两个现有样本（卫子夫／观史之臣）都是中老年向</strong>，共性<strong>只有注意力机制层通用</strong>，情绪层与 CTA 层不可套用 → 第 3 条样本必须找「学生／家长向」。</li>
+<li>落盘：<code>拉瓦锡V3_编排方案.md</code> → <strong>V1.1</strong>（新增「v1.1 修订」整节 + 改 4 处）；<code>01-决策台账.md</code> 新增 <strong>D12</strong>；<code>11-样本对照总表.md</code> 新增「受众」列 + 填第 2 行（观史之臣：4:30／分享率 4.53%／中老年向）；样本 2 原稿存档 <code>04-样本库/观史之臣_中国古代伟人.md</code>。</li>
+</ul>
+<h2 id="2026-09-30_2">[2026-09-30] 产出 | 拉瓦锡原稿完整口播文案（整理版）</h2>
+<ul>
+<li>用户要求「将视频号提取出来的完整文案发我」→ 落盘 <code>04-输出成果/拉瓦锡原稿_完整文案.md</code>。</li>
+<li>内容：ASR 转写<strong>错字校正后的连读版</strong>（拉瓦西→拉瓦锡、桂子手→刽子手、养化→氧化、巴士地狱→巴士底狱、雅各兵派→雅各宾派、和平讲→和平奖 等），<strong>内容一字未改未删未优化</strong>；按 10 个内容块分段并标时间码。</li>
+<li>附「分段时长占比表」，一眼看出好内容埋在哪：最后一次实验在 71% 处、妻子十年在 80% 处、名言是别人的；水段合计约 12%≈33 秒（加场内重复预告实际可删约 40 秒）→ 276.6−40 ≈ 236.6s ≈ 3:57。</li>
+<li>与 <code>01-原始资料/视频转写/拉瓦锡_ASR.md</code>（未校正原始版 + 逐句时间码）互为对照：一个可读、一个是 source of truth。</li>
+</ul>
+<h2 id="2026-09-30-v3_2">[2026-09-30] 定规矩 | 豆包协作分工（按层切）＋ 拉瓦锡 V3 给豆包的指令</h2>
+<ul>
+<li>用户提出分工：「豆包只管写故事，故事线索由它编排；句子写得不好由我改；措辞是否触红线我自己改，不给它提意见——因为给豆包干活是一次性的，给我干活是 SOP 化的。」</li>
+<li>我的修正（当场直说）：<strong>分工不按"人"切，按"层"切</strong> ——
+  ① 结构层（线索/顺序/钩子位置/情绪曲线）：<strong>线索由我定、豆包执行</strong>，它想改结构要先过我这关。理由：结构是 SOP、要沉淀复用；让豆包自己发明结构＝每条视频结构都不同 → 没法归因、没法沉淀。
+  ② 文字层（句子/网感）：豆包。
+  ③ 闸门层（红线/史实/措辞/验收打分）：我。</li>
+<li>三个附加条件：⑧ 留痕（存改前改后，否则返工台账白设）；⑨ <strong>先试一条量"我改动的比例"</strong>（&lt;20% 分工成立；&gt;40% 退回"我出骨架→豆包填肉"）；⑩ 我给豆包的意见写成可直接粘贴的 prompt 交用户（防转述失真）。</li>
+<li>固定执行顺序：我写线索+修改意见 → 用户粘给豆包 → 豆包出稿 → 我改措辞/红线+出封面/简介/分镜/标签（不经豆包）→ 用《各站验收表》打分。</li>
+<li>落盘 <code>05-项目/内容自动化/13-给豆包的写作指令.md</code>：含拉瓦锡 V3 完整可粘贴指令 + <strong>换人物通用模板</strong>。</li>
+<li>关键内容点（写进指令）：开头三重钩子保留；包税官提前到 1/8；<strong>眨眼实验改为"拆穿"处理</strong>（史料无记录，是探索频道节目嘉宾转述的杜撰故事——见下方核实）；妻子十年扩成独立落点段并扣回⑤埋线；拉格朗日那句前移到反转段；二选一结尾保留；可选补马拉的真实素材（1780 被拉瓦锡拒稿 → 大革命后写小册子抨击税务官）。</li>
+<li><strong>史实核实（2026-09-30）</strong>：① 拉格朗日那句<strong>为真</strong>（法语原文见 zh.wikipedia；英译见 ACS landmark / Science History Institute，"a hundred years may not produce another like it"）；② <strong>眨眼实验＝謠傳</strong> —— 中文维基明确「这段谣传只是探索频道节目来宾转述他所听到的杜撰故事，史料记载并没有任何眨眼相关的纪录」；③ 拉瓦锡 1795 年前后被平反（原稿/新版均未使用，可选素材）。</li>
+<li>上一版（用户提供的《拉瓦锡_V2对标分析文档》，1450 字）已存档 <code>04-输出成果/拉瓦锡文案V2b_对标分析版.md</code>。其优点已认领：家长视角钩子、二选一辩论型结尾、情绪曲线形态；<strong>我的 V3 编排方案里"峰值放妻子"被自我修正为"峰值放眨眼实验"</strong>（原依据来自中老年样本，不适用于学生/家长受众）。</li>
+</ul>
+<h2 id="2026-09-30-v3_3">[2026-09-30] 定稿 | 拉瓦锡文案 V3 ＋ 确立「提意见的三条筛选标准」</h2>
+<ul>
+<li><strong>重要讨论（用户发起）</strong>：用户质疑我给豆包提意见的标准 —— ① 眨眼实验「史料无记录」这条为什么要提？文案已写"据说"不就完了？做这类视频是唤起学生对学科的兴趣，戏剧化处理无关紧要；② 「妻子」那段豆包的处理没问题 —— 若要让妻子当亮点，<strong>得在前面铺垫爱情、整片以爱情为主线</strong>才行。</li>
+<li><strong>我承认两条都错，并摊开了我当时的 3 个标准</strong>：
+  1. 「事实必须真」→ ❌ 不合法：稿子已标"据说"（风险已覆盖）；我判断"化学老师会戳穿"是<strong>自己编的推断、无任何依据</strong>；且该建议把内容从"秘闻"改成"考据"，<strong>偏离目标</strong>。
+  2. 「素材动人度」→ ❌ 不合法：<strong>单看素材不看结构</strong>，没有铺垫的高潮就是突兀（用户这个反驳比我专业）。
+  3. 「已定的时长基线」→ ✅ 合法，但也不必强压。</li>
+<li><strong>确立「提意见的三条筛选标准」（写进 SOP）</strong>：必须<strong>同时</strong>满足 —— ① 有依据（可验证事实 或 已定规则，<strong>不能是猜的观众反应</strong>）② 对得上目标（唤起兴趣，不是考据严谨）③ 改了不伤别处。</li>
+<li><strong>确立内容规矩（三句）</strong>：<strong>知识讲准 ｜ 轶闻讲活 ｜ 拿不准的标"据说"</strong>。分界线不是"知识 vs 八卦"，而是「<strong>陈述句 vs 标注过的说法</strong>」—— 唯一的硬线是"<strong>别把不确定的说成确定的</strong>"。</li>
+<li><strong>知识点核验</strong>：用户 V2 的知识点逐条核对<strong>全对</strong>（25岁进科学院／氧化理论／质量守恒／33 种元素／汞实验／5月8日协和广场／28 个包税官／81 天／妻子十年／拉格朗日名言）。</li>
+<li><strong>定稿</strong>：<code>04-输出成果/拉瓦锡文案V3_定稿.md</code>（1450 字／约 4:50）。本轮只动 4 处（全属措辞/闸门层）：①「流的不是血」→「失去的不是一个人，是……最昂贵的一颗大脑」（去"血"字＋扣上文"大脑"）②「他不是没想过退出」→「没人知道……」（陈述句改标注）③ 结尾补一句学生导向的致敬互动 ④ 补回 <code>#化学史</code> 标签。<strong>故事结构与句子写法一字未动（豆包的层）。</strong></li>
+<li>同轮产出：标题微调（"用自己的砍头做"→"在断头台上做完"）、封面文案、<strong>重写简介</strong>（原稿简介剧透了"11 次眼"，等于自己拆钩子；新简介留悬念＋给家长"转给孩子看"的理由）。</li>
+<li>下一步流程（用户定）：文案定稿 → 豆包出<strong>脚本＋分镜</strong> → 我审（②脚本站/③分镜站闸门）→ 无问题则出<strong>生图提示词包</strong>。</li>
+</ul>
+<h2 id="2026-09-30-v31">[2026-09-30] 定稿 | 拉瓦锡文案 V3.1（豆包第二版为底稿）＋ 确立「限流自查不外包」</h2>
+<ul>
+<li>用户让豆包按"留意限流条件/规则"改了第二版 → 交我复判。</li>
+<li><strong>复判结论：豆包这轮 3 对 / 1 漏 / 2 错。</strong></li>
+<li>✅ 对：去掉 2 处"血"（"吸老百姓血的剥削者"→"靠盘剥百姓中饱私囊"；"这钱上沾着老百姓的血"→"这钱来得并不光彩"）；"才彻底不动了"→"才渐渐停了下来"。</li>
+<li>❌ 漏 1：你本轮最关键那处「断头台上流的不是血」仍在。</li>
+<li>❌ 错 2：①「<strong>共和国</strong>不需要科学家」被改成「<strong>法庭</strong>不需要科学家」—— <strong>这是引语，通行版是 La République n'a pas besoin de savants，"法庭"不是任何版本</strong>，属自造且力度掉一半；② <strong>过度软化</strong>——为避"血"字把「横征暴敛、巧立名目」「再扒一层皮」也换成书面语，而这些句子<strong>本来没有红线词</strong>。避红线应"换意象"而非"改官腔"，改官腔会伤情绪。</li>
+<li><strong>重要结论（写进本页第五节，SOP 级）：限流自查不要交给豆包做。</strong> 它手里没有《限流自查清单》那把尺子（44 条带依据分级），凭感觉扫 → 3 对 1 漏 2 错，且错的两处都伤了内容。限流属<strong>闸门层</strong>，归我；豆包专心管故事与文字。</li>
+<li><strong>定稿 <code>04-输出成果/拉瓦锡文案V3.1_定稿.md</code>，本轮改 6 处</strong>：
+  1. 「流的不是血…最昂贵的眼泪」→「失去的不是一个人，是…最昂贵的一颗大脑」（去"血"＋扣上文"大脑"）
+  2. 「法庭不需要科学家」→<strong>改回</strong>「共和国不需要科学家」（并补"当时的革命法庭"交代场景）
+  3. 恢复力度：「想方设法多收税、乱设收费名目」「层层盘剥」→「横征暴敛、巧立名目」「再扒一层皮」
+  4. 「这钱来得并不光彩」→「这笔钱，每一分都是从普通人身上刮来的」
+  5-8. 「砍头」类词统一改「处决」（4 处：开头钩子／被当众砍了头／人被砍头之后／拉瓦锡的头被砍了）。依据＝《限流自查清单》A1-2 把"砍头"列为血腥词，且 2026-09-28 专家复盘已定此改法。
+  9. 补致敬型互动：「下次化学课上听到质量守恒定律的时候，希望你能想起他。」（精准打学生受众）</li>
+<li><strong>故意保留 1 处（标记"待观察"）</strong>：拉格朗日引语里的「砍掉他的脑袋」—— 引号内引用、平台对引用较宽松、删了全片没落点；<strong>若发布后被限流，第一个动它</strong>。</li>
+<li>同轮：标题微调（"用自己的砍头做"→"在断头台上做完"）、封面文案、重写简介（原简介剧透"11 次眼"＋给家长"转给孩子看"的转发理由）、补回 #化学史。</li>
+<li>下一步：用户把「出脚本＋分镜」指令发给豆包 → 我按 ②脚本站／③分镜站闸门审。</li>
+</ul>
+<h2 id="2026-09-30-v1-v11-2-6">[2026-09-30] 加固 | 限流自查清单 V1 → V1.1：条文号核官方原文（改 2 错、补 6 漏）</h2>
+<ul>
+<li><strong>起因</strong>：用户追问「这份清单你是怎么做出来的？查了资料吗？依据什么？」→ 我坦白：V1 只有第一层（AI 标识法规）是真搜过的，平台侧条文号（5.13 / 15.5）是<strong>从《拉瓦锡文案V2_专家复盘》继承、从未核原文</strong>，第三层（两个专项）是我的领域推理。用户同意补强。</li>
+<li><strong>核的方式</strong>：① 抓取微信《视频号运营规范》官方页面原文逐条比对 ② 国标编号到「国家标准全文公开系统」核实 ③ AI 标识要求经官方媒体交叉验证。</li>
+<li><strong>❌ 改掉 V1 的 2 处错误</strong>：
+  1. 「引人不适内容＝规范 5.13」→ <strong>5.13 实为「含有伪科学、恐怖、猎奇的内容」</strong>；引人不适应引 <strong>5.2.5</strong>（血腥惊悚残忍）＋ <strong>5.8</strong>（令人极度不适：被杀/尸体/骷髅/暴力）。
+  2. 「引导关注不得描述按钮位置（规范 15.5）」→ <strong>规范里根本没有 15.5 条</strong>（结构只到「七、其他」）；相应条款是 <strong>4.4 诱导用户</strong>（4.4.1 利诱 / 4.4.2 胁迫煽动）。</li>
+<li><strong>➕ 补上 V1 漏掉的 6 条</strong>（★＝对我们致命）：
+  · <strong>5.12★</strong> 批量发布近似情景/文案/元素的同质化内容 ← <strong>直击「AI 生图批量出片」，我们形态的最大风险</strong>
+  · <strong>5.14.3★</strong> 混剪拼接P图 + <strong>杜撰名人名言</strong> ← 命中引用名言（拉格朗日那句必须真）
+  · <strong>5.13★</strong> 伪科学/恐怖/猎奇（5.13.1 恐怖灵异、5.13.2 风水运势）← 命中「秘闻/猎奇」定位 + 中国史玄学
+  · <strong>5.14.2</strong> 画质模糊/黑边/花屏/音画不相关 ← 原稿仅 275kbps、画面糊，属明确违规
+  · <strong>5.11</strong> 标题/描述与内容不符、夸张诱惑极端词、隐藏关键信息
+  · <strong>5.5.4</strong> 编造夸张、猎奇、<strong>引战</strong>的故事、煽动用户情绪 ← 「二选一站队」式结尾要注意</li>
+<li><strong>其他修正</strong>：全部平台条款可信度 🟡→🟢（附官方 URL 清单）；「绝对化用语」依据改成《广告法》第九条（平台规范只在 5.17.2 医疗场景点名）；补微信官方标识入口「视频发表页 &gt; 添加标注 &gt; <strong>含AI生成内容</strong>」；补 GB 45438-2025 国标编号/发布实施日期/6 个月过渡期（已过期）。</li>
+<li><strong>仍未 100% 落实</strong>：「文字高度 ≥ 最短边 5%、持续 ≥ 2 秒」来自官媒对国标的报道（科技日报 + 北京日报表述一致），未读到国标条文原文（全文需在线预览）—— 已在文件里标注。</li>
+<li>落盘：<code>05-项目/内容自动化/08-限流自查清单V1.1.md</code>（重命名）；index 与看板链接同步；docx 已发群。</li>
+</ul>
+<h2 id="2026-09-30-skill-judgment-selfcheck">[2026-09-30] 建错题本 | skill <code>judgment-selfcheck</code>（判断自检）＋ 限流清单二次自我修正</h2>
+<ul>
+<li><strong>用户要求</strong>：「你也去记一下你踩过的坑…有点像错题本。但你记的时候要记<strong>有没有解读过度</strong>，而不是"我在读拉瓦锡的时候解读过度了" —— 要<strong>整一个一类场景适用</strong>的东西，不是只适用于这一个场景。」</li>
+<li><strong>创建 skill <code>judgment-selfcheck</code></strong>（判断自检 · 错题本），7 条 bug，每条都能写成<strong>一句自检问句</strong>：
+  B1 把「可能相关」当成「确实命中」｜B2 拿自己的推断当依据｜B3 拿自己起的名字当依据（循环论证）｜B4 继承旧文档时不核原文｜B5 提意见时复述对方已做对的事｜B6 局部优化（单看好素材就拔成高潮，不看结构支撑）｜B7 边写边判没拿尺子逐条对。
+  · <strong>更新规则</strong>：新坑先问"能不能归进已有条目" —— 能归就只补案例，不新增条目（防膨胀）；每条必须能写成问句。
+  · <strong>触发场景</strong>：评审/审核打分 · 提意见（对人、对稿、给外部模型写指令）· 写规则清单标准 SOP · 引法规条文号与官方数据 · 写风险清单 · 下结论（含给自己）。
+  · 已写进 system memory（"判断踩坑见 skill judgment-selfcheck，评审/写规则/引法规前先过"）。</li>
+<li><strong>限流清单 V1.1 二次自我修正</strong>：用户指出我把"条文沾点边"直接标成「★致命」是过度解读 ——
+  · <strong>5.13（伪科学/恐怖/猎奇）</strong> 是<strong>穷举式列举</strong>（恐怖灵异／风水运势／食物相克），拉瓦锡这条一条都不沾；规范里的"猎奇"是定语修饰那三类。<strong>且"秘闻"这个词是我自己加的，再拿它去套条款＝循环论证（B3）。</strong>
+  · <strong>5.14.3（杜撰名人名言）</strong> 前提是"杜撰＝凭空编造"；拉格朗日那句是真的（ACS/Science History Institute），另两处都标了"据说" → <strong>不构成杜撰</strong>。
+  → 已在清单新增「<strong>先分清哪些是"我们真的会踩"、哪些只是"以后可能踩"</strong>」一节：A 类（本条确实触发）＝ AI 标识 / 5.12 同质化 / 5.14.2 画质 / 血腥词 / 导流与利诱互动；B 类（本条不沾、换题材会沾）＝ 5.13 / 5.14.3 / 5.5.4 / 5.11。★ 只留给 5.12 和 5.14.2。</li>
+<li><strong>附带澄清（数据能不能证明合规）</strong>：用户问"那份数据说明没触犯限流吧" —— 回答：✅ 能证明<strong>同类题材（伏羲八卦/易经）没被限流</strong>；❌ 不能反推"我们没踩红线"；❌ 也不能证明 482 播放是"被限流"（0 粉 0 转 → 社交数据为零，机制上就不给公域流量，不需要"限流"解释）。<strong>数据能证明题材能跑，不能证明合规。</strong></li>
+</ul>
+<h2 id="2026-09-30-b2-v12">[2026-09-30] 修正 | 时长基线作废（B2 再犯）＋ 验收表 V1.2</h2>
+<ul>
+<li><strong>用户质疑</strong>：「你一直在考虑原稿是有什么顾虑吗？历史人物故事不都是 4–6 分钟、或者 6–10 分钟吗？这个时间不行吗？」</li>
+<li><strong>承认两点</strong>：① 我的锚是「原稿 4:37 + 完播 11%」，等于把"完播差"归因成"片子长"——<strong>归因错</strong>（专家复盘结论是"观众只给 48 秒"，是内容留不住人，不是时长）。② 更严重：「3:30–4:30 时长基线」依据是「原稿 4:37 减 40 秒水 = 3:57」—— <strong>拿一条表现最差的样本反推、只推一步，从没对过同类爆款实际分布</strong>，却被写进验收表当硬指标。</li>
+<li><strong>正确对标区间</strong>：卫子夫 8–12 分｜观史之臣 <strong>4:30</strong>｜杜茹慧 30–35 分｜王小窗 ~1 小时｜一只萧包子 240 分 → <strong>这一类 4–12 分钟是常态</strong>；我们 5:15 <strong>完全在区间内、甚至偏短</strong>。</li>
+<li><strong>修正</strong>：<code>09-各站验收表</code>（文件名仍为 V1）文案站第 5 条改为「落在同类爆款实际区间（4–12 分钟）」，标「待更多样本校准」，原「3:00–4:30」作废 → 版本号记 V1.2。</li>
+<li><strong>教训归入 <code>skill judgment-selfcheck</code> 的 B2（拿自己的推断当依据）</strong>，作为第二条校准样本（按错题本规则：能归进已有条目 → 只补案例，不新增条目）。</li>
+<li><strong>结论</strong>：定稿 1609 字 / 约 5:15 <strong>直接发，不压</strong>。已交付的脚本分镜指令不含任何压缩要求。</li>
+</ul>
+<h2 id="2026-09-30_3">[2026-09-30] 立规矩 | 用户定铁律：涉及标准/数值不得凭印象回答 + 交出《待核标准清单》</h2>
+<ul>
+<li><strong>用户原话</strong>：「我在问你任何问题跟标准相关的时候，你不要凭自己印象去回答我。<strong>你要是不知道的话，可以直接跟我说不知道</strong>，然后去查一下对应的公开信息，或者是对标一下同类型的账号。<strong>如果查不到对应资料的话，你直接跟我说就好了，不要自己去编造</strong>。为了提高我们的写作效率，你觉得可以吗？」</li>
+<li><strong>处理（不只是"同意"，写成规矩）</strong>：
+  ① 写进 <strong>user profile</strong>（沟通规则条目）：「涉及标准·数值·条文的问题必须先核依据；不知道就直说并去查公开资料/对标同类账号，查不到也直说，严禁凭印象或编造。」
+  ② 写进 <strong><code>skill judgment-selfcheck</code> 的「总则」</strong>（放在 7 条 bug 之上），四步执行：先问依据 → 有依据附出处 → 没依据明说并去查公开信息/对标同类账号 → 查不到明说并标 <code>行业经验 · 未证实</code>。
+     并加一句最易忽略的：<strong>不许把自己的推断包装成"标准"</strong>（推断可留假设，不能写进清单/验收表当硬指标）。</li>
+<li><strong>交出欠账（本清单的由来）</strong>：<code>05-项目/内容自动化/14-待核标准清单.md</code> —— 逐条交代我们写进标准件的每条数字的出处：
+  · ✅ A 类（已核）：AI 标识 5%/2秒（官媒转述国标）· GB 45438-2025 编号与日期 · 视频号规范全部条文号 · 微信标识入口 · 拉瓦锡史实 · 对标样本时长 · 观史之臣数据
+  · ⚠️ B 类（我凭经验/推断、未核，却已写进标准件）<strong>共 8 条</strong>，其中<strong>最危险的是「及格线：3s≥55%／完播≥30%／人均时长比≥40%／互动≥2%」——来源不明，却是我们判断成败的尺子</strong>；另有图密度 4–6 秒/张、字幕 ≤9 字、情绪峰条数/位置（<strong>仅来自卫子夫 1 个样本</strong>）、钩子密度 40–45 秒（我的推断）、音量配比、码率 ≥1.5Mbps、分享率基准
+  · 🚫 C 类（已作废）：时长基线 3:30–4:30 / 引人不适＝5.13 / 引导关注＝15.5</li>
+<li><strong>下一步（按性价比）</strong>：① 用 ffmpeg 实测同类的真实切图频率，替换「图密度 4–6 秒/张」 ② 查平台有无公开的指标释义，决定"及格线"是否作废 ③ 补第 3 条样本（学生/家长向）让单样本结论升级为多样本规律 ④ 字幕断行/码率，有则改、无则标经验。</li>
+</ul>
+<h2 id="2026-09-30-vs-13">[2026-09-30] 留痕 | 定稿 vs 豆包第一版 改动对照（程序比对，13 处）</h2>
+<ul>
+<li>用户要求：「我不想两篇东西同时看一遍，然后自己去找不同，效率太低。」→ 出 <code>04-输出成果/定稿vs豆包第一版_改动对照.md</code>。</li>
+<li><strong>用程序比对生成（difflib 逐句 opcodes），不是凭记忆写的</strong> —— 避免"我凭印象列出改动"这类错（B2）。</li>
+<li>结果：第一版 1551 字 → 定稿 1609 字；<strong>段落结构／句子顺序／情绪曲线一处没动</strong>；共 <strong>10 组 / 13 处</strong>改动（改词 8 ＋ 改写 4 ＋ 新增 1）。</li>
+<li>13 处：①-② 砍头→处决 ③ 刮→包税中赚来 ④ 吸老百姓血的剥削者→靠盘剥百姓中饱私囊 ⑤ 沾着血的→每一分从普通人身上刮来 ⑥ 他不是没想过退出→没人知道他有没有想过退出 ⑦ 法庭上→当时的革命法庭 ⑧ 人被砍头之后→被处决之后 ⑨ 刀落下→刀起刀落 ⑩ 彻底不动了→渐渐停了下来 ⑪ 流的不是血→最昂贵的一颗大脑 ⑫ 头被砍了→走了 ⑬ <strong>新增</strong>致敬句「下次化学课上听到质量守恒定律的时候，希望你能想起他」。</li>
+<li>另附「定稿 vs 豆包第二版」差异（第二版自己改错、我改回：共和国被改成法庭 ＋ 力度被改官腔）。</li>
+<li>⚠️ <strong>提请用户决定 1 处前后不一致</strong>：第 ③ 处（去掉"刮"）与保留的「再扒一层皮」不统一，且"刮"只是 🟡 共识级 —— 建议改回「从老百姓身上刮来的钱」。</li>
+</ul>
+<h2 id="2026-09-30-v32">[2026-09-30] 定稿 | 拉瓦锡文案 V3.2（用户逐条反馈后定版）</h2>
+<ul>
+<li>用户对 V3.1 的 5 条反馈，<strong>4 条她对、1 条我多此一举</strong>：
+  ① 【第5点】「普通人」→「<strong>老百姓</strong>」：她对，且全篇用词应一致（"全法国老百姓""老百姓本来就吃不饱饭"）。
+  ② 【第6点】「他不是没想过退出」这句<strong>是故事性描述、不涉知识点/政策</strong>，不该按知识点那么严；保留更有情绪张力。→ <strong>她对，而且我又犯了同一天的错</strong>：既定规矩是「知识讲准｜轶闻讲活｜拿不准的标『据说』」，我却把轶闻当知识点要求（B1 的又一次）。已改回。
+  ③ 【第7点】「可当时的革命法庭」她问"这是什么问题" —— <strong>确实是我多此一举</strong>，我当时的理由（怕误读成当代法庭）是<strong>我编的顾虑</strong>（B2）。已改回「可法庭上流传出一句冷冰冰的话」。
+  ④ 【第10点】停「据说，拉瓦锡一共眨了11次眼。」<strong>句号收住</strong> —— 她对且比我狠：原句"才彻底不动了"和我改的"才渐渐停了下来"<strong>两个都是多余的，且"不动了"本身就是血腥描述</strong>，直接收住最有力。
+  ⑤ 【第11点】「最」不合适（好科学家那么多，怎么说他最珍贵）＋两版表述都不行 → <strong>整句重写为「他把死亡，变成了数据。」</strong>（去"最"、去"血"、不别扭；也呼应他让刽子手"记数"这个动作）
+  ⑥ 【一致性，我主动改】第1段「人类科学史上最悲壮的一页」、简介「科学史上最悲伤的一次实验」属同类"跨历史极致抬高" → 改为「才是这个故事真正的分量」「让科学史停顿了几秒」。</li>
+<li><strong>保留 1 处「最」</strong>：「当时全欧洲最豪华的私人实验室」= 对当时实验室水平的<strong>事实描述</strong>，非跨历史抬高，属低风险提示项（已在文件里标注）。</li>
+<li>落盘：<code>04-输出成果/拉瓦锡文案V3.2_定稿.md</code>（V3.1 已删/覆盖）；<code>定稿vs豆包第一版_改动对照.md</code> 顶部加了「V3.2 相对 V3.1 的 6 处」对照表。</li>
+<li><strong>教训</strong>：一天之内第 3、4 次因"把推断/推测当硬要求"被用户纠正 —— 已全部归入 <code>skill judgment-selfcheck</code>（B1 把可能相关当确实命中 / B2 拿自己的推断当依据）。</li>
+</ul>
+<h2 id="2026-09-30-v32-3">[2026-09-30] 审核 | 拉瓦锡 V3.2 脚本＋分镜 → 🟡 有条件通过（3 小项待改）</h2>
+<ul>
+<li>送审件存档 <code>04-输出成果/拉瓦锡V3.2_脚本和分镜表（豆包）.md</code>；审核结果 <code>04-输出成果/拉瓦锡V3.2_脚本分镜_审核结果.md</code>。</li>
+<li><strong>②脚本站</strong>：★每句有画面点 ✅（46/46，程序核对编号 1-46 连续）；★字幕断行 ⚠️ <strong>20/155 行超过它自设的「≤9 汉字」</strong>（最长 #45「下次化学课上听到质量守恒定律的时候」17 字）—— 且文首自称"✅全部≤9"，<strong>claim 与事实不符</strong>；★无未核史实 ✅；水词 0 ✅。</li>
+<li><strong>③分镜站</strong>：★时长合计 ⚠️ <strong>逐镜相加 320 秒，文档两处写 328 秒，差 8 秒（自相矛盾）</strong>；★每镜情绪标注 ✅ 41/41；★转折必换图 ⚠️ <strong>镜41（15秒）一镜装评论区＋教室＋诺贝尔三场景</strong>，违反它自己写的原则；镜号连续 ✅ 1-41；⏳最长镜 15 秒、另有 5 个 12 秒。</li>
+<li><strong>画面硬约束</strong> ✅ 守得很好：断头台仅远景剪影（明确写"不出刀刃/血迹/尸体/面部"）、「刀起刀落」用蜡烛熄灭＋青烟＋慢速淡出（完全按约束）、无高拟真人脸、18 世纪器材。</li>
+<li><strong>⚠️ 两个我加的风险项</strong>：镜9「<strong>饥饿的孩子</strong>」涉未成年人（规范 5.7/6.6）→ 建议换意象；镜41「<strong>关注按钮动画</strong>」涉诱导（规范 4.4）→ 建议去掉。</li>
+<li><strong>🔬 实测推翻了我自己的标准</strong>：跑 ffmpeg 场景检测，<strong>观史之臣（46.98 万播放）硬切 36/18/8 次（阈值 0.1/0.2/0.3）→ 7.3–30 秒一图，且随阈值剧变＝大量用运镜/叠化</strong>；我方原稿 23-24 次（各阈值稳定）＝ 11.1 秒/图。<strong>爆款的硬切频率并不比我们高</strong> → <strong>「图密度 4–6 秒/张」作废</strong>（已从《各站验收表》《待核标准清单》销掉，改为"别一图停十几秒"＋优先运镜叠化）。豆包这份平均 8 秒/镜 <strong>不按图密度卡</strong>。</li>
+<li><strong>判定</strong>：🟡 有条件通过；3 个待改项均为小改、不涉剧本层（剧本已定稿），改完放行出<strong>生图提示词包</strong>。</li>
+</ul>
+<h2 id="2026-09-30-v32-3_1">[2026-09-30] 打回 | 拉瓦锡 V3.2 脚本分镜：3 项待改（已发文字给用户，未生成文件）</h2>
+<ul>
+<li>打回项：① 镜41 拆成 3 镜（15 秒一镜装评论区/教室/诺贝尔三场景，违反其自设换图原则）② 时长自相矛盾（逐镜相加 320s vs 文档写 328s）③ 字幕断行 20/155 行超其自设 ≤9 汉字（最长 17 字）</li>
+<li>建议项（不改也能过）：④ 镜9「饥饿的孩子」涉未成年人画面 → 换意象 ⑤ 镜41「关注按钮动画」涉诱导互动 → 去掉</li>
+<li><strong>新流程规矩（用户定）</strong>：<strong>可粘贴的指令类内容 → 直接发文字，不生成文件</strong>；只有"要留档的产出"才出文件。已记入审核结果文档。</li>
+</ul>
+<h2 id="2026-09-30-v32-v11">[2026-09-30] 复审 | 拉瓦锡 V3.2 脚本分镜 V1.1 → ✅ 通过（放行生图提示词包）</h2>
+<ul>
+<li>豆包交回 V1.1（43 镜）。<strong>只核那 5 项，程序核对全部改到</strong>：
+  ① 镜41 拆成 3 镜 ✅（镜41=评论区#44／镜42=教室#45／镜43=诺贝尔#46）
+  ② 时长统一 ✅ 逐镜相加 328 秒 ＝ 文档写 328（原 320 vs 328 已一致）
+  ③ 字幕断行 ✅ 超标行 <strong>20 → 2</strong>（剩 #32「这就是我最后一个实验」、#43「也长不出这样一颗脑袋」，各超 1 字）
+  ④ 镜9「饥饿的孩子」✅ 改为「空餐桌、见底的米缸」
+  ⑤ 镜41「关注按钮动画」✅ 改为「文字引导关注」</li>
+<li>另核：43 镜全带情绪标注 ✓；旁白覆盖 #1–#46 无缺 ✓；最长镜 12 秒 ✓；平均 7.6 秒/镜。</li>
+<li><strong>2 处极小残留（不阻塞）</strong>：字幕剩 2 行超 1 字；「画面硬约束执行清单」底部仍写「41镜全部标注」（stale，应为 43 镜）。</li>
+<li>⚠️ 一个自查失误记录：我第一遍程序核对时用 <code>"关注按钮" not in t</code> 判 ⑤，<strong>误报"还在"</strong> —— 因为<strong>脚注里</strong>写了"V1.0→V1.1：…去掉关注按钮动画"。<strong>判据要落在正文行，不能全文搜词</strong>（否则被说明文字污染）。</li>
+<li>存档 <code>04-输出成果/拉瓦锡V3.2_脚本和分镜表（豆包V1.1）.md</code>；审核结果文档补「V1.1 复审」一节。</li>
+<li>下一步：出<strong>生图提示词包</strong>（43 镜逐镜提示词）。</li>
+</ul>
+<h2 id="2026-09-30-lint-63-5-2">[2026-09-30] 整理 | Lint：修复公开站点 63 条失效内链（短名≠文件名根因）＋补登 5 页＋2 处矛盾</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行 Lint（脚本化全库 wikilink/孤儿扫描 ＋ 用 <code>kb-site/server.py</code> 真实渲染逐页校验）。</li>
+<li><strong>核心发现（根因）</strong>：知识库一律用<strong>短名</strong>互链（<code>[对标全维表V1](/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md)</code>、<code>[方法库可信度规则](/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md)</code>、<code>[知乎小说 · 选题池](/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md)</code>…），但文件名带 <code>NN-</code> 排序前缀、且部分页 <code>title</code> ≠ 文件名；而渲染器 <code>link_wikilinks</code> <strong>只按完整 basename</strong> 匹配 → 公开站点 <strong>63 条内链</strong>全渲染成不可点的 <code>.wl</code> 文本（index 顶部、各项目页、群聊观察页都中招）。上一轮 09-29 把 <code>&lt;span class="wl"&gt;数据的基线&lt;/span&gt;</code> 改成 <code>[数据基线](/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md)</code> 其实<strong>没修好</strong>（<code>数据基线</code> ≠ <code>02-数据基线</code>）。</li>
+<li><strong>修法</strong>：① <code>kb-site/server.py</code> 的 <code>link_wikilinks</code> 升级为「精确 basename → title/aliases → 去前缀 basename（<strong>唯一</strong>才用，避免 <code>总纲</code>/<code>决策台账</code> 重名误连）」；② 给 20 个页补 <code>aliases</code> frontmatter（Obsidian 里同样生效 —— 否则点短名链接会生成空笔记）；③ index 顶部 <code>&lt;span class="wl"&gt;限流自查清单V1&lt;/span&gt;</code> → <code>V1.1</code>。</li>
+<li><strong>验证</strong>：重跑 <code>export_static.py</code>，公开站点 dead span <strong>63 → 5</strong>；剩余 5 条<strong>全部</strong>是 index 正文里指向 <code>01-原始资料/</code> 的链接（该目录按 §十 不外发，属预期）。红线抽查：侧栏无「01-原始资料」、<code>p/01-原始资料/...</code> 返回 404 ✅。</li>
+<li><strong>补登 index</strong>：<code>04-输出成果</code> 补 5 页（脚本分镜 V1.0／V1.1 ＋ 审核结果 ＋ 文案 V2b／V2c）—— 此前新产出一直没登记。</li>
+<li><strong>矛盾修复</strong>：① <code>拉瓦锡V3.2_脚本分镜_审核结果</code> 顶部判定 <code>🟡 有条件通过</code> 与文末 V1.1 复审 <code>✅ 通过</code> 冲突 → 顶部改为「✅ 通过（V1.1 复审）」；② <code>02-数据基线</code> 的「及格线」被 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html">待核标准清单</a> 列为<strong>最危险的 B 类未核标准</strong>，页面却直接当硬指标用 → 加 ⚠️ 提示（只用来自我纵向对比，不当及格判定）。</li>
+<li><strong>数据基线</strong>：第 2 条仍「待发」，无数据可补 → 跳过。</li>
+<li>变更文件：<code>kb-site/server.py</code>（＋备份 <code>server.py.bak_20260930</code>）、20 页 <code>aliases</code>、<code>index.md</code>、<code>02-数据基线.md</code>、<code>拉瓦锡V3.2_脚本分镜_审核结果.md</code>。⚠️ 未发布（只本地 <code>export_static.py</code> 验证，未推 GitHub／飞书）。</li>
+</ul>
+<h2 id="2026-09-30-ingest-09-30-08-05">[2026-09-30] ingest | 雪见群 09-30 消息：配音/音色克隆（新建 08）+ 低创作度与流量诊断（补进 05）</h2>
+<ul>
+<li>数据源：雪见 2026 AI 陪伴群 2026-09-30（total=549，去重 549 条，覆盖 07:41–17:40），原始记录存档 <code>01-原始资料/聊天记录/雪见AI陪伴群_20260930_原始记录.md</code>。</li>
+<li>⚠️ 该日数据源<strong>仅同步至 17:40</strong>（全库 tail 冻结于 2026-09-30 17:40:07），18:00 之后内容尚未同步，故本日整理为「部分同步日」，后续若补齐需重跑。</li>
+<li>新增页 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">08-AI 配音与音色克隆（雪见群实战）</a>（<code>03-方法库/群聊观察/</code>）：MiniMax 音色克隆路径（上传/录制 ≥30 秒 → TTS 选音色）、群内口径 9.9 元/音色 · 7 天回收 · 年费 490（<strong>三项均未证实</strong>）、版权红线（只用自有音色商用）、免费额度先做对照实验。</li>
+<li>更新页 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">05-视频号起号与图书带货（雪见群实战）</a>：新增第八节「低创作度与流量诊断」——8.1 AI 自动化产出易被判低创作度（枫茫「刚喜提一个低创」/小java「自动化高了就没流量」，对应微信 2026-04《微信公众平台运营规范》「非真人自动化创作行为」条款）；8.2 播放量诊断法（几十=限流 / 几百=质量问题 / 高于平时=复用做二创）；8.3 变现顺序（公众号慢、靠流量主+私域，视频号/短视频快）。核验记录表 11 → 14 行，风险清单加「批量自动化生产/发布」一条，「相关工具」补 MiniMax 与 NotebookLM。</li>
+<li>索引：<code>index.md</code> 群聊观察分区加 08、改 05 摘要，顶部「最后更新」改写。</li>
+<li>同步：跑 <code>kb_feishu_sync.py</code> + <code>publish_kb.py</code>。</li>
+</ul>
+<h2 id="2026-10-01-3a">[2026-10-01] 同步 | 看板＋总纲追平真实进度：3A 全链路已跑通、成片已生成</h2>
+<ul>
+<li>用户问「视频进度到哪了」，核对发现<strong>看板停在 09-30 12:15 的 3A.2</strong>（还以为在等文案 V3），实际早已跑完：</li>
+<li>3A.2 文案 V3.2 定稿 ✅（1450 字／约 4:50）｜3A.3 双稿对照 ✅（程序比对 13 处）</li>
+<li>3A.4 剧本分镜 ✅（豆包 V1.1，43 镜／328 秒／46 句，打回 3 项已全改）</li>
+<li>3A.5 生图提示词包 ✅｜3A.6 43 张生图 ◍（首轮 36 过／3 硬伤／5 存疑 → 重出 8 张 → 复验 6 修好；剩 #19 #32 是 App 截图非出图问题）</li>
+<li><strong>3B.1 成片已由 Codex 生成</strong>（用户确认满意）｜3B.2 封面 4 行文案已锁定（一天一个历史人物／拉瓦锡／化学课本上那个人／行刑那天，他跟刽子手约定了一件事）</li>
+<li>事故类型＝<strong>「看板说谎」复发</strong>（skill 已列为必须当场修项）：<code>index.html</code> 是硬编码 HTML，<code>00-总纲</code> 更新它不会自动变。</li>
+<li>已改：<code>~/dashboard-content/index.html</code>（v9→v10：now 区块、3A 六步、3B 三步、「需要你做」区块）＋ 本总纲四阶段树；待发布 GitHub Pages。</li>
+<li>⚠️ 遗留：① 成片尚未按《各站验收表》第 6 站过（等用户发 mp4）② #19 #32 待导出原图 ③ 系列名未定 ④ 生图提示词包不在 KB（只在飞书聊天交付）。</li>
+</ul>
+<h2 id="2026-10-01-2">[2026-10-01] 审核 | 拉瓦锡·发布页文案（描述＋短标题＋标签）—— 无硬红线，2 处建议</h2>
+<ul>
+<li>用户贴来视频号发布页截图 ＋ 描述文案，问「这样填行不行／有没有触犯限流」。按《限流自查清单 V1.1》A 文书级逐条核。</li>
+<li><strong>✅ 过</strong>：① 用「送上断头台」＝ A1-2 清单<strong>指定的改法</strong>（不是漏改）② 无绝对化用语（「最后」是时间副词，非《广告法》第九条所指）③ 无血腥动作词（砍头/血/尸）、无恐慌词、无利诱/胁迫互动（A2-1/2）④ 提问式 CTA（「你在化学课上背过他的定律吗？」）优于祈使式 ⑤ 6 个标签全部与内容相关（A3-4）⑥ <strong>无杜撰名人名言</strong>（A4-1 是 C 类最致命项，本条零引用，绕开）</li>
+<li><strong>🟡 建议 1</strong>：「一个被时代误解的科学巨人」—— ① 空泛（与已被否的「荒诞一生」同类）② 表述不准：处决主因是<strong>包税官身份的政治清算</strong>（1793-11-28 包税总会 28 人被捕 → 1794-05-08 处决，百度百科/新京报），不是"科学被误解"。替换建议：「他给法国定过火药、定过度量衡——最后被法国送上了断头台」（火药硝石管理局 1775 起、1791 度量衡改革定"克"，两条均已核）</li>
+<li><strong>🟡 建议 2</strong>：「他跟刽子手做了一个约定」是<strong>传说用陈述句讲</strong> —— 触项目唯一硬线「别把不确定的说成确定的」；证据：维基百科原文即「<strong>據說</strong>他在行刑前跟砍頭的劊子手夏勒·桑松溝通」。改法＝前置「据说，」（两个字）。封面第 4 行「约定了一件事」是留悬念、不下结论，可不动。</li>
+<li><strong>🔴 必做（不在文案里，同一发布页）</strong>：勾「<strong>含AI生成内容</strong>」—— 43 张图 100% AI 生成，法规（《标识办法》＋ GB 45438-2025）＋ 规范 6.4 硬要求，入口＝发表页 → 添加标注 → 含AI生成内容。</li>
+<li><strong>⚙️ 顺手</strong>：截图里「短标题」仍为空（官方提示"填写短标题有机会获得更多流量"）→ 建议填 13 字：「背过他的定律，没听过他的结局」。</li>
+<li><strong>⚠️ 一处我查不到的（已如实说明，未编造）</strong>：第 1 行「化学课本上那个写质量守恒定律的人」—— 网上只有知识点整理、未见课本原文提及拉瓦锡，<strong>课本里到底有没有出现他，请用户（化学老师本人）确认</strong>；有 → 成立且是最强钩子，无 → 需换说法。</li>
+</ul>
+<h2 id="2026-10-01">[2026-10-01] 核 | 「什么时间发」—— 结论：<strong>无可依的对标数据</strong>（附自我纠正）</h2>
+<ul>
+<li>用户问「基于对标数据考虑，什么时间发视频好」。按铁律先核出处，结果<strong>这个问题的前提不成立</strong>：</li>
+<li>① 视频号<strong>前台不显示别人的发布时间</strong>（只显示"X天前"）→ 读不出爆款的发布时刻；</li>
+<li>② 网上"最佳发布时间"文章全是营销号且<strong>三套说法互相矛盾</strong>（7-9/12-14/18-20/21-23 ／ 10-11/15-16/19-20 ／ 6-8/11-13/19-21），来源不明 → 标 🔴 不入清单；</li>
+<li>③ 唯一有出处的是外部手册《01-人物故事AI生产流水线（安妮250w）》「6-8 / 11-13 / 19-21，<strong>不同账号分别测</strong>」，但它是<strong>抖音图文带货</strong>背景。</li>
+<li><strong>⚠️ 自我纠正（B4 类：继承旧文档不核原文）</strong>：项目里「固定 20:00 发布」正是从该手册的"19-21"档取的，且把人家的<strong>"三个档分别测"</strong>当成了定死时刻 → 已从 <code>00-总纲</code> 4.1 撤下。</li>
+<li><strong>替代逻辑（标为推断假设）</strong>：视频号＝社交关系链推荐，决定冷启动的是<strong>发完短时间内熟人完整看完的数量</strong>，不是发布时刻。支撑：观史之臣分享 21282／分享率 4.53%（爆在分享）vs 我方第 1 条 0 转发。→ 时段应服务"你能组织熟人互动的时候"。</li>
+<li>已落盘：<code>02-数据基线.md</code> 新增「发布时段」节（逐条交代依据＋可信度）；<code>00-总纲</code> 4.1 改掉 20:00。</li>
+<li>⚠️ 未核：视频号后台是否有"粉丝活跃时段"数据（第三方文章称有，未见官方原文）→ 交用户开后台确认。</li>
+<li>附带发现：雪见群采集记录里<strong>含"发布时间"字段</strong>（如蓝翡珠宝 2026-09-23 09:06）→ 说明发布时间<strong>可采集</strong>，只是样本量太小（1-2 条）不构成依据。</li>
+</ul>
+<h2 id="2026-10-01-sop-v2">[2026-10-01] 产出 | 生产线 SOP V2（照真实流程重写，含分工/闸门/沉淀三层）</h2>
+<ul>
+<li>用户要求：复盘整条视频的所有流程 → 什么可复用、什么外包给别的 agent → 做成更完整的 SOP。</li>
+<li><strong>修正一处事实（用户当场纠正）</strong>：初稿我把「选题」算成我做的 —— 实际是<strong>豆包出 10 个候选 → 用户筛 → 我接手</strong>，我<strong>不产出选题</strong>。已照实改。这也印证了台账 P6《选题雷达》的必要性（选题无数据支撑，只能凭手感）。</li>
+<li><strong>分工实测结论（V2 的核心新增）</strong>：</li>
+<li><strong>外包给外部 agent 的只有 5 件</strong>：文案初稿(豆包)、剧本(豆包)、分镜(豆包)、生图提示词包(豆包)、封面(豆包出底图／GPT 合成排版)、成片(Codex)。
+    共同特征＝<strong>量大、模板化、按明确约束生成</strong>。</li>
+<li><strong>一件都不外包的</strong>：立标准、编排方案、全部质检(QA/打回/验收打分)、封面文案、描述＋标签、限流自查。
+    共同特征＝<strong>手里有自己那把尺子的活</strong>。</li>
+<li>我做的准确说是三块：<strong>编排方案 ＋ 全部质检 ＋ 发布件文案</strong>。</li>
+<li>V2 文件 <code>05-项目/内容自动化/05-生产线SOP-V2.md</code>；旧的 3 份（<code>05-生产线SOP</code>／<code>03-方法库/生产线SOP</code>／<code>单条视频生产流程SOP</code>）已加「已被 V2 取代」头部标记，保留追溯。</li>
+<li><strong>E 沉淀章（用户点名要的）</strong>分三层：<strong>E1 经验</strong>（16 条踩坑，10 条内容判断类全部来自用户当场纠正 ＋ 6 条流程工具类）→ <strong>E2 方法论</strong>（19 条，归 4 组：立标准／拆对标／分工协作／判断标准）→ <strong>E3 技能</strong>（4 个 skill ＋ 8 个脚本工具 ＋ 14 份标准件）。</li>
+<li>⚠️ 留一个待补缺口：<strong>0.4 防返工固定件（人物锚定卡＋时代元素清单）本轮没建</strong>，是提示词包锚定词只写全 3/13 镜的根因 → 下一条开跑前必须先建。</li>
+<li>⚠️ 待确认：<strong>旁白配音是哪一环做的</strong>（豆包／Codex 内置 TTS），流程图上这格一直空着。</li>
+</ul>
+<h2 id="2026-10-01-d14d17">[2026-10-01] 冻结 | 决策台账新增 D14–D17（成本优先级／采集分工／看板归属／节奏）</h2>
+<ul>
+<li>用户口述一整轮思路（当时在开车，语音输入），要求汇总＋给建议；次日「ok 先同意一下」→ 落为冻结决定。</li>
+<li><strong>D14 成本优先级</strong>：豆包会员＋GPT 会员必开；唯一可降＝本机 agent（Hermes）。降本顺序＝先"用量瘦身"→ 机械活搬零 token 脚本 → 最后才换模型。<strong>红线：不动「编排＋质检」层的模型</strong>（它是闸门）。</li>
+<li><strong>D15 采集外包、分析留守</strong>：机械采集→腾讯 WorkBuddy；我负责深分析与对标学习。采回字段一次定死（照《样本对照总表》列）。⚠️ 明确「采集」≠「发现」——视频号无公开热榜/账号目录，"每天自动发现爆款"做不到。</li>
+<li><strong>D16 看板归属</strong>：维护移交 Codex（额度用不完，不占按量 API）；实现方式改为<strong>脚本从知识库自动生成</strong>，不再手改 HTML（手改已出过一次"看板说谎"事故）。</li>
+<li><strong>D17 节奏</strong>：先跑顺、拿到发布数据，再立项「Codex 工作台一站式出片」；台账「明确不做」里那条 Coze 流水线改为「暂缓，条件＝发布且数据稳定后」。</li>
+<li>顺带确认：用户口中的「伏羲」＝<code>04-样本库/观史之臣_中国古代伟人.md</code>（《从伏羲造八卦到周公定礼乐…》，46.98 万播放／分享 21282），当时扔给我的是<strong>卫子夫＋观史之臣</strong>两份。</li>
+</ul>
+<h2 id="2026-10-01-17-v12">[2026-10-01] 产出 | 对标采集环节 ＋《故事招式库》（17 招）＋ 对标全维表 V1.2</h2>
+<ul>
+<li>用户提「要一个对标采集环节，按卫子夫那份模板输出，<strong>学它讲故事的方式、按需取用</strong>」。讨论后落为 <strong>决策台账 D18</strong>。</li>
+<li><strong>两条规矩（用户当场点头）</strong>：① 模板新增第 <strong>⑩ 维「可复用招式」</strong>（给手法起固定名字、可检索）② <strong>入库不限量、拆解限流</strong>（采集零 token 可外包；拆解花 token 只拆数据突出/题材对得上的）—— 后者直接挂钩 D14 降本。</li>
+<li>关键判断（写进了文件）：<strong>「找共性」与「攒招式」是两件事</strong> —— 前者拆 3 条就停，后者可以一直攒；但共用同一份模板，同一条样本可"只入库不深拆"。</li>
+<li>已产出：</li>
+<li><code>07-对标全维表</code> → <strong>V1.2</strong>，新增第 ⑩ 维「可复用招式」（含"只抽手法不抽内容""受众专属的招别搬"两条红线）</li>
+<li><strong>新建 <code>16-故事招式库.md</code></strong>：从<strong>卫子夫＋观史之臣两条样本</strong>抽出 <strong>17 个招式</strong>，分 6 类（开场4 / 留人6 / 爆点2 / 结尾3 / 可信度1 / 变现1），带「见到次数」列（次数越高越像通用招）；另附「中老年专属、不可搬到学生家长线」的排除表</li>
+<li><code>05-生产线SOP-V2</code> 的 0.2 环节拆成 0.2（拆解）＋ <strong>0.2b（对标采集，入库不限量/拆解限流）</strong></li>
+<li>抽取示例：H02「先给错答案再否掉」（观史之臣）、H07「细节证据」（卫子夫·卫青送金）、H11「延迟揭晓」（两样本都有 → 次数2）、H14「低门槛表态接口」（沉思型题材必用）、H16「证据分级标注」（<strong>我们必用</strong>）。</li>
+<li>⚠️ 防退化提醒（已写进招式库）：招式是有限集合，攒到 20–30 条样本后会开始重复 → <strong>要合并同类，不要继续堆</strong>。</li>
+</ul>
+<h2 id="2026-10-01-lint-frontmatter">[2026-10-01] 整理 | Lint：清「被推翻的旧结论」残留 ＋ 补 frontmatter/交叉引用</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行轻量 Lint（脚本化全库 wikilink/孤儿/frontmatter 扫描）。</li>
+<li><strong>核心发现（旧结论没清干净）</strong>：2026-09-30 作废的两条标准 —— 「图密度 4–6 秒/张」「时长基线 3:30–4:30（3 分钟内）」—— 只从《各站验收表》《待核标准清单》销掉了，<strong>仍残留在 3 个旧页</strong>：</li>
+<li><code>03-对标卡V0.1.md</code> 与 <code>03-方法库/单样本对标卡V0.1.md</code>（重复页）表 6／结论区仍把两条当「我方新增要求」；</li>
+<li><code>06-待验证假设.md</code> H04 以「改成 4-6 秒/张」为前提、H05 主张「第 2 条按 3 分钟发」；</li>
+<li><code>06-待验证假设.md</code> 硬约束误引「视频号规范 5.13」（5.13 实为伪科学/恐怖/猎奇，引人不适应为 5.2.5＋5.8）。
+  → 均加 <strong>⚠️ 修正说明 / 删除线</strong>，并指回 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html">待核标准清单</a> / <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html">限流自查清单V1.1</a>；<code>06-待验证假设</code> updated → 2026-10-01。<strong>教训归入 Lint 常规项：作废一条标准时，要全库 grep（含旧版重复页），不能只改「正式版」。</strong></li>
+<li><strong>补 frontmatter（硬规则 3）</strong>：<code>04-样本库/</code> 3 页（<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html">卫子夫_开卷见河山</a>、<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html">观史之臣_中国古代伟人</a>、<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html">拉瓦锡_我方第1条</a> —— 前两页为 09-30 新增样本，此前完全无 frontmatter）＋ <code>04-输出成果/</code> 4 页（V2b、V2c、脚本分镜 V1.0／V1.1）。</li>
+<li><strong>补交叉引用（去孤儿）</strong>：<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html">样本对照总表</a> 与 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html">故事招式库</a> 此前只用<strong>纯文本</strong>路径提到样本原文 → 3 个样本页无任何入链；已改 wikilink，并给 3 页加「相关」出链。孤儿页 4 → 3（剩 00-总纲／README／03-对标卡V0.1，属已登记待决策项）。</li>
+<li>index：V3_定稿（原标「定稿」）、V3_编排方案（原标「待拍板」）<strong>状态过时</strong>（均被 V3.2 取代）→ 划掉改标「存档」；「完整性待办」加 10-01 修复块，frontmatter 待办行更新。</li>
+<li><code>05-项目/内容自动化/02-数据基线.md</code>：第 2 条（拉瓦锡 V3.2 成片）仍「待发」，无数据可补 → 跳过。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步）。</li>
+</ul>
+<h2 id="2026-10-02-ingest-10-01-ai">[2026-10-02] ingest | 群聊观察（10-01 数据）→ 新增《AI 生图与成本控制（雪见群实战）》</h2>
+<ul>
+<li>数据源：雪见 2026 AI 陪伴群 2026-10-01，<strong>220 条</strong>，覆盖 00:32–22:59（<code>probe_dates.py</code> 显示全库 tail 就落在本日 22:59:32 → 当日同步完整，非部分同步日）。原始记录已落档 <code>01-原始资料/聊天记录/雪见AI陪伴群_20261001_原始记录.md</code>。</li>
+<li>当日是国庆假期首日，群里大半是问候、红包、游戏（QQ 飞车）闲聊，<strong>干货密度低</strong>；可提炼的集中在「生图」这一环：</li>
+<li><strong>新增</strong> <code>03-方法库/群聊观察/09-AI 生图与成本控制（雪见群实战）.md</code> —— ① 水印：官方路径下载带水印属实，零代码解法「大图模式→拖到桌面」；② 单价：群内报「1 毛/张」「有 6 分的」（均无渠道）；③ <strong>豆包电脑版 30 天免费订阅</strong>（官方活动，当场可领）；④ 给项目的用法：生图站先解决水印、单价按「成片实际用图 × 单价」算、<strong>不要为省几分钱自建 pro 号反代</strong>（属「明确不做」）。</li>
+<li>核验结论：豆包电脑版免费 30 天订阅 ✅（央广网/澎湃 2026-09-24 报道）；「官方下载带水印」✅（多方公开教程一致）；拖拽去水印 ✅ 可复现（非官方口径）；「点开思考存无水印图」⚠️ 未证实；生图单价两个数字 ⚠️ 未证实，<strong>仅作量级参考、不作采购依据</strong>。核验记录表 8 行，价格类数字 3 个月须复核。</li>
+<li>按分流先例<strong>明确排除</strong>：zcode 每天送一亿 token、Hy3/Hy4 preview 夜间限免（WorkBuddy）、DeepSeek v4 flash 国庆免费开 → 都要写代码/接 API 才用得上；<code>.claude</code>/<code>.codex</code> 迁盘 → 开发向；雪见「17w」→ 晒数据无方法。</li>
+<li>已跑 <code>kb_feishu_sync.py</code>（飞书 🧰 方法库）+ <code>publish_kb.py</code>（网页版）。</li>
+</ul>
+<h2 id="2026-10-02-02-">[2026-10-02] 数据 | 两条视频数据回收 → 更新《02-数据基线》</h2>
+<ul>
+<li>用户发来 2 张视频号后台截图（长截图，切图后读图录入）。</li>
+<li><strong>第 2 条（拉瓦锡 V3.2，10-01 20:30 发）</strong>：播放 529／3s 70.14%／平均 100.69s／完播 13.99%／赞 7·推荐 2·评论 0·转发 2·关注 1；来源 推荐 313（91%）；留存 3s 70% → 20s 约 32% → 尾部 14%。</li>
+<li><strong>环比第 1 条</strong>（同题材、同形态、只改结构）：平均播放时长 42.23s → 100.69s（×2.4）、完播 10.21% → 13.99% → <strong>支持 H05（前 1/3 抛冲突）</strong>。</li>
+<li><strong>第 1 条 10-02 快照</strong>：播放 482 → 657（+36%），但 3s／平均时长／完播三项齐跌 → 新增的是更泛的流量；推荐 0、转发 1，社交闭环仍未打开。</li>
+<li><strong>卡点定位</strong>：两条都指向前 20–27 秒（第 1 条平台原话「第 27 秒观看率明显下降」）。中段结构无需再动。</li>
+<li><strong>新增口径提醒 3 条</strong>（图表按天更新／「其他」口径差异／熟人冷启动污染），见 02-数据基线。</li>
+<li>看板无需改（无阶段推进）。第 1 条数据以本次快照覆盖旧记录。</li>
+</ul>
+<h2 id="2026-10-02-v11">[2026-10-02] 产出 | 诺贝尔 · 脚本＋分镜 V1.1（更正版）</h2>
+<ul>
+<li>用户发来豆包版《诺贝尔_视频脚本与分镜表》（V1.0：40 镜 / 309 秒），我按《各站验收表》分镜站＋脚本站逐条核对。判定 <strong>❌ 打回</strong>：★项不过 1 个（字幕断行 31/163 行超它自设的「每行≤9 字」），另发现 1 个非★硬伤（12 镜旁白超配音语速 4.6 字/秒，最狠镜39＝6.50 字/秒）。</li>
+<li>V1.0 已改到的（上一轮 6 条硬伤里的 5 条）：情绪标注 40/40、时长自洽 309 秒、19→40 镜（7.7 秒/镜）、<strong>AI 写字全部改为「虚化不给字＋后期叠字」</strong>、血滴→蜡烛、人倒地→五盏灯依次熄灭。</li>
+<li>我出的 V1.1：讣告加「据说」；血腥词软化 4 处（血／杀／当场死亡／死在炸药下）；<strong>字幕断行 163 行全部 ≤9 字（程序核对）</strong>；时长按语速重排（309→303 秒）；<strong>手部特写 6 处→0 处</strong>；法槌→印章、DNA→医神杖、扑克牌→卡片；删镜35「手缓缓垂落」。</li>
+<li>产出：<code>04-输出成果/诺贝尔_脚本和分镜_V1.1（更正版）.md</code>（＋docx 已发聊天）。</li>
+<li>顺带沉淀：脚本断行的自动工具（jieba＋DP 边界代价）写在 <code>/tmp/build_lines.py</code>，值得转成 skill 脚本。</li>
+</ul>
+<h2 id="2026-10-02-lint-bug">[2026-10-02] 整理 | Lint：补登诺贝尔页＋修误引假设/格式 bug＋据新数据更新假设池</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行轻量 Lint（脚本化全库 wikilink／孤儿／frontmatter 扫描）。</li>
+<li><strong>新产出漏登记</strong>：<code>04-输出成果/诺贝尔_脚本和分镜_V1.1（更正版）.md</code>（上一轮 10-02 产出）此前<strong>无 frontmatter、未登记 index、正文无交叉引用</strong> → 补 frontmatter（type 输出）＋「相关」出链（<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html">各站验收表V1</a>／<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html">限流自查清单V1.1</a>／<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html">待核标准清单</a>／<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html">拉瓦锡文案V3.2_定稿</a>）＋ 登记进 index「04-输出成果」。</li>
+<li><strong>正文格式 bug</strong>：同页《V1.0→V1.1 修正对照》第 4 行「总时长 309 → <code>%d 秒</code>」残留 Python 占位符 → 改「303 秒」。</li>
+<li><strong>误引假设（交叉引用错）</strong>：<code>02-数据基线</code> 第 2 条读数写「支持 H05『前 1/3 抛冲突』」—— H05 是「时长跷跷板」假设，「前 1/3 抛冲突」是 <strong>H03</strong> 的验证方法 → 改引 H03，并补注「片子变长（4:37→5:15）反而完播升高 = 反证 H05」。</li>
+<li><strong>据新数据更新假设池（<code>06-待验证假设</code>，updated→2026-10-02）</strong>：H03 加「初步证据（10-02）：平均播放时长 42.23s→100.69s ×2.4、完播 10.21%→13.99%」→ 状态升级「待验证（有初步支持）」；H05 加「2026-10-02 反证」条（更长却完播更高，核心主张「时长越短完播越高」暂不成立，等第 3 条样本）。</li>
+<li><strong>确认无需处理</strong>：<code>02-数据基线</code> 第 1、2 条均已回收数据、无「待发」条目 → 第 4 步跳过。仍待处理项（内容自动化项目文件无 frontmatter／孤儿、疑似待建概念页）照旧挂账，未新增。</li>
+<li>index：顶部「最后更新」改写；「完整性待办」加 2026-10-02 修复块。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步）。</li>
+</ul>
+<h2 id="2026-10-02-v10v11-difflib">[2026-10-02] 产出 | 诺贝尔 · V1.0→V1.1 改动对照（difflib 程序生成）</h2>
+<ul>
+<li>用户要求「不要只说改了什么，要呈现原来 vs 现在」→ 按铁律用 <code>difflib</code> 逐字比对生成，不凭记忆列。</li>
+<li>对照面：旁白（6 句改了字）／画面（11 条实质改 + 14 条同义微调）／时长（32 镜变，8 镜未动）／字幕断行（40 条全换）／情绪标注（0 改）。</li>
+<li>产出：<code>04-输出成果/诺贝尔_分镜_V1.0→V1.1_改动对照.md</code>（＋docx 已发聊天）。</li>
+</ul>
+<h2 id="2026-10-03-3-v51-40-48">[2026-10-03] 产出 | 诺贝尔（第3条）脚本分镜定稿 V5.1 ＋ 生图提示词包（40 镜 / 48 图）</h2>
+<ul>
+<li>用户说「剩下的工作交给你」→ 我接手收口，不再走豆包往返。</li>
+<li><strong>定稿 V5.1</strong>：以豆包 V5.0 为底，<strong>只替换「字幕断行」一列</strong>（我方 <code>break_subtitles.py</code> 出的版本，196 行 / 0 超 9 字 / 40 镜拼接与旁白逐字一致 / 无切词）。
+  豆包连续三轮过不去的「切词」问题（V4 39 处 → V5 51 处）到此终结。</li>
+<li><strong>生图提示词包</strong>（新站，第 ④ 站）：4 组人物锚定词 ＋ 统一风格词 ＋ 统一负面词 ＋ 48 条逐镜提示词 ＋ 三条铁律（不给文字载体／锚定词逐镜复用／一条不塞两件事）＋ 收图约定 ＋ 我方验收清单。
+  一镜多画面处拆图：镜18（3）、镜20（3）、镜31（2）、镜5/11（各2）。</li>
+<li>⚠️ 沉淀：<code>scripts/break_subtitles.py</code> 补了 <strong>专有名词词典</strong>（不切词）＋ <strong>破折号处强制断行</strong>；这两处是本轮工具升级。</li>
+<li>上游链：<code>04-输出成果/诺贝尔_脚本和分镜_定稿V5.1.md</code>、<code>04-输出成果/诺贝尔_生图提示词包.md</code></li>
+</ul>
+<h2 id="2026-10-03-9">[2026-10-03] 修正 | 字幕断行口径推翻：从「每行 ≤9 字」改为「标点停顿优先」</h2>
+<ul>
+<li>用户反馈原话：「它不是非得 9 个字以内断一下的，你稍微通顺一下就行，停顿适当就好，你不用把它当成铁律的……
+  <strong>我看你断的很离谱</strong>」。</li>
+<li>我的错在哪：「每行 ≤9 字」是我方<strong>自定、且没核到出处</strong>的数字（《待核标准清单》里挂着），
+  我却拿它当硬约束去凑字数 → 断出来的行短且碎（"据说在1888年的／一天"、"94%／折合3100万／瑞典克朗"）。</li>
+<li>新口径（用户定）：<strong>标点停顿优先</strong>，单行 9–11 字为主、最长 15 字，<strong>允许 1–3 处不完美</strong>。</li>
+<li>工具升级：<code>scripts/break_subtitles.py</code> 逻辑改为「标点切分句 → 超长分句在词边界取最均衡点 → 相邻分句合并」，
+  默认 soft=13 / hard=15；内置 CUSTOM 专有名词词典（防切词）。</li>
+<li>结果：40 镜断行 <strong>165 → 142 行</strong>，平均 <strong>6.2 → 9.9 字/行</strong>，最长 15 字，<strong>0 切词</strong>，字幕与旁白 40/40 逐字一致。</li>
+<li>定稿：<code>04-输出成果/诺贝尔_脚本和分镜_定稿V5.2.md</code>（V5.1 已删）。教训同时记进 <code>judgment-selfcheck</code> B2。</li>
+</ul>
+<h2 id="2026-10-03-ingest-10-02-060709">[2026-10-03] ingest | 雪见群 10-02 · 批量出片参数 + 生图积分单价（更新 06/07/09）</h2>
+<ul>
+<li>数据源：雪见 2026 AI 陪伴群 2026-10-02，total=421 / unique=421 / 覆盖 00:26–20:47（⚠️ 服务端 20:47 后未同步，属「部分同步日」，先按已同步内容整理）。</li>
+<li>原始记录落档：<code>01-原始资料/聊天记录/雪见AI陪伴群_20261002_原始记录.md</code>。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">06-视频矩阵搭建与批量出片（雪见群实战）</a>：新增第八节「批量出片的同质化控制与产能参数」——二创 50% 门槛（35% 判同质化、连坐其他号）、2000 字配 30–35 图、5 号错峰夜间出片、中老年伴听受众、风险（小号听大号刷量）；核验记录 +4 行。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">07-选题对标与爆款监控（雪见群实战）</a>：二创同质化阈值参考 + 中老年「文案 &gt; 画质」受众判断；核验记录 +2 行。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">09-AI 生图与成本控制（雪见群实战）</a>：新增 3.4 生图/出片积分单价（wb 6.65/次、hy-image 4–6 积分/5 张、一条视频约 140–150 积分）；⚠️ 群内「hy3 全天免费 / hy4 夜间免费」核验为<strong>与官方口径不符</strong>（腾讯云 2026-08-31 公告：Hy4 preview 限免至 09-10、Hy3 至 09-30）；核验记录 +3 行、核验来源/日期更新。</li>
+<li>核验来源：视频号/平台风控无公开口径（矩阵类保持未核验）；WorkBuddy 限免期据腾讯云开发者社区/新浪科技 2026-08-31 报道；二创阈值仅见抖音外部口径（非视频号）。</li>
+</ul>
+<h2 id="2026-10-03-update-v10-v11-48-50">[2026-10-03] update | 诺贝尔 · 生图提示词包 V1.0 → V1.1（图数 48 → 50）</h2>
+<ul>
+<li>触发：用户核出图数应为 <strong>50</strong>（豆包口径），我程序复核对齐。</li>
+<li>差异只在 2 镜：<strong>镜15、镜36</strong> —— 豆包各拆 2 张，我原版各合 1 张。其余 38 镜一致。</li>
+<li><strong>镜36 该拆（我方漏）</strong>：分镜画面点原文「时间线1896→1901流动<strong>；切到</strong>1901年首届颁奖典礼」，
+    「切到」在本分镜里一贯是换图信号（镜5／11／21 同款都已拆）→ 镜36 应为 2 张。</li>
+<li>镜15 属可拆可不拆：「禁令文件＋红章；众人摇头劝阻」无「切到」字样；拆开更清楚。</li>
+<li>结论：严格按「切到＝换图」＝ 49；镜15 也拆＝ <strong>50</strong>。以 50 为准。</li>
+<li>改动：<code>04-输出成果/诺贝尔_生图提示词包.md</code> → V1.1
+  ① 图数 48→50（标题／表头／目标废图率／验收清单第 1 项）
+  ② 补 <strong>15-2（众人劝阻）</strong>、<strong>36-2（时间线抽象刻度）</strong> 两条逐镜提示词；15-1、36-1 相应收窄
+  ③ 上游文件名 V5.1 → V5.2（旧引用）
+  ④ 锚定词表补漏：【诺贝尔锚定词】漏列镜5；14-1 未写【埃米尔锚定词】（声明了却没用）
+  ⑤ 新增图号＝文件名的说明</li>
+<li>复核：表格 50 行；多图镜 8 个（5、11、15、18、20、21、31、36）＝豆包口径。</li>
+<li>⚠️ 提醒（待用户/Codex 处理）：一镜多图的<strong>每张图时长未定</strong>（分镜只给每镜总时长）；
+  建议默认平均分，<strong>镜36（4.5s／2张）与镜31（12.5s／2张）单独指定</strong>。</li>
+</ul>
+<h2 id="2026-10-03-ingest-2026-09-24">[2026-10-03] ingest | 化学史人物 · 选题池建页（补 2026-09-24 缺口）</h2>
+<ul>
+<li>背景：豆包 2026-09-24 给的 10 个选题<strong>只在浮墨</strong>（<code>#想法 #化学史</code>）、从未进库 → 用户 10-02 「有点忘了，找不到了」，
+  当时靠 grep 才会话记录捞回。本次按该教训<strong>正式落库</strong>。</li>
+<li>新建 <code>05-项目/内容自动化/15-选题池.md</code>（别名 <span class="wl">选题池</span>）：10 条候选逐字留档 ＋ 状态列 ＋ 两个已知问题（无数据支撑／扑克牌等属传说）
+  ＋ 「故事属性强弱」排序（用户 10-03 提出，标 <code>推断假设</code>）＋ 待办 4 条。已登记 index「05-项目 · 内容自动化」。</li>
+<li>同轮结论：<strong>诺贝尔片尾预告「下期门捷列夫」不是死约束</strong> —— 第 3 条尚未发布，预告仍可改（改镜40 一句旁白＋字幕＋重算时长）。</li>
+</ul>
+<h2 id="2026-10-03-lint-3-9-1">[2026-10-03] 整理 | Lint：补登 3 个漏登记产出 + 清「≤9 字」被推翻旧结论 + 修 1 失效内链</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行轻量 Lint（脚本化全库 wikilink／孤儿／frontmatter 扫描，index 也计入入链来源）。</li>
+<li><strong>新产出漏登记（3 个）</strong>：10-03 的 <a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html">诺贝尔_脚本和分镜_定稿V5.2</a>、<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html">诺贝尔_生图提示词包</a>（40 镜/50 图）、<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html">诺贝尔_分镜_V1.0→V1.1_改动对照</a> 此前均未进 index（且前两者<strong>无任何入链</strong>）→ 已登记「04-输出成果」＋ 两页互加「相关」wikilink。</li>
+<li><strong>清「被新资料推翻的旧结论」</strong>：「<strong>字幕每行 ≤9 字</strong>」10-03 被用户当场推翻（改「标点停顿优先，9–11 字为主、最长 15 字、允许 1–3 处不完美」）。该标准此前是《各站验收表》脚本站 ★ 项、挂在《待核标准清单》B 类 #3（我方自定、未核出处）。已同步改三处：① <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html">各站验收表V1</a> 脚本站 #2 加删除线＋新口径；② <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html">待核标准清单</a> B 类 #3 标「已解决并改口径」；③ <a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html">诺贝尔_脚本和分镜_V1.1（更正版）</a> 顶部标「<strong>已被 <a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html">诺贝尔_脚本和分镜_定稿V5.2</a> 取代（存档）</strong>」＋正文「163 行全部 ≤9 字」口径句加删除线。⚠️ 教训同 10-01：作废一条标准要连<strong>旧版页 / 历史产出</strong>一起清。</li>
+<li><strong>失效 wikilink 1 条</strong>：<code>05-项目/内容自动化/15-选题池.md</code> 里的 <code>&lt;span class="wl"&gt;chemistry-history-fact-check&lt;/span&gt;</code> 指向<strong>不存在的页面/skill</strong>（<code>.agents/skills/</code> 只有「选题价值判断」）→ 改为指向项目已立的史实核验口径（<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html">拉瓦锡文案V3.2_定稿</a>／<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html">待核标准清单</a>）。</li>
+<li><strong>补 frontmatter（硬规则 3）</strong>：<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html">诺贝尔_分镜_V1.0→V1.1_改动对照</a> 此前无 YAML → 已补（type 输出，标存档）。</li>
+<li><strong>未动（挂号）</strong>：<code>05-项目/内容自动化/</code> 5 个文件（00-总纲／01-决策台账／05-生产线SOP／README／03-对标卡V0.1）仍无 frontmatter／无入链，属既有「项目文件是否整体纳入 Obsidian」待决策项；<code>03-方法库/00-可信度规则</code> 出链仍 0，低优先，暂不动。</li>
+<li><strong><code>02-数据基线</code></strong>：第 1、2 条均已回收数据、无「待发」条目 → 第 4 步跳过。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步）。</li>
+</ul>
+<h2 id="2026-10-04-ingest-10-03-050809">[2026-10-04] ingest | 雪见群 10-03 · 人生哲理卡片生图玩法 + 声音权红线 + 视频号运营细节（更新 05/08/09）</h2>
+<ul>
+<li>数据源：雪见 2026 AI 陪伴群 2026-10-03，<strong>801 条</strong>（去重 801），覆盖 08:20–23:00（<code>probe_dates.py</code> 显示全库 tail 落在本日 23:00:56 → 当日同步完整，非部分同步日）。原始记录已落档 <code>01-原始资料/聊天记录/雪见AI陪伴群_20261003_原始记录.md</code>。国庆假日，群内大半是硬件/游戏/闲聊，干货密度低 → 只收「可复用方法论 + 合规红线」。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">09-AI 生图与成本控制（雪见群实战）</a>：新增第六节「生图玩法：人生哲理 / 格言卡片」—— 飞掌柜老师转述的他人案例（image2 出竖版中文格言漫画海报 + 百货带货），<strong>附两段提示词模板原文</strong>；标注为「结果型信息、无基线」（核验记录 +1 行）。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">08-AI 配音与音色克隆（雪见群实战）</a>：新增第六节「声音克隆的合规红线」—— 真实在世公众人物（王立群）未经授权克隆违反《民法典》第 1023 条（声音权参照肖像权）；<strong>明确「只克隆别人已克隆的 / 换标签不打本人名」不能规避</strong>（核验记录 +2 行）。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">05-视频号起号与图书带货（雪见群实战）</a>：新增「2026-10-03 补充」—— 单条时长档位（7 分 / 10 分 01–09 秒）、「2 天 &lt;500 播放就隐藏」（运营经验，未证实）；<strong>再次纠正群内「5000 粉开通带货」误传</strong>（官方：橱窗无粉丝限制 / 短视频带货 1000 有效粉或微信小店自营 / 直播可 0 粉）（核验记录 +3 行）。</li>
+<li>索引：<code>index.md</code> 群聊观察分区 05/08/09 三行摘要已改写，顶部「最后更新」改写。</li>
+<li>⚠️ 本 job（08:30「仙女可用清单」）分流：工具/额度（豆包又送订阅至 10-17、小豆芽矩阵软件）只发聊天消息、不入库；上述方法论进知识库。<strong>Bitable 已停用</strong>，无归档。</li>
+</ul>
+<h2 id="2026-10-04-lint-10-04-6-2">[2026-10-04] 整理 | Lint：补登 10-04 漏登记产出 6 页 + 修 2 条失效内链 + 标注门捷列夫编号矛盾</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行轻量 Lint（脚本化全库 wikilink／孤儿／frontmatter 扫描，index 计入入链来源）。</li>
+<li>背景：核对发现 10-04 已有一批工作（门捷列夫第 4 条、外部方案评审）<strong>未登记 index、未写 log</strong>（当日 log 只有「雪见群 10-03 ingest」一条）→ 本次一次性补齐登记。</li>
+<li><strong>新产出漏登记（6 页）</strong>：登记「04-输出成果」4 页 —— <a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_策划卡V3_定稿</a>、<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_脚本分镜V1_定稿</a>、<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html">门捷列夫_生图提示词包</a>（44 图）、<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a>；「05-项目·内容自动化」2 页 —— <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html">19-人物类视频发布前检查清单</a>、<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html">20-两条视频共性问题与解决方案</a>。</li>
+<li><strong>失效 wikilink 2 条</strong>：<code>02-数据基线</code>、<code>06-待验证假设</code> 均指向 10-04 已删的《17-开头30秒对照卡》（含已撤回的推算）→ 改指 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html">20-两条视频共性问题与解决方案</a>；两页 <code>updated</code> → 2026-10-04（正文本就含 10-04 内容、frontmatter 停在 10-02）。</li>
+<li><strong>补 frontmatter（硬规则 3）</strong>：<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html">19-人物类视频发布前检查清单</a>、<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html">20-两条视频共性问题与解决方案</a>、<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html">门捷列夫_生图提示词包</a> 补 YAML；三页 ＋ 门捷列夫策划卡/脚本分镜补「相关」交叉引用（≥2 出链）。</li>
+<li><strong>孤儿页去化</strong>：19/20 此前无任何入链 → <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html">速查卡</a> 文件地图改 wikilink ＋ index 登记；门捷列夫 4 页互链。</li>
+<li><strong>矛盾标注（冻结件仅留痕、不改正文）</strong>：<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_策划卡V3_定稿</a> <strong>期/条编号自相矛盾</strong> —— 正文「视频描述／发布侧动作」写「系列·第3期」（按人物计），「爆款复刻」条与《生图提示词包》写「第4期」（按视频条数计），本页 tags 标「第4条」→ 顶部 ⚠️ 列表加第 ③ 条，<strong>发布前须统一口径</strong>。另记：<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_脚本分镜V1_定稿</a> tags 标「第3条」与本套其它页「第4条」不一致（未改，待统一）。</li>
+<li><strong>第 4 步</strong>：<code>02-数据基线</code> 第 1/2/3 条均已回收数据、无「待发」条目 → 跳过。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步）。</li>
+</ul>
+<h2 id="2026-10-05-ingest-10-04">[2026-10-05] ingest | 雪见群 10-04 · 视频号发布节奏 + 配音选音色</h2>
+<ul>
+<li>数据源：雪见 2026 AI 陪伴群 2026-10-04 全量消息（total=753，去重 753，覆盖 01:59–23:18）。原始记录落 <code>01-原始资料/聊天记录/雪见AI陪伴群_20261004_原始记录.md</code>。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">05-视频号起号与图书带货（雪见群实战）</a>：新增「2026-10-04 补充（发布节奏与出图数量）」——<strong>出图下限 ≥40 张（少则同质化）</strong>、<strong>同号两片间隔 ≥2 小时 / 每天最多 5 条 / 新号 1 个月内每天最多 3 条</strong>、<strong>老号转型先隐藏旧作品</strong>、播放量「500 正常·2/3/4 百=废」旁证、结果型个案 1 条（老号纯 AI 生图 25 条约 9000 粉，方向验证）；「相关工具」加 suno 配乐与<strong>免费版不可商用</strong>的门槛。核验记录 +4 行（均 ⚠️ 未证实，官方未公开）。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">08-AI 配音与音色克隆（雪见群实战）</a>：新增「10-04 补充（选音色实测：自己声音没流量）」——群内实测「用自己声音没人看、得用名人/好听的声音」，<strong>显式标注与 §四「优先克隆自己的声音」的张力</strong>（合规红线不变：只用自有/已授权音色，不得据此克隆名人）；工具线索（六款声音克隆横评文章、<code>流艺</code> 未核验不采信、MiniMax 存疑）。核验记录 +3 行。</li>
+<li>核验：发布节奏/出图数量阈值、选音色经验均<strong>官方未公开 → 一律标 ⚠️ 未证实</strong>；<code>流艺</code> 公开渠道查无 → ❌ 不采信。</li>
+<li>index.md 同步：顶部「最后更新」+ 群聊观察分区 05/08 两行摘要。</li>
+<li>同批处理（个人简报链路）：08:30 「仙女可用清单」已产出（工具类只发消息，方法论已入库）。</li>
+</ul>
+<h2 id="2026-10-05-lint-09-30-1-title">[2026-10-05] 整理 | Lint：补登 09-30 漏登记页 + 清「作废标准」在存档页的残留 + 修 1 处 title 笔误</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行轻量 Lint（脚本化全库 wikilink／孤儿／frontmatter／title-文件名一致性扫描，index 计入入链来源）。</li>
+<li><strong>新产出漏登记（1 页）</strong>：<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html">知乎小说 · 短篇方法论提炼</a>（<code>05-项目/知乎小说/08-短篇方法论提炼（破局手册）.md</code>，2026-09-30 由破局《AI小说&amp;剧本实战手册》ingest 产出）此前<strong>从未登记 index</strong>，且无 alias（Obsidian 靠短名链会生成空笔记）→ 补 <code>aliases</code> ＋ 登记进 index「05-项目 · 知乎小说」。</li>
+<li><strong>清「被推翻的旧结论」残留（存档/非正式页漏清）</strong>：作废标准「图密度 4–6 秒/张」与误引的「规范 15.5」此前只从<strong>正式版</strong>销掉，仍残留在 4 页 → 加删除线＋修正说明：
+  · <a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html">好样本与差样本结构对照</a>（02-结构化知识，非存档）差距清单第 5 条；
+  · <a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html">拉瓦锡文案V3.2_定稿</a>「四、给豆包的下一轮指令」代码块（含「图密度 4–6 秒/张」「字幕 ≤9 字」两条作废指标）→ 块前加 ⚠️ 说明；
+  · 存档产出 <a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html">拉瓦锡文案V2</a>、<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html">拉瓦锡文案V3_定稿</a> 顶部加「历史存档·内含已作废标准」横幅；
+  · <a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html">拉瓦锡文案V2_专家复盘</a> 表内「规范 15.5」（规范无此条）→ 更正为 <strong>4.4 诱导用户</strong>。
+  ⚠️ 教训重申（同 10-01）：作废一条标准要全库 grep，含<strong>旧版/重复页/存档产出</strong>，不能只改「正式版」。</li>
+<li><strong>frontmatter title 笔误</strong>：<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html">拉瓦锡文案V3.2_定稿</a> <code>title</code> 写「V3.1 · 定稿」，与文件名/H1（V3.2）不符 → 改「V3.2」。</li>
+<li><strong>未动（挂账）</strong>：<code>05-项目/内容自动化/</code> 5 个文件仍无 frontmatter／无入链（既有「项目文件是否整体纳入 Obsidian」待决策项）；<code>03-方法库/00-可信度规则</code> 出链仍 0。</li>
+<li><strong>仍待观察</strong>：<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html">待验证假设</a> 编号从 H06 跳到 H14，且 <strong>H14 与 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html">故事招式库</a> 的招式 H14 撞名</strong>（不同命名空间同用 H）→ 建议后续统一前缀。</li>
+<li><strong>第 4 步</strong>：<code>02-数据基线</code> 第 1/2/3 条均已回收数据、无「待发」条目 → 跳过。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步）。</li>
+</ul>
+<h2 id="2026-10-06-ingest-10-05">[2026-10-06] ingest | 雪见群 10-05 · 发布细节 + 文案二创提示词 + 选题押注</h2>
+<ul>
+<li>数据源：雪见 2026 AI 陪伴群 2026-10-05 全量消息（total=1026，去重 1023，覆盖 00:00–22:51）。原始记录落 <code>01-原始资料/聊天记录/雪见AI陪伴群_20261005_原始记录.md</code>。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">05-视频号起号与图书带货（雪见群实战）</a>：新增「2026-10-05 补充（发布细节与两条机制）」—— <strong>字幕要避开视频号底部 UI（浮评条遮挡字幕，字幕整体上移留安全区）</strong>、<strong>分享卡片顶部文案会被裁（发布要调封面图）</strong>、<strong>点赞机制：大拇指＝私密赞 / 红心＝公开推荐（引导互动要点红心）</strong>、<strong>播放诊断补充：前 5h 达 500 算达标</strong>。核验记录 +3 行（点赞机制 ✅ 与公开资料一致；前 5h 阈值为运营经验 ⚠️ 未证实；字幕/分享裁切 ✅ 方向一致）。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">07-选题对标与爆款监控（雪见群实战）</a>：新增「七、爆款拆解实例：选题押注 + 发布节奏」（尊嘟假嘟 拆 09-29~10-04 共 7 条 —— 同一强选题 10-02/10-03 连发两条占 7 天总赞 86%；常规期均赞 ≈3,043 vs 爆量期 ≈45,662，差 15 倍；发布节奏工业化）＋「八、可复用：短视频文案二创提示词」（小java同学 改写指令全文：改写 ≥50%、开头三秒慎改、口语化面向中老年、字数不变、史实核验）。核验记录 +2 行（均 ⚠️ 未证实）。</li>
+<li>核验：<strong>点赞机制</strong>经公开资料多源核实（搜狐/知乎/腾讯新闻，另有微信《隐私保护指引》提「爱心赞」= 推荐给朋友）→ ✅；<strong>字幕避让底部 UI / 分享卡裁切</strong> 属通行制作常识 → ✅ 方向一致；<strong>前 5h 500 达标 / 选题押注 / 二创提示词</strong> 官方无公开口径 → ⚠️ 未证实。</li>
+<li>index.md 同步：顶部「最后更新」＋ 群聊观察分区 05 / 07 两行摘要。</li>
+<li>同批处理（个人简报链路）：08:30「仙女可用清单」已产出（工具类只发消息，方法论已入库）。当日硬候选复盘：<strong>快闪2期报名</strong>（问卷 10-06 18:00 截止，王立群人物故事/AI滚动书单赛道）、<strong>Knocket 腾讯云免费 AI 客服 / toapis 生图中转 1 分/张</strong> 均判为「不入库」—— 后者属 API 中转（排除项 1），前者无落地场景。</li>
+</ul>
+<h2 id="2026-10-06-lint20-30s">[2026-10-06] 整理 | Lint：修「20-共性问题」一处页面矛盾（30s 断崖误记到诺贝尔）＋ 复核作废标准/内链/漏登记</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行轻量 Lint（脚本化全库 wikilink／孤儿／frontmatter／index 登记／作废标准残留 五项扫描）。</li>
+<li><strong>修页面间矛盾（1 处）</strong>：<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html">20-两条视频共性问题与解决方案</a>「三个共性问题」表第 1 条原写「①②的断崖点平台都点了名：拉瓦锡第 27 秒／<strong>诺贝尔</strong>第 30 秒」—— 与 ① <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html">数据基线</a>（平台诊断句只有①②有：第 1 条 27s／第 2 条 30s，<strong>③ 诺贝尔没有</strong>）、② 本页下文「诺贝尔③ 是唯一没被平台点名的」、③ 本页「再拿拉瓦锡②试（第 30 秒断崖）」<strong>三处自相矛盾</strong> → 改为「<strong>拉瓦锡① 第 27 秒／拉瓦锡② 第 30 秒</strong>」＋更正说明；<code>updated</code> → 2026-10-06。</li>
+<li><strong>复核结论＝无需再改</strong>：① 作废标准（图密度 4–6 秒/张、规范 15.5、字幕 ≤9 字、时长基线 3 分钟、5.13 误引）grep 命中项<strong>全部</strong>落在已加删除线/存档横幅/更正说明的页，或 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html">待核标准清单</a> 自身；② 全库<strong>无</strong>真失效 wikilink（<span class="wl">页面名</span> 及历史 changelog 里的旧链均在代码块/反引号内）；③ 02–05 区除既有「项目文件未纳入 Obsidian」的 5 个文件外，<strong>无</strong>漏登记页；④ <code>02-结构化知识</code> 各页出链均 ≥2（硬规则 4 达标）。</li>
+<li><strong>仍待用户决策（未动）</strong>：① <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html">待验证假设</a> 编号从 H06 跳到 <strong>H14</strong>，与 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html">故事招式库</a> 招式 <strong>H14</strong> 撞名 —— 实为<strong>系统性</strong>冲突（两页都用 H01… 命名空间，非仅 H14），统一前缀需全库改号，留待用户拍板；② <code>05-项目/内容自动化/</code> 之 <code>00-总纲</code>／<code>01-决策台账</code>／<code>03-对标卡V0.1</code>／<code>05-生产线SOP</code>／<code>README</code> 仍无 frontmatter／无入链。</li>
+<li><strong>第 4 步</strong>：<code>02-数据基线</code> 第 1/2/3 条均已回收数据、无「待发」条目 → 跳过。</li>
+<li>index.md 同步：顶部「最后更新」＋「完整性待办」新增 10-06 段。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步）。</li>
+</ul>
+<h2 id="2026-10-07-ingest-10-06">[2026-10-07] ingest | 雪见群 10-06 · 素材新鲜度 + 开橱窗时机 + 平台变现风向</h2>
+<ul>
+<li>数据源：雪见 2026 AI 陪伴群 2026-10-06 全量消息（total=352，去重 352，覆盖 07:40–23:01）。原始记录落 <code>01-原始资料/聊天记录/雪见AI陪伴群_20261006_原始记录.md</code>。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">07-选题对标与爆款监控（雪见群实战）</a>：§三 新增「<strong>素材新鲜度优先</strong>」—— 跟爆款改写时素材越新越好（「要发 2 个小时内的」「采集的视频要 2 天内的，超过 2 天不要发」），同一爆款「太多人改写了，后面的人发就是重复」→ 触发同质化限流（当天群友马超账号被平台点名「同质化内容太多」，两小时只有 8 个播放）；选题监控里<strong>标红（已泛滥）的别跟</strong>。核验记录 +1 行（⚠️ 未证实）。</li>
+<li>更新 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">05-视频号起号与图书带货（雪见群实战）</a>：新增「2026-10-06 补充」—— <strong>开橱窗时机</strong>（有视频爆了再开橱窗承接、别提前开，「没爆的视频／没备好带货视频不要开」）、<strong>播放→佣金量级</strong>（2000 播放 ≈ 佣金 100，个案无基线）、<strong>第三次纠正「5000 粉开通带货」旧误传</strong>、<strong>两条变现风向</strong>（抖音走 AI 博主赛道·创作者分成；公众号用 AI 写文章·流量主 675 播放≈11 元 / 单篇 2 万播放≈1900 元，选题靠「监控群聊热点 → 发文章」）。核验记录 +4 行。</li>
+<li>核验：内容均为群内运营经验，平台未公开口径 → 标 ⚠️ 未证实；唯一与官方冲突的是「5000 粉」（官方：橱窗无粉丝限制，第 3 次纠正 → ❌）；两条变现风向标 ⚠️ 方向参考。</li>
+<li>index.md 同步：顶部「最后更新」＋ 群聊观察分区 05 / 07 两行摘要。</li>
+<li>同批处理（个人简报链路）：08:30「仙女可用清单」已产出——本次两条<strong>方法论</strong>（对标素材新鲜度、开橱窗时机）已入库 05/07 两页；<strong>公众号·抖音变现风向</strong>属结果型信息，只发聊天消息、不入库。</li>
+</ul>
+<h2 id="2026-10-07-ingest-ai-v1">[2026-10-07] ingest | 生图提示词复盘 → 《AI生图提示词规则 V1》（模型能力边界 + 手部处置）</h2>
+<ul>
+<li>数据源：用户 2026-10-07 交来的两份豆包复盘（一份结构化 + 一份网页详版，大量重叠）→ 已合并去重。语料：门捷列夫期 <strong>44 张生图 + 审核 + P0 重出 7 张</strong>。原文合并落 <code>01-原始资料/文章/生图提示词复盘_豆包原稿合集_2026-10-07.md</code>（只读）。</li>
+<li>新建 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a>（<code>03-方法库/</code>，type=方法，status=生产规则，🟢 自有实践，evidence=一手实操）：</li>
+<li><strong>一、总原则</strong>：模型执行「正面语义」不是「负面约束」——P0 重出 7 张全失败（成功率 0%）即铁证。</li>
+<li><strong>二、模型能力边界 9 条</strong>（写了必翻车 → 改设计）：① 任何"应该有文字"的表面（22/44＝50%）② 准确文字/符号/数字 ③ 「桌上排列的卡片」→ 必变扑克牌（累计 8+ 张次）④ 议事场景自动补法槌（累计 15+ 张次）⑤ 弱风格词压不住场景默认风格（5+ 张）⑥ 现代物品穿越（10+ 张次）⑦ 动态/叠化 ⑧ 抽象概念 ⑨ 小区域小物件。</li>
+<li><strong>三、可修复类（不要刻意躲）</strong>：<strong>手部</strong> —— 2026-10-07 <strong>用户定调</strong> 三条：① 手不作硬伤项（明显畸形才判）② 写提示词不刻意躲手 ③ 质检查手。<strong>判断规则＝松紧按「修复成本」定、不按「出问题概率」定</strong>（手错了掩掉/局部改/重出都容易 → 松）。⚠️ <strong>本条推翻豆包原结论</strong>（豆包：手必崩→禁用）；并<strong>弃用</strong>「手崩掉的三种情况」因果论（无实测支撑）。</li>
+<li><strong>四、可整段复制的《生图提示词编写规则》</strong>（8 节，发给外部生图 Agent 用）。</li>
+<li>五、负面词精简（15+ → 6 项）；六、流程优化 6 条（先出定妆像+2~3 关键镜再批量／每 8~10 张快审／文字类镜头分镜阶段去文字表面）。</li>
+<li><strong>口径标注</strong>：两份原始复盘计数单位不同（"本批 44 张里几张" vs "累计 60+ 张次里几次"），规律一致，<strong>数字不混用</strong>（frontmatter <code>verified: 部分核验</code>）。</li>
+<li>内链：→ <a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html">内容自动化项目总纲</a>、<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html">各站验收表V1</a>、<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html">生产线SOP-V2</a>、<a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html">单样本对标卡V0.1</a>、<a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html">方法库可信度规则</a>。</li>
+<li>index.md 同步：顶部「最后更新」＋ <code>01-原始资料·文章</code> 分区 ＋ <code>03-方法库</code> 分区各 +1 行。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步；今晚 23:00/23:30/23:45 的 cron 会自动带上）。</li>
+</ul>
+<h2 id="2026-10-07">[2026-10-07] 整理 | 生图规则页改为「活文档」（改名 + 立迭代机制）</h2>
+<ul>
+<li>用户 2026-10-07 定：<strong>后续每期出图后由豆包复盘 → 发我 → 持续优化生图提示词规则</strong>。</li>
+<li>为让链接稳定不变，<code>03-方法库/AI生图提示词规则V1.md</code> <strong>改名为 <code>AI生图提示词规则.md</code></strong>（页内保留版本号 V1；aliases 保留旧名兼容），新增「七、迭代机制与版本历史」：收到复盘后我方四步（去重合并 → 对照现行规则分「新增/印证/证伪」三类 → 更新正文+版本历史 → 登记 index/log + 发布给链接）；<strong>证伪旧结论一律保留删除线+更正说明，不删</strong>。</li>
+<li>index.md（顶部 + 方法库区）、log.md 内链同步改名 → <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a>。</li>
+<li>原始复盘另出 <code>生图提示词复盘_豆包原稿合集_v2026-10-07.md</code> 交用户（供 Codex 备份）。</li>
+</ul>
+<h2 id="2026-10-07-ingest-v1-v3">[2026-10-07] ingest | 冻结「人物故事策划分析卡」标准件（模板 V1 ＋ 参考填法 门捷列夫 V3）</h2>
+<ul>
+<li>用户 2026-10-07 交来两份、要求 <strong>冻结且搭配使用</strong>：①《人物故事策划分析卡｜语义锚定模板 V1》（模板）②《门捷列夫_人物故事策划分析卡 V3》（参考填法）。</li>
+<li><strong>新建</strong> <code>05-项目/内容自动化/21-人物故事策划分析卡模板V1（冻结）.md</code> → <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html">人物故事策划分析卡模板V1</a>（type=方法，status=生产规则，🟢 自有实践）。定位＝<strong>策划站（生产线最上游）标准件</strong>：统一定字段含义、分析颗粒度与填写规则，供外部生成 Agent 遵循；含 §15 一句总规则「继承模板的字段定义与方法，<strong>不继承上一人物的具体叙事解法</strong>」。</li>
+<li><strong>参考填法</strong>＝<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_策划卡V3_定稿</a> —— <strong>该页 2026-10-04 已在库冻结</strong>，本轮<strong>不重复落盘</strong>，仅补一条「配套模板」交叉引用（在我方登记的冻结横幅区，不动其正文）。</li>
+<li>两件<strong>成对冻结</strong>：模板定规则、示例只对齐「完成度/颗粒度/深度」，<strong>不复制其人物专属内容</strong>（钩子/主线/情绪结构/史实/表达）—— 防「换个名字套上一期结构」（模板 §14 自检第 2 条专拦）。</li>
+<li>内链：→ <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html">生产线SOP-V2</a>、<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html">各站验收表V1</a>、<a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html">内容自动化项目总纲</a>、<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_策划卡V3_定稿</a>。</li>
+<li>index.md 同步：顶部「最后更新」＋「05-项目·内容自动化」分区 +1 行 ＋「04-输出成果」门捷列夫策划卡行补注（标为参考填法）。</li>
+</ul>
+<h2 id="2026-10-08">[2026-10-08] 整理 | 收件箱空，全库体检无实质变更</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行轻量 Lint（脚本化全库 wikilink／孤儿／frontmatter／index 登记／被推翻旧结论 五项扫描）。</li>
+<li><strong>本次无变更</strong>：① 失效 wikilink —— 命中 5 条（<code>&lt;span class="wl"&gt;01-人物故事带货全链路SOP（安妮250w）&lt;/span&gt;</code>／<code>&lt;span class="wl"&gt;chemistry-history-fact-check&lt;/span&gt;</code>／<code>&lt;span class="wl"&gt;数据的基线&lt;/span&gt;</code>／<code>&lt;span class="wl"&gt;限流自查清单V1&lt;/span&gt;</code>／<code>&lt;span class="wl"&gt;页面名&lt;/span&gt;</code>）<strong>全部</strong>落在 AGENTS 模板示例或 index.md／log.md 的历史 changelog 里，非活跃正文 → <strong>无真失效链</strong>；② index 登记 —— 02–05 区无未登记页；③ frontmatter —— 除既有「项目文件未纳入 Obsidian」的 5 个文件外无缺；title/文件名差异均为<strong>有意</strong>（标题带标点、文件名＝wikilink 名／alias），非笔误；④ 孤儿 —— 仅 <code>05-项目/内容自动化/00-总纲.md</code>／<code>03-对标卡V0.1.md</code> 等既有待决策项；⑤ 被推翻旧结论（图密度／≤9 字／手部·符号 等）复扫无新漏网。</li>
+<li><strong>仍待用户决策（未动）</strong>：① <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html">待验证假设</a> H06→<strong>H14</strong> 跳号 ＋ 与 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html">故事招式库</a> 招 <strong>H14</strong> 撞名（系统性，须全库改号）；② <code>05-项目/内容自动化/</code> 5 个文件无 frontmatter／无入链；③ <code>03-方法库/00-可信度规则</code> 出链 0（低优先）。</li>
+<li><strong>第 4 步</strong>：<code>02-数据基线</code> 第 1/2/3 条均已回收数据、无「待发」条目 → 跳过。</li>
+<li>index.md 同步：顶部「最后更新」。⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步）。</li>
+</ul>
+<h2 id="2026-10-07-lint">[2026-10-07] 整理 | Lint：清「生图提示词规则」推翻的旧结论（手部/文字符号）＋冻结件留痕</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 执行轻量 Lint（脚本化全库 wikilink／孤儿／frontmatter／index 登记 四项扫描）。</li>
+<li><strong>核心发现（被新资料推翻的旧结论）</strong>：10-07 入库的新规则 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a>（§二 模型能力边界 / §三 手部处置）<strong>推翻了两条旧做法</strong>，但旧做法仍写在<strong>正式标准</strong>和<strong>冻结件</strong>里未被标注 ——
+  ① <strong>手部</strong>：旧做法＝「避开手掌特写／不出现手部特写」（理由「AI 画手畸形高发区」）；新规则＝<strong>手部正常写、不刻意躲</strong>，属<strong>可修复类</strong>（松紧按<strong>修复成本</strong>定），<strong>不作硬伤项</strong>（只有一眼可见的明显畸形才算硬伤）。
+  ② <strong>文字/符号</strong>：旧做法＝「元素符号允许清晰／文字虚化」；新规则＝<strong>一律留白</strong>，<strong>不要写</strong>「符号允许清晰」「文字虚化」（模型会造 Ab/Bb/Cia 等假符号）。另：「卡片」必渲染成扑克牌，负面词「畸形手指/手部特写」压不住 → 移除。</li>
+<li><strong>已修复（正式标准，改判决口径）</strong>：</li>
+<li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html">各站验收表V1</a> ④ 生图提示词站 #3「~~避开手掌特写~~」<strong>作废</strong>（「书页文字／多人脸」保留）＋ 加注「文字/符号留白」才是关键；⑤ 生图站 #3 ★ 手部改「无<strong>明显</strong>畸形」。<code>updated</code> 2026-10-03 → 2026-10-07。</li>
+<li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html">限流自查清单V1.1</a> B3-5「多指／畸形」与「发布前 60 秒速查·画面」的「无畸形手指」→ 加手部新口径（只卡明显畸形）＋文案/符号留白。<code>updated</code> 2026-09-30 → 2026-10-07。</li>
+<li><strong>已补留痕（冻结件/存档，不改正文，仅顶部加 ⚠️ 说明）</strong>：</li>
+<li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_脚本分镜V1_定稿</a>：硬约束「元素符号…允许清晰」＋ 分镜 6 处「（符号允许清晰）」→ 已被 §二 推翻；</li>
+<li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html">门捷列夫_生图提示词包V1.1</a>：统一负面词「畸形手指/手部特写」＋ 逐镜「符号允许清晰」→ 已被 §三/§五 更新；</li>
+<li>存档 <a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html">诺贝尔_脚本和分镜_V1.1（更正版）</a>：把「不出现手部特写」当核心修正项、理由「AI 画手畸形高发区」→ 理由已被 §三 修正。</li>
+<li><strong>复核结论＝无新问题</strong>：① 失效 wikilink 扫描命中项<strong>全部</strong>落在 AGENTS 模板示例（<code>&lt;span class="wl"&gt;页面名&lt;/span&gt;</code>）、index/log 历史 changelog（<code>&lt;span class="wl"&gt;chemistry-history-fact-check&lt;/span&gt;</code>／<code>&lt;span class="wl"&gt;数据的基线&lt;/span&gt;</code>／<code>&lt;span class="wl"&gt;限流自查清单V1&lt;/span&gt;</code>）、或 §十 不外发的 <code>01-原始资料/</code> 页 → <strong>无真失效链</strong>；② <code>02-结构化知识</code> 各页出链 ≥2（硬规则 4 达标）；③ 无漏登记页（除既有 5 个项目文件）。未改 <code>01-原始资料/</code> 任何文件。</li>
+<li><strong>仍待用户决策（未动）</strong>：① <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html">待验证假设</a> H06→<strong>H14</strong> 跳号 ＋ 与 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html">故事招式库</a> 招 <strong>H14</strong> 撞名（系统性，须全库改号）；② <code>05-项目/内容自动化/</code> 5 个文件无 frontmatter／无入链；③ 低优先：旧 <a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html">拉瓦锡文案V2</a>／<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html">拉瓦锡V3_编排方案</a> 的「避免手部特写」为存档附带提法，未逐页标注。</li>
+<li><strong>第 4 步</strong>：<code>02-数据基线</code> 第 1/2/3 条均已回收数据、无「待发」条目 → 跳过。</li>
+<li>index.md 同步：顶部「最后更新」＋「完整性待办」新增 10-07 段。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步）。</li>
+</ul>
+<h2 id="2026-10-09-ingest-10-08-seedream-50-pro">[2026-10-09] ingest | 雪见群 10-08 · 豆包工作自带生图通道（Seedream 5.0 Pro）</h2>
+<ul>
+<li>数据源：<code>pull_messages_robust.py 2026-10-08</code> → total=113 / 去重 113 条，覆盖 07:26–11:23（北京时间）；<code>probe_dates.py</code> 显示全库 tail 冻结在 <strong>2026-10-08 11:23:01</strong>（11:23 之后当天内容尚未同步）。</li>
+<li>原始记录落档：<code>01-原始资料/聊天记录/雪见AI陪伴群_20261008_原始记录.md</code>（113 条）。</li>
+<li>更新页：<a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html">09-AI 生图与成本控制（雪见群实战）</a> —— 新增 §二「豆包工作自带出图」群内说法（白嫖体验积分 / 还没水印 / 同一提示词比 API 好看 / 「直接说：帮我出图 xxx」/ 给一份多分镜文档批量出）、§3.5 核验、§四 第 5 条用法；frontmatter 同步（updated→10-09、sources 加 10-08 原始记录、tags 加 豆包工作 / Seedream5.0Pro / 批量出图）。</li>
+<li>核验（2026-10-09）：✅ 豆包工作产品与免费版属实（doubao.com/work 官网 + /pricing 定价页 + 下载页 + 36氪·APPSO《实测豆包工作》+ AIHub 词条）；✅ API 侧单价已核（火山方舟 doubao-seedream-5-0-pro 输出图 0.30 元/张 ≤1.5K、0.60 元/张 &gt;1.5K；输入图首张免费、第 2 张起 0.02）→ 群里「API 生图不便宜 + 欠费」属实（40 张/条 ≈ 12 元起）；⚠️「豆包工作出图无水印」未证实（官方无明文，与本页 §3.1 既有事实有张力，用前自测）；🟡「同一提示词比 API 好看」方向一致（未做同图对照）。</li>
+<li>未纳入本页（按分流先例跳过）：当日群里其余话题 —— Codex 类「使用限额重置卡」（纯开发向）、兔子 wb 涨价 / 接 OpenRouter / 自建（开发向）、grokbot·muse 云端 Agent（无具体入口/价格）、视频号/抖音涨粉数据（结果型晒数据）。</li>
+<li>index.md 同步：顶部「最后更新」＋「03-方法库 · 群聊观察」09 页摘要行。</li>
+</ul>
+<h2 id="2026-10-09-lint-2">[2026-10-09] 整理 | Lint：补清「生图新规则」推翻的旧做法漏网（诺贝尔 2 页）＋ 存档件手部留痕</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 轻量 Lint（脚本化全库 wikilink／孤儿／frontmatter／index 登记／被推翻旧结论 五项扫描，index 计入入链来源）。</li>
+<li><strong>核心发现（作废标准未全库清）</strong>：2026-10-07 入库的 <a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a> 推翻了「不出现手部特写／负面词畸形手指」与「文字虚化」两条旧做法，但 10-07 只清了<strong>门捷列夫 2 件</strong>（脚本分镜V1_定稿、生图提示词包V1.1）＋<strong>诺贝尔存档 V1.1</strong>，<strong>同批第 3 条（诺贝尔）的其余产出漏清</strong> ——</li>
+<li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html">诺贝尔_生图提示词包</a>：逐镜硬约束「<strong>不出现手部特写（AI 画手畸形高发）</strong>」＋统一负面词 <code>deformed hands, extra fingers</code>（与该批<strong>已加留痕</strong>的《门捷列夫_生图提示词包V1.1》<strong>完全同类</strong>）→ 顶部加 2026-10-09 留痕（指 §三：手部正常写/不作硬伤项；§五：负面词移除畸形手指）。<code>updated</code> 2026-10-03 → 2026-10-09。</li>
+<li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html">诺贝尔_脚本和分镜_定稿V5.2</a>（<strong>第 3 条当前定稿</strong>）：画面点通篇「<strong>文字虚化</strong>」→ 新规则 §二 改「<strong>一律留白</strong>」（不写「文字虚化」，否则模型先写字再模糊、乱码照样可辨）→ 顶部加留痕，正文不动。<code>updated</code> 2026-10-03 → 2026-10-09。</li>
+<li><strong>补清已知「低优先残留」2 页（存档件手部提法）</strong>：<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html">拉瓦锡V3_编排方案</a>（⑤ 段「妻子伏案记录（避手部特写）」）加存档留痕＋标「V3.x 已执行」；<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html">拉瓦锡文案V2</a> 历史存档横幅补「（避免手部特写）亦已被新规则更新」一句。两页 <code>updated</code> → 2026-10-09。</li>
+<li><strong>复核结论＝其余无新问题</strong>：① 失效 wikilink 命中项<strong>全部</strong>落在 AGENTS 模板示例（<code>&lt;span class="wl"&gt;页面名&lt;/span&gt;</code>）／index·log 历史 changelog（<code>&lt;span class="wl"&gt;chemistry-history-fact-check&lt;/span&gt;</code>／<code>&lt;span class="wl"&gt;数据的基线&lt;/span&gt;</code>／<code>&lt;span class="wl"&gt;限流自查清单V1&lt;/span&gt;</code>／<code>&lt;span class="wl"&gt;01-人物故事带货全链路SOP（安妮250w）&lt;/span&gt;</code>）／或指向 §十 不外发的 <code>01-原始资料/</code> 页 → <strong>无真失效链</strong>；② <code>02-结构化知识</code> 各页出链 ≥2（硬规则 4 达标）；③ 无漏登记页（除既有「项目文件未纳入 Obsidian」的 5 个文件）；④ 图密度 4–6 秒/张、字幕 ≤9 字、规范 15.5 等作废标准复扫无新漏网。</li>
+<li><strong>仍待用户决策（未动）</strong>：① <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html">待验证假设</a> H06→<strong>H14</strong> 跳号 ＋ 与 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html">故事招式库</a> 招 <strong>H14</strong> 撞名（系统性，须全库改号）；② <code>05-项目/内容自动化/</code> 之 <code>00-总纲</code>／<code>01-决策台账</code>／<code>03-对标卡V0.1</code>／<code>05-生产线SOP</code>／<code>README</code> 仍无 frontmatter／无入链；③ <code>03-方法库/00-可信度规则</code> 出链 0（低优先）。</li>
+<li><strong>第 4 步</strong>：<code>02-数据基线</code> 第 1/2/3 条均已回收数据、无「待发」条目 → 跳过。</li>
+<li>index.md 同步：顶部「最后更新」＋「完整性待办」新增 10-09 段（标题补 10-09）。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步；未改 <code>01-原始资料/</code> 任何文件）。</li>
+</ul>
+<h2 id="2026-10-10-ingest-10-09">[2026-10-10] ingest | 雪见群 10-09（部分同步日：仅上午内容，无可入库方法论）</h2>
+<ul>
+<li>数据源：<code>pull_messages_robust.py 2026-10-09</code> → total=231 / 去重 231 条，覆盖 00:00–09:53（北京时间）；<code>probe_dates.py 2026-10-08 2026-10-09 2026-10-10</code> 显示全库 tail 冻结在 <strong>2026-10-09 09:53:59</strong>（09:53 之后当天内容尚未同步；次日 10-10 total=0）。</li>
+<li>原始记录落档：<code>01-原始资料/聊天记录/雪见AI陪伴群_20261009_原始记录.md</code>（231 条，header 已标停摆点）。</li>
+<li><strong>未入 03-方法库</strong>：当日已同步内容以「视频号新号起步交流（播放数据/封面）」「投标·标书 skill 讨论」「抓公开数据的合规风险闲聊」「擦边福利图玩笑」为主，<strong>无步骤·参数·策略型方法论</strong>；「本地部署 TTS/出图省电费」「codex 出图」属纯开发向（排除项 1，同 WorkBuddy 先例）。</li>
+<li>个人清单（08:30 job）仅 2 条低价值可执行项：① 视频号封面「直出、首帧即封面」＋「上下集封面被裁不显示」的坑（只发消息，不入库）；② 群友所列好做赛道清单（宝妈/母婴/养生/大健康/银发经济/玄学/疗愈，据称、无基线，只发消息）。</li>
+<li>index.md 未改（本日无方法库页面新增/更新，01-原始资料 不入 index）。</li>
+</ul>
+<h2 id="2026-10-10-ingest-d23">[2026-10-10] ingest | 脚本分镜前置写作规则（标准件定稿 + D23）</h2>
+<ul>
+<li>新增 <code>05-项目/内容自动化/22-脚本分镜前置写作规则.md</code>：<strong>脚本/分镜站「前置」标准件</strong> —— 派活给豆包前先发、让它先读。</li>
+<li>内容 = 5→6 类返工点清单（并入 Codex 对拉瓦锡/诺贝尔/门捷列夫三条片子的独立复查：字幕删字、把分镜秒数当最终依据、元素符号「允许清晰」、动画需求当静态运镜、文字分层不清、年龄锚点、易错读音表）＋ <strong>用户 2026-10-10 定的「文字口径」</strong>（叠字只做旁白、带字物件不做主体）＋ 可整段复制的规则。</li>
+<li>决策台账加 <strong>D23</strong>：固定动作 ＝ 用户发策划卡 → 我审核通过 → 我提醒她先把规则发豆包 → 豆包读完再写。</li>
+<li>同步更新 skill <code>content-project-kb/references/script-storyboard-writing-rules.md</code>。</li>
+</ul>
+<h2 id="2026-10-10-freeze-v4">[2026-10-10] freeze | 侯德榜 脚本分镜 V4 冻结</h2>
+<ul>
+<li>归档 <code>04-输出成果/侯德榜_脚本和分镜_V4_定稿.md</code>（含 🔒 冻结头：规格/质检结论/遗留项/下游）。</li>
+<li>台账 D24；选题池侯德榜状态更新为「脚本分镜 V4 已冻结 → 生图提示词站」。</li>
+<li>质检：编号 1–57｜592.5s＝标注｜无超速｜断行 283 行/9.4 字/最长 15/超 15=0｜字幕=旁白。</li>
+<li>⚠️ 遗留：硬约束（带字物件不做主体）与镜 4/5/20/27/32/37/38/39/47/49 画面点的「特写」写法冲突 → 生图提示词站处理。</li>
+</ul>
+<h2 id="2026-10-10-update-ai-v11">[2026-10-10] update | AI生图提示词规则 → V1.1（文字口径）</h2>
+<ul>
+<li>按用户 2026-10-10 定的【文字口径】更新：画面内文字改为「不追求准确、不做叠加」（叠字只做旁白字幕）；唯一底线＝带字物件不做主体／大特写。</li>
+<li>作废旧写法「不设文字区域／留白＋后期叠加」（表格第1、2条 + 第四节可粘贴块 + 第六节流程条）。</li>
+<li>新增版本历史 V1.1。</li>
+</ul>
+<h2 id="2026-10-10-lint-10-10-_-v4">[2026-10-10] 整理 | Lint：补登 10-10 新产出「侯德榜_脚本分镜 V4」＋修页眉笔误</h2>
+<ul>
+<li><code>00-收件箱/</code> 为空 → 轻量 Lint（脚本化全库 wikilink／孤儿／frontmatter／index 登记／被推翻旧结论 五项扫描，index·log 计入入链来源）。</li>
+<li><strong>新产出漏登记（1 页）</strong>：<a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html">侯德榜_脚本和分镜_V4_定稿</a>（<code>04-输出成果/</code>，2026-10-10 冻结）此前 <strong>无 YAML frontmatter／未登记 index／无任何入链</strong> → 已补 frontmatter（type 输出、status 生产规则）＋「相关」出链（<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html">脚本分镜前置写作规则</a>／<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html">各站验收表V1</a>／<a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a>／<a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html">生产线SOP-V2</a>／<span class="wl">选题池</span>）＋ 登记进 index「04-输出成果」。</li>
+<li><strong>修页眉笔误</strong>：同页 H1「视频脚本 + 分镜表 · V3」→ <strong>V4</strong>（内容已是 V4；该页冻结头原已自带此笔误提示，现标注「已修正」）。正文其余一字未动。</li>
+<li><strong>index 摘要同步</strong>：<a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html">AI生图提示词规则</a> 行补「V1.1（2026-10-10）画面内文字不追求准确、不做叠加；底线＝带字物件不做主体（叠字只做旁白字幕）」。</li>
+<li><strong>复核结论＝其余无新问题</strong>：① 失效 wikilink 扫描命中项<strong>全部</strong>落在 AGENTS 模板示例（<code>&lt;span class="wl"&gt;页面名&lt;/span&gt;</code>）／index·log 历史 changelog／或指向 §十 不外发的 <code>01-原始资料/</code> 页 → <strong>无真失效链</strong>；② <code>02-结构化知识</code> 各页出链 ≥2（硬规则 4 达标）；③ 孤儿页只剩既有「项目文件未纳入 Obsidian」的 5 个（<code>00-总纲</code>／<code>01-决策台账</code>／<code>03-对标卡V0.1</code>／<code>05-生产线SOP</code>／<code>README</code>）；④ 图密度 4–6 秒/张、字幕 ≤9 字、规范 15.5、手部特写等作废标准复扫无新漏网。</li>
+<li><strong>仍待用户决策（未动）</strong>：① <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html">待验证假设</a> H06→H14 跳号 ＋ 与 <a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html">故事招式库</a> 招 H14 撞名（系统性，须全库改号）；② <code>05-项目/内容自动化/</code> 5 个文件无 frontmatter／无入链；③ <code>03-方法库/00-可信度规则</code> 出链 0（低优先）。</li>
+<li><strong>第 4 步</strong>：<code>02-数据基线</code> 第 1/2/3 条均已回收数据、无「待发」条目 → 跳过。</li>
+<li>⚠️ 未发布（仅本地整理，未跑 <code>publish_kb.py</code> / 飞书同步；未改 <code>01-原始资料/</code> 任何文件）。</li>
+</ul></article>
+</main></div></body></html>
