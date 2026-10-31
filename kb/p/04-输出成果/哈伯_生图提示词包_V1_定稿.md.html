@@ -1,0 +1,908 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · 04-输出成果/哈伯_生图提示词包_V1_定稿.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-31 23:46</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/05-%E7%BB%99AI%E6%8F%90%E8%A6%81%E6%B1%82%E7%9A%84%E4%B8%89%E6%9D%A1%E5%8E%9F%E5%88%99%EF%BC%88Anthropic%E5%AE%98%E6%96%B9%EF%BC%89.md.html" class="">05-给AI提要求的三条原则（Anthropic官方）</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html" class="">AI生图提示词规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/Vox%E6%92%95%E7%BA%B8%E6%8B%BC%E8%B4%B4%E8%A7%86%E9%A2%91%E6%B5%81%E7%A8%8B%EF%BC%88Remotion%EF%BC%89.md.html" class="">Vox撕纸拼贴视频流程（Remotion）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%AF%B9%E5%A4%96%E4%BA%A4%E6%8E%A5%E4%BB%B6%E9%80%9A%E7%94%A8%E5%8C%96%EF%BC%88%E7%BB%99%E9%99%8C%E7%94%9FAgent%E7%9A%84%E4%BA%A4%E4%BB%98%E4%BB%B6%EF%BC%89.md.html" class="">对外交接件通用化（给陌生Agent的交付件）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%B4%A0%E6%9D%90%E5%8D%A1%E5%87%BA%E5%A4%84%E4%B8%8E%E9%98%B2%E5%B9%BB%E8%A7%89%E5%8F%A3%E5%BE%84.md.html" class="">素材卡出处与防幻觉口径</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E8%A7%84%E5%88%99%E5%87%BA%E5%A4%84%E5%86%99%E6%B3%95%EF%BC%88%E7%A1%AC%E6%A0%BC%E5%BC%8F%EF%BC%89.md.html" class="">规则出处写法（硬格式）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E8%B7%9FAgent%E5%8D%8F%E4%BD%9C%E7%9A%84%E5%81%8F%E5%A5%BD.md.html" class="">跟Agent协作的偏好</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E8%B7%9F%E5%A4%96%E9%83%A8Agent%E5%8D%8F%E4%BD%9C%E7%9A%84%E5%88%A4%E5%AE%9A%E8%A7%84%E5%88%99.md.html" class="">跟外部Agent协作的判定规则</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/Hermes_%E8%88%8D%E5%8B%92%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_QA.md.html" class="">Hermes_舍勒脚本分镜V1_QA</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V3.md.html" class="">侯德榜_生图提示词包V3</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html" class="">侯德榜_脚本和分镜_V4_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%93%88%E4%BC%AF_%E7%94%9F%E5%9B%BE%E4%BD%9C%E4%B8%9A%E5%8D%95.md.html" class="">哈伯_生图作业单</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%93%88%E4%BC%AF_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85_V1_%E5%AE%9A%E7%A8%BF.md.html" class=" on">哈伯_生图提示词包_V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%93%88%E4%BC%AF_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1_%E5%AE%9A%E7%A8%BF.md.html" class="">哈伯_脚本和分镜_V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E6%97%81%E7%99%BDV2.1_%E5%AE%9A%E7%A8%BF.md.html" class="">舍勒_旁白V2.1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">舍勒_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.2.md.html" class="">舍勒_生图提示词包V1.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85_%E5%AF%B9%E5%A4%96%E7%89%88.md.html" class="">舍勒_生图提示词包_对外版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E7%94%9F%E5%9B%BE%E6%A8%A1%E5%9E%8B%E9%80%89%E5%9E%8B%E5%AE%9E%E6%B5%8B%E8%AE%B0%E5%BD%95.md.html" class="">舍勒_生图模型选型实测记录</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E8%BF%94%E5%B7%A5%E6%8C%87%E4%BB%A4%EF%BC%88%E5%8F%AF%E7%9B%B4%E6%8E%A5%E8%BD%AC%E5%8F%91%EF%BC%89.md.html" class="">舍勒_脚本分镜V1_返工指令（可直接转发）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.md.html" class="">舍勒_脚本和分镜_V1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V2_%E5%AE%9A%E7%A8%BF.md.html" class="">舍勒_脚本和分镜_V2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V2_%E5%AE%9A%E7%A8%BF_%E8%BD%AC%E5%8F%91%E7%89%88.md.html" class="">舍勒_脚本和分镜_V2_定稿_转发版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92%E6%9C%9F_%E7%94%9F%E5%9B%BE%E5%AE%A1%E5%9B%BE%E6%8C%87%E4%BB%A4%EF%BC%88%E5%8F%AF%E8%BD%AC%E5%8F%91%EF%BC%89.md.html" class="">舍勒期_生图审图指令（可转发）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">门捷列夫_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_策划卡V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_脚本分镜V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html" class="">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class="">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html" class="">19-人物类视频发布前检查清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html" class="">20-两条视频共性问题与解决方案</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">21-人物故事策划分析卡模板V1（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html" class="">22-脚本分镜前置写作规则</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/23-%E7%94%9F%E5%9B%BE%E6%89%B9%E9%87%8F%E5%AE%A1%E6%A0%B8%E6%8F%90%E7%A4%BA%E8%AF%8D%EF%BC%88%E7%BB%99%E6%9C%AC%E6%9C%BA%20agent%EF%BC%89.md.html" class="">23-生图批量审核提示词（给本机 agent）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/26-%E7%94%9F%E5%9B%BE%E5%AE%A1%E5%9B%BE%E6%8C%87%E4%BB%A4%EF%BC%88%E9%80%9A%E7%94%A8%C2%B7%E5%8F%AF%E8%BD%AC%E5%8F%91%EF%BC%89.md.html" class="">26-生图审图指令（通用·可转发）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/27-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1_%E7%A9%BA%E7%99%BD%E6%A8%A1%E6%9D%BFV2.0%EF%BC%88Gemini%E7%A8%BF%C2%B7%E5%BE%85%E6%8B%8D%E6%9D%BF%EF%BC%89.md.html" class="">27-人物故事策划分析卡_空白模板V2.0（Gemini稿·待拍板）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/28-Gemini%E8%AF%8A%E6%96%AD_%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AA%E6%9C%89%E6%A1%86%E6%9E%B6%E6%B2%A1%E6%9C%89%E6%84%9F%E6%83%85%EF%BC%882026-10-16%EF%BC%89.md.html" class="">28-Gemini诊断_为什么只有框架没有感情（2026-10-16）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/29-%E7%AD%96%E5%88%92%E5%8D%A1V1vsV2%E5%AF%B9%E7%85%A7%E8%A1%A8.md.html" class="">29-策划卡V1vsV2对照表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/30-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1_%E7%A9%BA%E7%99%BD%E6%A8%A1%E6%9D%BFV2.1%EF%BC%88Gemini%E7%A8%BF%C2%B7%E5%BE%85%E6%8B%8D%E6%9D%BF%EF%BC%89.md.html" class="">30-人物故事策划分析卡_空白模板V2.1（Gemini稿·待拍板）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/31-%E7%AD%96%E5%88%92%E5%8D%A1V2.0%E5%88%B0V2.1%E5%8F%98%E6%9B%B4%E5%AF%B9%E7%85%A7.md.html" class="">31-策划卡V2.0到V2.1变更对照</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/36-%E7%A7%91%E5%AD%A6%E5%AE%B6%E6%95%85%E4%BA%8B%E7%B4%A0%E6%9D%90%E9%87%87%E9%9B%86%E5%8D%A1%E6%A8%A1%E6%9D%BF.md.html" class="">36-科学家故事素材采集卡模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/37-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E6%B4%BE%E6%B4%BB%E6%89%8B%E5%86%8C.md.html" class="">37-脚本分镜派活手册</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/38-%E7%94%9F%E5%9B%BE%E6%B4%BE%E6%B4%BB%E6%89%8B%E5%86%8C.md.html" class="">38-生图派活手册</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 历史人物带货</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%8E%86%E5%8F%B2%E4%BA%BA%E7%89%A9%E5%B8%A6%E8%B4%A7/%E5%8E%9F%E7%89%87%E8%A7%86%E5%90%AC%E5%8F%82%E6%95%B0_%E5%BA%9E%E7%BB%9F4%E5%88%8631%E7%A7%92%EF%BC%88Gemini%E5%88%86%E6%9E%90%C2%B7%E7%95%99%E6%A1%A3%EF%BC%89.md.html" class="">原片视听参数_庞统4分31秒（Gemini分析·留档）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%8E%86%E5%8F%B2%E4%BA%BA%E7%89%A9%E5%B8%A6%E8%B4%A7/%E5%AF%B9%E6%A0%87%E5%AD%A6%E4%B9%A0%E5%8D%A1%E6%A8%A1%E6%9D%BF%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">对标学习卡模板（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%8E%86%E5%8F%B2%E4%BA%BA%E7%89%A9%E5%B8%A6%E8%B4%A7/%E5%AF%B9%E6%A0%87%E5%AD%A6%E4%B9%A0%E5%8D%A1%E7%A4%BA%E4%BE%8B_%E5%BA%9E%E7%BB%9F%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">对标学习卡示例_庞统（冻结）</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / 04-输出成果/哈伯_生图提示词包_V1_定稿</div>
+<article><h1 id="49-55">弗里茨·哈伯 · 生图提示词包（49 镜 / 55 张图）</h1>
+<blockquote>
+<p>🔒 <strong>冻结 · 2026-10-26（第二版，当前有效）</strong>
+<strong>底稿</strong>：<code>哈伯_脚本和分镜_V1_定稿</code>（49 镜）→ <strong>55 张独立静态图</strong>（单图镜 43 ＋ 双图镜 6×2）
+<strong>规格</strong>：人物固定描述 5 组（哈伯壮年／军装／晚年、克拉拉、博施）｜负面词 6 项（图 3／35 为现代场景例外）｜画风锚点 55/55
+<strong>锚定规则</strong>：长相串逐字照抄；<strong>句末神态词按本镜情绪替换</strong>（图 25「神态舒展自得」、图 33「神色紧绷僵硬」，其余 6 张壮年图仍为「神态严谨而偏执」）
+<strong>质检</strong>：程序核 —— 55 个图号无缺无重｜逐镜子图数与总览一致｜长相串逐字命中 8／4／5／2／1 全中｜风格锚点 55/55｜合规无写实血腥与尸体。定点改：图 25／33 神态按戏、长相不动｜图 32-1 报纸不当主体、无可读文字｜图 44 移出人物表
+<strong>下游</strong>：出图（先出 7 张基准：5 组人物 ＋ 图 16 ＋ 图 19）</p>
+</blockquote>
+<p>底稿：49 镜，55 张图。</p>
+<hr />
+<h2 id="_1">〇 交付约定与出图方自查清单（必读，置于最前）</h2>
+<h3 id="_2">一、交付约定</h3>
+<ol>
+<li><strong>尺寸统一</strong>：全片分辨率统一 ≥ 1080×1920（竖屏），文件命名严格使用图号（如 <code>HB_01.png</code>、<code>HB_04-1.png</code>、<code>HB_04-2.png</code>）。</li>
+<li><strong>打包回传</strong>：55 张图全部完成后，打包成一个 <code>.zip</code> 压缩包回传。</li>
+<li><strong>严禁截图</strong>：必须提供生图工具直接导出的原图，<strong>绝对不要从 App 预览界面截图</strong>（截图会把界面按钮烤进画面且损失画质）。</li>
+<li><strong>重出命名</strong>：审核后需要重出的图，在原文件名后加 <code>_v2</code> 后缀（如 <code>HB_04-1_v2.png</code>），<strong>不要覆盖原图</strong>。</li>
+<li><strong>分批出图流程（首批验证）</strong>：
+   - 清单核对确认后，<strong>先出 7 张基准验风格与人物</strong>：<ul>
+<li>5 组人物基准图：哈伯（壮年）、哈伯（军装期）、哈伯（晚年）、克拉拉、卡尔·博施</li>
+<li>关键实验图 <code>16</code>（反应釜压力表冲进红区）</li>
+<li>关键成效图 <code>19</code>（冷凝管末端滴下的液氨）</li>
+<li>确认人物面部一致性与油画风格后，再以人物基准图垫图（img2img/参考图）放量出其余镜头；每出 8~10 张复核一次。</li>
+</ul>
+</li>
+</ol>
+<h3 id="8">二、出图方自查清单（交包前逐条核对 8 项，只报客观项，不自评“通过”）</h3>
+<ul>
+<li>[ ] <strong>1. 张数与图号齐备</strong>：共 55 张独立图片（单图镜 43 张 + 双图镜 6×2＝12 张），无漏图、无错号。</li>
+<li>[ ] <strong>2. 带字物件不当主体</strong>：教材（图 1, 35）、稿纸/标签（图 13, 17, 18-1）、特赦公文/辞职信（图 39, 42）、报纸通缉令（图 32-1）、黑板公式（图 28, 36）、杀虫罐标签（图 45）均处于远景、侧向、阴影或虚化中，画面内 <strong>0 张刺眼乱码文字大特写</strong>。</li>
+<li>[ ] <strong>3. 零现代穿帮</strong>：全片历史场景中，<strong>0 塑料水管、0 现代电子显示屏、0 现代圆珠笔、0 现代一次性手套、0 白色聚酯防化服、0 现代汽车</strong>。</li>
+<li>[ ] <strong>4. 正式议事场景无法槌</strong>：图 28（战时密室）、图 32-2 / 33（斯德哥尔摩颁奖大厅）中，<strong>0 法槌、0 现代麦克风、0 现代摄影机</strong>。</li>
+<li>[ ] <strong>5. 人物跨镜一致</strong>：同一人物同一年龄段（尤其哈伯壮年、军装、晚年三阶段）面部五官、微秃发型、胡须、金丝细圆框眼镜跨图保持一致，无明显换人。</li>
+<li>[ ] <strong>6. 手部结构自然</strong>：手部正常呈现，无“一眼可见的多指/断指/融化糊烂”硬伤。</li>
+<li>[ ] <strong>7. 合规与安全底线</strong>：全片 <strong>0 写实流血、0 战场尸体横陈、0 克拉拉中弹写实伤口、0 毒气窒息抽搐扭曲面部、0 未成年人受难</strong>，全部使用凋落白花、遗弃钢盔、空置风雪枯木等诗意意象替代。</li>
+<li>[ ] <strong>8. 画风统一且无水印</strong>：全片统一保持 19 世纪学院派油画质感与厚涂笔触，无漂移成日漫或现代 3D 渲染，四周边缘 <strong>0 平台水印与 UI 按钮残留</strong>。</li>
+</ul>
+<hr />
+<blockquote>
+<p>变更（2026-10-26）：① 图 25／图 33 的固定描述句恢复逐字（手杖、燕尾服改为在固定句之后追加）；② 图 32-1 不再让报纸当主体、不要求任何可读文字（只见纸背与撕口）；③ 人物固定描述表「晚年」一行去掉图 44（该图人脸被毛毯挡住，不适用）；④ 图 25 用「神态舒展自得」、图 33 用「神色紧绷僵硬」（按本镜情绪），长相串两图均一字未动。</p>
+</blockquote>
+<h2 id="_3">一、图数怎么数（子图总览）</h2>
+<h3 id="1">1. 图数统计逻辑</h3>
+<ul>
+<li><strong>核心规则</strong>：<strong>图数 ＝ 独立静态画面底图数，不是镜数</strong>。</li>
+<li><strong>本片标准统计</strong>：全片共 <strong>49 镜 / 55 张图</strong>。</li>
+<li><strong>单图镜（43 个）</strong>：镜 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23, 25, 26, 28, 29, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 —— 每镜 1 张，图号 ＝ 镜号（共 43 张）。</li>
+<li><strong>双图镜（6 个）</strong>：凡分镜表中标有「分屏对比」、「切入 / 转场至」、「分号连接两个独立不同场景」的镜头，拆分为 2 张独立静态底图，由后期剪辑做画中画分屏或转场拼接：<ol>
+<li><strong>镜 4</strong> → 拆为 <code>4-1</code>（实验室凝视试管）、<code>4-2</code>（战壕前背影面对钢瓶）（2 张）</li>
+<li><strong>镜 18</strong> → 拆为 <code>18-1</code>（天平上微量锇粉末）、<code>18-2</code>（蓝金微粒楔开铁球）（2 张）</li>
+<li><strong>镜 24</strong> → 拆为 <code>24-1</code>（白色化肥如雪倾泻装袋）、<code>24-2</code>（农民麦浪挥镰大丰收）（2 张）</li>
+<li><strong>镜 27</strong> → 拆为 <code>27-1</code>（英国战列舰重炮封锁海面）、<code>27-2</code>（兵工厂弹壳压入硝酸盐）（2 张）</li>
+<li><strong>镜 30</strong> → 拆为 <code>30-1</code>（书房克拉拉痛哭争执剪影）、<code>30-2</code>（隔壁大厅军官举杯庆功）（2 张）</li>
+<li><strong>镜 32</strong> → 拆为 <code>32-1</code>（战败街头被撕裂的引渡通缉令）、<code>32-2</code>（斯德哥尔摩金色颁奖礼台）（2 张）</li>
+</ol>
+</li>
+<li><strong>合计</strong>：43 + (6 × 2) ＝ <strong>55 张独立静态图</strong>。</li>
+</ul>
+<h3 id="2">2. 每镜子图数总览表</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">镜号</th>
+<th style="text-align: left;">子图数</th>
+<th style="text-align: left;">对应图号</th>
+<th style="text-align: left;">镜号</th>
+<th style="text-align: left;">子图数</th>
+<th style="text-align: left;">对应图号</th>
+<th style="text-align: left;">镜号</th>
+<th style="text-align: left;">子图数</th>
+<th style="text-align: left;">对应图号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>17</code></td>
+<td style="text-align: left;">33</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>33</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>2</code></td>
+<td style="text-align: left;"><strong>18</strong></td>
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong><code>18-1</code> / <code>18-2</code></strong></td>
+<td style="text-align: left;">34</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>34</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>3</code></td>
+<td style="text-align: left;">19</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>19</code></td>
+<td style="text-align: left;">35</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>35</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4</strong></td>
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong><code>4-1</code> / <code>4-2</code></strong></td>
+<td style="text-align: left;">20</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>20</code></td>
+<td style="text-align: left;">36</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>36</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>5</code></td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>21</code></td>
+<td style="text-align: left;">37</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>37</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>6</code></td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>22</code></td>
+<td style="text-align: left;">38</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>38</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>7</code></td>
+<td style="text-align: left;">23</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>23</code></td>
+<td style="text-align: left;">39</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>39</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>8</code></td>
+<td style="text-align: left;"><strong>24</strong></td>
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong><code>24-1</code> / <code>24-2</code></strong></td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>40</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>9</code></td>
+<td style="text-align: left;">25</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>25</code></td>
+<td style="text-align: left;">41</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>41</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>10</code></td>
+<td style="text-align: left;">26</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>26</code></td>
+<td style="text-align: left;">42</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>42</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>11</code></td>
+<td style="text-align: left;"><strong>27</strong></td>
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong><code>27-1</code> / <code>27-2</code></strong></td>
+<td style="text-align: left;">43</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>43</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>12</code></td>
+<td style="text-align: left;">28</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>28</code></td>
+<td style="text-align: left;">44</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>44</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>13</code></td>
+<td style="text-align: left;">29</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>29</code></td>
+<td style="text-align: left;">45</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>45</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>14</code></td>
+<td style="text-align: left;"><strong>30</strong></td>
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong><code>30-1</code> / <code>30-2</code></strong></td>
+<td style="text-align: left;">46</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>46</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>15</code></td>
+<td style="text-align: left;">31</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>31</code></td>
+<td style="text-align: left;">47</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>47</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>16</code></td>
+<td style="text-align: left;"><strong>32</strong></td>
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;"><strong><code>32-1</code> / <code>32-2</code></strong></td>
+<td style="text-align: left;">48</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>48</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">49</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>49</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>合计</strong></td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;"><strong>49 镜</strong></td>
+<td style="text-align: left;"><strong>55 张</strong></td>
+<td style="text-align: left;"><strong>共 55 个图号</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">二、人物固定描述表（人物 × 年龄段 × 逐字固定描述句 × 适用图号）</h2>
+<blockquote>
+<p>⚠️ <strong>硬约束</strong>：以下 5 组人物固定描述句，100% 逐字提取自脚本分镜底稿。在逐图提示词表中<strong>原样复制，一个字都不增减</strong>。
+<strong>唯一例外</strong>：句末那半句神态词（如「神态严谨而偏执」）可视本镜情绪替换（如「神态舒展自得」「神色紧绷僵硬」）；<strong>其余一字不动</strong> —— 五官、发际、眼镜、胡须、体型、服装这几项才是身份标记，改了才会换人。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">人物</th>
+<th style="text-align: left;">年龄段／身份</th>
+<th style="text-align: left;">逐字固定描述句（跨图原样复制，一字不改）</th>
+<th style="text-align: left;">用在哪几个图号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>弗里茨·哈伯</strong></td>
+<td style="text-align: left;">壮年（40–46岁，1908–1914年）</td>
+<td style="text-align: left;"><code>20世纪初德国学者，身材略微发福，圆脸微秃，头顶发量稀疏、两侧整齐短发，戴金丝边细圆框眼镜，留修剪得体的八字胡，身穿深灰毛呢西装马甲与白色立领衬衫，神态严谨而偏执</code></td>
+<td style="text-align: left;">图 <code>4-1</code>、<code>8</code>、<code>14</code>、<code>17</code>、<code>20</code>、<code>25</code>、<code>26</code>、<code>33</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>弗里茨·哈伯</strong></td>
+<td style="text-align: left;">军装期（47–50岁，1915–1918年）</td>
+<td style="text-align: left;"><code>德意志帝国战时学者军官，身材发福挺拔，身穿深蓝灰色一战德式军官制服，佩戴上尉肩章，短八字胡，圆脸，戴细圆框眼镜，眼神冷酷固执，面无表情</code></td>
+<td style="text-align: left;">图 <code>4-2</code>、<code>5</code>、<code>28</code>、<code>31</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>弗里茨·哈伯</strong></td>
+<td style="text-align: left;">晚年（64–65岁，1932–1934年）</td>
+<td style="text-align: left;"><code>身形微驼的老人，两鬓斑白稀疏，面容苍老憔悴，眼袋深重但眼神依然清瘦倔强，身穿旧式深色羊毛双排扣大衣，内搭深灰毛呢便服，戴深色细圆框眼镜</code></td>
+<td style="text-align: left;">图 <code>37</code>、<code>39</code>、<code>41</code>、<code>42</code>、<code>43</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>克拉拉·伊梅瓦尔</strong></td>
+<td style="text-align: left;">壮年（35–45岁，1905–1915年）</td>
+<td style="text-align: left;"><code>20世纪初欧洲女性学者，面容端庄清秀，神情带着隐忍与痛苦，深褐色头发挽在脑后成发髻，身穿深色高领收腰素面长裙，不戴任何奢华首饰</code></td>
+<td style="text-align: left;">图 <code>5</code>、<code>30-1</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>卡尔·博施</strong></td>
+<td style="text-align: left;">壮年（35–40岁，1909–1914年）</td>
+<td style="text-align: left;"><code>德国工业工程师，体格硬朗宽阔，短发利落，留浓密一字胡，面容刚毅，身穿耐磨粗纺工装与厚重皮质工作围裙</code></td>
+<td style="text-align: left;">图 <code>23</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>强风格锚点（每条提示词末尾必带）</strong>：<code>19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</code></li>
+<li><strong>通用负面词（严格限定，一字不增）</strong>：<code>现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</code></li>
+</ul>
+<hr />
+<h2 id="55">三、逐图提示词表（共 55 张图，按图号排列）</h2>
+<blockquote>
+<p><strong>骨架结构</strong>：<code>[年代＋地点＋氛围光] ＋ [人物：逐字固定描述] ＋ [姿态] ＋ [场景物件：排他句式占满桌面] ＋ [背景：模糊暗色墙面，没有空隙] ＋ [强风格锚点]</code></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">图号</th>
+<th style="text-align: left;">所属镜</th>
+<th style="text-align: left;">中文画面描述</th>
+<th style="text-align: left;">提示词正文</th>
+<th style="text-align: left;">负面词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1</strong></td>
+<td style="text-align: left;">镜 1</td>
+<td style="text-align: left;">俯拍书桌景深：一本翻开的旧化学教材静置在木质桌面上，微尘在台灯暖光中浮动。</td>
+<td style="text-align: left;">20世纪初古典木质书桌俯视景深，温暖柔和的台灯斜射侧光，微尘在光束中漂浮，无人物，深色实木桌面上只有一册自然摊开的厚重旧教材（书页处于侧面暗影中，无可见清晰文字）与一座复古黄铜台灯，没有任何其他物品，背景是模糊暗色木护墙板，没有空隙，怀旧宁静氛围，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2</strong></td>
+<td style="text-align: left;">镜 2</td>
+<td style="text-align: left;">广角全景：金黄色的麦浪在风中翻滚，阳光洒满辽阔农田，前景麦穗逆光特写。</td>
+<td style="text-align: left;">广袤欧洲农田丰收大远景，温暖明媚的金色逆光洒满大地，无人物，辽阔的大地上翻滚着无边无际的金黄色饱满麦浪，前景侧方只有一株沉甸甸的成熟麦穗逆光特写，没有任何其他物品，背景是晴朗开阔的暖金微蓝天空与远方地平线，没有空隙，崇高丰饶氛围，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3</strong></td>
+<td style="text-align: left;">镜 3</td>
+<td style="text-align: left;">现代餐桌上一碗冒着热气的白米饭，背景虚化中是一家三口用餐剪影。</td>
+<td style="text-align: left;">当代家庭餐厅中景，温暖柔和的暖黄顶光，餐桌前景中央只有一只质朴的白瓷碗盛满冒着淡淡热气的饱满白米饭与一双深色木筷，没有任何其他物品，背景深处虚化处隐约有一家三口围坐用餐的温馨暗色剪影（面部完全虚化不辨），四周是模糊暗色室内背景，没有空隙，温暖真实感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4-1</strong></td>
+<td style="text-align: left;">镜 4</td>
+<td style="text-align: left;">图 4-1：哈伯（壮年）在宁静实验室里凝视试管。</td>
+<td style="text-align: left;">20世纪初德国宁静大学实验室中景，清冷柔和的侧窗天光，20世纪初德国学者，身材略微发福，圆脸微秃，头顶发量稀疏、两侧整齐短发，戴金丝边细圆框眼镜，留修剪得体的八字胡，身穿深灰毛呢西装马甲与白色立领衬衫，神态严谨而偏执，双手五指清晰完整，正侧身端着一只装有透明液体的玻璃试管凝视，木质实验桌上只有两只古典玻璃烧瓶与铁架台，没有任何其他物品，背景是整齐陈列试剂瓶的深色木架与模糊暗色墙面，没有空隙，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4-2</strong></td>
+<td style="text-align: left;">镜 4</td>
+<td style="text-align: left;">图 4-2：哈伯（军装期）背影伫立在泥泞阴冷的战壕前，前方整齐排列数以千计的深绿高压钢瓶。</td>
+<td style="text-align: left;">1915年一战西线阴冷泥泞战壕中远景，铅灰色昏暗阴沉天光，德意志帝国战时学者军官，身材发福挺拔，身穿深蓝灰色一战德式军官制服，佩戴上尉肩章，短八字胡，圆脸，戴细圆框眼镜，眼神冷酷固执，面无表情，完全背对镜头双手背在身后挺立在战壕泥泞边缘，前方开阔地面上只有整齐密集排列的大批深绿色圆柱形铸铁高压钢瓶与沙袋，没有任何其他物品，背景是硝烟弥漫的铅灰色阴沉天空与铁丝网废墟，没有空隙，冷酷窒息感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5</strong></td>
+<td style="text-align: left;">镜 5</td>
+<td style="text-align: left;">1915年柏林官邸昏暗书房内：克拉拉跌坐在厚地毯上仰面哀求；哈伯背对妻子扣紧制服武装带，侧脸冰冷坚决。</td>
+<td style="text-align: left;">1915年柏林官邸昏暗书房内景中景，窗外冷冽阴暗天光与室内昏暗壁炉余火交织，20世纪初欧洲女性学者，面容端庄清秀，神情带着隐忍与痛苦，深褐色头发挽在脑后成发髻，身穿深色高领收腰素面长裙，不戴任何奢华首饰，双手五指清晰完整，正跌坐在厚重花纹地毯上仰面哀求；前方德意志帝国战时学者军官，身材发福挺拔，身穿深蓝灰色一战德式军官制服，佩戴上尉肩章，短八字胡，圆脸，戴细圆框眼镜，眼神冷酷固执，面无表情，正背对妻子低头扣紧皮质军用武装带，侧脸轮廓如花岗岩般冷酷决绝，雕花木书桌上只有一座黄铜烛台与墨水瓶，没有任何其他物品，背景是厚重深色绒布窗帘与模糊暗色墙面，没有空隙，决裂悲剧感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>6</strong></td>
+<td style="text-align: left;">镜 6</td>
+<td style="text-align: left;">夜雾笼罩的官邸花园远景，欧式石拱廊柱下泛着幽蓝月光，远处二楼宴会厅吊灯熄灭，前景一盆白蔷薇凋落数瓣。</td>
+<td style="text-align: left;">1915年柏林官邸深夜花园大远景，清冷幽蓝的夜雾与微弱月光笼罩，完全无人物，古典欧式石拱廊柱静默伫立，远处官邸二楼高窗内昏暗无光（灯火刚刚熄灭），前景石阶旁只有一只古典石制花盆，一丛白蔷薇在冷风中飘落数片花瓣在湿润石阶上，没有任何其他物品，背景是夜雾浓重的暗色冷杉与深蓝夜空，没有空隙，死寂肃杀悬念氛围，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>7</strong></td>
+<td style="text-align: left;">镜 7</td>
+<td style="text-align: left;">深色水面泛起冰冷涟漪，一具悬空的化学天平在波光阴影中剧烈倾斜。</td>
+<td style="text-align: left;">深邃墨色水面概念中景，微弱清冷的侧光投射在幽暗水波上，无人物，墨绿冰冷的水面上只有一架古典黄铜双盘精密天平正在水流波光阴影中剧烈倾斜下沉，一端高高翘起，一端浸入暗流激起层层幽暗涟漪，没有任何其他物品，背景是深不见底的墨黑水体与阴影，没有空隙，命运失衡与沉沦感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>8</strong></td>
+<td style="text-align: left;">镜 8</td>
+<td style="text-align: left;">纯黑背景中，暖调光柱自上方打下，定格哈伯壮年严肃深邃的油画肖像半身景。</td>
+<td style="text-align: left;">纯黑沉静背景肖像特写中景，一束戏剧性的暖金色顶光自上方斜射打亮人物面庞与肩膀，20世纪初德国学者，身材略微发福，圆脸微秃，头顶发量稀疏、两侧整齐短发，戴金丝边细圆框眼镜，留修剪得体的八字胡，身穿深灰毛呢西装马甲与白色立领衬衫，神态严谨而偏执，双手自然垂于画面下方不显，眼神深邃坚毅注视前方，没有任何其他物品，背景是完全纯净的深邃暗黑虚化空间，没有空隙，庄重历史人物肖像感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>9</strong></td>
+<td style="text-align: left;">镜 9</td>
+<td style="text-align: left;">19世纪末欧洲工业城市远景：高耸烟囱林立，浓烟遮蔽阴沉天空，街道上人流密集而神色匆匆。</td>
+<td style="text-align: left;">19世纪末欧洲重工业城市全景大远景，阴霾压抑的冷灰铜黄色天光，灰黑色滚滚浓烟从密集的砖砌高耸烟囱中喷涌遮蔽阴沉天空，远处只有密集的维多利亚式红砖厂房群，近处街道上只有穿着深色旧大衣的密集人群剪影神色匆匆前行，没有现代汽车，没有任何其他物品，背景是烟雾弥漫的工业阴霾天空与屋顶轮廓，没有空隙，厚重压抑时代危机感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10</strong></td>
+<td style="text-align: left;">镜 10</td>
+<td style="text-align: left;">荒凉的南美阿塔卡马硝石矿坑全景：近乎枯竭的白色矿脉被翻得底朝天，前景干涸开裂黄土，远景枯树悬挂老旧钟表。</td>
+<td style="text-align: left;">南美阿塔卡马荒凉硝石矿坑大远景，惨白灼热的干旱日照与昏黄风沙，前景只有龟裂干涸开裂的荒芜泥土地，中景是被翻掘殆尽的惨白色矿坑斜坡与废弃木推车，远景枯死的老树桠上只悬挂着一只锈迹斑斑的老旧圆形黄铜机械钟表（象征倒计时，表盘模糊），没有任何其他物品，背景是苍凉起伏的干旱黄土山丘与泛白干枯天空，没有空隙，资源枯竭末日危机感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>11</strong></td>
+<td style="text-align: left;">镜 11</td>
+<td style="text-align: left;">微观概念写实呈现：无边无际的深蓝大气粒子漂浮流动，金色的生命光点漫游，但被虚无阻隔无法落入下方作物。</td>
+<td style="text-align: left;">微观物理概念大远景，深邃幽暗的深蓝色微观粒子空间，无数半透明的深蓝氮气分子光团在空间中缓慢漂浮流动，夹杂着微弱游离的金色发光微尘，下方是一片干瘪发枯的暗绿色植物叶片轮廓，但被一层肉眼可见的冰冷透明虚无阻隔层隔开、无法渗入叶肉，没有任何其他物品，背景是深邃暗蓝微观虚空，没有空隙，科幻与古典交融的微观困局感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>12</strong></td>
+<td style="text-align: left;">镜 12</td>
+<td style="text-align: left;">物理微观具象模型：两个带有金属冷光的暗灰色沉重铁球死死铆接焊接在一起，周围有剧烈的火花和撞击，但接缝处纹丝不动。</td>
+<td style="text-align: left;">微观具象物理模型特写中景，戏剧性的冷白电火花与暗红余光交错，画面中央只有两颗带有铸铁粗糙质感与金属冷光的沉重暗灰色铁球死死铆接焊接在一起，接缝处被数道坚硬粗重的暗黑铁箍死死焊死，周围迸射出几道飞溅的细碎金色火花与撞击凹痕，但焊缝纹丝不动、牢不可破，没有任何其他物品，背景是深沉虚化的暗黑虚空，没有空隙，极度坚固与不可攻破的阻力感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>13</strong></td>
+<td style="text-align: left;">镜 13</td>
+<td style="text-align: left;">昏暗的旧式化学实验室角落：桌上散落着破裂的玻璃烧瓶、废弃的金属坩埚与灰尘覆盖的草稿纸。</td>
+<td style="text-align: left;">19世纪末欧洲旧化学实验室角落中景，从高处狭窄气窗斜射下一缕微弱灰尘光束，无人物，粗糙积灰的木质实验台上只有两只破裂碎口的古典玻璃烧瓶、一只烧焦泛黑的废弃铁坩埚，以及几张边缘卷曲焦黄的素色草稿纸页（无清晰字迹），没有任何其他物品，背景是剥落斑驳的深色砖墙与模糊暗角，没有空隙，挫败沉沦与无解死寂感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>14</strong></td>
+<td style="text-align: left;">镜 14</td>
+<td style="text-align: left;">卡尔斯鲁厄实验室全景：红砖拱顶下摆满铸铁管道与厚重实验台，哈伯与助手勒罗西格诺尔弯腰校准仪器。</td>
+<td style="text-align: left;">1909年德国卡尔斯鲁厄大学实验室全景，高耸红砖拱顶与斜射的冷灰天光，20世纪初德国学者，身材略微发福，圆脸微秃，头顶发量稀疏、两侧整齐短发，戴金丝边细圆框眼镜，留修剪得体的八字胡，身穿深灰毛呢西装马甲与白色立领衬衫，神态严谨而偏执，双手五指清晰完整，正与身旁一名穿深色便服的年轻英国学者助手弯腰注视中央管道阀门，宽大的铸铁实验台上只有一台粗重金属高压装置、铜阀门与耐热玻璃管，没有任何其他物品，背景是红砖墙面、高悬的铸铁管道与模糊暗色阴影，没有空隙，严谨决然科研探索感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>15</strong></td>
+<td style="text-align: left;">镜 15</td>
+<td style="text-align: left;">机器结构中景：一台粗笨结实、缠满数道加厚钢带与粗大螺栓的圆柱形合金反应釜，高压管道发出通气轰鸣。</td>
+<td style="text-align: left;">1909年实验室重型仪器中景，冷硬金属反光与侧面暖色油灯光交织，无人物，厚重木工作台上只有一台粗笨结实的深灰圆柱形锻钢反应釜，釜身紧密缠绕着数道加厚淬火钢箍，四周拧满粗大的六角重型合金螺栓，顶部连接着厚壁铜管与阀门，没有任何其他物品，背景是深色木质工具架与模糊暗色砖墙，没有空隙，极其沉重冰冷的工业力量感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>16</strong></td>
+<td style="text-align: left;">镜 16</td>
+<td style="text-align: left;">反应釜核心剧烈升温：釜体底部泛起暗红火光，机械压力表铜制指针急促抖动冲入红区。</td>
+<td style="text-align: left;">1909年高压反应釜核心局部中近景，反应釜底部透出极其灼热耀眼的暗红色与橘黄色灼烧光芒，金属外壁因剧烈高温高压微微散发热浪扭曲感，一旁的粗大古典黄铜圆形压力表盘上，黑色细长指针正死死指向表盘末端的深红色警戒弧线区域（无文字标签，纯红黑表盘），桌上只有厚重钢铁部件与铜管，没有任何其他物品，背景是深黑炽热的高温阴影与模糊墙面，没有空隙，命悬一线的剧烈爆炸危险压迫感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>17</strong></td>
+<td style="text-align: left;">镜 17</td>
+<td style="text-align: left;">哈伯在中景中焦躁踱步，身后架子摆满数十种金属瓶，地面堆满失败草稿。</td>
+<td style="text-align: left;">卡尔斯鲁厄实验室深夜中景，昏暗摇曳的瓦斯壁灯投下狭长扭曲阴影，20世纪初德国学者，身材略微发福，圆脸微秃，头顶发量稀疏、两侧整齐短发，戴金丝边细圆框眼镜，留修剪得体的八字胡，身穿深灰毛呢西装马甲与白色立领衬衫，神态严谨而偏执，双手五指清晰完整，正焦躁地在实验台前单手扶额踱步，眉头紧锁眼神布满血丝，身后高大木架上摆满数十个盛装不同金属矿物粉末的古典玻璃瓶，地面木地板上只有一只装满废弃揉皱图纸的旧柳条筐，没有任何其他物品，背景是深邃暗色砖木墙面，没有空隙，绝境求索与偏执焦虑感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>18-1</strong></td>
+<td style="text-align: left;">镜 18</td>
+<td style="text-align: left;">图 18-1：天平上盛着极其微量的蓝灰色锇金属粉末。</td>
+<td style="text-align: left;">古典实验室木桌特写中景，一束纯净的高亮暖金侧光精准照射，无人物，深色实木实验桌上只有一架精致小巧的古典黄铜精密双盘天平，左侧黄铜托盘上静静盛放着极微量、泛着清冷蓝灰色金属光泽的细腻锇金属粉末，右侧托盘放着微小铜砝码，没有任何其他物品，背景是沉入深邃阴影中的暗色木架与墙面，没有空隙，稀世珍宝般的神圣专注感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>18-2</strong></td>
+<td style="text-align: left;">镜 18</td>
+<td style="text-align: left;">图 18-2：蓝金色金属微粒如同一把钥匙，瞬间切入两颗焊死的暗灰铁球之间，坚固的缝隙崩解裂开。</td>
+<td style="text-align: left;">微观物理具象奇迹瞬间特写中景，耀眼璀璨的蓝金辉光爆发，画面中央两颗死死焊死铆接的暗灰金属巨球之间，一道耀眼如金刚石钥匙般的蓝金高能金属微粒流如楔子般硬生生劈入接缝深处，粗厚的焊缝在这股光芒冲击下轰然崩裂开一道璀璨的光芒裂隙，迸发出无数细小耀眼的蓝金碎屑，没有任何其他物品，背景是深蓝微观粒子虚空，没有空隙，真理破锁的奇迹爆发感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>19</strong></td>
+<td style="text-align: left;">镜 19</td>
+<td style="text-align: left;">冷凝管末端极其缓慢凝聚透明液滴，随后坠入刻度烧杯中。</td>
+<td style="text-align: left;">精密冷凝实验装置特写中景，清澈纯净的晶莹微光照明，无人物，一根打磨光滑的古典蛇形吹制厚壁玻璃冷凝管垂直向下，其弯曲透明管口末端正凝结悬挂着一滴纯净无瑕、清澈如水晶的透明液体，正欲滴落，下方木座上只有一只盛有少量纯净清澈透明液体的古典直口玻璃刻度烧杯（刻度模糊），液面泛起一圈极微小的同心涟漪，没有任何其他物品，背景是深暗柔和的实木阴影墙面，没有空隙，屏息凝神的宁静奇迹感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>20</strong></td>
+<td style="text-align: left;">镜 20</td>
+<td style="text-align: left;">特写烧杯中清澈流动的液氨，倒映哈伯眼镜反光，光晕幻化为金黄麦浪与刚出炉面包虚影。</td>
+<td style="text-align: left;">实验烧杯与象征意象交织中景，璀璨醇厚的暖金光晕笼罩，20世纪初德国学者，身材略微发福，圆脸微秃，头顶发量稀疏、两侧整齐短发，戴金丝边细圆框眼镜，留修剪得体的八字胡，身穿深灰毛呢西装马甲与白色立领衬衫，神态严谨而偏执，双手五指清晰完整，正俯身凝视桌上的玻璃烧杯，眼镜镜片上反射出清澈液体的晶莹光斑；烧杯周围柔和升腾的暖金色光晕中，虚化交融着金黄灿烂的无边麦浪与刚出炉粗麦面包的朦胧温馨虚影，木桌上只有这一只发光烧杯，没有任何其他物品，背景是模糊暗色实验室阴影，没有空隙，生命源泉诞生感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>21</strong></td>
+<td style="text-align: left;">镜 21</td>
+<td style="text-align: left;">黑色丝绒托盘上放着仅一小撮灰蓝锇粉末，与窗外巴斯夫工厂庞大冰冷的工业区烟囱群形成鲜明对比。</td>
+<td style="text-align: left;">高楼窗台俯瞰宏大对比远景，室内冷暖侧光与室外清冷灰蓝钢铁工业感对比，无人物，前景窗台上只有一只深黑色丝绒长方托盘，托盘中央孤零零放着极微小的一小撮灰蓝色贵金属锇粉末；宽阔古典玻璃窗外的远景地平线上，是无边无际、高耸入云的巴斯夫巨型红砖烟囱群与庞大钢铁厂房，浓烟滚滚遮蔽天际，没有任何其他物品，四周是古典深色窗框，没有空隙，微薄原料与庞大工业鸿沟对比感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>22</strong></td>
+<td style="text-align: left;">镜 22</td>
+<td style="text-align: left;">巴斯夫路德维希港厂区大门远景：红砖厂房绵延数里，高耸管道纵横交错，大门悬挂复古铁艺招牌。</td>
+<td style="text-align: left;">1910年德国路德维希港巴斯夫化工区大门宏大远景，清晨冷灰与铜黄色工业天光，高大威严的黑色古典锻铁大门向两侧敞开，大门上方悬挂着铸铁花纹招牌（招牌字迹模糊），门内是绵延数里、气势磅礴的红色砖石厂房、纵横交错凌空架设的粗大钢铁管道与蒸汽管道，几名穿粗布工服的工人背影走向厂区深处，没有任何其他物品，背景是蒸汽与煤烟弥漫的宏伟工业天空，没有空隙，工业帝国崛起感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>23</strong></td>
+<td style="text-align: left;">镜 23</td>
+<td style="text-align: left;">博施站在高耸如摩天大楼的巨型双层碳钢合成塔下；前景整齐摆放廉价铁催化剂。</td>
+<td style="text-align: left;">巴斯夫巨型化工厂房仰视大远景，斜射入室的壮阔工业光束，德国工业工程师，体格硬朗宽阔，短发利落，留浓密一字胡，面容刚毅，身穿耐磨粗纺工装与厚重皮质工作围裙，双手五指清晰完整，正站在前景宽大铁木工作台旁抬头仰望前方高耸如摩天大楼的巨型双层合金钢铁合成塔，神色沉着坚定；前景桌面上只有一只扁平铁盘，里面整齐平铺着普通粗糙的黑灰色铁催化剂颗粒矿砂，没有任何其他物品，背景是钢铁支架与模糊暗色厂房穹顶，没有空隙，人类驾驭钢铁巨兽的崇高力量感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>24-1</strong></td>
+<td style="text-align: left;">镜 24</td>
+<td style="text-align: left;">图 24-1：工业管道排出的白色化肥颗粒如大雪般倾泻入麻袋。</td>
+<td style="text-align: left;">巴斯夫包装车间中近景，明朗坚实的工业侧光，无人物，粗壮的深灰色漏斗形钢铁出料管道口下方，无数干燥纯白的化肥晶体颗粒如倾盆暴雪般哗啦啦倾泻而下，落入下方一只扎实的粗亚麻布袋口中，麻袋边缘堆叠着饱满沉重的白色晶体，没有任何其他物品，背景是深色钢铁漏斗与模糊暗色库房墙面，没有空隙，物质极大丰富的痛快兑现感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>24-2</strong></td>
+<td style="text-align: left;">镜 24</td>
+<td style="text-align: left;">图 24-2：无数农民在无边无际的麦田里挥舞镰刀收获，阳光洒满大地。</td>
+<td style="text-align: left;">1913年欧洲无边农田大丰收全景大远景，灿烂辉煌的金色骄阳普照大地，金黄色的成熟麦浪一眼望不到边际，无数身穿素色传统劳作便服的农民男女分散在金色麦田中挥舞长柄镰刀割麦劳作、堆起高高的金色麦垛，脸上洋溢着丰收的从容笑容，田埂上停着古典木质马车，没有任何其他物品，背景是澄澈碧蓝的晴空与滚滚金色麦浪，没有空隙，告别饥荒的人间温饱壮举，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>25</strong></td>
+<td style="text-align: left;">镜 25</td>
+<td style="text-align: left;">柏林高档住宅区：哈伯身穿考究礼服，手持手杖漫步在繁花草坪上，身后典雅奢华官邸。</td>
+<td style="text-align: left;">1913年柏林达勒姆富人区私人花园全景，明媚柔和的春日午后阳光，20世纪初德国学者，身材略微发福，圆脸微秃，头顶发量稀疏、两侧整齐短发，戴金丝边细圆框眼镜，留修剪得体的八字胡，身穿深灰毛呢西装马甲与白色立领衬衫，神态舒展自得；手中拄着一根精致黄铜手柄黑木手杖，漫步在修剪整齐的绿茵草坪与盛开白蔷薇花丛之间；身后是一座宏伟典雅的新古典主义浅灰石材私人大宅邸与雕花铁门，没有任何其他物品，背景是繁茂绿树与明朗天空，没有空隙，名利双收的顶峰体面感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>26</strong></td>
+<td style="text-align: left;">镜 26</td>
+<td style="text-align: left;">暖金色雕塑光感：哈伯身着正装的正面半身胸像，被柔和圣光笼罩。</td>
+<td style="text-align: left;">古典纪念碑式半身特写中景，庄严神圣的暖金色伦勃朗顶光柔和笼罩，20世纪初德国学者，身材略微发福，圆脸微秃，头顶发量稀疏、两侧整齐短发，戴金丝边细圆框眼镜，留修剪得体的八字胡，身穿深灰毛呢西装马甲与白色立领衬衫，神态严谨而偏执，双手自然垂下不显，端正屹立如古典大理石雕塑般沉稳肃穆，面庞被崇高的金光镀亮，没有任何其他物品，背景是深沉肃穆的古典暗褐暖金光晕与暗色墙面，没有空隙，英雄主义顶点定格感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>27-1</strong></td>
+<td style="text-align: left;">镜 27</td>
+<td style="text-align: left;">图 27-1：阴霾的大西洋海面，英国战列舰的重炮指向远方。</td>
+<td style="text-align: left;">1914年北大西洋阴沉海面大远景，铅灰低沉的暴风雨海天，深灰波涛汹涌的海面上，只有一艘庞大威严的英国皇家海军无畏舰钢铁战列舰破浪前行，舰岛高耸，数门黑洞洞的深灰钢铁巨炮斜指阴暗天际封锁海面，没有任何其他物品，背景是翻滚的铅黑色浓密乌云与深蓝巨浪，没有空隙，海运封锁与战争阴云窒息感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>27-2</strong></td>
+<td style="text-align: left;">镜 27</td>
+<td style="text-align: left;">图 27-2：兵工厂流水线上，硝酸盐被迅速压入冰冷的炮弹壳中。</td>
+<td style="text-align: left;">1914年德国大型弹药兵工厂内部中景，昏暗阴冷的工业瓦斯灯光与微弱火星，无人物正脸，一条沉重的铸铁传送台滚轮上，整齐排列着数十枚冰冷铮亮的黄铜大口径重炮弹壳，上方机械压具正将大批原本用于化肥的白色结晶粉末压入冰冷的弹壳深处，几名戴工作皮帽的德国工兵在暗处操作，没有任何其他物品，背景是高大冰冷的红砖厂房与铁架阴影，没有空隙，科技异化为杀戮机器的冰冷沉重感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>28</strong></td>
+<td style="text-align: left;">镜 28</td>
+<td style="text-align: left;">研究所内黑板写满配比公式，穿军大衣的参谋军官与哈伯（军装期）围在战术地图前。</td>
+<td style="text-align: left;">1915年柏林威廉皇帝研究所战时密室中景，昏暗沉闷的悬挂罩灯投射在长桌上，德意志帝国战时学者军官，身材发福挺拔，身穿深蓝灰色一战德式军官制服，佩戴上尉肩章，短八字胡，圆脸，戴细圆框眼镜，眼神冷酷固执，面无表情，正与两名身穿深灰长呢军大衣的一战德军参谋军官围在厚重实木大桌前，俯身注视桌面上一幅大幅欧洲战术等高线地图（地图线条清晰、文字模糊不显）；身后深色木黑板上写满模糊的化学方程式与手画风向箭头，桌上只有地图与两支铅笔，没有任何其他物品，背景是模糊暗色书架与严密闭锁的深色木门，没有空隙，军事密谋与异化感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>29</strong></td>
+<td style="text-align: left;">镜 29</td>
+<td style="text-align: left;">战壕远景大全景：傍晚惨淡黄昏下，168吨高压液态氯气顺风喷涌，化作数米高黄绿色恐怖浓雾贴地翻滚。</td>
+<td style="text-align: left;">1915年4月比利时伊普尔战场傍晚史诗级大远景，惨淡凄凉的橘红残阳与铅灰阴云交织，大地是泥泞坑洼的荒凉无人区，前方战壕边缘数以千计的冰冷钢瓶喷口处，滚滚喷吐出厚重粘稠、高达数米的黄绿色剧毒氯气烟雾，犹如狂暴的毒雾海啸般贴着湿漉泥泞的泥土与空置战壕贴地向远方快速翻滚蔓延，战壕内只有遗弃的深灰钢盔与积水坑，绝无任何写实流血与人体损伤，没有任何其他物品，背景是夕阳余晖下被毒雾吞噬的地平线与枯树残枝，没有空隙，人间地狱降临的窒息与恐惧压迫，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>30-1</strong></td>
+<td style="text-align: left;">镜 30</td>
+<td style="text-align: left;">图 30-1：官邸书房争执剪影：克拉拉掩面痛哭，身影颤抖绝望。</td>
+<td style="text-align: left;">1915年柏林官邸书房剧烈决裂中景，窗外惨白闪电冷光与室内幽暗壁炉余火投射出强烈的逆光深黑剪影，20世纪初欧洲女性学者，面容端庄清秀，神情带着隐忍与痛苦，深褐色头发挽在脑后成发髻，身穿深色高领收腰素面长裙，不戴任何奢华首饰，双手五指清晰完整，正以侧身坐姿坐在高背木椅上双手掩面痛哭，肩膀剧烈颤抖，神态写满对科学堕落的极度绝望，身旁木几上只有一座熄灭的蜡烛，没有任何其他物品，背景是厚重的深黑绒布窗帘与深邃阴影，没有空隙，压抑窒息的伦理绝望感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>30-2</strong></td>
+<td style="text-align: left;">镜 30</td>
+<td style="text-align: left;">图 30-2：一旁大厅长桌上，军官们正高举香槟杯庆祝晋升，烛光摇曳映出虚伪浮华。</td>
+<td style="text-align: left;">1915年柏林官邸隔壁宴会大厅中远景，华丽枝形水晶吊灯与密集的银烛台洒下刺眼晃动的暖金烛光，铺着雪白丝绸桌布的奢华长桌旁，数名身穿一战深色刺绣礼服制服的德军军官们正举起晶莹剔透的高脚香槟酒杯相碰庆祝，神色亢奋虚浮，长桌上只有银烛台、高脚酒杯与香槟酒瓶，没有任何其他物品，背景是古典镀金护墙板与模糊暗色挂毯，没有空隙，虚伪狂热与悲剧对比感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>31</strong></td>
+<td style="text-align: left;">镜 31</td>
+<td style="text-align: left;">黎明灰蓝色站台：一列军用蒸汽列车喷吐白烟，哈伯（军装期）背着军用风衣踏上车厢铁阶。</td>
+<td style="text-align: left;">1915年5月2日清晨柏林火车站灰蓝大远景，黎明破晓前刺骨阴冷的青灰天光与翻滚的白色蒸汽交织，一列黑色的庞大一战军用蒸汽机车喷吐出巨大的滚滚白烟，德意志帝国战时学者军官，身材发福挺拔，身穿深蓝灰色一战德式军官制服，佩戴上尉肩章，短八字胡，圆脸，戴细圆框眼镜，眼神冷酷固执，面无表情，身披一件厚重的军用防风呢斗篷，完全背对镜头抬步踏上冰冷车厢的钢铁踏阶，头也不回地隐入阴暗车门阴影中，湿漉的站台地面上只有几只军用木箱，没有任何其他物品，背景是灰雾弥漫的铁道穹顶与阴冷晨曦，没有空隙，决绝冷酷与奔向宿命深渊感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>32-1</strong></td>
+<td style="text-align: left;">镜 32</td>
+<td style="text-align: left;">图 32-1：战败后柏林街头被撕裂的报纸通缉名单。</td>
+<td style="text-align: left;">1919年一战战败后柏林萧条街头墙角中近景，阴湿冰冷的雨水与铅灰阴霾天光，斑驳剥落的红砖墙面与地面积水占据画面主体，墙上只贴着几张被雨水撕碎、只剩残角的旧报纸（只见灰白纸背与撕裂的边缘，无任何可辨文字），地面只有泥泞水洼与飘落的枯叶，没有任何其他物品，背景是阴湿暗灰的石墙与阴影，没有空隙，战败耻辱与荒凉弃儿感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>32-2</strong></td>
+<td style="text-align: left;">镜 32</td>
+<td style="text-align: left;">图 32-2：斯德哥尔摩金色大厅里奢华庄严的颁奖礼台。</td>
+<td style="text-align: left;">1920年瑞典斯德哥尔摩金色音乐大厅大远景，辉煌璀璨的暖金色吊灯与宏伟巴洛克壁画穹顶，前方庄严的典礼木台上铺设着深红色厚重地毯，台中央只有一座铺有蓝金色丝绒台布的演讲台与插满白百合的花瓶，没有任何其他物品，背景是金碧辉煌的罗马石柱与高贵典雅的暗色包厢阴影，没有空隙，极尽奢华庄严却冰冷刺骨的盛典感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>33</strong></td>
+<td style="text-align: left;">镜 33</td>
+<td style="text-align: left;">哈伯孤立站在领奖台一角，台下坐席多位欧洲学者神色冷漠、双手抱胸拒绝与其握手。</td>
+<td style="text-align: left;">1920年斯德哥尔摩颁奖典礼台上中远景，礼堂高窗射入冰冷的自然侧光，20世纪初德国学者，身材略微发福，圆脸微秃，头顶发量稀疏、两侧整齐短发，戴金丝边细圆框眼镜，留修剪得体的八字胡，身穿深灰毛呢西装马甲与白色立领衬衫，神色紧绷僵硬；外罩一件深黑色燕尾服，站在红毯一角，注视前方；台下前排坐席上，数名身穿各色古典西装礼服的英法欧洲著名学者全部背靠椅背、双手紧紧交叉抱在胸前，面无表情、目光冷若冰霜，全场无一人伸手致意，没有任何其他物品，背景是肃穆的深色木墙与金色雕饰，没有空隙，千夫所指的冰冷孤立感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>34</strong></td>
+<td style="text-align: left;">镜 34</td>
+<td style="text-align: left;">石膏雕刻的双面神雅努斯面孔，左半脸沐浴麦浪金光，右半脸笼罩毒雾硝烟。</td>
+<td style="text-align: left;">古典石膏雕像特写中景，极具哲理象征的强烈明暗色彩分界对比，画面中央是一尊古罗马双面神雅努斯的古典写实石膏雕像：左侧面孔沐浴在温暖耀眼的金色晨光中，发梢与脸颊泛着金黄麦浪与丰收果实般的柔和光芒；右侧面孔则完全沉浸在冰冷幽绿的浓重毒气烟雾与焦黑硝烟阴影中，神色死寂冷酷，石座上只有这尊双面雕像，没有任何其他物品，背景是左右平分金黄与墨绿的深邃暗色渐变虚空，没有空隙，双面人性的神圣与罪恶并存定格感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>35</strong></td>
+<td style="text-align: left;">镜 35</td>
+<td style="text-align: left;">现代明亮书房：书桌上摊开的高中化学教材，旁边放着一杯水，镜头平缓拉开。</td>
+<td style="text-align: left;">当代明亮书房中景，柔和舒适的自然晨光与浅暖色台灯光，一张现代整洁的浅原木书桌上，前景平放着一册翻开的化学教科书（书页处于侧面散焦中，无具体文字符号），书旁放着一只通透纯净的无色玻璃平底水杯，没有任何其他物品，背景是米白色书架与明净窗帘，没有空隙，温暖平静、亲切从容的课堂交谈氛围，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>36</strong></td>
+<td style="text-align: left;">镜 36</td>
+<td style="text-align: left;">黑板用粉笔写着反应条件箭头，箭头两侧虚化浮现当年压力表与窗口灯影。</td>
+<td style="text-align: left;">墨绿色大黑板正视中景，柔和教室顶光，墨绿黑板中央只有一条用白色粉笔手绘的长双向反应箭头与手写希腊平衡符号（无现代电子字，笔触带有粉笔质感），黑板左侧半透明虚化浮现出当年震颤的黄铜高压压力表轮廓，右侧半透明虚化浮现出一座深夜漆黑豪宅窗户瞬间熄灭的灯影，没有任何其他物品，背景是黑板边缘的木框与教室暗墙，没有空隙，历史深重代价与现代公式交融感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>37</strong></td>
+<td style="text-align: left;">镜 37</td>
+<td style="text-align: left;">哈伯（晚年）孤单坐在窗前，窗外天际线被血红与黑色的狂暴风云吞噬。</td>
+<td style="text-align: left;">1932年柏林寓所室内窗边中景，阴暗血红的戏剧性逆光，身形微驼的老人，两鬓斑白稀疏，面容苍老憔悴，眼袋深重但眼神依然清瘦倔强，身穿旧式深色羊毛双排扣大衣，内搭深灰毛呢便服，戴深色细圆框眼镜，双手五指清晰完整，正独自枯坐在窗前深色皮扶手椅上，双手交叠放在膝头，默默注视窗外；古旧木窗外的柏林天际线上，翻滚着不祥的血红色残阳与如巨兽般扑来的深黑暴风雨阴云，没有任何其他物品，背景是模糊暗色室内阴影与窗框，没有空隙，山雨欲来的狂暴浩劫与宿命窒息感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>38</strong></td>
+<td style="text-align: left;">镜 38</td>
+<td style="text-align: left;">1933年柏林街头：狂热游行队伍在夜色中高举火把穿过勃兰登堡门，投下扭曲阴影。</td>
+<td style="text-align: left;">1933年柏林勃兰登堡门深夜大远景，熊熊燃烧的猩红火把照亮夜空，狂热整齐的游行队伍手举数百支燃烧着烈焰与黑烟的火把正大步踏过宏伟的勃兰登堡门石柱拱门，烈焰红光将密密麻麻的黑色制服剪影与高举的旗帜阴影如狰狞巨兽般投射在古典大理石柱与地面上，没有任何其他物品，背景是硝烟弥漫的漆黑夜空与历史石雕轮廓，没有空隙，理性崩溃与纳粹浩劫降临感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>39</strong></td>
+<td style="text-align: left;">镜 39</td>
+<td style="text-align: left;">达勒姆所长办公室桌上放着特赦信件，哈伯（晚年）静立桌前冷冷凝视。</td>
+<td style="text-align: left;">1933年威廉皇帝物理化学研究所所长办公室中景，清冷凄凉的灰白窗光斜射入室，身形微驼的老人，两鬓斑白稀疏，面容苍老憔悴，眼袋深重但眼神依然清瘦倔强，身穿旧式深色羊毛双排扣大衣，内搭深灰毛呢便服，戴深色细圆框眼镜，双手自然垂在身体两侧，双眼如寒铁般冰冷凝视着眼前的宽大红木办公桌；红木桌上只有一份摊开的旧式官方公文纸页，纸页上方盖着清晰的黑色帝国鹰徽火漆印章（文字模糊），没有任何其他物品，背景是深色书柜与模糊暗色墙面，没有空隙，尊严考卷前的孤傲与鄙夷，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>40</strong></td>
+<td style="text-align: left;">镜 40</td>
+<td style="text-align: left;">研究所长廊远景：数位年轻犹太学者抱着装满笔记的纸箱，在监视下缓步走出大门。</td>
+<td style="text-align: left;">1933年德国研究所阴暗长廊大远景，尽头大门透入冰冷的白色天光，三名年轻戴圆眼镜的欧洲青年学者身穿旧呢子大衣，各自怀抱着装满实验笔记本与书籍的牛皮纸箱（箱中纸页无字），在两名站在门侧阴影里的一战制服警卫冰冷监视下，缓缓低头迈步走出门外萧瑟的台阶，没有任何其他物品，背景是高大冰冷的石质长廊拱门与斑驳地砖阴影，没有空隙，斯文扫地与民族离散之殇，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>41</strong></td>
+<td style="text-align: left;">镜 41</td>
+<td style="text-align: left;">中景低角度仰拍：哈伯（晚年）紧抿苍老嘴唇，下颌坚毅如铁，背后纳粹阴影压迫。</td>
+<td style="text-align: left;">1933年德国低角度半身仰视特写中景，戏剧性的冷峻侧光雕刻面部轮廓，身形微驼的老人，两鬓斑白稀疏，面容苍老憔悴，眼袋深重但眼神依然清瘦倔强，身穿旧式深色羊毛双排扣大衣，内搭深灰毛呢便服，戴深色细圆框眼镜，双手不显，紧紧抿起苍白枯瘦的嘴唇，刚毅的下颌线条犹如坚不可摧的顽石，眼神中透出绝不屈服的孤傲凛然风骨，身后侧上方斜斜压下一道巨大的深黑制服军官阴影，但老人面色如铁岿然不动，没有任何其他物品，背景是压抑深邃的暗灰墙面，没有空隙，千磨万击还坚劲的气节震撼感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>42</strong></td>
+<td style="text-align: left;">镜 42</td>
+<td style="text-align: left;">侧面中景：台灯下，哈伯（晚年）握老式蘸水钢笔笔走龙蛇写辞职信，钢笔重重搁在桌上。</td>
+<td style="text-align: left;">1933年深夜实木书桌侧面中景，古典深绿罩铜台灯投下一片圆形的柔和暖黄光斑，身形微驼的老人，两鬓斑白稀疏，面容苍老憔悴，眼袋深重但眼神依然清瘦倔强，身穿旧式深色羊毛双排扣大衣，内搭深灰毛呢便服，戴深色细圆框眼镜，双手五指清晰完整，正侧身端坐在桌前，一只手刚将一支老式黑木杆蘸水钢笔沉重地横搁在一张洁白挺括的信纸旁，墨水瓶口微泛黑光，信纸上留有几行遒劲浓黑的德语手写墨迹（笔划苍劲、文字模糊不可辨），没有任何其他物品，背景是完全沉入浓黑阴影的书房书架，没有空隙，一字千钧的决绝风骨，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>43</strong></td>
+<td style="text-align: left;">镜 43</td>
+<td style="text-align: left;">灰蒙蒙雨天，德国边境火车站：哈伯（晚年）身穿旧大衣，独自提着皮箱走上积水站台，背影单薄苍凉。</td>
+<td style="text-align: left;">1933年深秋德国边境火车站雨天大远景，凄风苦雨笼罩着清冷幽暗的灰蓝晨曦，身形微驼的老人，两鬓斑白稀疏，面容苍老憔悴，眼袋深重但眼神依然清瘦倔强，身穿旧式深色羊毛双排扣大衣，内搭深灰毛呢便服，戴深色细圆框眼镜，双手五指清晰完整，右手提着一只磨损褪色的老旧深棕色牛皮手提箱，完全背对镜头独自一人走在满是雨水倒影的阴冷石板站台上，背影孤单、单薄而清瘦，前方只有延伸入迷雾的空旷铁轨与积水水洼，没有任何其他物品，背景是灰蒙蒙的雨雾与空寂的火车站雨棚铁架，没有空隙，家国尽失的流亡凄凉感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>44</strong></td>
+<td style="text-align: left;">镜 44</td>
+<td style="text-align: left;">瑞士巴塞尔小旅馆：窗外大雪纷飞，床头水杯凉透与散落药瓶，毛毯下静止的身影。</td>
+<td style="text-align: left;">1934年1月瑞士巴塞尔简陋小旅馆客房中景，古典木窗外漫天纷飞的鹅毛大雪透入清冷幽蓝的天光，木床边的小床头柜上只有一只凉透的透明玻璃水杯和两只散落的深色小药瓶（药瓶倒在桌上，药粒散落），床上一床深灰色的厚重毛毯平静地覆盖着一个完全静止的老人平躺身躯（面部沉入暗色枕头阴影中不显），没有任何其他物品，背景是朴素开裂的浅白粉刷墙面与古典木质门框，没有空隙，巨星陨落时的死寂肃穆与无尽苍凉，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>45</strong></td>
+<td style="text-align: left;">镜 45</td>
+<td style="text-align: left;">生锈铁丝网与集中营瞭望塔，前景是空置杀虫铁罐在暴风雪尘土中被吞没。</td>
+<td style="text-align: left;">暴风雪中荒芜集中营旧址大远景，极度阴冷窒息的铅灰青色调与惨白飞雪，横亘前方的带刺生锈铁丝网挂满积雪，远景是阴森高耸的红砖方形木顶瞭望塔；泥泞雪地上只有几只丢弃的暗色圆柱形农用杀虫马口铁罐（罐体生锈、标签磨损模糊不显文字），正被呼啸的暴风雪积雪和灰土逐渐掩埋，绝无任何写实流血或尸体，没有任何其他物品，背景是漫天迷茫的风雪与铅灰色的暴虐天空，没有空隙，历史终极讽刺与深重窒息哀恸感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>46</strong></td>
+<td style="text-align: left;">镜 46</td>
+<td style="text-align: left;">灰暗原野上一株被暴风雪压弯但未折断的枯木，背景是苍茫无垠的地平线。</td>
+<td style="text-align: left;">欧洲荒凉原野寒冬大远景，苍茫凄厉的灰白与墨黑天地，茫茫积雪与枯草覆盖的大地上，画面中央只有一株饱经风霜的苍老枯木，枝干在漫天呼啸的风雪中被沉重积雪压得极度弯曲，但主干依然深深扎根黑土之中坚韧不折，没有任何其他物品，背景是无边无际的铅灰色苍茫地平线与低垂阴云，没有空隙，宿命沉沦与傲骨犹存的宏大意象，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>47</strong></td>
+<td style="text-align: left;">镜 47</td>
+<td style="text-align: left;">金黄麦田上空，透明水滴上升融入晴朗高远蓝天。</td>
+<td style="text-align: left;">广袤丰收麦田向上仰视宏大远景，明媚清澈的盛夏金色阳光与高远湛蓝的晴空，下方是无边起伏的金黄色饱满麦浪，空气中缓缓升腾起无数颗晶莹剔透、泛着纯净阳光七彩折射的透明小水滴，正向着晴空高处缓缓飘散融入澄澈广袤的天空之中，没有任何其他物品，背景是广阔蔚蓝的天空与轻柔白云，没有空隙，重获新生的纯净与科学初心释然感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>48</strong></td>
+<td style="text-align: left;">镜 48</td>
+<td style="text-align: left;">中央水珠折射麦浪笑容与战火警钟，徐徐渗入大地深处。</td>
+<td style="text-align: left;">宏大哲学意象定格特写中景，庄严神圣的伦勃朗式神明光束打在中央，画面正中央悬浮着一滴硕大完美、晶莹剔透的浑圆水珠；水珠左半球清晰倒映折射出阳光下无垠的金黄麦田与人类纯朴微笑的温馨面孔，水珠右半球清晰倒映折射出战壕迷雾、铁丝网与废墟中斑驳的警钟，水珠正缓缓滴落向下方干渴深沉的泥土，没有任何其他物品，背景是深邃神圣的墨黑与暗金微尘虚空，没有空隙，科技伦理与文明抉择的终极沉思，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>49</strong></td>
+<td style="text-align: left;">镜 49</td>
+<td style="text-align: left;">17世纪庄园内，青年波义耳推开炼金瓦罐走向开阔实验台。</td>
+<td style="text-align: left;">17世纪英国贵族华丽庄园室内中远景，高大落地拱窗透入明朗灿烂的晨曦天光，一名二十余岁的17世纪年轻英国贵族青年学者，身材颀长挺拔，深棕色自然微卷长发垂肩，身穿剪裁华贵的深红色天鹅绒长袍与细腻蕾丝白领衬衫，双手五指清晰完整，正以英姿挺拔的侧背影迈步前行，一手拂开桌面上一堆粗糙昏暗、画着神秘星象符号的陶制炼金术瓦罐与烟熏坩埚，目光坚定地迈向前方阳光普照、摆放着纯净透明玻璃烧瓶与天平的宽敞现代木实验台，没有任何其他物品，背景是古典庄园大理石拱顶与深色木护墙板，没有空隙，从黑暗巫术走向理性科学的破晓期待感，19世纪学院派油画，伦勃朗光，画布纹理可见，厚涂笔触</td>
+<td style="text-align: left;">现代物品, 塑料, 电子设备, 卡通, 3D渲染, 水印</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="i2v">四、动画／动态效果清单（单列供后期剪辑与 I2V 动态化使用）</h2>
+<blockquote>
+<p>⚠️ <strong>说明</strong>：静态生图模型不擅长时间性连续形变与双场景动态叠化，以下 8 处动态效果在上方 55 张静态底图中已转化为定格画面或双图拆分，动态过程交由图生视频（I2V）或后期剪辑轨道遮罩合成。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">序号</th>
+<th style="text-align: left;">对应镜号 / 图号</th>
+<th style="text-align: left;">动态效果描述</th>
+<th style="text-align: left;">后期 / 动态化实现方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">镜 1（图 <code>1</code>）</td>
+<td style="text-align: left;">旧课本台灯光束中，微小灰尘粒子缓缓浮动</td>
+<td style="text-align: left;">图 <code>1</code> 静态底图 ＋ 后期叠加漂浮尘埃粒子（Dust Particles）素材轨道</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">镜 4（图 <code>4-1</code> ＋ <code>4-2</code>）</td>
+<td style="text-align: left;">左右分屏对比，中间呈现轻微撕裂感，右屏战壕底部有暗淡烟尘飘过</td>
+<td style="text-align: left;">剪辑轨道做左右分屏排版，右轨叠加动态战火烟雾素材</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">镜 12（图 <code>12</code>）</td>
+<td style="text-align: left;">焊接铁球接缝处受到外部撞击，迸射出刺眼的金属电火花</td>
+<td style="text-align: left;">以图 <code>12</code> 为首帧走 I2V，或后期对接缝处添加 Spark/Flash 闪烁特效与音效呼应</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">镜 16（图 <code>16</code>）</td>
+<td style="text-align: left;">反应釜底部暗红火光微微脉动呼吸，铜制压力表指针急促抖动进入红区</td>
+<td style="text-align: left;">图 <code>16</code> 走 I2V 图生视频，设定局部压力表指针高频震颤关键帧与火光脉冲</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">镜 19（图 <code>19</code>）</td>
+<td style="text-align: left;">冷凝管末端缓慢凝聚透明液滴，啪嗒一声坠落，烧杯液面荡开双层涟漪</td>
+<td style="text-align: left;">以图 <code>19</code> 走流体动态 I2V，生成水滴滴落与波纹扩散动态</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">镜 29（图 <code>29</code>）</td>
+<td style="text-align: left;">黄绿色浓雾从钢瓶喷涌而出，贴着泥泞战壕向远方缓慢翻滚蔓延</td>
+<td style="text-align: left;">图 <code>29</code> 底图 ＋ 后期叠加大型黄绿色烟雾动力学特效（Smoke VFX），由近及远缓慢横移</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">镜 36（图 <code>36</code>）</td>
+<td style="text-align: left;">黑板上的白色双向箭头两侧，历史画面如幽灵般半透明溶解浮现</td>
+<td style="text-align: left;">剪辑层使用蒙版溶解（Dissolve Transition），将图 <code>16</code>、<code>29</code>、<code>6</code> 虚化叠印在黑板两侧</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">镜 48（图 <code>48</code>）</td>
+<td style="text-align: left;">水滴内部左右折射出麦浪与战火警钟，水珠徐徐垂直下渗淡出</td>
+<td style="text-align: left;">图 <code>48</code> 走 I2V 设定水滴微动与下落轨迹，后期添加径向辉光与淡出转场</td>
+</tr>
+</tbody>
+</table>
+<hr /></article>
+</main></div></body></html>

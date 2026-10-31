@@ -1,0 +1,413 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#FAF7F2"><title>知识库 · 05-项目/内容自动化/27-人物故事策划分析卡_空白模板V2.0（Gemini稿·待拍板）.md</title>
+<style>
+:root{--bg:#0f1117;--card:#171b23;--line:#282e3a;--tx:#e9ebf1;--tx2:#98a2b6;--tx3:#69717f;
+--blue:#5b8def;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;--violet:#a78bfa}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);
+font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:var(--blue);text-decoration:none}
+.layout{display:flex;min-height:100vh}
+/* 侧栏 */
+aside{width:270px;flex:0 0 270px;background:#12151d;border-right:1px solid var(--line);
+padding:16px 12px 40px;overflow-y:auto;height:100vh;position:sticky;top:0}
+aside h1{font-size:15px;margin:0 0 2px;padding:0 6px}
+aside .sub{font-size:11.5px;color:var(--tx3);padding:0 6px;margin-bottom:12px}
+.tree{list-style:none;margin:0;padding:0;font-size:13.5px}
+.tree ul{list-style:none;margin:2px 0 2px 0;padding-left:12px;border-left:1px solid #232936}
+.tree li{margin:1px 0}
+.tree .dir{padding:5px 6px;color:var(--tx3);font-size:12.5px;letter-spacing:.3px}
+.tree a{display:block;padding:5px 8px;border-radius:7px;color:var(--tx2);line-height:1.45}
+.tree a:hover{background:#1c2130;color:var(--tx)}
+.tree a.on{background:#1d2a44;color:#bcd2ff}
+.tree .rootlink{font-weight:600;color:var(--tx);padding:7px 8px}
+/* 正文 */
+main{flex:1;min-width:0;padding:26px 30px 80px;max-width:900px}
+.crumb{font-size:12px;color:var(--tx3);margin-bottom:14px}
+.crumb a{color:var(--tx3)}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+article h1{font-size:22px;margin:0 0 6px;line-height:1.4}
+article h2{font-size:17px;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+article h3{font-size:15.5px;margin:20px 0 8px;color:#cbd3e1}
+article h4{font-size:14.5px;margin:16px 0 6px;color:var(--tx2)}
+article p{margin:10px 0}
+article ul,article ol{padding-left:22px;margin:8px 0}
+article li{margin:4px 0}
+article blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--blue);
+background:#141a26;border-radius:0 10px 10px 0;color:#c6cee0}
+article code{background:#232a37;padding:2px 6px;border-radius:5px;font-size:13px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd3ff}
+article pre{background:#11151d;border:1px solid var(--line);border-radius:12px;padding:14px;
+overflow-x:auto}
+article pre code{background:none;padding:0;color:#d6dbe6;font-size:12.5px;line-height:1.65}
+article table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13.5px;
+display:block;overflow-x:auto}
+article th,article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+article th{background:#1c2230;color:#cbd3e1;font-weight:600;white-space:nowrap}
+article tr:nth-child(even) td{background:#151922}
+article hr{border:none;border-top:1px solid var(--line);margin:22px 0}
+article img{max-width:100%;border-radius:10px}
+.wl{color:var(--violet);border-bottom:1px dotted #6b5ea8}
+.tag-note{display:inline-block;font-size:11.5px;color:var(--tx3);border:1px solid var(--line);
+border-radius:99px;padding:2px 9px}
+.topbar{display:none}
+@media(max-width:820px){
+ aside{position:fixed;left:-290px;z-index:30;transition:left .22s;box-shadow:0 0 40px #000a}
+ aside.open{left:0}
+ .topbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;
+  background:#12151d;border-bottom:1px solid var(--line);padding:10px 14px}
+ .topbar button{background:#1c2230;border:1px solid var(--line);color:var(--tx);
+  border-radius:9px;padding:7px 12px;font-size:13.5px}
+ main{padding:16px 14px 60px}
+ article{padding:18px 16px;border-radius:14px}
+ article h1{font-size:19px}
+}
+
+/* ===== 马卡龙浅色皮肤 v2 · 高对比（2026-09-27 重做） ===== */
+body{background:#FAF7F2;color:#332F3D}
+a{color:#33628F;text-decoration:underline;text-underline-offset:2px}
+aside{background:#FFFFFF;border-right:1px solid #E5DED5}
+aside h1{color:#26222F}
+aside .sub{color:#4E4858}
+.tree ul{border-left:1px solid #E5DED5}
+.tree .dir{color:#6E6879;font-weight:700}
+.tree a{color:#443F52}
+.tree a:hover{background:#F2EEE7;color:#1E1A28}
+.tree a.on{background:#E9E1FB;color:#4A3796;font-weight:700}
+.tree .rootlink{color:#26222F}
+.topbar{background:#FFFFFF;border-bottom:1px solid #E5DED5}
+.topbar button{background:#F2EEE7;border-color:#E5DED5;color:#26222F}
+.topbar span{color:#5F596D !important}
+.crumb,.crumb a{color:#443F52}
+.crumb a{text-decoration:underline}
+article{background:#FFFFFF;border:1px solid #E5DED5;box-shadow:0 10px 30px -26px #7B6CB0}
+article h1{color:#26222F}
+article h2{border-bottom:1px solid #E5DED5;color:#26222F}
+article h3{color:#332F3D}
+article h4{color:#4A4458}
+article p,article li,article td{color:#332F3D}
+article strong,article b{color:#1E1A28}
+article blockquote{background:#F3EEFC;border-left:3px solid #8B79D6;color:#332F3D}
+article code{background:#EFE9FB;color:#4A3796;font-weight:600}
+article pre{background:#F7F4EF;border-color:#E5DED5}
+article pre code{color:#332F3D;font-weight:400}
+article th{background:#F2EEE7;color:#26222F;font-weight:700}
+article td{border-color:#E5DED5}
+article tr:nth-child(even) td{background:#FCFAF7}
+article hr{border-top:1px solid #E5DED5}
+.wl{color:#4A3796;border-bottom:1px dotted #A99AE0;font-weight:600}
+.tag-note{color:#5F596D;border-color:#E5DED5}
+</style></head><body>
+<div class="topbar"><button onclick="document.querySelector('aside').classList.toggle('open')">☰ 目录</button>
+<span style="font-size:13.5px;color:#5F596D">AI 深度研究助理</span></div>
+<div class="layout">
+<aside onclick="if(event.target.tagName==='A')document.querySelector('aside').classList.remove('open')">
+<h1>📚 AI 深度研究助理</h1>
+<div class="sub">只读视图 · 更新于 10-31 23:46</div>
+<ul class='tree'><li><a href="/xiaolv-kb/kb/" class="rootlink">🏠 首页 index</a></li><li><a href="/xiaolv-kb/kb/p/AGENTS.md.html" class="rootlink">AGENTS</a></li><li><a href="/xiaolv-kb/kb/p/README.md.html" class="rootlink">README</a></li><li><a href="/xiaolv-kb/kb/p/log.md.html" class="rootlink">log</a></li><ul><li><div class="dir">📁 00-收件箱</div><ul></ul></li><li><div class="dir">📁 02-结构化知识</div><ul><li><div class="dir">📁 主题</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BA%B2.md.html" class="">内容自动化项目总纲</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E4%B8%BB%E9%A2%98/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA%E6%80%BB%E8%A7%88.md.html" class="">外部方法论总览</a></li></ul></li><li><div class="dir">📁 人物</div><ul></ul></li><li><div class="dir">📁 对比</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E5%AF%B9%E6%AF%94/%E5%A5%BD%E6%A0%B7%E6%9C%AC%E4%B8%8E%E5%B7%AE%E6%A0%B7%E6%9C%AC%E7%BB%93%E6%9E%84%E5%AF%B9%E7%85%A7.md.html" class="">好样本与差样本结构对照</a></li></ul></li><li><div class="dir">📁 案例</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E5%8D%AB%E5%AD%90%E5%A4%AB%E7%88%86%E6%AC%BE%E6%8B%86%E8%A7%A3.md.html" class="">卫子夫爆款拆解</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A1%88%E4%BE%8B/%E6%8B%89%E7%93%A6%E9%94%A1%E8%A7%86%E9%A2%91%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡视频复盘</a></li></ul></li><li><div class="dir">📁 概念</div><ul><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E8%A7%82%E7%9C%8B%E5%80%BA%E5%8A%A1.md.html" class="">观看债务</a></li><li><a href="/xiaolv-kb/kb/p/02-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9F%A5%E8%AF%86/%E6%A6%82%E5%BF%B5/%E9%BB%84%E9%87%91%E4%B8%89%E7%A7%92.md.html" class="">黄金三秒</a></li></ul></li></ul></li><li><div class="dir">📁 03-方法库</div><ul><li><div class="dir">📁 外部方法论</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/01-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8BAI%E7%94%9F%E4%BA%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E5%AE%89%E5%A6%AE250w%EF%BC%89.md.html" class="">01-人物故事AI生产流水线（安妮250w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/02-%E5%9B%BE%E6%96%87%E5%B8%A6%E8%B4%A7%E5%B7%A5%E4%B8%9A%E5%8C%96%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%88%E6%B8%A9%E8%92%82200w%EF%BC%89.md.html" class="">02-图文带货工业化流水线（温蒂200w）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/03-%E5%81%A5%E5%BA%B7%E4%B9%A6%E5%8D%95%E5%BF%AB%E9%97%AASOP%EF%BC%8809%E6%9C%9F%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">03-健康书单快闪SOP（09期手册）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/04-%E5%8F%AF%E5%A4%8D%E7%94%A8%E4%BB%B6%E6%B8%85%E5%8D%95.md.html" class="">04-可复用件清单</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%A4%96%E9%83%A8%E6%96%B9%E6%B3%95%E8%AE%BA/05-%E7%BB%99AI%E6%8F%90%E8%A6%81%E6%B1%82%E7%9A%84%E4%B8%89%E6%9D%A1%E5%8E%9F%E5%88%99%EF%BC%88Anthropic%E5%AE%98%E6%96%B9%EF%BC%89.md.html" class="">05-给AI提要求的三条原则（Anthropic官方）</a></li></ul></li><li><div class="dir">📁 群聊观察</div><ul><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/05-%E8%A7%86%E9%A2%91%E5%8F%B7%E8%B5%B7%E5%8F%B7%E4%B8%8E%E5%9B%BE%E4%B9%A6%E5%B8%A6%E8%B4%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">05-视频号起号与图书带货（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/06-%E8%A7%86%E9%A2%91%E7%9F%A9%E9%98%B5%E6%90%AD%E5%BB%BA%E4%B8%8E%E6%89%B9%E9%87%8F%E5%87%BA%E7%89%87%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">06-视频矩阵搭建与批量出片（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/07-%E9%80%89%E9%A2%98%E5%AF%B9%E6%A0%87%E4%B8%8E%E7%88%86%E6%AC%BE%E7%9B%91%E6%8E%A7%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">07-选题对标与爆款监控（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/08-AI%20%E9%85%8D%E9%9F%B3%E4%B8%8E%E9%9F%B3%E8%89%B2%E5%85%8B%E9%9A%86%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">08-AI 配音与音色克隆（雪见群实战）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%BE%A4%E8%81%8A%E8%A7%82%E5%AF%9F/09-AI%20%E7%94%9F%E5%9B%BE%E4%B8%8E%E6%88%90%E6%9C%AC%E6%8E%A7%E5%88%B6%EF%BC%88%E9%9B%AA%E8%A7%81%E7%BE%A4%E5%AE%9E%E6%88%98%EF%BC%89.md.html" class="">09-AI 生图与成本控制（雪见群实战）</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/00-%E5%8F%AF%E4%BF%A1%E5%BA%A6%E8%A7%84%E5%88%99.md.html" class="">00-可信度规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/AI%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E8%A7%84%E5%88%99.md.html" class="">AI生图提示词规则</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/Vox%E6%92%95%E7%BA%B8%E6%8B%BC%E8%B4%B4%E8%A7%86%E9%A2%91%E6%B5%81%E7%A8%8B%EF%BC%88Remotion%EF%BC%89.md.html" class="">Vox撕纸拼贴视频流程（Remotion）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">决策台账</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%9D%A1%E8%A7%86%E9%A2%91%E7%94%9F%E4%BA%A7%E6%B5%81%E7%A8%8BSOP.md.html" class="">单条视频生产流程SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">单样本对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E5%AF%B9%E5%A4%96%E4%BA%A4%E6%8E%A5%E4%BB%B6%E9%80%9A%E7%94%A8%E5%8C%96%EF%BC%88%E7%BB%99%E9%99%8C%E7%94%9FAgent%E7%9A%84%E4%BA%A4%E4%BB%98%E4%BB%B6%EF%BC%89.md.html" class="">对外交接件通用化（给陌生Agent的交付件）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E7%B4%A0%E6%9D%90%E5%8D%A1%E5%87%BA%E5%A4%84%E4%B8%8E%E9%98%B2%E5%B9%BB%E8%A7%89%E5%8F%A3%E5%BE%84.md.html" class="">素材卡出处与防幻觉口径</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E8%A7%84%E5%88%99%E5%87%BA%E5%A4%84%E5%86%99%E6%B3%95%EF%BC%88%E7%A1%AC%E6%A0%BC%E5%BC%8F%EF%BC%89.md.html" class="">规则出处写法（硬格式）</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E8%B7%9FAgent%E5%8D%8F%E4%BD%9C%E7%9A%84%E5%81%8F%E5%A5%BD.md.html" class="">跟Agent协作的偏好</a></li><li><a href="/xiaolv-kb/kb/p/03-%E6%96%B9%E6%B3%95%E5%BA%93/%E8%B7%9F%E5%A4%96%E9%83%A8Agent%E5%8D%8F%E4%BD%9C%E7%9A%84%E5%88%A4%E5%AE%9A%E8%A7%84%E5%88%99.md.html" class="">跟外部Agent协作的判定规则</a></li></ul></li><li><div class="dir">📁 04-输出成果</div><ul><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/Hermes_%E8%88%8D%E5%8B%92%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_QA.md.html" class="">Hermes_舍勒脚本分镜V1_QA</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V3.md.html" class="">侯德榜_生图提示词包V3</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E4%BE%AF%E5%BE%B7%E6%A6%9C_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V4_%E5%AE%9A%E7%A8%BF.md.html" class="">侯德榜_脚本和分镜_V4_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%93%88%E4%BC%AF_%E7%94%9F%E5%9B%BE%E4%BD%9C%E4%B8%9A%E5%8D%95.md.html" class="">哈伯_生图作业单</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%93%88%E4%BC%AF_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85_V1_%E5%AE%9A%E7%A8%BF.md.html" class="">哈伯_生图提示词包_V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%93%88%E4%BC%AF_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1_%E5%AE%9A%E7%A8%BF.md.html" class="">哈伯_脚本和分镜_V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E5%AE%9A%E7%A8%BFvs%E8%B1%86%E5%8C%85%E7%AC%AC%E4%B8%80%E7%89%88_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">定稿vs豆包第一版_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E5%AE%A1%E6%A0%B8%E7%BB%93%E6%9E%9C.md.html" class="">拉瓦锡V3.2_脚本分镜_审核结果</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85V1.1%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包V1.1）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3.2_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C%E8%A1%A8%EF%BC%88%E8%B1%86%E5%8C%85%EF%BC%89.md.html" class="">拉瓦锡V3.2_脚本和分镜表（豆包）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1V3_%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88.md.html" class="">拉瓦锡V3_编排方案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E5%8E%9F%E7%A8%BF_%E5%AE%8C%E6%95%B4%E6%96%87%E6%A1%88.md.html" class="">拉瓦锡原稿_完整文案</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2.md.html" class="">拉瓦锡文案V2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2_%E4%B8%93%E5%AE%B6%E5%A4%8D%E7%9B%98.md.html" class="">拉瓦锡文案V2_专家复盘</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2b_%E5%AF%B9%E6%A0%87%E5%88%86%E6%9E%90%E7%89%88.md.html" class="">拉瓦锡文案V2b_对标分析版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V2c_%E8%B1%86%E5%8C%85%E7%AC%AC%E4%BA%8C%E7%89%88.md.html" class="">拉瓦锡文案V2c_豆包第二版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3.2_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3.2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E6%8B%89%E7%93%A6%E9%94%A1%E6%96%87%E6%A1%88V3_%E5%AE%9A%E7%A8%BF.md.html" class="">拉瓦锡文案V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E6%97%81%E7%99%BDV2.1_%E5%AE%9A%E7%A8%BF.md.html" class="">舍勒_旁白V2.1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">舍勒_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.2.md.html" class="">舍勒_生图提示词包V1.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85_%E5%AF%B9%E5%A4%96%E7%89%88.md.html" class="">舍勒_生图提示词包_对外版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E7%94%9F%E5%9B%BE%E6%A8%A1%E5%9E%8B%E9%80%89%E5%9E%8B%E5%AE%9E%E6%B5%8B%E8%AE%B0%E5%BD%95.md.html" class="">舍勒_生图模型选型实测记录</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E8%BF%94%E5%B7%A5%E6%8C%87%E4%BB%A4%EF%BC%88%E5%8F%AF%E7%9B%B4%E6%8E%A5%E8%BD%AC%E5%8F%91%EF%BC%89.md.html" class="">舍勒_脚本分镜V1_返工指令（可直接转发）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.md.html" class="">舍勒_脚本和分镜_V1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V2_%E5%AE%9A%E7%A8%BF.md.html" class="">舍勒_脚本和分镜_V2_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V2_%E5%AE%9A%E7%A8%BF_%E8%BD%AC%E5%8F%91%E7%89%88.md.html" class="">舍勒_脚本和分镜_V2_定稿_转发版</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%88%8D%E5%8B%92%E6%9C%9F_%E7%94%9F%E5%9B%BE%E5%AE%A1%E5%9B%BE%E6%8C%87%E4%BB%A4%EF%BC%88%E5%8F%AF%E8%BD%AC%E5%8F%91%EF%BC%89.md.html" class="">舍勒期_生图审图指令（可转发）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E5%88%86%E9%95%9C_V1.0%E2%86%92V1.1_%E6%94%B9%E5%8A%A8%E5%AF%B9%E7%85%A7.md.html" class="">诺贝尔_分镜_V1.0→V1.1_改动对照</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85.md.html" class="">诺贝尔_生图提示词包</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_V1.1%EF%BC%88%E6%9B%B4%E6%AD%A3%E7%89%88%EF%BC%89.md.html" class="">诺贝尔_脚本和分镜_V1.1（更正版）</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E8%AF%BA%E8%B4%9D%E5%B0%94_%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%86%E9%95%9C_%E5%AE%9A%E7%A8%BFV5.2.md.html" class="">诺贝尔_脚本和分镜_定稿V5.2</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%94%9F%E5%9B%BE%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%8C%85V1.1.md.html" class="">门捷列夫_生图提示词包V1.1</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_策划卡V3_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9CV1_%E5%AE%9A%E7%A8%BF.md.html" class="">门捷列夫_脚本分镜V1_定稿</a></li><li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C_%E7%A7%92%E6%90%ADV1.0_%E5%BC%83%E7%94%A8%E7%95%99%E6%A1%A3.md.html" class="">门捷列夫_脚本分镜_秒搭V1.0_弃用留档</a></li></ul></li><li><div class="dir">📁 05-项目</div><ul><li><div class="dir">📁 内容自动化</div><ul><li><div class="dir">📁 04-样本库</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E5%8D%AB%E5%AD%90%E5%A4%AB_%E5%BC%80%E5%8D%B7%E8%A7%81%E6%B2%B3%E5%B1%B1.md.html" class="">卫子夫_开卷见河山</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E6%8B%89%E7%93%A6%E9%94%A1_%E6%88%91%E6%96%B9%E7%AC%AC1%E6%9D%A1.md.html" class="">拉瓦锡_我方第1条</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/04-%E6%A0%B7%E6%9C%AC%E5%BA%93/%E8%A7%82%E5%8F%B2%E4%B9%8B%E8%87%A3_%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E4%BC%9F%E4%BA%BA.md.html" class="">观史之臣_中国古代伟人</a></li></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/02-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%BA%BF.md.html" class="">02-数据基线</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/03-%E5%AF%B9%E6%A0%87%E5%8D%A1V0.1.md.html" class="">03-对标卡V0.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP-V2.md.html" class="">05-生产线SOP-V2</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/05-%E7%94%9F%E4%BA%A7%E7%BA%BFSOP.md.html" class="">05-生产线SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/06-%E5%BE%85%E9%AA%8C%E8%AF%81%E5%81%87%E8%AE%BE.md.html" class="">06-待验证假设</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/07-%E5%AF%B9%E6%A0%87%E5%85%A8%E7%BB%B4%E8%A1%A8V1.md.html" class="">07-对标全维表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/08-%E9%99%90%E6%B5%81%E8%87%AA%E6%9F%A5%E6%B8%85%E5%8D%95V1.1.md.html" class="">08-限流自查清单V1.1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/09-%E5%90%84%E7%AB%99%E9%AA%8C%E6%94%B6%E8%A1%A8V1.md.html" class="">09-各站验收表V1</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/10-%E9%80%9F%E6%9F%A5%E5%8D%A1.md.html" class="">10-速查卡</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/11-%E6%A0%B7%E6%9C%AC%E5%AF%B9%E7%85%A7%E6%80%BB%E8%A1%A8.md.html" class="">11-样本对照总表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/12-%E9%80%89%E9%A2%98%E9%9B%B7%E8%BE%BE%EF%BC%88%E5%BE%85%E5%90%AF%E5%8A%A8%EF%BC%89.md.html" class="">12-选题雷达（待启动）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/13-%E7%BB%99%E8%B1%86%E5%8C%85%E7%9A%84%E5%86%99%E4%BD%9C%E6%8C%87%E4%BB%A4.md.html" class="">13-给豆包的写作指令</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/14-%E5%BE%85%E6%A0%B8%E6%A0%87%E5%87%86%E6%B8%85%E5%8D%95.md.html" class="">14-待核标准清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/15-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">15-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/16-%E6%95%85%E4%BA%8B%E6%8B%9B%E5%BC%8F%E5%BA%93.md.html" class="">16-故事招式库</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/19-%E4%BA%BA%E7%89%A9%E7%B1%BB%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%89%8D%E6%A3%80%E6%9F%A5%E6%B8%85%E5%8D%95.md.html" class="">19-人物类视频发布前检查清单</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/20-%E4%B8%A4%E6%9D%A1%E8%A7%86%E9%A2%91%E5%85%B1%E6%80%A7%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md.html" class="">20-两条视频共性问题与解决方案</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">21-人物故事策划分析卡模板V1（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/22-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E5%89%8D%E7%BD%AE%E5%86%99%E4%BD%9C%E8%A7%84%E5%88%99.md.html" class="">22-脚本分镜前置写作规则</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/23-%E7%94%9F%E5%9B%BE%E6%89%B9%E9%87%8F%E5%AE%A1%E6%A0%B8%E6%8F%90%E7%A4%BA%E8%AF%8D%EF%BC%88%E7%BB%99%E6%9C%AC%E6%9C%BA%20agent%EF%BC%89.md.html" class="">23-生图批量审核提示词（给本机 agent）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/26-%E7%94%9F%E5%9B%BE%E5%AE%A1%E5%9B%BE%E6%8C%87%E4%BB%A4%EF%BC%88%E9%80%9A%E7%94%A8%C2%B7%E5%8F%AF%E8%BD%AC%E5%8F%91%EF%BC%89.md.html" class="">26-生图审图指令（通用·可转发）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/27-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1_%E7%A9%BA%E7%99%BD%E6%A8%A1%E6%9D%BFV2.0%EF%BC%88Gemini%E7%A8%BF%C2%B7%E5%BE%85%E6%8B%8D%E6%9D%BF%EF%BC%89.md.html" class=" on">27-人物故事策划分析卡_空白模板V2.0（Gemini稿·待拍板）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/28-Gemini%E8%AF%8A%E6%96%AD_%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AA%E6%9C%89%E6%A1%86%E6%9E%B6%E6%B2%A1%E6%9C%89%E6%84%9F%E6%83%85%EF%BC%882026-10-16%EF%BC%89.md.html" class="">28-Gemini诊断_为什么只有框架没有感情（2026-10-16）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/29-%E7%AD%96%E5%88%92%E5%8D%A1V1vsV2%E5%AF%B9%E7%85%A7%E8%A1%A8.md.html" class="">29-策划卡V1vsV2对照表</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/30-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1_%E7%A9%BA%E7%99%BD%E6%A8%A1%E6%9D%BFV2.1%EF%BC%88Gemini%E7%A8%BF%C2%B7%E5%BE%85%E6%8B%8D%E6%9D%BF%EF%BC%89.md.html" class="">30-人物故事策划分析卡_空白模板V2.1（Gemini稿·待拍板）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/31-%E7%AD%96%E5%88%92%E5%8D%A1V2.0%E5%88%B0V2.1%E5%8F%98%E6%9B%B4%E5%AF%B9%E7%85%A7.md.html" class="">31-策划卡V2.0到V2.1变更对照</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/36-%E7%A7%91%E5%AD%A6%E5%AE%B6%E6%95%85%E4%BA%8B%E7%B4%A0%E6%9D%90%E9%87%87%E9%9B%86%E5%8D%A1%E6%A8%A1%E6%9D%BF.md.html" class="">36-科学家故事素材采集卡模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/37-%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E6%B4%BE%E6%B4%BB%E6%89%8B%E5%86%8C.md.html" class="">37-脚本分镜派活手册</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/38-%E7%94%9F%E5%9B%BE%E6%B4%BE%E6%B4%BB%E6%89%8B%E5%86%8C.md.html" class="">38-生图派活手册</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/README.md.html" class="">README</a></li></ul></li><li><div class="dir">📁 历史人物带货</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%8E%86%E5%8F%B2%E4%BA%BA%E7%89%A9%E5%B8%A6%E8%B4%A7/%E5%8E%9F%E7%89%87%E8%A7%86%E5%90%AC%E5%8F%82%E6%95%B0_%E5%BA%9E%E7%BB%9F4%E5%88%8631%E7%A7%92%EF%BC%88Gemini%E5%88%86%E6%9E%90%C2%B7%E7%95%99%E6%A1%A3%EF%BC%89.md.html" class="">原片视听参数_庞统4分31秒（Gemini分析·留档）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%8E%86%E5%8F%B2%E4%BA%BA%E7%89%A9%E5%B8%A6%E8%B4%A7/%E5%AF%B9%E6%A0%87%E5%AD%A6%E4%B9%A0%E5%8D%A1%E6%A8%A1%E6%9D%BF%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">对标学习卡模板（冻结）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%8E%86%E5%8F%B2%E4%BA%BA%E7%89%A9%E5%B8%A6%E8%B4%A7/%E5%AF%B9%E6%A0%87%E5%AD%A6%E4%B9%A0%E5%8D%A1%E7%A4%BA%E4%BE%8B_%E5%BA%9E%E7%BB%9F%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html" class="">对标学习卡示例_庞统（冻结）</a></li></ul></li><li><div class="dir">📁 深度研究助理</div><ul><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86/AI%E6%B7%B1%E5%BA%A6%E7%A0%94%E7%A9%B6%E5%8A%A9%E7%90%86%E6%90%AD%E5%BB%BA%E8%AF%B4%E6%98%8E.md.html" class="">AI深度研究助理搭建说明</a></li></ul></li><li><div class="dir">📁 知乎小说</div><ul><li><div class="dir">📁 06-稿件</div><ul></ul></li><li><div class="dir">📁 07-对标样本</div><ul></ul></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/00-%E6%80%BB%E7%BA%B2.md.html" class="">00-总纲</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/01-%E5%86%B3%E7%AD%96%E5%8F%B0%E8%B4%A6.md.html" class="">01-决策台账</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/02-%E5%8F%98%E7%8E%B0%E8%B7%AF%E5%BE%84%E5%9C%B0%E5%9B%BE.md.html" class="">02-变现路径地图</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/03-%E5%AF%B9%E6%A0%87%E6%8B%86%E8%A7%A3%E8%A1%A8%E6%A8%A1%E6%9D%BF.md.html" class="">03-对标拆解表模板</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/04-%E9%80%89%E9%A2%98%E6%B1%A0.md.html" class="">04-选题池</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/05-%E7%AB%A0%E8%8A%82%E7%94%9F%E4%BA%A7SOP.md.html" class="">05-章节生产SOP</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/08-%E7%9F%AD%E7%AF%87%E6%96%B9%E6%B3%95%E8%AE%BA%E6%8F%90%E7%82%BC%EF%BC%88%E7%A0%B4%E5%B1%80%E6%89%8B%E5%86%8C%EF%BC%89.md.html" class="">08-短篇方法论提炼（破局手册）</a></li><li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E7%9F%A5%E4%B9%8E%E5%B0%8F%E8%AF%B4/README.md.html" class="">README</a></li></ul></li></ul></li></ul></ul>
+</aside>
+<main>
+<div class="crumb"><a href="/xiaolv-kb/kb/">AI-Researcher</a> / 05-项目/内容自动化/27-人物故事策划分析卡_空白模板V2.0（Gemini稿·待拍板）</div>
+<article><blockquote>
+<p>⚠️ <strong>状态：候选稿，未被采纳。</strong>
+现行标准件是 <code>21-人物故事策划分析卡模板V1（冻结）</code>（2026-10-07 用户明确「这俩帮我冻结」）。
+本稿由 <strong>Gemini</strong> 于 2026-10-16 交付，<strong>尚未经用户拍板</strong> —— 不覆盖 V1、不与 V1 合并。
+原文中的 <code>[cite: N]</code> 是 Gemini 自带的引用标记，已保留未删（便于溯源其上下文）。</p>
+</blockquote>
+<hr />
+<h1 id="v20">🎬 人物故事策划分析卡 · 空白模板 V2.0（导演立骨版）</h1>
+<blockquote>
+<p><strong>定位</strong>：生产线最上游「左脑立骨与备料」标准件。</p>
+<p><strong>核心原则（左右脑分离）</strong>：
+1. <strong>本卡只搭铁骨、备好血肉弹药，绝不在此处直接生成长篇口播正文！</strong>（正文须将本卡填好后，交由下游「右脑：<code>chemist-story-scriptwriter</code> 技能 / 撰稿 Agent」独立生成）。
+2. <strong>单核死局制</strong>：严禁写成从出生到去世的"百度百科生平传记"。每期 3 分钟视频只准锁定 <strong>1 个最具戏剧张力与人性冲突的核心死局</strong> 展开，无关生平支线一律砍掉。
+3. <strong>赋能下游</strong>：卡中提炼的「物理/化学感官特写」不仅服务于文案感染力，更直接作为下游「脚本分镜 Agent」与「生图提示词 Agent」的核心视觉锚点。</p>
+</blockquote>
+<hr />
+<h2 id="1">1. 基础配置与受众切口</h2>
+<h3 id="11">1.1 固定品牌定位【固定】</h3>
+<ul>
+<li><strong>核心受众</strong>：学生与家长 + 对人物命运、科学冷知识感兴趣的泛知识成年人（30–55岁为主，不要求具备化学基础）[cite: 10]。</li>
+<li><strong>人设声线</strong>："一位专业、温润、有书卷气的化学老师，在深夜给老朋友和学生娓娓道来"——克制体面，不用江湖说书黑话，也不用冰冷纪录片播报腔[cite: 10]。</li>
+</ul>
+<h3 id="12">1.2 本期人物档案【人物变量】</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">字段</th>
+<th style="text-align: left;">填写要求</th>
+<th style="text-align: left;">本期填写内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>核心主角与关键配角</strong></td>
+<td style="text-align: left;">只保留推动核心死局的 1–3 个关键人物，严禁罗列无关亲友或次要同行[cite: 10]。</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>受众已有认知 vs 真相纠偏</strong></td>
+<td style="text-align: left;">观众原本以为他是什么样（或课本里哪句话提过他）？而残酷/震撼的真实历史是什么？[cite: 10, 16]</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>主动砍掉的冗余支线</strong></td>
+<td style="text-align: left;">明确列出：为了保住 3 分钟节奏，本期主动舍弃了该人物生平中的哪些次要发明、早年履历或支线八卦？</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2">2. 核心叙事引擎（导演备料区 · 必填）</h2>
+<h3 id="21-story-spine">2.1 唯一核心死局（Story Spine）【强语义锚点】</h3>
+<blockquote>
+<p><strong>填写规则</strong>：用 1–2 句话回答"这 3 分钟到底在讲一个什么人性死局或绝境反击？"（格式：起点绝境 ➔ 关键抗争/错位 ➔ 最终命运落点。严禁写成"早年求学➔中年发明➔晚年去世"的时间线）[cite: 10]。</p>
+</blockquote>
+<ul>
+<li><strong>本期核心死局</strong>：</li>
+</ul>
+<h3 id="22-2">2.2 俗人算账：人性两难对比表（至少 2 处）【注入共情力】</h3>
+<blockquote>
+<p><strong>填写规则</strong>：普通观众无法共情抽象的"伟大奉献"，但能瞬间共情"世俗的算计与两难"。必须在人物做出重大抉择处，算清楚以下这笔账：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">算账节点</th>
+<th style="text-align: left;">换作普通人/走捷径的选择（能得什么名利/安稳？）</th>
+<th style="text-align: left;">主角的反常/硬骨头选择（付出了什么惨重代价？）</th>
+<th style="text-align: left;">触发的观众情绪</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>算账点 1</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>算账点 2</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-3">2.3 化学老师的感官与视觉特写库（至少 3 处）【赋能文案与下游分镜/生图】</h3>
+<blockquote>
+<p><strong>填写规则</strong>：彻底消灭"条件艰苦、反复试验、夜以继日"等空洞形容词！调用化学与工程常识，在不违背史实的前提下，提取看得见、闻得着、摸得到的具象细节：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">特写编号</th>
+<th style="text-align: left;">场景对应节点</th>
+<th style="text-align: left;">视觉/嗅觉/触觉/动作具象描写（供撰稿与分镜生图直接调用）</th>
+<th style="text-align: left;">史实/常识依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>特写 1</strong></td>
+<td style="text-align: left;">（如：实验环境/器皿）</td>
+<td style="text-align: left;">（例：生满红锈的二手反应釜、刺鼻呛肺的黄绿色毒气、滚烫的玻璃曲颈瓶）</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>特写 2</strong></td>
+<td style="text-align: left;">（如：身体代价/细节）</td>
+<td style="text-align: left;">（例：被酸液腐蚀烂的粗布工装袖口、全身溃烂的病榻、精确到0.04的打脸数字）[cite: 8, 16]</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>特写 3</strong></td>
+<td style="text-align: left;">（如：高潮名场面）</td>
+<td style="text-align: left;">（例：倾盆大雨中站在船头望着被炸毁的厂房、发黄信纸上卑微的恳求字迹）[cite: 9, 16]</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-40">3. 前 40 秒"不断档"留存控制表【生死留存线】</h2>
+<blockquote>
+<p><strong>死命令</strong>：
+1. <strong>0–5秒禁提"课本背诵"或生僻化学术语</strong>，防止触发成年受众的学科恐惧症。
+2. <strong>20–40秒严禁踩刹车切回几十年前讲大背景</strong>（严禁出现"要明白这件事，得把时间拨回XX年前，当时的中国连XX都造不出来……"）[cite: 9]。必须顺着开头的冲突一口气推到第一个情绪高点，再用一句心理追问丝滑滑入主线！</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">时间位</th>
+<th style="text-align: left;">留存任务</th>
+<th style="text-align: left;">本片具体内容设计</th>
+<th style="text-align: left;">防流失设计目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>0–5秒</strong></td>
+<td style="text-align: left;"><strong>零门槛绝境/反常切入</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">直接把人物扔进最憋屈、最荒诞或最硬气的现场，第1秒抓人[cite: 10]。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>5–20秒</strong></td>
+<td style="text-align: left;"><strong>冲突具象化 + 初次算账</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">展现对手的傲慢或处境的绝望，拉出戏剧张力[cite: 10]。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>20–40秒</strong></td>
+<td style="text-align: left;"><strong>情绪追问入局（禁切背景课）</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">把开头冲突推向第一波高潮，用"他凭什么/为什么会这样？"直接滑入核心故事线[cite: 10, 16]。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-3-8501000">4. 全片叙事推进框架（3分钟 · 约 850–1000 字）</h2>
+<blockquote>
+<p><strong>填写规则</strong>：控制在 5–6 个叙事模块内，段与段之间必须注明<strong>「呼吸感转场逻辑」</strong>（用心理追问或因果共情连接，严禁按年份硬切）[cite: 10]。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">模块</th>
+<th style="text-align: left;">叙事功能</th>
+<th style="text-align: left;">核心剧情推进（只写干货与冲突，不写流水账）[cite: 10]</th>
+<th style="text-align: left;">衔接下一段的「转场钩子」</th>
+<th style="text-align: left;">证据类型（正史/传说/争议）[cite: 10]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>模块 1</strong></td>
+<td style="text-align: left;">前40秒冲突开场</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>模块 2</strong></td>
+<td style="text-align: left;">绝境破局 / 核心实验</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>模块 3</strong></td>
+<td style="text-align: left;">时代重锤 / 命运转折</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>模块 4</strong></td>
+<td style="text-align: left;">中段嵌入式互动 + 回钩</td>
+<td style="text-align: left;"><strong>【低门槛提问/家长转发路径】</strong> + <strong>【"但故事才到最揪心处"回钩话术】</strong>[cite: 11, 16]</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>模块 5</strong></td>
+<td style="text-align: left;">俗人算账兑现 / 终极高潮</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>模块 6</strong></td>
+<td style="text-align: left;">情绪落点与余味收束</td>
+<td style="text-align: left;">落回"读书人风骨"或"课本一行字背后的一生重量"（不喊口号，引发点亮大拇指与转发）[cite: 9, 16]</td>
+<td style="text-align: left;">—</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. 史实核验红线与口径边界【事实字段 · 严禁越界】</h2>
+<blockquote>
+<p><strong>统一标注原则</strong>[cite: 10]：
+- <strong>可核实正史</strong>：下游撰稿时按确定事实表达[cite: 10]。
+- <strong>历史传说 / 孤证</strong>：下游撰稿时必须自然嵌入"据说"、"相传"、"有人记得"，严禁当正史讲[cite: 10, 11]。
+- <strong>争议说法</strong>：采用双口径并列（如："当时认为是A，后世研究倾向于B"），不作绝对化定论[cite: 10, 16]。
+- <strong>严禁伪造台词</strong>：人物心理博弈可用旁白转述（如"换作旁人或许就妥协了"），严禁捏造未记载的当场对话[cite: 10, 16]。</p>
+</blockquote>
+<ul>
+<li><strong>关键年份与数字核验</strong>：[cite: 10]</li>
+<li><strong>核心科学事实核验（防误导学生）</strong>：[cite: 10, 16]</li>
+<li><strong>必须标注"据说/传说"的细节</strong>：[cite: 10, 11]</li>
+<li><strong>主动放弃的失实演绎/野史</strong>：[cite: 10, 16]</li>
+</ul>
+<hr />
+<h2 id="6">6. 发布侧运营配件【条件变量】</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">项目</th>
+<th style="text-align: left;">内容设计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>候选标题（3个）</strong></td>
+<td style="text-align: left;">① ② ③ [cite: 10, 11]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>短标题（≤16字）</strong></td>
+<td style="text-align: left;">[cite: 10, 11]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>视频描述与系列锚点</strong></td>
+<td style="text-align: left;">[cite: 10, 11]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>置顶破冰评论（自问自答）</strong></td>
+<td style="text-align: left;">[cite: 10, 11, 16]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>冷启动种子评论（3条）</strong></td>
+<td style="text-align: left;">[cite: 11, 16]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-checklist">7. 移交下游撰稿前自检（Checklist）</h2>
+<ul>
+<li>[ ] 是否砍掉了无关支线，全片只围绕 <strong>1 个核心死局</strong> 展开？</li>
+<li>[ ] 前 40 秒是否彻底消除了"课本背书感"和"切回几十年前讲行业背景"的断崖风险？</li>
+<li>[ ] 是否填满了 <strong>2 处俗人算账</strong> 和 <strong>3 处物理/化学感官特写</strong>？</li>
+<li>[ ] 传说与争议史实是否已明确标注口径？[cite: 10]</li>
+<li>[ ] <strong>确认通过后</strong>：将本卡完整喂给下游 <strong><code>chemist-story-scriptwriter</code></strong> 技能（或撰稿 Agent），生成 850–1000 字的纯享口播定稿！</li>
+</ul>
+<hr />
+<h2 id="v1-2026-10-16">与 V1 的差异（本机核对，2026-10-16）</h2>
+<p><strong>V2.0 删除的维度</strong>（V1 里确实存在，已核）：
+- V1 §8.1「五问拆解」—— 5 个问题（钩子类型 / 留人手法 / 引爆评论点 / 核心爆点 / 可复刻与不可改）
+- V1 §7「情绪变化」含"情绪强度 1–10"
+- V1 §10「爆款复刻边界」含"可迁移机制"
+- V1 §9「结构骨架表」</p>
+<p><strong>V2.0 新增的维度</strong>：
+- §2.1 唯一核心死局（Story Spine）
+- §2.2 俗人算账（人性两难对比，≥2 处）
+- §2.3 感官与视觉特写库（≥3 处）
+- §4 "呼吸感转场逻辑"要求</p>
+<p><strong>V2.0 原样保留的</strong>：
+- §1.1 固定品牌定位 / 受众 / 人设声线
+- §3 前 40 秒留存控制（V1 是"前 30 秒"，V2 延到 40 秒）
+- §5 史实核验红线与口径边界（V1 §13.3，逐条对应）
+- §6 发布侧配件（V1 §13.2）</p>
+<p><strong>V2.0 未覆盖、V1 才有的</strong>：
+- V1 §11「正文」字段 ← ⚠️ <strong>V1 把"写正文"直接做成了策划卡里的一个格子</strong>，这正是 V2.0 说的"左右脑没分离"的根源；V2.0 把它删了，但<strong>没有明说</strong>这一点
+- V1 §12「全片预估」、§13.1「基于既有数据的针对性修正」、§14「最终自检」、§15「总规则」</p>
+<hr />
+<h2 id="_1">相关</h2>
+<ul>
+<li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/21-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1%E6%A8%A1%E6%9D%BFV1%EF%BC%88%E5%86%BB%E7%BB%93%EF%BC%89.md.html">人物故事策划分析卡模板V1</a> — <strong>现行冻结标准件</strong>（本稿<strong>未被采纳</strong>，仅作候选对照）</li>
+<li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/29-%E7%AD%96%E5%88%92%E5%8D%A1V1vsV2%E5%AF%B9%E7%85%A7%E8%A1%A8.md.html">策划卡V1vsV2对照表</a> — V1 与 V2.0 的逐节程序比对</li>
+<li><a href="/xiaolv-kb/kb/p/05-%E9%A1%B9%E7%9B%AE/%E5%86%85%E5%AE%B9%E8%87%AA%E5%8A%A8%E5%8C%96/30-%E4%BA%BA%E7%89%A9%E6%95%85%E4%BA%8B%E7%AD%96%E5%88%92%E5%88%86%E6%9E%90%E5%8D%A1_%E7%A9%BA%E7%99%BD%E6%A8%A1%E6%9D%BFV2.1%EF%BC%88Gemini%E7%A8%BF%C2%B7%E5%BE%85%E6%8B%8D%E6%9D%BF%EF%BC%89.md.html">人物故事策划分析卡_空白模板V2.1（Gemini稿·待拍板）</a> — 同日修订版（去黑话＋补停顿设计）</li>
+<li><a href="/xiaolv-kb/kb/p/04-%E8%BE%93%E5%87%BA%E6%88%90%E6%9E%9C/%E9%97%A8%E6%8D%B7%E5%88%97%E5%A4%AB_%E7%AD%96%E5%88%92%E5%8D%A1V3_%E5%AE%9A%E7%A8%BF.md.html">门捷列夫_策划卡V3_定稿</a> — V1 的参考填法实例</li>
+</ul></article>
+</main></div></body></html>
